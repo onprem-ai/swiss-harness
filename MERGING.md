@@ -102,22 +102,32 @@ our copy and remove the row from the table below.
 ### 5. Reapply the rebrand
 
 ```sh
-scripts/onprem/rebrand.sh          # rewrites scope and branding strings
-pnpm install                       # regenerates pnpm-lock.yaml
-scripts/onprem/rebrand.sh --check  # fails if any upstream string survives
+scripts/onprem/rebrand.sh                   # rewrites the scope and derived slugs
+pnpm install --frozen-lockfile              # the renamed lockfile is complete as is
+scripts/onprem/rebrand.sh --check           # fails if any upstream scope string survives
+pnpm exec tsx scripts/gen-third-party-notices.ts
+pnpm exec tsx scripts/verify-translation-pairing.ts --write --all
 ```
 
 The rebrand script is idempotent and deterministic. Running it twice
-produces no further changes.
+produces no further changes. The two generators afterwards exist because
+upstream derives content from package names: the notices file quotes the
+scope, and every bilingual document carries per-section hashes that the
+heading slug rename invalidates. Re-recording them is mechanical and
+reviewed through the diff, not by hand.
 
 ### 6. Verify
 
 ```sh
 pnpm run build
+pnpm exec tsx scripts/check-workspace-constraints.ts
+pnpm exec tsx scripts/verify-translation-pairing.ts
+pnpm exec tsx scripts/verify-md-links.ts
+pnpm exec tsx scripts/run-oxlint.ts
 pnpm test
 ```
 
-Both must pass before the sync is merged to `main`.
+All must pass before the sync is merged to `main`.
 
 ### 7. Record
 
@@ -138,21 +148,39 @@ for that upstream tag is signed off.
 ## What the rebrand script may and may not touch
 
 The script renames the **workspace** package scope `@deepseek-ai/*` to
-`@onprem-ai/*`. The following are explicitly excluded because they are
-real external dependencies pulled from the public npm registry, not
-workspace packages:
+`@onprem-ai/*` in every tracked text file, and the heading slugs upstream
+derives from those names (`#deepseek-aidsh-foo` anchors in Markdown,
+`/deepseek-ai-dsh-foo` section keys in `.i18n.yaml` pairing records). It
+renames nothing else: product name, provider defaults, repository URLs,
+environment variables and the `dsh` command are separate decisions.
+
+Excluded from the rename because they are real external dependencies
+pulled from the public npm registry, not workspace packages:
 
 | Package | Why excluded |
 | --- | --- |
-| `@deepseek-ai/libreoffice-kit` | Registry dependency, not in this workspace. Renaming it breaks install. |
+| `@deepseek-ai/libreoffice-kit` and its `-darwin-*`, `-win32-*`, `-wasm` platform packages | Registry dependency, not in this workspace. Renaming it breaks install. |
 
 Any new `@deepseek-ai/*` dependency that is **not** declared via
 `workspace:*` or a `link:` override must be added to this table and to
 the script's exclusion list.
 
-Upstream's `LICENSE` and `THIRD_PARTY_NOTICES.md` are never modified by
-the script. MIT requires the original copyright notice to remain. Our
-attribution lives in `NOTICE.md` at the repository root.
+Never rewritten:
+
+- `LICENSE`: MIT requires the original copyright notice to remain. Our
+  attribution lives in `NOTICE.md` at the repository root.
+- `.agents/notes/archived/`: upstream's sealed design history. Every file
+  is content-hashed in its manifest and upstream's verifier rejects edits.
+  It is treated like git history, not like source, and still names the
+  upstream scope.
+- Bare `deepseek-ai` outside the npm scope, such as the GitHub
+  organisation in repository URLs and a HuggingFace model id in a test
+  fixture. The check mode ignores these too.
+
+Known consequence: the 332 package manifests still declare upstream's
+repository URL, and upstream's constraint checker requires that exact
+URL for release members. Changing it is a product decision tracked
+separately from the scope rename.
 
 ## Hand-maintained edits
 
@@ -164,6 +192,8 @@ Every direct modification of an upstream file that is not produced by
 | `MERGING.md` | added | this document | n/a |
 | `NOTICE.md` | added | MIT attribution for the fork | n/a |
 | `scripts/onprem/` | added | sync and rebrand tooling | n/a |
+| `docs/onprem/` | added | security review records | n/a |
+| `scripts/translation-pairing.manifest.json` | three entries appended | our English-only documents are excluded from upstream's bilingual gate | n/a |
 
 ## Cadence
 
