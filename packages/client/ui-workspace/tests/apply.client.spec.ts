@@ -1,17 +1,17 @@
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
-import { Context } from '@deepseek-ai/cordis'
+import { createSnapshotStore } from '@onprem-ai/dsh-client-store'
+import { Context } from '@onprem-ai/cordis'
 import { describe, expect, it, onTestFinished, vi } from 'vitest'
 import type {
   SessionListState, SessionReference, SessionSummary,
-} from '@deepseek-ai/dsh-api-session-controller/client'
-import type { WorkspaceId, WorkspaceSnapshot, WorkspaceView } from '@deepseek-ai/dsh-api-workspace-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { SlotRegistry } from '@deepseek-ai/dsh-client-ui-renderer/client'
-import type { StoredEntry } from '@deepseek-ai/dsh-client-ui-slots'
-import { RemoteError, TestRemote } from '@deepseek-ai/dsh-client-test-runtime'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import { apply, inject } from '@deepseek-ai/dsh-client-ui-workspace/client'
-import type { WorkspaceBrowserInjected, WorkspacePickerInjected } from '@deepseek-ai/dsh-client-ui-workspace/client'
+} from '@onprem-ai/dsh-api-session-controller/client'
+import type { WorkspaceId, WorkspaceSnapshot, WorkspaceView } from '@onprem-ai/dsh-api-workspace-controller/client'
+import type { SessionId } from '@onprem-ai/dsh-session/types'
+import { SlotRegistry } from '@onprem-ai/dsh-client-ui-renderer/client'
+import type { StoredEntry } from '@onprem-ai/dsh-client-ui-slots'
+import { RemoteError, TestRemote } from '@onprem-ai/dsh-client-test-runtime'
+import { LocaleRuntime } from '@onprem-ai/dsh-client-locale/client'
+import { apply, inject } from '@onprem-ai/dsh-client-ui-workspace/client'
+import type { WorkspaceBrowserInjected, WorkspacePickerInjected } from '@onprem-ai/dsh-client-ui-workspace/client'
 import {
   type ArchiveSessionInjected, type ForkSessionInjected, menuOpenStateFactory, type PinSessionInjected,
   type RenameSessionInjected, type RowToastInjected, type SessionArchiveConfirmInjected, type SessionRenameDialogInjected,

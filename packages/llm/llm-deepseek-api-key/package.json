@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-llm-deepseek-api-key",
+  "name": "@onprem-ai/dsh-llm-deepseek-api-key",
   "description": "DeepSeek api-key provider authentication and discovery",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -27,27 +27,27 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-llm-deepseek": "workspace:*",
-    "@deepseek-ai/dsh-launch-environment": "workspace:*",
-    "@deepseek-ai/dsh-credentials": "workspace:*",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-llm-deepseek": "workspace:*",
+    "@onprem-ai/dsh-launch-environment": "workspace:*",
+    "@onprem-ai/dsh-credentials": "workspace:*",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-llm-deepseek": "workspace:*",
-    "@deepseek-ai/dsh-launch-environment": "workspace:*",
-    "@deepseek-ai/dsh-credentials": "workspace:*",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-llm-deepseek": "workspace:*",
+    "@onprem-ai/dsh-launch-environment": "workspace:*",
+    "@onprem-ai/dsh-credentials": "workspace:*",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/cordis-plugin-loader": {
+    "@onprem-ai/cordis-plugin-loader": {
       "optional": true
     }
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@onprem-ai/schemastery": "workspace:~"
   }
 }

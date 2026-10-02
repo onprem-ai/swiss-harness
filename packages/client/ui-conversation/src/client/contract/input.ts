@@ -6,10 +6,10 @@
  * and its reference chips live in the shell's Lexical editor; the machine
  * here is the submit plane (phase, claim, attempt) alone.
  */
-import type { Context } from '@deepseek-ai/cordis'
-import type { InboxState } from '@deepseek-ai/dsh-agent/types'
-import type { ObservableSnapshot, SnapshotStore } from '@deepseek-ai/dsh-client-store'
-import type { Branded } from '@deepseek-ai/dsh-brand'
+import type { Context } from '@onprem-ai/cordis'
+import type { InboxState } from '@onprem-ai/dsh-agent/types'
+import type { ObservableSnapshot, SnapshotStore } from '@onprem-ai/dsh-client-store'
+import type { Branded } from '@onprem-ai/dsh-brand'
 import type { ArbitrateKey, ArbitrateOutcome, Occurrence, ReferenceInsert, TokenSpan } from './draft-editor.ts'
 import type { InputSubmitMode, MessageSubmission } from './composer-submission.ts'
 
@@ -128,7 +128,7 @@ export interface InputTriggerController {
   toggleSource(source: string, hit: InputTriggerHit): void
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Events {
     /**
      * Claim a command token for the scoped input machine.

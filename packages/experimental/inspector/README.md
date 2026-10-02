@@ -3,7 +3,7 @@ description: "Experimental Chrome DevTools inspection for Host and browser Clien
 kind: "package-bundle"
 ---
 
-# @deepseek-ai/dsh-experimental-inspector
+# @onprem-ai/dsh-experimental-inspector
 
 English | [中文](README.zh.md)
 
@@ -11,7 +11,7 @@ English | [中文](README.zh.md)
 
 Inspect one running dsh Host and its browser Clients in Chrome DevTools: Host and Client Console contexts, Host Sources and debugging, captured Host fetches, and a shared Cordis tree, with all CDP state in a Worker.
 
-The Inspector stays off the default plugin list. Install its bundle explicitly with `dsh plugin --profile web add @deepseek-ai/dsh-experimental-inspector`. Its [`cordis.patch.yml`](cordis.patch.yml) mounts the installed package; `pnpm run demo:inspector` mounts the source tree. The Host row needs a Web server. The Worker never accesses live Cordis objects: the shared collector projects them into validated snapshots before transport.
+The Inspector stays off the default plugin list. Install its bundle explicitly with `dsh plugin --profile web add @onprem-ai/dsh-experimental-inspector`. Its [`cordis.patch.yml`](cordis.patch.yml) mounts the installed package; `pnpm run demo:inspector` mounts the source tree. The Host row needs a Web server. The Worker never accesses live Cordis objects: the shared collector projects them into validated snapshots before transport.
 
 ## Table of Contents
 
@@ -72,7 +72,7 @@ The Host plugin injects `webServer` and accepts these fields:
 | `maxCordisNodes` | `2048` | Context and Fiber nodes admitted from one realm snapshot before truncation |
 | `maxDisconnectedCordisTrees` | `8` | Last disconnected realm trees retained as non-live snapshots |
 
-The generated [configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-experimental-inspector) is the exhaustive source for accepted fields and their declarations.
+The generated [configuration catalog](../../../docs/config-catalog.md#onprem-aidsh-experimental-inspector) is the exhaustive source for accepted fields and their declarations.
 
 The Host logs a `devtools://` URL after the Worker listens. The same Worker serves `/json`, `/json/list`, `/json/version`, the target WebSocket under `/devtools/page/<id>`, and the Client source at `/ingest`.
 
@@ -82,8 +82,8 @@ The Host logs a `devtools://` URL after the Worker listens. The same Worker serv
 Both plugin faces provide the same service:
 
 ```ts
-import type { Context } from '@deepseek-ai/cordis'
-import type { InspectorJsonValue } from '@deepseek-ai/dsh-experimental-inspector'
+import type { Context } from '@onprem-ai/cordis'
+import type { InspectorJsonValue } from '@onprem-ai/dsh-experimental-inspector'
 
 declare const ctx: Context
 declare const topic: string

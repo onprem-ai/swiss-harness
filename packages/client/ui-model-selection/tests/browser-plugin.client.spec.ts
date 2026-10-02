@@ -8,15 +8,15 @@
  * (and the reverse), the one-shared-state contract of the dual entry.
  * Scope disposal drops the directory (HMR safety).
  */
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@onprem-ai/cordis'
 import { describe, expect, it, vi } from 'vitest'
-import { createScope } from '@deepseek-ai/dsh-api-session-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import { createSnapshotStore, type SnapshotStore } from '@deepseek-ai/dsh-client-store'
-import { RemoteError, TestRemote } from '@deepseek-ai/dsh-client-test-runtime'
-import type { ModelSelection, ModelSelectionProjection } from '@deepseek-ai/dsh-api-session-controller/types'
-import type { CommandContribution, PopupSelectSpec, SelectOption } from '@deepseek-ai/dsh-client-ui-commands/client'
+import { createScope } from '@onprem-ai/dsh-api-session-controller/client'
+import type { SessionId } from '@onprem-ai/dsh-session/types'
+import { LocaleRuntime } from '@onprem-ai/dsh-client-locale/client'
+import { createSnapshotStore, type SnapshotStore } from '@onprem-ai/dsh-client-store'
+import { RemoteError, TestRemote } from '@onprem-ai/dsh-client-test-runtime'
+import type { ModelSelection, ModelSelectionProjection } from '@onprem-ai/dsh-api-session-controller/types'
+import type { CommandContribution, PopupSelectSpec, SelectOption } from '@onprem-ai/dsh-client-ui-commands/client'
 import type { ModelSelectInjected } from '../src/client/slots.ts'
 import { apply, inject } from '../src/client/index.ts'
 import { zh } from '../src/client/locales.ts'

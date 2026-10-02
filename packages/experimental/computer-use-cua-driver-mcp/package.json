@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-experimental-computer-use-cua-driver-mcp",
+  "name": "@onprem-ai/dsh-experimental-computer-use-cua-driver-mcp",
   "description": "Experimental computer use through an installed Cua Driver MCP executable",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -29,25 +29,25 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~",
-    "@deepseek-ai/dsh-mcp-client": "workspace:*"
+    "@onprem-ai/schemastery": "workspace:~",
+    "@onprem-ai/dsh-mcp-client": "workspace:*"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-computer-use": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-computer-use": "workspace:*"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/dsh-computer-use": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop": "workspace:*",
-    "@deepseek-ai/dsh-attachment-local": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/cordis-plugin-include": "workspace:~",
+    "@onprem-ai/dsh-computer-use": "workspace:*",
+    "@onprem-ai/dsh-system-prompt": "workspace:*",
+    "@onprem-ai/dsh-tools": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-agent-loop": "workspace:*",
+    "@onprem-ai/dsh-attachment-local": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*"
   }
 }

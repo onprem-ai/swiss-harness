@@ -23,7 +23,7 @@ profile 包锁（`<profile>/package.json.lock`）让这个代价显现出来。`
 
 **移除超过固定时长的锁。** 时长无法区分已崩溃的持有者与正在运行十分钟 pnpm 安装的持有者，而插件管理器会合理地持锁这么久。
 
-**由内核释放的锁。** 持有者死亡时内核会释放它们，从根源上消除问题而不是检测它。[Session 写租约](../../../../packages/session/session-persistence-jsonl/src/lease.ts)已在两个平台上持有这种锁：POSIX 上通过 `@deepseek-ai/node-addon-system` 使用 `flock`，Windows 上通过 `koffi` 使用命名信号量。把 `withFileLock` 迁移到它上面，会让零依赖的 `dsh-atomic-write` 引入这两个依赖；而早期版本的进程之间只通过 `<file>.lock` 互斥，因此过渡期必须同时持有两种锁。若 PID 复用或共享文件系统部署变得重要，这仍是更强的修复。
+**由内核释放的锁。** 持有者死亡时内核会释放它们，从根源上消除问题而不是检测它。[Session 写租约](../../../../packages/session/session-persistence-jsonl/src/lease.ts)已在两个平台上持有这种锁：POSIX 上通过 `@onprem-ai/node-addon-system` 使用 `flock`，Windows 上通过 `koffi` 使用命名信号量。把 `withFileLock` 迁移到它上面，会让零依赖的 `dsh-atomic-write` 引入这两个依赖；而早期版本的进程之间只通过 `<file>.lock` 互斥，因此过渡期必须同时持有两种锁。若 PID 复用或共享文件系统部署变得重要，这仍是更强的修复。
 
 **把陈旧锁重命名到别处，若重命名后的记录不同再恢复。** 恢复可能与在此间隙获取空路径的第三个竞争者竞态，导致出现两个持有者。认领文件无需任何恢复即可防止这一竞态。
 

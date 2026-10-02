@@ -3,7 +3,7 @@ description: "基于 user-questions seam 的模型侧 ask_user_question 工具�
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-tool-ask-user
+# @onprem-ai/dsh-tool-ask-user
 
 [English](README.md) | 中文
 
@@ -31,7 +31,7 @@ kind: "package-reference"
 
 ```yaml
 - id: tool-ask-user
-  name: '@deepseek-ai/dsh-tool-ask-user'
+  name: '@onprem-ai/dsh-tool-ask-user'
   config:
     mode: timed
     timeout: 120
@@ -109,7 +109,7 @@ Legacy 调用和 `timeout: -1` 调用会等待回答或取消；没有 answerer 
 当包级约定不够用时阅读以下页面。它们从工具表面逐步进入 seam 约定及其 answerer waterfall。
 
 - [用户交互子系统参考](../../../docs/subsystems/user-questions.zh.md)——此工具背后的服务约定、问题词汇与 answerer waterfall。
-- [工具目录](../../../docs/tool-catalog.zh.md#deepseek-aidsh-tool-ask-user)——生成的 `ask_user_question` schema。
+- [工具目录](../../../docs/tool-catalog.zh.md#onprem-aidsh-tool-ask-user)——生成的 `ask_user_question` schema。
 - [user-questions 包](../user-questions/README.zh.md)——本工具消费的 seam。
 - [交互组映射](../README.zh.md)——相邻的审批与命令表面。
 
@@ -122,7 +122,7 @@ Legacy 调用和 `timeout: -1` 调用会等待回答或取消；没有 answerer 
 
 #### 模型看到的内容
 
-随附 preset 会公开原有的阻塞式 [`ask_user_question` schema](../../../docs/tool-catalog.zh.md#deepseek-aidsh-tool-ask-user)。自定义 Cordis 行设置 `mode: timed` 后，会切换到包含问题 id、提示语、标题、选项、多选标志、`timeout` 与待处理结果的异步 schema；模型只会看到被选中的定义。
+随附 preset 会公开原有的阻塞式 [`ask_user_question` schema](../../../docs/tool-catalog.zh.md#onprem-aidsh-tool-ask-user)。自定义 Cordis 行设置 `mode: timed` 后，会切换到包含问题 id、提示语、标题、选项、多选标志、`timeout` 与待处理结果的异步 schema；模型只会看到被选中的定义。
 
 #### Token 影响
 

@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-sdk-protocol",
+  "name": "@onprem-ai/dsh-sdk-protocol",
   "description": "Shared wire protocol for the DeepSeek Harness SDK runtime: the newline-delimited JSON-RPC stdio transport and the named request, result, and notification types spoken between the runtime server and SDK clients",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -26,15 +26,15 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-subagent": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-subagent": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-subagent": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-subagent": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   }
 }

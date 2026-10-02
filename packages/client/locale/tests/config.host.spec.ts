@@ -1,11 +1,11 @@
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@onprem-ai/cordis'
 import { describe, expect, it } from 'vitest'
 import * as HostPlugin from '../src/index.ts'
 import { liveConfig, omitsGeneratedPage } from '../../../settings/settings/tests/live-config.ts'
 import { plainConfig } from '../../../settings/settings/src/schema.ts'
 import {
   Config, apply,
-} from '@deepseek-ai/dsh-client-locale'
+} from '@onprem-ai/dsh-client-locale'
 
 
 describe('locale host', () => {

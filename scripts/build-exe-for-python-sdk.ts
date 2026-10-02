@@ -59,11 +59,11 @@ const ASSET_GLOBS = [
   'node_modules/**/*.yaml',
   'node_modules/**/*.yml',
   // web-app builds this path dynamically, so pkg cannot discover the static frontend.
-  'node_modules/@deepseek-ai/dsh-web-frontend/dist/**/*',
+  'node_modules/@onprem-ai/dsh-web-frontend/dist/**/*',
   // skill-badge resolves both Markdown and image resources through import.meta.url.
-  'node_modules/@deepseek-ai/dsh-skill-badge/assets/**/*',
+  'node_modules/@onprem-ai/dsh-skill-badge/assets/**/*',
   // The diagnosis provider extracts its PowerShell script for an external interpreter.
-  'node_modules/@deepseek-ai/dsh-sandbox-windows-acl/assets/**/*',
+  'node_modules/@onprem-ai/dsh-sandbox-windows-acl/assets/**/*',
 ]
 
 const PLATFORMS = ['linux', 'macos', 'win'] as const

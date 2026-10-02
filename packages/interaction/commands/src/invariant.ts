@@ -1,14 +1,14 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-commands`:
+ * Package-owned invariant companion for `@onprem-ai/dsh-commands`:
  * command lifecycle events pair by commandId within one session log.
- * @module @deepseek-ai/dsh-commands/invariant
+ * @module @onprem-ai/dsh-commands/invariant
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { Session, SessionEvent } from '@deepseek-ai/dsh-session'
-import type { InvariantFailure, InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@onprem-ai/cordis'
+import type { Session, SessionEvent } from '@onprem-ai/dsh-session'
+import type { InvariantFailure, InvariantInstaller } from '@onprem-ai/dsh-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-commands'
+const PACKAGE_NAME = '@onprem-ai/dsh-commands'
 
 /** Cordis companion plugin name. */
 export const name = 'commands-invariant'

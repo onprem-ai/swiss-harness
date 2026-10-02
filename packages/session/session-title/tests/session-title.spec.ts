@@ -1,18 +1,18 @@
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import { Context } from '@deepseek-ai/cordis'
+import { createUserMessage } from '@onprem-ai/dsh-llm'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
+import { Context } from '@onprem-ai/cordis'
 import { describe, expect, it } from 'vitest'
-import SessionStore, { Session, SessionId, SessionSeq } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+import SessionStore, { Session, SessionId, SessionSeq } from '@onprem-ai/dsh-session'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
 import SessionTitleService, {
   SessionTitleProviderId,
   fallbackSessionTitle,
   foldSessionTitle,
   normalizeSessionTitle,
   truncateTitleUtf8,
-} from '@deepseek-ai/dsh-session-title'
+} from '@onprem-ai/dsh-session-title'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'seed': { kind: 'seed' } & ContextFormed
   }

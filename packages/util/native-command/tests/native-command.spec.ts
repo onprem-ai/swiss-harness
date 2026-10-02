@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { runNativeCommand } from '@deepseek-ai/dsh-native-command'
+import { runNativeCommand } from '@onprem-ai/dsh-native-command'
 
 const node = process.execPath
 

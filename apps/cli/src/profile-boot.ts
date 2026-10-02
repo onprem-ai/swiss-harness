@@ -7,14 +7,14 @@
  * App flags are not the launcher's business: the invocation's inner arguments
  * are provided to the tree through `ctx.cmdlineArgs`, where any injected app
  * plugin may read the same immutable snapshot.
- * @module @deepseek-ai/dsh/profile-boot
+ * @module @onprem-ai/dsh/profile-boot
  */
 
 import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { FiberState, type Context } from '@deepseek-ai/cordis'
-import type { PatchOptions } from '@deepseek-ai/cordis-plugin-include'
+import { FiberState, type Context } from '@onprem-ai/cordis'
+import type { PatchOptions } from '@onprem-ai/cordis-plugin-include'
 import {
   boot,
   readProfilePatches,
@@ -31,11 +31,11 @@ import {
   type ProfileContext,
   type Profile,
   type RuntimeResolution,
-} from '@deepseek-ai/dsh-app-boot'
-import { resolveDshHome } from '@deepseek-ai/dsh-home-paths'
-import { installProxyFromEnvironment } from '@deepseek-ai/dsh-http-proxy'
-import { DSH_LAUNCH_ENVIRONMENT_KEY, type LaunchEnvironmentSnapshot } from '@deepseek-ai/dsh-launch-environment'
-import { provideCmdline, type AppReady } from '@deepseek-ai/dsh-cmdline'
+} from '@onprem-ai/dsh-app-boot'
+import { resolveDshHome } from '@onprem-ai/dsh-home-paths'
+import { installProxyFromEnvironment } from '@onprem-ai/dsh-http-proxy'
+import { DSH_LAUNCH_ENVIRONMENT_KEY, type LaunchEnvironmentSnapshot } from '@onprem-ai/dsh-launch-environment'
+import { provideCmdline, type AppReady } from '@onprem-ai/dsh-cmdline'
 import { createProcessShutdown, type ProcessShutdown } from './process-shutdown.ts'
 
 const NAME = 'dsh'

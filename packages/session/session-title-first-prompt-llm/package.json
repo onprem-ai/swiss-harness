@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-session-title-first-prompt-llm",
+  "name": "@onprem-ai/dsh-session-title-first-prompt-llm",
   "description": "First-message LLM provider plugin for DeepSeek Harness session titles",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -23,26 +23,26 @@
   "files": ["lib/index.js", "lib/types/**/*.d.ts"],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-title": "workspace:*",
-    "@deepseek-ai/dsh-session-title-llm": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-title": "workspace:*",
+    "@onprem-ai/dsh-session-title-llm": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@onprem-ai/schemastery": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-llm-deepseek": "workspace:*",
-    "@deepseek-ai/dsh-llm-deepseek-api-key": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-title": "workspace:*",
-    "@deepseek-ai/dsh-session-title-llm": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop": "workspace:*"
+    "@onprem-ai/cordis-plugin-include": "workspace:~",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-llm-deepseek": "workspace:*",
+    "@onprem-ai/dsh-llm-deepseek-api-key": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-title": "workspace:*",
+    "@onprem-ai/dsh-session-title-llm": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-agent-loop": "workspace:*"
   }
 }

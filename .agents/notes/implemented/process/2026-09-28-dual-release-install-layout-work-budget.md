@@ -29,7 +29,7 @@ Measured 2026-09-28 on an idle M-series host, against `origin/master` (277 DSH p
 | Registry traffic | 682 requests, 383 KB of packument bodies |
 | Layout assertion and process startup | 4.4 s |
 
-The same graph resolved in 1.12 s with `--legacy-peer-deps`, so peer placement is 152.7 s of the 153.8 s. `canPlacePeers` re-checks each internal edge against the incoming edges of its peer target, which makes the cost grow with placements times edge count; the nested release's copy of `@deepseek-ai/dsh-base` alone takes 48.8 s against 1.3 s for the identical package at the root of the same tree. About three quarters of the verified internal edges are peer edges (1874 of 2524), so this work is the assertion, not overhead around it.
+The same graph resolved in 1.12 s with `--legacy-peer-deps`, so peer placement is 152.7 s of the 153.8 s. `canPlacePeers` re-checks each internal edge against the incoming edges of its peer target, which makes the cost grow with placements times edge count; the nested release's copy of `@onprem-ai/dsh-base` alone takes 48.8 s against 1.3 s for the identical package at the root of the same tree. About three quarters of the verified internal edges are peer edges (1874 of 2524), so this work is the assertion, not overhead around it.
 
 Repeated runs of the same graph on one host span 137.8 s to 204.8 s of npm time, a factor of 1.5 with no input change, which is why a wall-clock threshold cannot separate a slow host from a larger graph.
 

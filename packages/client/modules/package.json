@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-modules",
+  "name": "@onprem-ai/dsh-client-modules",
   "description": "Client module system, dual-face: node half composes the __DSH_BOOT__ entry graph (incremental dsh.client scan, bundle route, index tap, webPlugins service); browser half is the lazy-CJS module table the vendored cordis Loader consumes as its internal seam",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -42,12 +42,12 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-host-webserver": "workspace:*",
-    "@deepseek-ai/dsh-invariants": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-package-manifest": "workspace:*",
-    "@deepseek-ai/dsh-client-store": "workspace:*"
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-host-webserver": "workspace:*",
+    "@onprem-ai/dsh-invariants": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-package-manifest": "workspace:*",
+    "@onprem-ai/dsh-client-store": "workspace:*"
   },
   "files": [
     "lib/index.js",
@@ -56,6 +56,6 @@
     "lib/types/**/*.d.ts"
   ],
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~"
   }
 }

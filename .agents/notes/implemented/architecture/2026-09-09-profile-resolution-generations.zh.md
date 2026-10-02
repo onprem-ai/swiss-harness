@@ -16,7 +16,7 @@ profile 启动生成一个不可变 `RuntimeResolution`，并将其安装到 Nod
 
 ### 唯一选包算法
 
-包遍历属于 `@deepseek-ai/dsh-app-boot`，与 profile 加载代码放在一起。普通 Node、源码启动、打包可执行文件和 Electron Host 消费相同的 runtime resolution 与拦截。
+包遍历属于 `@onprem-ai/dsh-app-boot`，与 profile 加载代码放在一起。普通 Node、源码启动、打包可执行文件和 Electron Host 消费相同的 runtime resolution 与拦截。
 
 安装 manifest 是第一个根。它按 BFS 依次遍历 `dependencies` 和 `peerDependencies`，每条边从声明它的 manifest 解析，同名包由第一次找到的已安装包占有。所选 bundle 随后按 profile 顺序逐根遍历；每个较早根的完整依赖图优先于所有较晚根。安装闭包中的名称被保留，bundle 包根本身不成为插件 fallback。已声明但未安装的包会被跳过。
 
@@ -60,7 +60,7 @@ ESM `import` 和 CommonJS `require` 都选中这些版本。在每种模块格�
 
 [源码启动器](2026-07-29-dsh-source-launch-tsx-esm.zh.md)使用 tsx 的 ESM-only 钩子。导入方 URL 含有 `/node_modules/` 时，tsx 会跳过 tsconfig `paths`。因此，把 workspace 软链接的逻辑路径用作 fallback 声明锚点，可能选中构建后的 `lib/` 导出，而这些模块在真实 workspace 路径中发起的 import 又通过 paths 映射选中 `src/`。真实声明锚点让 workspace import 一致遵循源码映射；没有匹配 workspace 映射的包仍使用普通包导出解析。
 
-例如，`@deepseek-ai/dsh-tools` 使用 `Symbol()` 创建 scheduler 键。从 `lib/` 加载的 Tools 实例，无法通过另一个 `src/` 模块实例导入的键暴露该 scheduler。源码启动让 Tools 与 AgentLoop 都位于 `src/`；普通 Node 启动让两者都位于 `lib/`。scheduler 保留模块本地的 Symbol；正确的 import 共享同一个模块实例。
+例如，`@onprem-ai/dsh-tools` 使用 `Symbol()` 创建 scheduler 键。从 `lib/` 加载的 Tools 实例，无法通过另一个 `src/` 模块实例导入的键暴露该 scheduler。源码启动让 Tools 与 AgentLoop 都位于 `src/`；普通 Node 启动让两者都位于 `lib/`。scheduler 保留模块本地的 Symbol；正确的 import 共享同一个模块实例。
 
 源码启动器不安装 CommonJS TypeScript 钩子。`createRequire().resolve()` 仍选择包发布的 JavaScript 入口，并要求该文件存在。因此，源码模式的解析测试使用 fixture 提供的 CommonJS 文件，真实安装包的 CommonJS 入口检查则在构建产物存在时运行。
 
@@ -93,7 +93,7 @@ runtime resolution 列出它提供的包；Loader entries 组成活动插件列�
 
 解析器不提供 `imported(entry)`，不观察 ModuleJob，不包装 Entry 方法，不把 fiber 与 import 调用关联，也不替换 registry、tree 或 HMR 方法。包目录查询使用相同选包规则，包括 linked importer 祖先当前的 peer 声明，但不校验所请求的子路径或加载文件。需要包元数据的非 Node importer 必须显式实现同一个 resolver 接口。
 
-实现集中在 `app-boot/src/profile-resolution/`。`service.ts` 提供长期存在的 `ctx.pluginPackages`，并拥有主线程拦截与 Worker runtime resolution 的生命周期；`resolver.ts` 实现 runtime resolution 查询和 Node Internal 适配器；`worker-bootstrap.ts` 在线程内安装继承的 runtime resolution。profile 选包和 runtime resolution 构造留在 `profile.ts`。Worker 只通过 `@deepseek-ai/dsh-app-boot/worker/profile-resolution-bootstrap` 公开入口引用 bootstrap。
+实现集中在 `app-boot/src/profile-resolution/`。`service.ts` 提供长期存在的 `ctx.pluginPackages`，并拥有主线程拦截与 Worker runtime resolution 的生命周期；`resolver.ts` 实现 runtime resolution 查询和 Node Internal 适配器；`worker-bootstrap.ts` 在线程内安装继承的 runtime resolution。profile 选包和 runtime resolution 构造留在 `profile.ts`。Worker 只通过 `@onprem-ai/dsh-app-boot/worker/profile-resolution-bootstrap` 公开入口引用 bootstrap。
 
 服务定义与提供方继续放在 `app-boot`，因为 profile boot 拥有 resolver 生命周期。出现与 launcher 无关的提供方或需要独立演进的消费方时，再抽出单独的能力 seam。
 

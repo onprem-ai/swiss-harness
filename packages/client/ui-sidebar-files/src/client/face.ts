@@ -18,13 +18,13 @@
  * record goes away the bucket and the tab's listing bookkeeping are forgotten,
  * so no later settlement writes to it.
  */
-import type { ClientRemote, RemoteResult } from '@deepseek-ai/dsh-api-remotes/client'
-import type { BoundActions } from '@deepseek-ai/dsh-client-store'
-import type { TabId } from '@deepseek-ai/dsh-client-ui-dockkit'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+import type { ClientRemote, RemoteResult } from '@onprem-ai/dsh-api-remotes/client'
+import type { BoundActions } from '@onprem-ai/dsh-client-store'
+import type { TabId } from '@onprem-ai/dsh-client-ui-dockkit'
+import type { SessionId } from '@onprem-ai/dsh-session/types'
 import type { DirLevel, createFilesStore } from './store.ts'
-import type { WorkspaceFileWatchFrame } from '@deepseek-ai/dsh-api-workspace-files/types'
-import { RemoteError } from '@deepseek-ai/dsh-typert-protocol'
+import type { WorkspaceFileWatchFrame } from '@onprem-ai/dsh-api-workspace-files/types'
+import { RemoteError } from '@onprem-ai/dsh-typert-protocol'
 import { DirectoryNode } from './directory-node.ts'
 
 /**

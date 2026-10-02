@@ -14,7 +14,7 @@ Both kinds of residue exist only on internal development and test machines; Desk
 
 Delete `apps/desktop/src/profile-core-cleanup.ts`, `apps/desktop/src/profile-packages.ts`, and their two specs. `DesktopProjectManager.applyRelease` validates the runtime descriptor, migrates profile settings, creates the profile files, and removes the projections a link-backend launch wrote through the shared `removeLinkProjections`; beyond that, neither production nor development launches modify the profile's `node_modules`, manifest, overrides, lockfile, or `desktop-runtime-state.json`.
 
-Resolution inside the profile follows the [lookup-order Note](../architecture/2026-09-19-profile-resolution-lookup-order.md): packages in the profile's own `node_modules` win as the nearest layer, and installation package names are occupied by the generation at `$DSH_HOME/profiles/node_modules`. When a package installed into the profile declares `@deepseek-ai/*` packages under `dependencies`, pnpm installs copies into the profile and those copies run at their own versions. Official packages keep only pure-function packages under `dependencies` and declare every package with module-level identity as a peer; a third-party plugin that declares an identity-bearing dsh package as a real dependency makes that packaging choice for itself.
+Resolution inside the profile follows the [lookup-order Note](../architecture/2026-09-19-profile-resolution-lookup-order.md): packages in the profile's own `node_modules` win as the nearest layer, and installation package names are occupied by the generation at `$DSH_HOME/profiles/node_modules`. When a package installed into the profile declares `@onprem-ai/*` packages under `dependencies`, pnpm installs copies into the profile and those copies run at their own versions. Official packages keep only pure-function packages under `dependencies` and declare every package with module-level identity as a peer; a third-party plugin that declares an identity-bearing dsh package as a real dependency makes that packaging choice for itself.
 
 Capability given up: core-package copies and their declarations that earlier Desktop builds installed into a profile need one manual removal; `desktop-runtime-state.json` is no longer read or deleted. Projections the link backend wrote are removed by the shared profile load, see the [lookup-order Note](../architecture/2026-09-19-profile-resolution-lookup-order.md).
 
@@ -26,7 +26,7 @@ Reintroduction conditions: a released Desktop wrote core-package copies into ext
 
 **Delete only same-named directories under the profile's `node_modules`, leaving declarations and the lockfile alone.** The 2026-09-15 decision already rejected this: pnpm reinstalls the same old packages from the retained declarations and overrides.
 
-**Give `@deepseek-ai/*` generation entries absolute precedence over same-named copies inside the profile.** That overrides versions plugins bring along and is a new resolution-rule decision outside the scope of removing the cleanup.
+**Give `@onprem-ai/*` generation entries absolute precedence over same-named copies inside the profile.** That overrides versions plugins bring along and is a new resolution-rule decision outside the scope of removing the cleanup.
 
 **Clean only in the installer.** The 2026-09-15 decision already rejected this: it misses other profiles and cannot reach copies recreated after installation.
 

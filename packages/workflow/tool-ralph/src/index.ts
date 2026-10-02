@@ -2,17 +2,17 @@
  * Model-facing foreground Ralph loop over the workflow and subagent seams. A
  * fixed script starts one fresh structured-output child per round, carrying
  * only the immutable objective and the previous bounded handoff between them.
- * @module @deepseek-ai/dsh-tool-ralph
+ * @module @onprem-ai/dsh-tool-ralph
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import type { ContentBlock } from '@deepseek-ai/dsh-llm'
-import type { JsonValue } from '@deepseek-ai/dsh-util-values'
-import type { SubagentProvider } from '@deepseek-ai/dsh-subagent'
-import { defineTool } from '@deepseek-ai/dsh-tools'
-import type { ToolCallView, ToolResultView } from '@deepseek-ai/dsh-tools'
-import type { WorkflowResult, WorkflowRun } from '@deepseek-ai/dsh-workflow'
+import type { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
+import type { ContentBlock } from '@onprem-ai/dsh-llm'
+import type { JsonValue } from '@onprem-ai/dsh-util-values'
+import type { SubagentProvider } from '@onprem-ai/dsh-subagent'
+import { defineTool } from '@onprem-ai/dsh-tools'
+import type { ToolCallView, ToolResultView } from '@onprem-ai/dsh-tools'
+import type { WorkflowResult, WorkflowRun } from '@onprem-ai/dsh-workflow'
 
 export const name = 'tool-ralph'
 export const inject = ['tools', 'workflowEngine', 'subagents', 'systemPrompt']

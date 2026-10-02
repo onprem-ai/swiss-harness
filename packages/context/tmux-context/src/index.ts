@@ -15,18 +15,18 @@
  * absent `ctx.shell`, or a failed query is a no-op, never an error: an executor
  * rejection is contained and logged as a warning so the turn continues.
  *
- * @module @deepseek-ai/dsh-tmux-context
+ * @module @onprem-ai/dsh-tmux-context
  */
 
-import type { Context, LoggerService } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
+import type { Context, LoggerService } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
 import { z as zod } from 'zod'
-import type { PreStepDecision } from '@deepseek-ai/dsh-agent'
-import type {} from '@deepseek-ai/dsh-session-projection'
-import type { ShellExecutor, ShellRunResult } from '@deepseek-ai/dsh-shell'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-declare module '@deepseek-ai/dsh-llm' {
+import type { PreStepDecision } from '@onprem-ai/dsh-agent'
+import type {} from '@onprem-ai/dsh-session-projection'
+import type { ShellExecutor, ShellRunResult } from '@onprem-ai/dsh-shell'
+import { createUserMessage } from '@onprem-ai/dsh-llm'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     /** Location attribution; readers preserve the content without this producer.
      * Its projection uses the kind to avoid repeated injection.
@@ -216,7 +216,7 @@ type TmuxContextState = zod.infer<typeof tmuxContextStateSchema>
  * @param config - durable refresh scheduling configuration.
  * @throws when the refresh interval is invalid.
  */
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@onprem-ai/dsh-session-projection/types' {
   interface SessionProjectionStateMap {
     /** The stable state block of this plugin's latest durable injection, or null. */
     tmuxContext: TmuxContextState

@@ -3,7 +3,7 @@ description: "The process-local background-job registry for users and maintainer
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-jobs-local
+# @onprem-ai/dsh-jobs-local
 
 English | [中文](README.zh.md)
 
@@ -36,7 +36,7 @@ Choose it when jobs should live in the harness process and die with it. Avoid it
 Loading the plugin registers `ctx.jobs`; every field is optional.
 
 ```yaml
-- name: '@deepseek-ai/dsh-jobs-local'
+- name: '@onprem-ai/dsh-jobs-local'
 ```
 
 | Field | Default | Meaning |
@@ -46,7 +46,7 @@ Loading the plugin registers `ctx.jobs`; every field is optional.
 | `settledRetainBytes` | `16384` | Ring retention kept after a job settles, in UTF-8 bytes; bytes the model has not read stay until its first terminal read |
 | `pumpPollMs` | `150` | Poll interval for a job's pull sources, in milliseconds |
 
-The generated [configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-jobs-local) is the exhaustive source for the accepted fields.
+The generated [configuration catalog](../../../docs/config-catalog.md#onprem-aidsh-jobs-local) is the exhaustive source for the accepted fields.
 
 ### What each owner gets
 
@@ -87,7 +87,7 @@ This section explains the design decisions behind the registry and points at the
 | [`src/events.ts`](src/events.ts) | Scope-layered event routing: `{ owner }`, `{ owners: 'all' }`, and `{ owners: 'scope' }` subscriptions |
 | [`src/ring.ts`](src/ring.ts) | The bounded per-job output ring: append, retention trim, offset reads |
 | [`src/pump.ts`](src/pump.ts) | The registry-owned pull pump: one timer per job, final drain before settlement |
-| — | No runtime invariant companion is published; `@deepseek-ai/dsh-jobs/invariant` owns the event-protocol and event-versus-read checks. This provider's admission decision uses private configuration and must fail before a backend starter runs; `LocalJobRegistry.start()` enforces it synchronously for current producers. Repeating an aggregate after publication would expose private configuration solely to this companion and would not verify the fail-closed pre-start guarantee. |
+| — | No runtime invariant companion is published; `@onprem-ai/dsh-jobs/invariant` owns the event-protocol and event-versus-read checks. This provider's admission decision uses private configuration and must fail before a backend starter runs; `LocalJobRegistry.start()` enforces it synchronously for current producers. Repeating an aggregate after publication would expose private configuration solely to this companion and would not verify the fail-closed pre-start guarantee. |
 
 ### Scope layers
 

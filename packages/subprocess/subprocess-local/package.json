@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-subprocess-local",
+  "name": "@onprem-ai/dsh-subprocess-local",
   "description": "Local-subprocess implementation of the DeepSeek Harness subprocess seam",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -42,20 +42,20 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-subprocess": "workspace:*",
+    "@onprem-ai/dsh-timeout": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-lazy-require": "workspace:*",
-    "@deepseek-ai/dsh-win32-process": "workspace:*",
+    "@onprem-ai/dsh-lazy-require": "workspace:*",
+    "@onprem-ai/dsh-win32-process": "workspace:*",
     "koffi": "3.1.1",
     "node-pty": "1.2.0-beta.15"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-loader-smoke": "workspace:*",
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-loader-smoke": "workspace:*",
+    "@onprem-ai/dsh-subprocess": "workspace:*",
+    "@onprem-ai/dsh-timeout": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   }
 }

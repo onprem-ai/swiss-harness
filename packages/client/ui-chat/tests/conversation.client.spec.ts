@@ -1,8 +1,8 @@
 /** Chat-owned event-to-view projection. */
 
 import { describe, expect, it } from 'vitest'
-import { AttachmentId } from '@deepseek-ai/dsh-attachment'
-import type { ContentBlock } from '@deepseek-ai/dsh-api-remotes/client'
+import { AttachmentId } from '@onprem-ai/dsh-attachment'
+import type { ContentBlock } from '@onprem-ai/dsh-api-remotes/client'
 import {
   displayFailure, emptyAssistantBlock, toAssistantBlock, toAssistantBlocks,
   isTokenDelta,

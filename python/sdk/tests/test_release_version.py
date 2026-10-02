@@ -146,7 +146,7 @@ def test_stage_runtime_copies_platform_payload(
         spawn_helper.chmod(0o755)
         expected[spawn_helper.name] = b"helper"
     office = executable.parent / build_python_release.office_sidecar_name(executable.name)
-    office_asset = office / "node_modules" / "@deepseek-ai" / "libreoffice-kit-wasm" / "assets" / "soffice.data"
+    office_asset = office / "node_modules" / "@onprem-ai" / "libreoffice-kit-wasm" / "assets" / "soffice.data"
     office_asset.parent.mkdir(parents=True)
     office_asset.write_bytes(b"office data")
     resources = executable.with_name(executable.name.removeprefix("deepseek-harness-sdk-runtime-").removesuffix(".exe"))

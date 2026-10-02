@@ -1,17 +1,17 @@
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { createMessage, createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { TokenUsage } from '@deepseek-ai/dsh-llm'
-import SessionStore from '@deepseek-ai/dsh-session'
-import type { Session, SessionSeq } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import TokenMeter from '@deepseek-ai/dsh-token-meter'
-import type { ContextPressureProjection, TokenUsageProjection } from '@deepseek-ai/dsh-token-meter/client'
-import { RetryId } from '@deepseek-ai/dsh-llm-retry'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import { CompactionId } from '@deepseek-ai/dsh-compaction'
+import { Context } from '@onprem-ai/cordis'
+import { createMessage, createUserMessage } from '@onprem-ai/dsh-llm'
+import type { TokenUsage } from '@onprem-ai/dsh-llm'
+import SessionStore from '@onprem-ai/dsh-session'
+import type { Session, SessionSeq } from '@onprem-ai/dsh-session'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
+import TokenMeter from '@onprem-ai/dsh-token-meter'
+import type { ContextPressureProjection, TokenUsageProjection } from '@onprem-ai/dsh-token-meter/client'
+import { RetryId } from '@onprem-ai/dsh-llm-retry'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
+import { CompactionId } from '@onprem-ai/dsh-compaction'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'test': { kind: 'test' } & ContextFormed
   }

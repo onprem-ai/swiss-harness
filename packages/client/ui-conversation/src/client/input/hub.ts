@@ -7,18 +7,18 @@
  * listeners on each Session context and owns the default-sink choreography: every session is a
  * real host entity, so the sink is one unconditional prompt path.
  */
-import type {} from '@deepseek-ai/dsh-client-product-analytics/client'
-import type { ModelSelectionProjection } from '@deepseek-ai/dsh-api-session-controller/types'
-import type { PlanProjection } from '@deepseek-ai/dsh-plan-mode/types'
-import type { GoalProjection } from '@deepseek-ai/dsh-goal/types'
-import type { Context } from '@deepseek-ai/cordis'
+import type {} from '@onprem-ai/dsh-client-product-analytics/client'
+import type { ModelSelectionProjection } from '@onprem-ai/dsh-api-session-controller/types'
+import type { PlanProjection } from '@onprem-ai/dsh-plan-mode/types'
+import type { GoalProjection } from '@onprem-ai/dsh-goal/types'
+import type { Context } from '@onprem-ai/cordis'
 import type {
   ISessions, SessionBinding, SessionFace,
-} from '@deepseek-ai/dsh-api-session-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import type { TranslateNS } from '@deepseek-ai/dsh-client-locale/client'
-import type { InboxState } from '@deepseek-ai/dsh-agent/types'
-import type { ObservableSnapshot } from '@deepseek-ai/dsh-client-store'
+} from '@onprem-ai/dsh-api-session-controller/client'
+import type { SessionId } from '@onprem-ai/dsh-session/types'
+import type { TranslateNS } from '@onprem-ai/dsh-client-locale/client'
+import type { InboxState } from '@onprem-ai/dsh-agent/types'
+import type { ObservableSnapshot } from '@onprem-ai/dsh-client-store'
 import type {
   DraftAttachmentId, DraftAttachmentSerializationResult, InputTriggerController,
   SessionInputResolver, SessionInput, SubmitOutcome,

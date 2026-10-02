@@ -6,10 +6,10 @@ import { join } from 'node:path'
 import type { Browser, Page } from 'playwright'
 import { chromium } from 'playwright'
 import { afterAll, beforeAll, describe, expect, it, onTestFailed } from 'vitest'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { ToolCallId } from '@deepseek-ai/dsh-llm'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import { JobId } from '@deepseek-ai/dsh-jobs'
+import type { Agent } from '@onprem-ai/dsh-agent'
+import { ToolCallId } from '@onprem-ai/dsh-llm'
+import { SessionId } from '@onprem-ai/dsh-session'
+import { JobId } from '@onprem-ai/dsh-jobs'
 import {
   assertFixtureInventory, captureStableAria, compareOrRefreshGolden,
   launchWebScaffold, seedSession, watchConsole, webSnapshotMode, type WebScaffold,

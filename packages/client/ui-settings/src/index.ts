@@ -1,9 +1,9 @@
 /** Host registration of shared Web and desktop developer-tool preferences. */
-import type {} from '@deepseek-ai/dsh-settings'
+import type {} from '@onprem-ai/dsh-settings'
 
-import type { Volatile, Context } from '@deepseek-ai/cordis'
+import type { Volatile, Context } from '@onprem-ai/cordis'
 
-import z from '@deepseek-ai/schemastery'
+import z from '@onprem-ai/schemastery'
 import { DeveloperToolsSettingsFields } from './developer-tools-settings.ts'
 
 /** Runtime preferences projected to the browser. */

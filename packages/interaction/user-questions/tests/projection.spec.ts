@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { SessionLogOffset, SessionSeq, TOOL_OUTCOME_UNKNOWN, type SessionEvent } from '@deepseek-ai/dsh-session'
-import { createToolResultMessage, createUserMessage, ToolCallId, type ToolSchema } from '@deepseek-ai/dsh-llm'
-import type {} from '@deepseek-ai/dsh-tools/types'
+import { SessionLogOffset, SessionSeq, TOOL_OUTCOME_UNKNOWN, type SessionEvent } from '@onprem-ai/dsh-session'
+import { createToolResultMessage, createUserMessage, ToolCallId, type ToolSchema } from '@onprem-ai/dsh-llm'
+import type {} from '@onprem-ai/dsh-tools/types'
 import {
   applyUserQuestionEvent, foldUserQuestions, isTimedAskUserQuestionSchema, questionsOf, TIMED_WAIT_PARAMETER,
   userQuestionProjectionDefinition,

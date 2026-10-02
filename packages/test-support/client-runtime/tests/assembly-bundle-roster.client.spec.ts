@@ -2,7 +2,7 @@
 import { mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { getStaticModules } from '@deepseek-ai/dsh-client-web/src/seed.ts'
+import { getStaticModules } from '@onprem-ai/dsh-client-web/src/seed.ts'
 import { afterAll, describe, expect, it, onTestFinished } from 'vitest'
 import { MODULES_PACKAGE } from '../src/assembly/modules.ts'
 import { WEB_PROFILE_BUNDLES, bundleRoster, webApp } from '../src/assembly/bundle-roster.ts'
@@ -14,29 +14,29 @@ function profileScope(name: string) {
 
 describe('webApp (the real web profile)', () => {
   it('composes dsh-base then dsh-web-app: unique names, inject edges on roster rows or platform seed words', () => {
-    expect(WEB_PROFILE_BUNDLES).toEqual(['@deepseek-ai/dsh-base', '@deepseek-ai/dsh-web-app'])
+    expect(WEB_PROFILE_BUNDLES).toEqual(['@onprem-ai/dsh-base', '@onprem-ai/dsh-web-app'])
     const names = webApp.rows.map(row => row.name)
     expect(new Set(names).size).toBe(names.length)
     const known = new Set([...names, ...Object.keys(getStaticModules())])
     const dangling = webApp.rows.flatMap(row => row.inject.filter(target => !known.has(target)).map(target => `${row.name} -> ${target}`))
     expect(dangling).toEqual([])
     expect(bundleRoster(WEB_PROFILE_BUNDLES, undefined, profileScope('web')).rows).toEqual(webApp.rows)
-    expect(names).not.toContain('@deepseek-ai/dsh-client-ui-sidebar-browser')
+    expect(names).not.toContain('@onprem-ai/dsh-client-ui-sidebar-browser')
     expect(bundleRoster(WEB_PROFILE_BUNDLES, undefined, profileScope('desktop')).rows.map(row => row.name))
-      .toContain('@deepseek-ai/dsh-client-ui-sidebar-browser')
+      .toContain('@onprem-ai/dsh-client-ui-sidebar-browser')
   })
 
   it('keeps browser rows with their declarations and drops Host-only, disabled, and subpath rows', () => {
     const immediate = new Set(webApp.rows.filter(row => row.immediately).map(row => row.name))
     expect(immediate.has(MODULES_PACKAGE)).toBe(true)
-    expect(immediate.has('@deepseek-ai/dsh-client-connection')).toBe(true)
-    expect(webApp.rows.find(row => row.name === '@deepseek-ai/dsh-api-gateway')?.inject)
-      .toEqual(['@deepseek-ai/dsh-typert-registry', '@deepseek-ai/dsh-client-connection'])
+    expect(immediate.has('@onprem-ai/dsh-client-connection')).toBe(true)
+    expect(webApp.rows.find(row => row.name === '@onprem-ai/dsh-api-gateway')?.inject)
+      .toEqual(['@onprem-ai/dsh-typert-registry', '@onprem-ai/dsh-client-connection'])
     const names = webApp.rows.map(row => row.name)
-    expect(names).toContain('@deepseek-ai/dsh-client-ui-settings-general')
-    expect(names).not.toContain('@deepseek-ai/dsh-llm') // Host only
-    expect(names).not.toContain('@deepseek-ai/dsh-client-ui-schedule')
-    expect(names).not.toContain('@deepseek-ai/dsh-web-app') // Host runtime glue, its `/startup` row is a subpath
+    expect(names).toContain('@onprem-ai/dsh-client-ui-settings-general')
+    expect(names).not.toContain('@onprem-ai/dsh-llm') // Host only
+    expect(names).not.toContain('@onprem-ai/dsh-client-ui-schedule')
+    expect(names).not.toContain('@onprem-ai/dsh-web-app') // Host runtime glue, its `/startup` row is a subpath
   })
 })
 

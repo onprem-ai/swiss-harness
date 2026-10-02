@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-message-feedback",
+  "name": "@onprem-ai/dsh-message-feedback",
   "description": "Canonical Session-log ratings and notes for finalized assistant messages",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -44,28 +44,28 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-persistence": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-command-feedback": "workspace:*"
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-persistence": "workspace:*",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-command-feedback": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@onprem-ai/schemastery": "workspace:~",
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-persistence": "workspace:*",
-    "@deepseek-ai/dsh-session-persistence-jsonl": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-command-feedback": "workspace:*"
+    "@onprem-ai/cordis-plugin-include": "workspace:~",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-persistence": "workspace:*",
+    "@onprem-ai/dsh-session-persistence-jsonl": "workspace:*",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-command-feedback": "workspace:*"
   }
 }

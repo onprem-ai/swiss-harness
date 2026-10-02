@@ -1,10 +1,10 @@
-import type { Context } from '@deepseek-ai/cordis'
+import type { Context } from '@onprem-ai/cordis'
 import type {
   ConversationMatch, ConversationNodeContext, ConversationNodeDefinition, TurnLocation,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type {} from '@deepseek-ai/dsh-llm-retry/types'
-import type { SessionEvent } from '@deepseek-ai/dsh-session/types'
-import { deriveTurnTokenUsage } from '@deepseek-ai/dsh-token-meter/client'
+} from '@onprem-ai/dsh-client-ui-conversation/client'
+import type {} from '@onprem-ai/dsh-llm-retry/types'
+import type { SessionEvent } from '@onprem-ai/dsh-session/types'
+import { deriveTurnTokenUsage } from '@onprem-ai/dsh-token-meter/client'
 import type {
   AssistantChatData, FinalAssistantChatData, TurnTailChatData,
 } from '../contract/chat-nodes.ts'
@@ -17,7 +17,7 @@ declare module '../contract/chat-nodes.ts' {
   }
 }
 
-declare module '@deepseek-ai/dsh-client-ui-conversation/client' {
+declare module '@onprem-ai/dsh-client-ui-conversation/client' {
   interface ConversationTurnDataMap {
     /** Closing Assistant and footer facts derived for this completed Turn. */
     'turn-tail': TurnTailChatData

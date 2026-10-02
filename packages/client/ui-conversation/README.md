@@ -3,7 +3,7 @@ description: "Target-neutral conversation assembly and browser shell: event and 
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-client-ui-conversation
+# @onprem-ai/dsh-client-ui-conversation
 
 English | [中文](README.zh.md)
 
@@ -110,9 +110,9 @@ interface ComposerChainProps {
 A business package may install one entry only while a Remote waterfall request is pending:
 
 ```tsx
-import type { ComposerChainProps } from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type { ChainSelect, PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+import type { ComposerChainProps } from '@onprem-ai/dsh-client-ui-conversation/client'
+import type { ChainSelect, PropsRuntime } from '@onprem-ai/dsh-client-ui-slots'
+import type { SessionId } from '@onprem-ai/dsh-session/types'
 
 interface Request {
   readonly sessionId: SessionId

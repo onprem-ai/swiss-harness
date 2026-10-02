@@ -3,17 +3,17 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { afterEach, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import Include from '@deepseek-ai/cordis-plugin-include'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
-import MessageFeedback from '@deepseek-ai/dsh-message-feedback'
-import { recordFeedback } from '@deepseek-ai/dsh-command-feedback'
-import LlmRuntime, { createAssistantMessage, createUserMessage } from '@deepseek-ai/dsh-llm'
-import * as LlmDeepSeek from '@deepseek-ai/dsh-llm-deepseek-api-key'
-import DeepSeekLlmApiExtensions from '@deepseek-ai/dsh-deepseek-llm-api-extensions'
-import { startMockLlmServer, type MockLlmServer, type MockLlmServerOptions } from '@deepseek-ai/dsh-llm-mock-server'
+import { Context } from '@onprem-ai/cordis'
+import Loader from '@onprem-ai/cordis-plugin-loader'
+import Include from '@onprem-ai/cordis-plugin-include'
+import SessionStore, { SessionId } from '@onprem-ai/dsh-session'
+import JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
+import MessageFeedback from '@onprem-ai/dsh-message-feedback'
+import { recordFeedback } from '@onprem-ai/dsh-command-feedback'
+import LlmRuntime, { createAssistantMessage, createUserMessage } from '@onprem-ai/dsh-llm'
+import * as LlmDeepSeek from '@onprem-ai/dsh-llm-deepseek-api-key'
+import DeepSeekLlmApiExtensions from '@onprem-ai/dsh-deepseek-llm-api-extensions'
+import { startMockLlmServer, type MockLlmServer, type MockLlmServerOptions } from '@onprem-ai/dsh-llm-mock-server'
 import * as SessionLogDeepSeek from '../src/index.ts'
 import type { DeepSeekSessionLogExtension } from '../src/types.ts'
 
@@ -40,24 +40,24 @@ async function boot(
   vi.stubEnv('DEEPSEEK_API_KEY', 'feedback-test-key')
   server = await startMockLlmServer(mock)
   const modules = new Map<string, unknown>([
-    ['@deepseek-ai/dsh-session', SessionStore],
-    ['@deepseek-ai/dsh-session-persistence-jsonl', JsonlSessionPersistence],
-    ['@deepseek-ai/dsh-message-feedback', MessageFeedback],
-    ['@deepseek-ai/dsh-llm', LlmRuntime],
-    ['@deepseek-ai/dsh-llm-deepseek-api-key', LlmDeepSeek],
-    ['@deepseek-ai/dsh-deepseek-llm-api-extensions', DeepSeekLlmApiExtensions],
-    ['@deepseek-ai/dsh-session-log-deepseek', SessionLogDeepSeek],
+    ['@onprem-ai/dsh-session', SessionStore],
+    ['@onprem-ai/dsh-session-persistence-jsonl', JsonlSessionPersistence],
+    ['@onprem-ai/dsh-message-feedback', MessageFeedback],
+    ['@onprem-ai/dsh-llm', LlmRuntime],
+    ['@onprem-ai/dsh-llm-deepseek-api-key', LlmDeepSeek],
+    ['@onprem-ai/dsh-deepseek-llm-api-extensions', DeepSeekLlmApiExtensions],
+    ['@onprem-ai/dsh-session-log-deepseek', SessionLogDeepSeek],
   ])
   const config = join(root, 'cordis.yml')
   await writeFile(config, JSON.stringify([...modules.keys()].map(name => ({
     name,
-    ...name === '@deepseek-ai/dsh-session-persistence-jsonl'
+    ...name === '@onprem-ai/dsh-session-persistence-jsonl'
       ? { config: { root: join(root!, 'sessions'), compression: 'none' } }
-      : name === '@deepseek-ai/dsh-message-feedback'
+      : name === '@onprem-ai/dsh-message-feedback'
         ? { config: { maxNoteBytes: 1024 } }
-        : name === '@deepseek-ai/dsh-llm-deepseek-api-key'
+        : name === '@onprem-ai/dsh-llm-deepseek-api-key'
           ? { config: { baseURL: server!.baseURL } }
-          : name === '@deepseek-ai/dsh-session-log-deepseek'
+          : name === '@onprem-ai/dsh-session-log-deepseek'
             ? { config: sessionLog }
             : {},
   }))))
@@ -182,7 +182,7 @@ it('changes API log upload on the next request without replacing the plugin fibe
   const { ctx, server } = await boot({ enabled: true }, { sequence: ['success'], repeatLast: true })
   const session = ctx.sessions.create(SessionId('live-upload-setting'))
   session.append('user/message', createUserMessage({ content: [{ type: 'text', text: 'Hello' }], source: { kind: 'user' } }), { surfaceOp: 'append' })
-  const entry = [...ctx.loader.entries()].find(entry => entry.options.name === '@deepseek-ai/dsh-session-log-deepseek')!
+  const entry = [...ctx.loader.entries()].find(entry => entry.options.name === '@onprem-ai/dsh-session-log-deepseek')!
   const fiber = entry.fiber
   const request = async () => {
     const chunks = []

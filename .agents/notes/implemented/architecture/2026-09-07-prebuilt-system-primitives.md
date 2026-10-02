@@ -10,7 +10,7 @@ The JSONL writer's `fs-ext` dependency compiled a NAN addon during consumer inst
 
 ## Decision
 
-The independently versioned `@deepseek-ai/node-addon-system` family in [native/system](../../../../native/system/README.md) distributes the existing `landlock-run` executable and a stable Node-API v8 `system.node` addon. Platform packages select OS and CPU; Linux carries distinct glibc and musl addon files. macOS carries the addon without a Landlock executable. Neither the entry nor platform packages compile during installation.
+The independently versioned `@onprem-ai/node-addon-system` family in [native/system](../../../../native/system/README.md) distributes the existing `landlock-run` executable and a stable Node-API v8 `system.node` addon. Platform packages select OS and CPU; Linux carries distinct glibc and musl addon files. macOS carries the addon without a Landlock executable. Neither the entry nor platform packages compile during installation.
 
 The package has no root export. The `./landlock-run` JavaScript entry retains Landlock's API and [CLI protocol](../../../../native/system/docs/cli-contract.md). The `./flock` entry loads its addon only when `tryLockExclusive(fd)` is called. It runs `flock(fd, LOCK_EX | LOCK_NB)` in asynchronous native work and captures errno on that worker. The caller owns the descriptor through completion and releases its lock by closing it. Missing bindings reject acquisition rather than granting an unprotected lock.
 

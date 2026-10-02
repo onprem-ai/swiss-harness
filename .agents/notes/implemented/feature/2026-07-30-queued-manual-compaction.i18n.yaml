@@ -12,8 +12,8 @@
   en: a15c7c13f167e5ac
   zh: 63bcc2ef60c2f344
 /agent-note-queued-manual-compaction-with-one-durable-lock/decision/compact-is-a-command-over-a-backend-independent-seam:
-  en: a8631732e038e08d
-  zh: 68cb705f38ddfa57
+  en: 8be76c9eda7fc872
+  zh: 19fbffdb6b0c0e9b
 /agent-note-queued-manual-compaction-with-one-durable-lock/decision/idle-maintenance-is-synchronously-claimed:
   en: a11c700f32838561
   zh: c20636c5f7efabaf

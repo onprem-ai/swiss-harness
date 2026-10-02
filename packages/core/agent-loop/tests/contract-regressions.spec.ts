@@ -1,20 +1,20 @@
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import LlmRuntime, { type RequestMessage, createUserMessage, ToolCallId, LlmError, MessageSource, ProviderRequestId, StreamChunk  } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import SessionStore, { Session, SessionEvent, SessionId, TurnEndReason, type UserMessage } from '@deepseek-ai/dsh-session'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime, { defineContentToolFixture, type PostToolDecision } from '@deepseek-ai/dsh-tools'
-import AgentRegistry, { type Agent } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import InvariantRegistry from '@deepseek-ai/dsh-invariants'
-import * as SessionInvariant from '@deepseek-ai/dsh-session/invariant'
-import * as AgentInvariant from '@deepseek-ai/dsh-agent/invariant'
-import * as AgentLoopInvariant from '@deepseek-ai/dsh-agent-loop/invariant'
+import { Context } from '@onprem-ai/cordis'
+import LlmRuntime, { type RequestMessage, createUserMessage, ToolCallId, LlmError, MessageSource, ProviderRequestId, StreamChunk  } from '@onprem-ai/dsh-llm'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
+import SessionStore, { Session, SessionEvent, SessionId, TurnEndReason, type UserMessage } from '@onprem-ai/dsh-session'
+import SystemPrompt from '@onprem-ai/dsh-system-prompt'
+import ToolRuntime, { defineContentToolFixture, type PostToolDecision } from '@onprem-ai/dsh-tools'
+import AgentRegistry, { type Agent } from '@onprem-ai/dsh-agent'
+import AgentLoop from '@onprem-ai/dsh-agent-loop'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
+import InvariantRegistry from '@onprem-ai/dsh-invariants'
+import * as SessionInvariant from '@onprem-ai/dsh-session/invariant'
+import * as AgentInvariant from '@onprem-ai/dsh-agent/invariant'
+import * as AgentLoopInvariant from '@onprem-ai/dsh-agent-loop/invariant'
 import { MockAdapter, textResponse, toolCallResponse } from './mock-adapter.ts'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'test': { kind: 'test' } & ContextFormed
   }
@@ -1020,7 +1020,7 @@ describe('turn and step boundary recovery', () => {
     expect(adapter.requests).toHaveLength(1)
     expect(errors.map(error => error.message)).toEqual([
       'reject first step-end',
-      'invariant violated by "@deepseek-ai/dsh-session": turn/end 1 while step 1 is still open',
+      'invariant violated by "@onprem-ai/dsh-session": turn/end 1 while step 1 is still open',
     ])
     expect(boundaryCounts(agent)).toMatchObject({
       turnStart: 1,

@@ -165,7 +165,7 @@ Run from the repository root after building the runtime:
 ```sh
 pnpm run build:lib:host
 cd packages/session/session-persistence-jsonl
-node --input-type=module -e 'import { build } from "tsdown"; await build({ config: false, entry: ["tests/catalog-migration.perf.ts"], outDir: ".artifacts/perf", tsconfig: false, dts: false, deps: { neverBundle: [/^@deepseek-ai\//], onlyBundle: false } })'
+node --input-type=module -e 'import { build } from "tsdown"; await build({ config: false, entry: ["tests/catalog-migration.perf.ts"], outDir: ".artifacts/perf", tsconfig: false, dts: false, deps: { neverBundle: [/^@onprem-ai\//], onlyBundle: false } })'
 node .artifacts/perf/catalog-migration.perf.mjs
 ```
 

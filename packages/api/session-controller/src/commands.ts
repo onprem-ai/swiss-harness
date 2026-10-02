@@ -2,28 +2,28 @@
 
 import { modelAvailable } from './catalog.ts'
 import { randomUUID } from 'node:crypto'
-import type { Context } from '@deepseek-ai/cordis'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import type { Agent, ModelSelection as AgentModelSelection } from '@deepseek-ai/dsh-agent'
-import { AttachmentError } from '@deepseek-ai/dsh-attachment'
+import type { Context } from '@onprem-ai/cordis'
+import { brandString } from '@onprem-ai/dsh-brand'
+import type { Agent, ModelSelection as AgentModelSelection } from '@onprem-ai/dsh-agent'
+import { AttachmentError } from '@onprem-ai/dsh-attachment'
 import type {
   AttachmentAdmissionPart, FileAttachmentRef, ImageAttachmentRef,
-} from '@deepseek-ai/dsh-attachment'
-import type { FileUploadReceiptId } from '@deepseek-ai/dsh-client-file-upload/types'
-import type {} from '@deepseek-ai/dsh-client-file-upload'
+} from '@onprem-ai/dsh-attachment'
+import type { FileUploadReceiptId } from '@onprem-ai/dsh-client-file-upload/types'
+import type {} from '@onprem-ai/dsh-client-file-upload'
 import {
   ReasoningEffortId, assistantStreamChunks, createUserMessage, freezeMessage,
-} from '@deepseek-ai/dsh-llm'
-import type { MessageSource } from '@deepseek-ai/dsh-llm'
-import { buildForkSeed } from '@deepseek-ai/dsh-session/fork'
-import { SessionLogOffset, SessionSeq } from '@deepseek-ai/dsh-session'
-import type { SessionEvent, SessionHeader, SessionId, UserMessage } from '@deepseek-ai/dsh-session'
-import { SessionQueryError, type SessionObservation } from '@deepseek-ai/dsh-session-query'
-import { SessionTitleInvalidError } from '@deepseek-ai/dsh-session-title'
-import { canonicalClientTimeZone } from '@deepseek-ai/dsh-util-time'
-import { assertNever } from '@deepseek-ai/dsh-util-values'
-import { RemoteError, remoteErrorOf } from '@deepseek-ai/dsh-typert-protocol'
-import type { Workspace } from '@deepseek-ai/dsh-workspace'
+} from '@onprem-ai/dsh-llm'
+import type { MessageSource } from '@onprem-ai/dsh-llm'
+import { buildForkSeed } from '@onprem-ai/dsh-session/fork'
+import { SessionLogOffset, SessionSeq } from '@onprem-ai/dsh-session'
+import type { SessionEvent, SessionHeader, SessionId, UserMessage } from '@onprem-ai/dsh-session'
+import { SessionQueryError, type SessionObservation } from '@onprem-ai/dsh-session-query'
+import { SessionTitleInvalidError } from '@onprem-ai/dsh-session-title'
+import { canonicalClientTimeZone } from '@onprem-ai/dsh-util-time'
+import { assertNever } from '@onprem-ai/dsh-util-values'
+import { RemoteError, remoteErrorOf } from '@onprem-ai/dsh-typert-protocol'
+import type { Workspace } from '@onprem-ai/dsh-workspace'
 import {
   ApiSessionAgentController,
   ApiSessionCwdConflict,

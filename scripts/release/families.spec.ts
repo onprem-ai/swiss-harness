@@ -48,55 +48,55 @@ describe('release families', () => {
     expect(members
       .filter(member => member.directory.startsWith('packages/experimental/'))
       .map(member => member.name)).toEqual([
-      '@deepseek-ai/dsh-experimental-agent-team-profile',
-      '@deepseek-ai/dsh-experimental-agent-team',
-      '@deepseek-ai/dsh-experimental-api-speech-to-text',
-      '@deepseek-ai/dsh-experimental-auto-review',
-      '@deepseek-ai/dsh-experimental-browser-use-chrome-devtools-mcp',
-      '@deepseek-ai/dsh-experimental-browser-use-playwright-mcp',
-      '@deepseek-ai/dsh-experimental-browser-use-runtime',
-      '@deepseek-ai/dsh-experimental-browser-use-stagehand-native',
-      '@deepseek-ai/dsh-experimental-client-ui-agent-team',
-      '@deepseek-ai/dsh-experimental-client-ui-voice-input',
-      '@deepseek-ai/dsh-experimental-computer-use-cua-driver-mcp',
-      '@deepseek-ai/dsh-experimental-computer-use-cua-driver-native',
-      '@deepseek-ai/dsh-experimental-inspector',
-      '@deepseek-ai/dsh-experimental-ptc-runtime-python',
-      '@deepseek-ai/dsh-experimental-schedule-bundle',
-      '@deepseek-ai/dsh-experimental-speech-to-text-sensevoice',
-      '@deepseek-ai/dsh-experimental-speech-to-text',
-      '@deepseek-ai/dsh-experimental-tool-agent-team',
-      '@deepseek-ai/dsh-experimental-voice-input-bundle',
-      '@deepseek-ai/dsh-experimental-webworker-packer',
-      '@deepseek-ai/dsh-experimental-webworker-runtime',
+      '@onprem-ai/dsh-experimental-agent-team-profile',
+      '@onprem-ai/dsh-experimental-agent-team',
+      '@onprem-ai/dsh-experimental-api-speech-to-text',
+      '@onprem-ai/dsh-experimental-auto-review',
+      '@onprem-ai/dsh-experimental-browser-use-chrome-devtools-mcp',
+      '@onprem-ai/dsh-experimental-browser-use-playwright-mcp',
+      '@onprem-ai/dsh-experimental-browser-use-runtime',
+      '@onprem-ai/dsh-experimental-browser-use-stagehand-native',
+      '@onprem-ai/dsh-experimental-client-ui-agent-team',
+      '@onprem-ai/dsh-experimental-client-ui-voice-input',
+      '@onprem-ai/dsh-experimental-computer-use-cua-driver-mcp',
+      '@onprem-ai/dsh-experimental-computer-use-cua-driver-native',
+      '@onprem-ai/dsh-experimental-inspector',
+      '@onprem-ai/dsh-experimental-ptc-runtime-python',
+      '@onprem-ai/dsh-experimental-schedule-bundle',
+      '@onprem-ai/dsh-experimental-speech-to-text-sensevoice',
+      '@onprem-ai/dsh-experimental-speech-to-text',
+      '@onprem-ai/dsh-experimental-tool-agent-team',
+      '@onprem-ai/dsh-experimental-voice-input-bundle',
+      '@onprem-ai/dsh-experimental-webworker-packer',
+      '@onprem-ai/dsh-experimental-webworker-runtime',
     ])
   })
 
   it('excludes private applications from the publish set', () => {
     const root = mkdtempSync(join(tmpdir(), 'dsh-release-private-'))
     roots.push(root)
-    write(join(root, 'apps/public/package.json'), '{"name":"@deepseek-ai/dsh-public","version":"0.0.1"}\n')
-    write(join(root, 'apps/private/package.json'), '{"name":"@deepseek-ai/dsh-private","version":"0.0.1","private":true}\n')
+    write(join(root, 'apps/public/package.json'), '{"name":"@onprem-ai/dsh-public","version":"0.0.1"}\n')
+    write(join(root, 'apps/private/package.json'), '{"name":"@onprem-ai/dsh-private","version":"0.0.1","private":true}\n')
 
-    expect(releaseFamily('dsh').members(root).map(entry => entry.name)).toEqual(['@deepseek-ai/dsh-public'])
+    expect(releaseFamily('dsh').members(root).map(entry => entry.name)).toEqual(['@onprem-ai/dsh-public'])
   })
 
   it('publishes unlisted experimental packages while retaining private exclusions', () => {
     const root = mkdtempSync(join(tmpdir(), 'dsh-release-experimental-'))
     roots.push(root)
     write(join(root, 'packages/experimental/prototype/package.json'), JSON.stringify({
-      name: '@deepseek-ai/dsh-experimental-prototype',
+      name: '@onprem-ai/dsh-experimental-prototype',
       version: '0.0.1',
       publishConfig: { access: 'public' },
     }))
     write(join(root, 'packages/experimental/inspector/package.json'), JSON.stringify({
-      name: '@deepseek-ai/dsh-experimental-inspector',
+      name: '@onprem-ai/dsh-experimental-inspector',
       version: '0.0.1',
       private: true,
     }))
 
     expect(releaseFamily('dsh').members(root).map(entry => entry.name)).toEqual([
-      '@deepseek-ai/dsh-experimental-prototype',
+      '@onprem-ai/dsh-experimental-prototype',
     ])
   })
 
@@ -109,7 +109,7 @@ describe('release families', () => {
     write(join(root, 'packages/core/unselected/package.json'), '{"version":"0.0.1"}\n')
 
     const dsh = releaseFamily('dsh')
-    const published = member('packages/core/published', '@deepseek-ai/dsh-published')
+    const published = member('packages/core/published', '@onprem-ai/dsh-published')
     const { planned } = planShared(dsh, root, [published], '0.0.2')
 
     expect(planned.map(entry => ({ path: entry.manifestPath, tag: entry.tag }))).toEqual([
@@ -128,7 +128,7 @@ describe('release families', () => {
       write(join(root, 'package.json'), '{"version":"0.0.1"}\n')
 
       const dsh = releaseFamily('dsh')
-      const published = member('packages/core/published', '@deepseek-ai/dsh-published')
+      const published = member('packages/core/published', '@onprem-ai/dsh-published')
       const plan = planShared(dsh, root, [published], version)
 
       expect(plan.version).toBe(version)
@@ -139,8 +139,8 @@ describe('release families', () => {
   it('names one tag for the whole dsh family and one per vendored package', () => {
     const dsh = releaseFamily('dsh')
     const vendor = releaseFamily('vendor')
-    const cli = member('apps/cli', '@deepseek-ai/dsh')
-    const cordis = { ...member('vendor/cordis', '@deepseek-ai/cordis'), version: '4.0.1' }
+    const cli = member('apps/cli', '@onprem-ai/dsh')
+    const cordis = { ...member('vendor/cordis', '@onprem-ai/cordis'), version: '4.0.1' }
 
     expect(dsh.tagFor(cli)).toBe('dsh-v0.0.1')
     expect(vendor.tagFor(cordis)).toBe('vendor-cordis-v4.0.1')
@@ -164,7 +164,7 @@ describe('release families', () => {
 
   it('rejects a family whose members disagree on the shared version', () => {
     const dsh = releaseFamily('dsh')
-    const members = [member('apps/cli', '@deepseek-ai/dsh'), { ...member('apps/web', '@deepseek-ai/dsh-web-frontend'), version: '0.0.2' }]
+    const members = [member('apps/cli', '@onprem-ai/dsh'), { ...member('apps/web', '@onprem-ai/dsh-web-frontend'), version: '0.0.2' }]
 
     expect(() => { dsh.verifyVersions(members) }).toThrow(/must share one version/)
     expect(() => { dsh.verifyVersions([members[0]!]) }).not.toThrow()
@@ -173,8 +173,8 @@ describe('release families', () => {
   it('accepts independent vendored versions and rejects an unpublishable one', () => {
     const vendor = releaseFamily('vendor')
     const members = [
-      { ...member('vendor/cordis', '@deepseek-ai/cordis'), version: '4.0.1' },
-      { ...member('vendor/cosmokit', '@deepseek-ai/cosmokit'), version: '1.8.2' },
+      { ...member('vendor/cordis', '@onprem-ai/cordis'), version: '4.0.1' },
+      { ...member('vendor/cosmokit', '@onprem-ai/cosmokit'), version: '1.8.2' },
     ]
 
     expect(() => { vendor.verifyVersions(members) }).not.toThrow()
@@ -203,23 +203,23 @@ describe('release families', () => {
   it('publishes a dependency before its consumer, and orders ties by name', () => {
     const dsh = releaseFamily('dsh')
     const members = [
-      member('packages/a/consumer', '@deepseek-ai/dsh-consumer', { dependencies: { '@deepseek-ai/dsh-library': 'workspace:^' } }),
-      member('packages/a/library', '@deepseek-ai/dsh-library'),
-      member('packages/a/zebra', '@deepseek-ai/dsh-zebra'),
+      member('packages/a/consumer', '@onprem-ai/dsh-consumer', { dependencies: { '@onprem-ai/dsh-library': 'workspace:^' } }),
+      member('packages/a/library', '@onprem-ai/dsh-library'),
+      member('packages/a/zebra', '@onprem-ai/dsh-zebra'),
     ]
 
     expect(dsh.publishOrder(members).order.map(entry => entry.name)).toEqual([
-      '@deepseek-ai/dsh-library',
-      '@deepseek-ai/dsh-consumer',
-      '@deepseek-ai/dsh-zebra',
+      '@onprem-ai/dsh-library',
+      '@onprem-ai/dsh-consumer',
+      '@onprem-ai/dsh-zebra',
     ])
   })
 
   it('reports a runtime dependency cycle instead of emitting an arbitrary order', () => {
     const dsh = releaseFamily('dsh')
     const members = [
-      member('packages/a/left', '@deepseek-ai/dsh-left', { dependencies: { '@deepseek-ai/dsh-right': 'workspace:^' } }),
-      member('packages/a/right', '@deepseek-ai/dsh-right', { dependencies: { '@deepseek-ai/dsh-left': 'workspace:^' } }),
+      member('packages/a/left', '@onprem-ai/dsh-left', { dependencies: { '@onprem-ai/dsh-right': 'workspace:^' } }),
+      member('packages/a/right', '@onprem-ai/dsh-right', { dependencies: { '@onprem-ai/dsh-left': 'workspace:^' } }),
     ]
 
     expect(() => { dsh.publishOrder(members) }).toThrow(/dependency cycle/)
@@ -228,44 +228,44 @@ describe('release families', () => {
   it('publishes a peer before its consumer', () => {
     const dsh = releaseFamily('dsh')
     const members = [
-      member('packages/a/consumer', '@deepseek-ai/dsh-consumer', { peerDependencies: { '@deepseek-ai/dsh-zebra': 'workspace:^' } }),
-      member('packages/a/zebra', '@deepseek-ai/dsh-zebra'),
+      member('packages/a/consumer', '@onprem-ai/dsh-consumer', { peerDependencies: { '@onprem-ai/dsh-zebra': 'workspace:^' } }),
+      member('packages/a/zebra', '@onprem-ai/dsh-zebra'),
     ]
 
     // Name order alone would place the consumer first; the peer edge moves it.
     expect(dsh.publishOrder(members).order.map(entry => entry.name)).toEqual([
-      '@deepseek-ai/dsh-zebra',
-      '@deepseek-ai/dsh-consumer',
+      '@onprem-ai/dsh-zebra',
+      '@onprem-ai/dsh-consumer',
     ])
   })
 
   it('orders around a peer cycle rather than refusing to publish, and reports the edge it dropped', () => {
     const dsh = releaseFamily('dsh')
     const members = [
-      member('packages/a/left', '@deepseek-ai/dsh-left', { peerDependencies: { '@deepseek-ai/dsh-right': 'workspace:^' } }),
-      member('packages/a/right', '@deepseek-ai/dsh-right', { peerDependencies: { '@deepseek-ai/dsh-left': 'workspace:^' } }),
+      member('packages/a/left', '@onprem-ai/dsh-left', { peerDependencies: { '@onprem-ai/dsh-right': 'workspace:^' } }),
+      member('packages/a/right', '@onprem-ai/dsh-right', { peerDependencies: { '@onprem-ai/dsh-left': 'workspace:^' } }),
     ]
 
     // Sibling packages declare each other as peers, and npm treats an unmet peer
     // as a warning, so this pair has to publish rather than fail the release.
     const plan = dsh.publishOrder(members)
     expect(plan.order.map(entry => entry.name)).toEqual([
-      '@deepseek-ai/dsh-right',
-      '@deepseek-ai/dsh-left',
+      '@onprem-ai/dsh-right',
+      '@onprem-ai/dsh-left',
     ])
     // One of the two edges has to give, and which one it is belongs in the log.
     expect(plan.droppedPeerEdges).toEqual([
-      { consumer: '@deepseek-ai/dsh-right', peer: '@deepseek-ai/dsh-left' },
+      { consumer: '@onprem-ai/dsh-right', peer: '@onprem-ai/dsh-left' },
     ])
   })
 
   it('honours an install edge even when a peer cycle surrounds it', () => {
     const dsh = releaseFamily('dsh')
     const members = [
-      member('packages/a/base', '@deepseek-ai/dsh-base', { peerDependencies: { '@deepseek-ai/dsh-consumer': 'workspace:^' } }),
-      member('packages/a/consumer', '@deepseek-ai/dsh-consumer', {
-        dependencies: { '@deepseek-ai/dsh-base': 'workspace:^' },
-        peerDependencies: { '@deepseek-ai/dsh-base': 'workspace:^' },
+      member('packages/a/base', '@onprem-ai/dsh-base', { peerDependencies: { '@onprem-ai/dsh-consumer': 'workspace:^' } }),
+      member('packages/a/consumer', '@onprem-ai/dsh-consumer', {
+        dependencies: { '@onprem-ai/dsh-base': 'workspace:^' },
+        peerDependencies: { '@onprem-ai/dsh-base': 'workspace:^' },
       }),
     ]
 
@@ -273,49 +273,49 @@ describe('release families', () => {
     // would reverse it is the one dropped.
     const plan = dsh.publishOrder(members)
     expect(plan.order.map(entry => entry.name)).toEqual([
-      '@deepseek-ai/dsh-base',
-      '@deepseek-ai/dsh-consumer',
+      '@onprem-ai/dsh-base',
+      '@onprem-ai/dsh-consumer',
     ])
     expect(plan.droppedPeerEdges).toEqual([
-      { consumer: '@deepseek-ai/dsh-base', peer: '@deepseek-ai/dsh-consumer' },
+      { consumer: '@onprem-ai/dsh-base', peer: '@onprem-ai/dsh-consumer' },
     ])
   })
 
   it('refuses an order that would publish a consumer before a dependency it installs', () => {
     const dsh = releaseFamily('dsh')
     const members = [
-      member('packages/a/alpha', '@deepseek-ai/dsh-alpha', { peerDependencies: { '@deepseek-ai/dsh-bravo': 'workspace:^' } }),
-      member('packages/a/bravo', '@deepseek-ai/dsh-bravo', { peerDependencies: { '@deepseek-ai/dsh-charlie': 'workspace:^' } }),
-      member('packages/a/charlie', '@deepseek-ai/dsh-charlie', { dependencies: { '@deepseek-ai/dsh-alpha': 'workspace:^' } }),
+      member('packages/a/alpha', '@onprem-ai/dsh-alpha', { peerDependencies: { '@onprem-ai/dsh-bravo': 'workspace:^' } }),
+      member('packages/a/bravo', '@onprem-ai/dsh-bravo', { peerDependencies: { '@onprem-ai/dsh-charlie': 'workspace:^' } }),
+      member('packages/a/charlie', '@onprem-ai/dsh-charlie', { dependencies: { '@onprem-ai/dsh-alpha': 'workspace:^' } }),
     ]
 
     // A cycle of two peer edges closed by one install edge: dropping a peer edge
     // would order this, and the traversal drops the install edge instead. That
     // order would publish charlie before the alpha it installs, so it is refused
     // here rather than published.
-    expect(() => { dsh.publishOrder(members) }).toThrow(/no publish order honours @deepseek-ai\/dsh-charlie -> @deepseek-ai\/dsh-alpha/)
+    expect(() => { dsh.publishOrder(members) }).toThrow(/no publish order honours @onprem-ai\/dsh-charlie -> @onprem-ai\/dsh-alpha/)
   })
 
   it('ignores devDependencies when ordering', () => {
     const dsh = releaseFamily('dsh')
     const members = [
-      member('packages/a/alpha', '@deepseek-ai/dsh-alpha', { devDependencies: { '@deepseek-ai/dsh-zebra': 'workspace:^' } }),
-      member('packages/a/zebra', '@deepseek-ai/dsh-zebra'),
+      member('packages/a/alpha', '@onprem-ai/dsh-alpha', { devDependencies: { '@onprem-ai/dsh-zebra': 'workspace:^' } }),
+      member('packages/a/zebra', '@onprem-ai/dsh-zebra'),
     ]
 
     // A dev dependency is absent from the published package, so it must not move
     // the consumer behind it.
     expect(dsh.publishOrder(members).order.map(entry => entry.name)).toEqual([
-      '@deepseek-ai/dsh-alpha',
-      '@deepseek-ai/dsh-zebra',
+      '@onprem-ai/dsh-alpha',
+      '@onprem-ai/dsh-zebra',
     ])
   })
 
   it('applies the harness payload policy to dsh and keeps upstream payloads for vendored packages', () => {
     const dsh = releaseFamily('dsh')
     const vendor = releaseFamily('vendor')
-    const harness = member('packages/a/library', '@deepseek-ai/dsh-library')
-    const vendored = member('vendor/cordis', '@deepseek-ai/cordis')
+    const harness = member('packages/a/library', '@onprem-ai/dsh-library')
+    const vendored = member('vendor/cordis', '@onprem-ai/cordis')
 
     expect(() => { dsh.validatePayload(harness, ['package/lib/index.js', 'package/src/index.ts']) })
       .toThrow(/publishes source file/)
@@ -324,7 +324,7 @@ describe('release families', () => {
   })
 
   it('drives the installed entry only for the family that publishes one', () => {
-    expect(releaseFamily('dsh').installedEntry).toEqual({ packageName: '@deepseek-ai/dsh', binPath: 'lib/bin.js' })
+    expect(releaseFamily('dsh').installedEntry).toEqual({ packageName: '@onprem-ai/dsh', binPath: 'lib/bin.js' })
     expect(releaseFamily('vendor').installedEntry).toBeUndefined()
   })
 
@@ -385,10 +385,10 @@ describe('version precedence', () => {
 })
 
 describe('payload change judgement', () => {
-  const sourceShipping = member('vendor/cosmokit', '@deepseek-ai/cosmokit', {
+  const sourceShipping = member('vendor/cosmokit', '@onprem-ai/cosmokit', {
     files: ['lib/index.js', 'lib/types/**/*.d.ts', 'src'],
   })
-  const buildOutputOnly = member('vendor/cordis', '@deepseek-ai/cordis', {
+  const buildOutputOnly = member('vendor/cordis', '@onprem-ai/cordis', {
     files: ['lib/index.js', 'lib/types/**/*.d.ts', 'bin.js'],
   })
 
@@ -413,7 +413,7 @@ describe('payload change judgement', () => {
     // unnecessary patch bump, while under-reporting fails the next publish on a
     // version whose bytes moved.
     expect(reachesPayload(sourceShipping, 'vendor/cosmokit/README.i18n.yaml')).toBe(true)
-    expect(reachesPayload(member('packages/a/library', '@deepseek-ai/dsh-library', { files: ['lib/index.js'] }),
+    expect(reachesPayload(member('packages/a/library', '@onprem-ai/dsh-library', { files: ['lib/index.js'] }),
       'packages/a/library/tests/library.spec.ts')).toBe(false)
   })
 })

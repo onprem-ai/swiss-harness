@@ -1,29 +1,29 @@
 import { describe, expect, it, vi } from 'vitest'
 import { PassThrough } from 'node:stream'
 import { resolve } from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import SessionStore, { SESSION_FORMAT_VERSION, Session, SessionId } from '@deepseek-ai/dsh-session'
-import AgentRegistry, { type Agent } from '@deepseek-ai/dsh-agent'
-import SandboxProvider from '@deepseek-ai/dsh-sandbox'
-import type { ConfinedArgv, SandboxPolicy } from '@deepseek-ai/dsh-sandbox'
-import SandboxPolicyService, { setSandboxMode } from '@deepseek-ai/dsh-sandbox-policy'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import TerminalSessionService, { TerminalBackendCleanupError, TerminalSessionId } from '@deepseek-ai/dsh-terminal'
-import type { TerminalSendRequest, TerminalWaitReason } from '@deepseek-ai/dsh-terminal'
-import { BashTerminalBackend, PWSH_PROMPT_SETUP } from '@deepseek-ai/dsh-terminal-bash'
-import { ENCODING_PREAMBLE } from '@deepseek-ai/dsh-pwsh-local'
-import * as ptyLocal from '@deepseek-ai/dsh-terminal-bash'
-import type { ResolvedConfig } from '@deepseek-ai/dsh-terminal-bash/src/config.ts'
-import type { LocalPtySession } from '@deepseek-ai/dsh-terminal-bash/src/session.ts'
-import { SubprocessRuntime } from '@deepseek-ai/dsh-subprocess'
+import { Context } from '@onprem-ai/cordis'
+import Loader from '@onprem-ai/cordis-plugin-loader'
+import SessionStore, { SESSION_FORMAT_VERSION, Session, SessionId } from '@onprem-ai/dsh-session'
+import AgentRegistry, { type Agent } from '@onprem-ai/dsh-agent'
+import SandboxProvider from '@onprem-ai/dsh-sandbox'
+import type { ConfinedArgv, SandboxPolicy } from '@onprem-ai/dsh-sandbox'
+import SandboxPolicyService, { setSandboxMode } from '@onprem-ai/dsh-sandbox-policy'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
+import TerminalSessionService, { TerminalBackendCleanupError, TerminalSessionId } from '@onprem-ai/dsh-terminal'
+import type { TerminalSendRequest, TerminalWaitReason } from '@onprem-ai/dsh-terminal'
+import { BashTerminalBackend, PWSH_PROMPT_SETUP } from '@onprem-ai/dsh-terminal-bash'
+import { ENCODING_PREAMBLE } from '@onprem-ai/dsh-pwsh-local'
+import * as ptyLocal from '@onprem-ai/dsh-terminal-bash'
+import type { ResolvedConfig } from '@onprem-ai/dsh-terminal-bash/src/config.ts'
+import type { LocalPtySession } from '@onprem-ai/dsh-terminal-bash/src/session.ts'
+import { SubprocessRuntime } from '@onprem-ai/dsh-subprocess'
 import type {
   SubprocessHandle,
   SubprocessSpawnSpec,
   SubprocessTerminalHandle,
   SubprocessTerminalSpawnSpec,
-} from '@deepseek-ai/dsh-subprocess'
-import { unsupportedInbox } from '@deepseek-ai/dsh-agent-loop-testkit'
+} from '@onprem-ai/dsh-subprocess'
+import { unsupportedInbox } from '@onprem-ai/dsh-agent-loop-testkit'
 
 class EmptySandbox extends SandboxProvider {
   async confine(_argv: readonly string[], _policy: SandboxPolicy): Promise<ConfinedArgv> {

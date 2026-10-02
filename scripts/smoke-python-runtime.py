@@ -265,9 +265,9 @@ def write_advanced_profile_patch(root: Path, name: str, sessions: Path) -> Path:
             },
         },
         {"insert": [
-            {"id": "ptc-runtime", "name": "@deepseek-ai/dsh-ptc-runtime-node"},
-            {"id": "cordis-host-runner", "name": "@deepseek-ai/dsh-cordis-host-runner"},
-            {"id": "cordis-tool", "name": "@deepseek-ai/dsh-tool-cordis"},
+            {"id": "ptc-runtime", "name": "@onprem-ai/dsh-ptc-runtime-node"},
+            {"id": "cordis-host-runner", "name": "@onprem-ai/dsh-cordis-host-runner"},
+            {"id": "cordis-tool", "name": "@onprem-ai/dsh-tool-cordis"},
         ]},
     ])
 
@@ -277,7 +277,7 @@ def write_mcp_patch(root: Path, sessions: Path, server_script: Path) -> Path:
     return write_profile_patch(root, "mcp.patch.yml", sessions, [{
         "insert": [{
             "id": "mcp-fixture",
-            "name": "@deepseek-ai/dsh-mcp-client",
+            "name": "@onprem-ai/dsh-mcp-client",
             "config": {
                 "serverName": "fixture",
                 "transport": "stdio",
@@ -952,7 +952,7 @@ def smoke_sdk_office(executable: Path) -> None:
         expected_backend = "wasm" if selected == "wasm" else "native"
         engines = [
             json.loads(manifest.read_text())["engine"]["kind"]
-            for manifest in (office / "node_modules/@deepseek-ai").glob("libreoffice-kit-*/prebuilds.json")
+            for manifest in (office / "node_modules/@onprem-ai").glob("libreoffice-kit-*/prebuilds.json")
         ]
         if engines != [expected_backend]:
             raise AssertionError(f"Office sidecar must contain only {expected_backend}: {engines}")
@@ -1446,11 +1446,11 @@ def smoke_sdk_profile_plugin(base_url: str) -> None:
             "private": True,
             "type": "module",
             "exports": "./index.js",
-            "peerDependencies": {"@deepseek-ai/cordis": "*"},
+            "peerDependencies": {"@onprem-ai/cordis": "*"},
             "dsh": {"bundle": {"patch": "./cordis.patch.yml"}},
         }, indent=2))
         (plugin / "index.js").write_text(
-            "import { Context } from '@deepseek-ai/cordis'\n"
+            "import { Context } from '@onprem-ai/cordis'\n"
             "export const name = 'python-sdk-blackbox-plugin'\n"
             "export const inject = ['systemPrompt']\n"
             "export function apply(ctx) {\n"
@@ -1534,7 +1534,7 @@ def smoke_sdk_snapshot(base_url: str, executable: Path, update_snapshots: bool) 
             ).as_uri(), "config": {
                 "parentSessionId": SNAPSHOT_SESSION_ID, "prompt": SNAPSHOT_WORKFLOW_CHILD_PROMPT,
             }},
-            {"id": "snapshot-message-feedback", "name": "@deepseek-ai/dsh-message-feedback",
+            {"id": "snapshot-message-feedback", "name": "@onprem-ai/dsh-message-feedback",
              "config": {"maxNoteBytes": 1024}},
             {"id": "snapshot-feedback-producer", "name": (
                 Path(__file__).resolve().parent.parent / "snapshots/sdk/text-turn/feedback-producer.mjs"

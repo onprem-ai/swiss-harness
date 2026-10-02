@@ -1,21 +1,21 @@
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@onprem-ai/cordis'
 import { afterEach, describe, expect, it, onTestFinished, vi } from 'vitest'
-import { SessionSeq } from '@deepseek-ai/dsh-session/types'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { createAssistantMessage, LlmAttemptId } from '@deepseek-ai/dsh-llm'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
+import { SessionSeq } from '@onprem-ai/dsh-session/types'
+import type { SessionId } from '@onprem-ai/dsh-session/types'
+import { createAssistantMessage, LlmAttemptId } from '@onprem-ai/dsh-llm'
+import { createSnapshotStore } from '@onprem-ai/dsh-client-store'
 import {
   createScope, MutableSessionEventSource,
-} from '@deepseek-ai/dsh-api-session-controller/client'
+} from '@onprem-ai/dsh-api-session-controller/client'
 import type {
   ISessions, SessionBinding, SessionEventLike, SessionFace, SessionListState, SessionSnapshot,
-} from '@deepseek-ai/dsh-api-session-controller/client'
+} from '@onprem-ai/dsh-api-session-controller/client'
 import {
   ConversationEventRegistry, ConversationNodeAssembler, ConversationViewRegistry, UiConversation,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@onprem-ai/dsh-client-ui-conversation/client'
 import type {
   ConversationNodeDefinition, ConversationViewDefinition, ConversationViewNode,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@onprem-ai/dsh-client-ui-conversation/client'
 
 const SESSION_ID = 'resident' as SessionId
 

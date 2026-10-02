@@ -1,13 +1,13 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { stubConfigForm, type StubConfigForm } from '@deepseek-ai/dsh-client-test-runtime'
+import { Context } from '@onprem-ai/cordis'
+import { stubConfigForm, type StubConfigForm } from '@onprem-ai/dsh-client-test-runtime'
 import type {
   ThemeSettings,
   ThemeSnapshot,
   ThemeTokenOverrides,
-} from '@deepseek-ai/dsh-client-ui-theme/client'
-import { ThemeRuntime } from '@deepseek-ai/dsh-client-ui-theme/client'
+} from '@onprem-ai/dsh-client-ui-theme/client'
+import { ThemeRuntime } from '@onprem-ai/dsh-client-ui-theme/client'
 
 const make = (host = stubConfigForm<ThemeSettings>()): {
   ctx: Context

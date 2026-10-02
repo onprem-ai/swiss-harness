@@ -4,12 +4,12 @@
 
 - insert:
     - id: tool-str-replace-editor
-      name: '@deepseek-ai/dsh-tool-str-replace-editor'
+      name: '@onprem-ai/dsh-tool-str-replace-editor'
       config:
         maxOutputChars: 16000
 
 - id: llm-deepseek
-  name: '@deepseek-ai/dsh-llm-deepseek-api-key'
+  name: '@onprem-ai/dsh-llm-deepseek-api-key'
   config:
     apiKeyEnv: DEEPSEEK_API_KEY
     streamIdleTimeoutMs: 172800000
@@ -18,139 +18,139 @@
         contextWindow: !!js Number(process.env.DSH_CONTEXT_WINDOW ?? 1000000)
 
 - id: sandbox-policy
-  name: '@deepseek-ai/dsh-sandbox-policy'
+  name: '@onprem-ai/dsh-sandbox-policy'
   config:
     mode: danger-full-access
     workspaceRoot: !!js process.cwd()
 
 - id: approval
-  name: '@deepseek-ai/dsh-user-approval'
+  name: '@onprem-ai/dsh-user-approval'
   config:
     policy: never
 
 - id: permission
-  name: '@deepseek-ai/dsh-permission-presets'
+  name: '@onprem-ai/dsh-permission-presets'
   disabled: true
 
 - id: bash-sandbox
-  name: '@deepseek-ai/dsh-bash-sandbox'
+  name: '@onprem-ai/dsh-bash-sandbox'
   disabled: true
 
 - id: pwsh-sandbox
-  name: '@deepseek-ai/dsh-pwsh-sandbox'
+  name: '@onprem-ai/dsh-pwsh-sandbox'
   disabled: true
 
 - id: fs-sandbox
-  name: '@deepseek-ai/dsh-fs-sandbox'
+  name: '@onprem-ai/dsh-fs-sandbox'
   disabled: true
 
 - id: tool-bash
-  name: '@deepseek-ai/dsh-tool-bash'
+  name: '@onprem-ai/dsh-tool-bash'
   disabled: true
 
 - id: tool-pwsh
-  name: '@deepseek-ai/dsh-tool-pwsh'
+  name: '@onprem-ai/dsh-tool-pwsh'
   disabled: true
 
 - id: agent-instructions
-  name: '@deepseek-ai/dsh-agent-instructions'
+  name: '@onprem-ai/dsh-agent-instructions'
   disabled: true
 
 - id: skill
-  name: '@deepseek-ai/dsh-skill'
+  name: '@onprem-ai/dsh-skill'
   disabled: true
 
 - id: skill-filesystem
-  name: '@deepseek-ai/dsh-skill-filesystem'
+  name: '@onprem-ai/dsh-skill-filesystem'
   disabled: true
 
 - id: tool-skill
-  name: '@deepseek-ai/dsh-tool-skill'
+  name: '@onprem-ai/dsh-tool-skill'
   disabled: true
 
 - id: tool-jobs
-  name: '@deepseek-ai/dsh-tool-jobs'
+  name: '@onprem-ai/dsh-tool-jobs'
   disabled: true
 
 - id: tool-fs
-  name: '@deepseek-ai/dsh-tool-fs'
+  name: '@onprem-ai/dsh-tool-fs'
   disabled: true
 
 - id: tool-fs-search
-  name: '@deepseek-ai/dsh-tool-fs-search'
+  name: '@onprem-ai/dsh-tool-fs-search'
   disabled: true
 
 - id: tool-subagent-control
-  name: '@deepseek-ai/dsh-tool-subagent-control'
+  name: '@onprem-ai/dsh-tool-subagent-control'
   disabled: true
 
 - id: tool-subagent-list-agents
-  name: '@deepseek-ai/dsh-tool-subagent-control/list-agents'
+  name: '@onprem-ai/dsh-tool-subagent-control/list-agents'
   disabled: true
 
 - id: tool-subagent
-  name: '@deepseek-ai/dsh-tool-subagent'
+  name: '@onprem-ai/dsh-tool-subagent'
   disabled: true
 
 - id: tool-subagent-fork
-  name: '@deepseek-ai/dsh-tool-subagent'
+  name: '@onprem-ai/dsh-tool-subagent'
   disabled: true
 
 - id: tool-workflow
-  name: '@deepseek-ai/dsh-tool-workflow'
+  name: '@onprem-ai/dsh-tool-workflow'
   disabled: true
 
 - id: tool-todo
-  name: '@deepseek-ai/dsh-tool-todo'
+  name: '@onprem-ai/dsh-tool-todo'
   disabled: true
 
 - id: tool-goal
-  name: '@deepseek-ai/dsh-tool-goal'
+  name: '@onprem-ai/dsh-tool-goal'
   disabled: true
 
 - id: tool-ralph
-  name: '@deepseek-ai/dsh-tool-ralph'
+  name: '@onprem-ai/dsh-tool-ralph'
   disabled: true
 
 - id: tool-web
-  name: '@deepseek-ai/dsh-tool-web'
+  name: '@onprem-ai/dsh-tool-web'
   disabled: true
 
 - id: plan-mode
-  name: '@deepseek-ai/dsh-plan-mode'
+  name: '@onprem-ai/dsh-plan-mode'
   disabled: true
 
 - id: system-prompt
-  name: '@deepseek-ai/dsh-system-prompt'
+  name: '@onprem-ai/dsh-system-prompt'
   config:
     includeHarnessIdentity: false
     personaPrefix: !!js process.env.DSH_SYSTEM_PROMPT ?? 'You are a helpful software engineer assistant.'
 
 - id: session-persistence-jsonl
-  name: '@deepseek-ai/dsh-session-persistence-jsonl'
+  name: '@onprem-ai/dsh-session-persistence-jsonl'
   config:
     root: !!js dshHomePath('sessions')
     compression: none
 
 - insert:
     - id: bash-local
-      name: '@deepseek-ai/dsh-bash-local'
+      name: '@onprem-ai/dsh-bash-local'
 
     - id: fs-local
-      name: '@deepseek-ai/dsh-fs-local'
+      name: '@onprem-ai/dsh-fs-local'
       config:
         cwd: !!js process.cwd()
 
     - id: terminal
-      name: '@deepseek-ai/dsh-terminal'
+      name: '@onprem-ai/dsh-terminal'
 
     - id: terminal-bash
-      name: '@deepseek-ai/dsh-terminal-bash'
+      name: '@onprem-ai/dsh-terminal-bash'
       config:
         timeoutMs: 300000
 
     - id: persistent-bash
-      name: '@deepseek-ai/dsh-tool-bash-persistent'
+      name: '@onprem-ai/dsh-tool-bash-persistent'
       config:
         timeoutMs: 300000
         description: |-

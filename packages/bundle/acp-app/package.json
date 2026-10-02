@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-acp-app",
+  "name": "@onprem-ai/dsh-acp-app",
   "description": "The dsh ACP profile bundle: automation-only JSON-RPC stdio and process lifecycle over dsh-base",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -34,15 +34,15 @@
     }
   },
   "dependencies": {
-    "@deepseek-ai/dsh-acp": "workspace:*",
-    "@deepseek-ai/dsh-cmdline": "workspace:*",
+    "@onprem-ai/dsh-acp": "workspace:*",
+    "@onprem-ai/dsh-cmdline": "workspace:*",
     "commander": "^15.0.0"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis-plugin-include": "workspace:~",
+    "@onprem-ai/cordis": "workspace:~"
   }
 }

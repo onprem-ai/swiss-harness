@@ -5,7 +5,7 @@
  * PowerShell can execute them even when the package lives inside ASAR or SEA.
  * Disposing the registration removes both the provider and its resource copy.
  *
- * @module @deepseek-ai/dsh-sandbox-windows-acl
+ * @module @onprem-ai/dsh-sandbox-windows-acl
  */
 
 import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
@@ -13,8 +13,8 @@ import { readFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import type { Context } from '@deepseek-ai/cordis'
-import { BUNDLED_SKILL_RANK, type SkillCandidate, type SkillProvider } from '@deepseek-ai/dsh-skill'
+import type { Context } from '@onprem-ai/cordis'
+import { BUNDLED_SKILL_RANK, type SkillCandidate, type SkillProvider } from '@onprem-ai/dsh-skill'
 import { parse as parseYaml } from 'yaml'
 
 /** Bundled skill that diagnoses Windows sandbox ACL failures. */

@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-fs-ssh",
+  "name": "@onprem-ai/dsh-fs-ssh",
   "description": "Filesystem provider over the shared POSIX SSH helper",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -27,21 +27,21 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-ssh": "workspace:*",
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-ssh": "workspace:*",
+    "@onprem-ai/dsh-fs": "workspace:*",
+    "@onprem-ai/dsh-sandbox": "workspace:*",
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@onprem-ai/schemastery": "workspace:~",
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-ssh": "workspace:*",
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-ssh": "workspace:*",
+    "@onprem-ai/dsh-fs": "workspace:*",
+    "@onprem-ai/dsh-sandbox": "workspace:*",
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*"
   }
 }

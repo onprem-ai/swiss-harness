@@ -12,13 +12,13 @@ import { homedir } from 'node:os'
 import { access } from 'node:fs/promises'
 import { resolve as resolvePath } from 'node:path'
 import type { AuthContext, Credential, CredentialInfo, CredentialStore } from '@earendil-works/pi-ai'
-import type { Context } from '@deepseek-ai/cordis'
+import type { Context } from '@onprem-ai/cordis'
 import {
   credentialKey, credentialKeyId, credentialKeyScope, credentialRef, isCredentialKeySegment, isCredentialRefName,
-} from '@deepseek-ai/dsh-credentials'
-import type { CredentialKey, CredentialProvider, CredentialRecord } from '@deepseek-ai/dsh-credentials'
-import { launchEnvironmentOf } from '@deepseek-ai/dsh-launch-environment'
-import { LlmError } from '@deepseek-ai/dsh-llm'
+} from '@onprem-ai/dsh-credentials'
+import type { CredentialKey, CredentialProvider, CredentialRecord } from '@onprem-ai/dsh-credentials'
+import { launchEnvironmentOf } from '@onprem-ai/dsh-launch-environment'
+import { LlmError } from '@onprem-ai/dsh-llm'
 
 /**
  * The record scope every credential this adapter family stores is written

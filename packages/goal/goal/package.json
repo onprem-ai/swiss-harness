@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-goal",
+  "name": "@onprem-ai/dsh-goal",
   "description": "Event-sourced same-session goal state and lifecycle service for the DeepSeek Harness",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -53,36 +53,36 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-invariants": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-invariants": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-scope": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@onprem-ai/schemastery": "workspace:~",
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:*",
-    "@deepseek-ai/dsh-bash-local": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-invariants": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-loader-smoke": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-checkpoint-policy": "workspace:*",
-    "@deepseek-ai/dsh-session-persistence-jsonl": "workspace:*",
-    "@deepseek-ai/dsh-subprocess-local": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-agent-loop": "workspace:*",
+    "@onprem-ai/dsh-agent-loop-testkit": "workspace:*",
+    "@onprem-ai/dsh-bash-local": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-invariants": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-loader-smoke": "workspace:*",
+    "@onprem-ai/dsh-scope": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-checkpoint-policy": "workspace:*",
+    "@onprem-ai/dsh-session-persistence-jsonl": "workspace:*",
+    "@onprem-ai/dsh-subprocess-local": "workspace:*",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   }
 }

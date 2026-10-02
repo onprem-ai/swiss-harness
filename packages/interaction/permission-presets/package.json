@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-permission-presets",
+  "name": "@onprem-ai/dsh-permission-presets",
   "description": "User-facing permission presets (ctx.permissionPresets) for the DeepSeek Harness: one product-level Permissions select bundling the sandbox-mode and approval-policy knobs, written through to their own session events",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -53,32 +53,32 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-shell": "workspace:*",
-    "@deepseek-ai/dsh-commands": "workspace:*",
-    "@deepseek-ai/dsh-invariants": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-user-approval": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-shell": "workspace:*",
+    "@onprem-ai/dsh-commands": "workspace:*",
+    "@onprem-ai/dsh-invariants": "workspace:*",
+    "@onprem-ai/dsh-sandbox": "workspace:*",
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*",
+    "@onprem-ai/dsh-user-approval": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@onprem-ai/schemastery": "workspace:~",
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-shell": "workspace:*",
-    "@deepseek-ai/dsh-commands": "workspace:*",
-    "@deepseek-ai/dsh-invariants": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-user-approval": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-settings": "workspace:*"
+    "@onprem-ai/dsh-shell": "workspace:*",
+    "@onprem-ai/dsh-commands": "workspace:*",
+    "@onprem-ai/dsh-invariants": "workspace:*",
+    "@onprem-ai/dsh-sandbox": "workspace:*",
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*",
+    "@onprem-ai/dsh-user-approval": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-settings": "workspace:*"
   }
 }

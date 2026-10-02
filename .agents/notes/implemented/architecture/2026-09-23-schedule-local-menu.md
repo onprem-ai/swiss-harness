@@ -6,7 +6,7 @@ English | [中文](2026-09-23-schedule-local-menu.zh.md)
 
 ## Problem
 
-The Automation tasks detail needs a menu whose list carries a pinned control: the Time zone row's search field must stay above the scrolling zone rows. The shared `Menu` in `@deepseek-ai/dsh-client-ui-primitives` renders rows, separators, labels, a selection mark, and a keyboard walk, but it has no header slot. The Delivery records tab shows a saved record's message id behind an info glyph, and the reader must be able to read and copy that id.
+The Automation tasks detail needs a menu whose list carries a pinned control: the Time zone row's search field must stay above the scrolling zone rows. The shared `Menu` in `@onprem-ai/dsh-client-ui-primitives` renders rows, separators, labels, a selection mark, and a keyboard walk, but it has no header slot. The Delivery records tab shows a saved record's message id behind an info glyph, and the reader must be able to read and copy that id.
 
 Serving either need by extending `ui-primitives` puts one feature's behavior into the package every client plugin consumes. The same branch had already removed unrelated `ui-layout` and `ui-sidebar-right` edits after review asked why a Schedule change touched them, and a shared primitive extended for a single caller still costs every future reader of that primitive.
 

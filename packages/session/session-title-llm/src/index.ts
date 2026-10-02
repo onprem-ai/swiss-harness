@@ -1,34 +1,34 @@
 /**
  * Shared route, framing, timeout, assembly, and validation policy for
  * model-backed session-title providers.
- * @module @deepseek-ai/dsh-session-title-llm
+ * @module @onprem-ai/dsh-session-title-llm
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { createUserMessage, BlockAssembler } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-declare module '@deepseek-ai/dsh-llm' {
+import type { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
+import { createUserMessage, BlockAssembler } from '@onprem-ai/dsh-llm'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'dsh-session-title-llm': { kind: 'dsh-session-title-llm' } & ContextFormed
   }
 }
 
-import type { FinishReason, GenerateOptions, Message } from '@deepseek-ai/dsh-llm'
-import { deadline, MAX_TIMER_DELAY_MS } from '@deepseek-ai/dsh-timeout'
-import { deepFreeze } from '@deepseek-ai/dsh-util-values'
-import type { SessionSeq } from '@deepseek-ai/dsh-session'
+import type { FinishReason, GenerateOptions, Message } from '@onprem-ai/dsh-llm'
+import { deadline, MAX_TIMER_DELAY_MS } from '@onprem-ai/dsh-timeout'
+import { deepFreeze } from '@onprem-ai/dsh-util-values'
+import type { SessionSeq } from '@onprem-ai/dsh-session'
 import {
   normalizeSessionTitle,
   SessionTitleProviderId,
-} from '@deepseek-ai/dsh-session-title'
+} from '@onprem-ai/dsh-session-title'
 import type {
   SessionTitleAutomaticMode,
   SessionTitleModelIdentity,
   SessionTitleProviderRequest,
   SessionTitleProviderResult,
   SessionTitleUserMessage,
-} from '@deepseek-ai/dsh-session-title'
+} from '@onprem-ai/dsh-session-title'
 
 /** Exact model-visible request recorded before one auxiliary title dispatch. */
 export interface SessionTitleLlmRequestEventData {
@@ -46,7 +46,7 @@ export interface SessionTitleLlmRequestEventData {
   readonly maxTokens: number
 }
 
-declare module '@deepseek-ai/dsh-session/types' {
+declare module '@onprem-ai/dsh-session/types' {
   interface SessionEventMap {
     /** Log-only pre-dispatch record of one session-title model request. */
     'session/title-llm-request': SessionTitleLlmRequestEventData

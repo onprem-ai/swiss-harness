@@ -9,19 +9,19 @@
  */
 
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry, { agentEvents } from '@deepseek-ai/dsh-agent'
-import type { Agent, AgentStatus } from '@deepseek-ai/dsh-agent'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import SessionStore from '@deepseek-ai/dsh-session'
-import type { Session } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import GoalService, { GoalId, applyGoalProjection, foldGoal, goalProjectionDefinition } from '@deepseek-ai/dsh-goal'
-import type { GoalProjection, GoalProjectionState, GoalRef } from '@deepseek-ai/dsh-goal'
-import { unsupportedInbox } from '@deepseek-ai/dsh-agent-loop-testkit'
+import { Context } from '@onprem-ai/cordis'
+import AgentRegistry, { agentEvents } from '@onprem-ai/dsh-agent'
+import type { Agent, AgentStatus } from '@onprem-ai/dsh-agent'
+import { createUserMessage } from '@onprem-ai/dsh-llm'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
+import SessionStore from '@onprem-ai/dsh-session'
+import type { Session } from '@onprem-ai/dsh-session'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
+import GoalService, { GoalId, applyGoalProjection, foldGoal, goalProjectionDefinition } from '@onprem-ai/dsh-goal'
+import type { GoalProjection, GoalProjectionState, GoalRef } from '@onprem-ai/dsh-goal'
+import { unsupportedInbox } from '@onprem-ai/dsh-agent-loop-testkit'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'test': { kind: 'test' } & ContextFormed
   }

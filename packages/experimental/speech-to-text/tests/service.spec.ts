@@ -1,6 +1,6 @@
 /** Provider routing, cancellation, and fiber-owned registration lifetimes. */
-import { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
+import { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
 import { describe, expect, it, vi } from 'vitest'
 import SpeechToText from '../src/index.ts'
 import type { SpeechPreparationState, SpeechProvider, SpeechProviderId, Transcript } from '../src/types.ts'

@@ -1,9 +1,9 @@
-/** Local durable attachment backend rooted below `DSH_HOME`. @module @deepseek-ai/dsh-attachment-local */
+/** Local durable attachment backend rooted below `DSH_HOME`. @module @onprem-ai/dsh-attachment-local */
 
 import { join } from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { AttachmentStore } from '@deepseek-ai/dsh-attachment'
+import { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
+import { AttachmentStore } from '@onprem-ai/dsh-attachment'
 import type {
   FileAttachmentRef,
   ImageAttachmentLimits,
@@ -14,8 +14,8 @@ import type {
   SaveFileStreamAttachment,
   SaveImageAttachment,
   StoredImageAttachment,
-} from '@deepseek-ai/dsh-attachment'
-import { dshCachePath, resolveDshHome } from '@deepseek-ai/dsh-home-paths'
+} from '@onprem-ai/dsh-attachment'
+import { dshCachePath, resolveDshHome } from '@onprem-ai/dsh-home-paths'
 import type { NormalizationPolicy } from './normalization.ts'
 import { CompressionLimiter, compressionFailure } from './compression-limiter.ts'
 import { commitPreparedImageFile, normalizedImagePath, prepareImageFile, readImageFile, validateImageFile } from './store.ts'

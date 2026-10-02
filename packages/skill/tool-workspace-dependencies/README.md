@@ -3,7 +3,7 @@ description: "The load_workspace_dependencies tool: absolute paths into a bundle
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-tool-workspace-dependencies
+# @onprem-ai/dsh-tool-workspace-dependencies
 
 English | [中文](README.zh.md)
 
@@ -25,12 +25,12 @@ Deployments that ship their own script runtimes (Desktop's primary runtime, or a
 <a id="use-this-package"></a>
 ## Use this package
 
-Mount the plugin beside the tool registry with the payload directory. Configuration validation requires a nonempty `source` and rejects empty `root` values before activation; both paths must be absolute. The bundled Office skills (`@deepseek-ai/dsh-skill-office`) reference this tool by name for their default interpreter.
+Mount the plugin beside the tool registry with the payload directory. Configuration validation requires a nonempty `source` and rejects empty `root` values before activation; both paths must be absolute. The bundled Office skills (`@onprem-ai/dsh-skill-office`) reference this tool by name for their default interpreter.
 
 ### Minimal configuration
 
 ```yaml
-- name: '@deepseek-ai/dsh-tool-workspace-dependencies'
+- name: '@onprem-ai/dsh-tool-workspace-dependencies'
   config:
     source: /path/to/primary-runtime
 ```
@@ -86,7 +86,7 @@ A container can copy both directories into an immutable image layer and set `DSH
 
 #### What the model sees
 
-The model sees the generated [`load_workspace_dependencies` schema](../../../docs/tool-catalog.md#deepseek-aidsh-tool-workspace-dependencies).
+The model sees the generated [`load_workspace_dependencies` schema](../../../docs/tool-catalog.md#onprem-aidsh-tool-workspace-dependencies).
 
 #### Token effect
 

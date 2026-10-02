@@ -1,28 +1,28 @@
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import AgentRegistry, { agentEvents } from '@deepseek-ai/dsh-agent'
-import type { Agent, AgentStatus, Inbox } from '@deepseek-ai/dsh-agent'
-import { turnBoundaryProjectionDefinition } from '@deepseek-ai/dsh-agent-loop'
-import GoalService, { GoalId } from '@deepseek-ai/dsh-goal'
-import type { GoalRef } from '@deepseek-ai/dsh-goal'
-import { createUserMessage, ToolCallId } from '@deepseek-ai/dsh-llm'
-import type { MessageSource } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
+import { Context } from '@onprem-ai/cordis'
+import Loader from '@onprem-ai/cordis-plugin-loader'
+import AgentRegistry, { agentEvents } from '@onprem-ai/dsh-agent'
+import type { Agent, AgentStatus, Inbox } from '@onprem-ai/dsh-agent'
+import { turnBoundaryProjectionDefinition } from '@onprem-ai/dsh-agent-loop'
+import GoalService, { GoalId } from '@onprem-ai/dsh-goal'
+import type { GoalRef } from '@onprem-ai/dsh-goal'
+import { createUserMessage, ToolCallId } from '@onprem-ai/dsh-llm'
+import type { MessageSource } from '@onprem-ai/dsh-llm'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
 import SessionStore, {
   SESSION_FORMAT_VERSION,
   Session,
   SessionId,
   SessionLogOffset,
-} from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import type { ToolExecutionResult } from '@deepseek-ai/dsh-tools'
-import * as toolGoal from '@deepseek-ai/dsh-tool-goal'
-import { createInboxStub } from '@deepseek-ai/dsh-agent-loop-testkit'
+} from '@onprem-ai/dsh-session'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
+import SystemPrompt from '@onprem-ai/dsh-system-prompt'
+import ToolRuntime from '@onprem-ai/dsh-tools'
+import type { ToolExecutionResult } from '@onprem-ai/dsh-tools'
+import * as toolGoal from '@onprem-ai/dsh-tool-goal'
+import { createInboxStub } from '@onprem-ai/dsh-agent-loop-testkit'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'test': { kind: 'test' } & ContextFormed
   }

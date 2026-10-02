@@ -8,8 +8,8 @@
  * select one by name.
  *
  * This package owns the Service Definition role of the capability seam. Service Providers
- * (`@deepseek-ai/dsh-subagent-spawn-in-process`, `-fork`, `-acp`) and the model-facing
- * consumer (`@deepseek-ai/dsh-tool-subagent`) are separate packages.
+ * (`@onprem-ai/dsh-subagent-spawn-in-process`, `-fork`, `-acp`) and the model-facing
+ * consumer (`@onprem-ai/dsh-tool-subagent`) are separate packages.
  *
  * Public operations express caller intent: `start` returns one published owned
  * one-shot run, `startContinuable` establishes a durable continuable child, and
@@ -26,21 +26,21 @@
  * serialization and hostile-input validation belong at real process, worker,
  * persistence, and model boundaries.
  *
- * @module @deepseek-ai/dsh-subagent
+ * @module @onprem-ai/dsh-subagent
  */
-import type { Volatile } from '@deepseek-ai/cordis'
+import type { Volatile } from '@onprem-ai/cordis'
 
-import { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import type {} from '@deepseek-ai/dsh-attachment'
-import { scopeTarget } from '@deepseek-ai/dsh-scope'
-import type { Scoped } from '@deepseek-ai/dsh-scope'
-import { assertObjectJsonSchema } from '@deepseek-ai/dsh-tools'
-import type { ContentBlock, MessageId, MessageSource } from '@deepseek-ai/dsh-llm'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type { SessionId } from '@deepseek-ai/dsh-session'
-import { canonicalClientTimeZone } from '@deepseek-ai/dsh-util-time'
-import { Remote, RemoteError, TypertRemoteService } from '@deepseek-ai/dsh-typert-protocol'
+import { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
+import type {} from '@onprem-ai/dsh-attachment'
+import { scopeTarget } from '@onprem-ai/dsh-scope'
+import type { Scoped } from '@onprem-ai/dsh-scope'
+import { assertObjectJsonSchema } from '@onprem-ai/dsh-tools'
+import type { ContentBlock, MessageId, MessageSource } from '@onprem-ai/dsh-llm'
+import type { Agent } from '@onprem-ai/dsh-agent'
+import type { SessionId } from '@onprem-ai/dsh-session'
+import { canonicalClientTimeZone } from '@onprem-ai/dsh-util-time'
+import { Remote, RemoteError, TypertRemoteService } from '@onprem-ai/dsh-typert-protocol'
 import {
   rejectPrompt, validateControlRequest,
 } from './control.ts'
@@ -134,7 +134,7 @@ export type { SubagentDescendantListEntry } from './list-children.ts'
 export type { SubagentRunEndInfo, SubagentRunInfo } from './types.ts'
 export type { SubagentIdentityProjection, SubagentTimingProjection } from './projection-types.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Context {
     subagents: SubagentRuntime
   }

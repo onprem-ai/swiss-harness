@@ -10,7 +10,7 @@ JSONL 写入方依赖的 `fs-ext` 在用户安装时编译 NAN addon。因此，
 
 ## Decision
 
-[native/system](../../../../native/system/README.zh.md) 中独立版本的 `@deepseek-ai/node-addon-system` 包族分发既有 `landlock-run` 可执行文件和使用稳定 Node-API v8 的 `system.node` addon。平台包按操作系统和 CPU 选择；Linux 分别携带 glibc 与 musl addon 文件。macOS 携带 addon，但不包含 Landlock 可执行文件。入口包和平台包都不在安装期间编译。
+[native/system](../../../../native/system/README.zh.md) 中独立版本的 `@onprem-ai/node-addon-system` 包族分发既有 `landlock-run` 可执行文件和使用稳定 Node-API v8 的 `system.node` addon。平台包按操作系统和 CPU 选择；Linux 分别携带 glibc 与 musl addon 文件。macOS 携带 addon，但不包含 Landlock 可执行文件。入口包和平台包都不在安装期间编译。
 
 包不提供根导出。`./landlock-run` JavaScript 入口保留 Landlock API 和 [CLI 协议](../../../../native/system/docs/cli-contract.md)。`./flock` 入口仅在调用 `tryLockExclusive(fd)` 时加载 addon。它在异步原生工作中执行 `flock(fd, LOCK_EX | LOCK_NB)`，并在该工作线程保存 errno。调用方在完成前持有描述符，并通过关闭它释放锁。绑定缺失时拒绝获取锁，不授予没有保护的锁。
 

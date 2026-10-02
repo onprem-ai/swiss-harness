@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-plugin-package-inventory-deepseek",
+  "name": "@onprem-ai/dsh-plugin-package-inventory-deepseek",
   "description": "Active Loader-backed plugin package inventory for official DeepSeek LLM API requests",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -32,32 +32,32 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/schemastery": "workspace:~"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-preset-registry": "workspace:*",
-    "@deepseek-ai/dsh-deepseek-llm-api-extensions": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-agent-preset-registry": "workspace:*",
+    "@onprem-ai/dsh-deepseek-llm-api-extensions": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-agent-preset-registry": {
+    "@onprem-ai/dsh-agent-preset-registry": {
       "optional": true
     }
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-app-boot": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-preset-registry": "workspace:*",
-    "@deepseek-ai/dsh-deepseek-llm-api-extensions": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*"
+    "@onprem-ai/dsh-app-boot": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/cordis-plugin-include": "workspace:~",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-agent-preset-registry": "workspace:*",
+    "@onprem-ai/dsh-deepseek-llm-api-extensions": "workspace:*",
+    "@onprem-ai/dsh-scope": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*"
   }
 }

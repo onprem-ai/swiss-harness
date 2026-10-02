@@ -1,8 +1,8 @@
 /** Threshold-free, built-runtime measurements of historical catalog reads as the corpus grows. */
 
-import { Context } from '@deepseek-ai/cordis'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
+import { Context } from '@onprem-ai/cordis'
+import { SessionId } from '@onprem-ai/dsh-session'
+import JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
 import { spawnSync } from 'node:child_process'
 import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'

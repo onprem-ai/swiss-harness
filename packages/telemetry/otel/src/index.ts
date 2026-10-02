@@ -1,9 +1,9 @@
 /** Cordis entry for independent ordinary-event and Session-log OTLP channels. */
-import { Context, Service } from '@deepseek-ai/cordis'
+import { Context, Service } from '@onprem-ai/cordis'
 import { EventLogReporter, type EventLogOptions } from './event-log.ts'
 import { SessionLogReporter, type SessionLogOptions } from './session-log.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Context {
     otel: OTel
   }

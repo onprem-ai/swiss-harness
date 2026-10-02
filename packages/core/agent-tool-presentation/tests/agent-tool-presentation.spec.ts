@@ -7,19 +7,19 @@
  */
 
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { createScope } from '@deepseek-ai/dsh-scope'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import { PtcRuntime } from '@deepseek-ai/dsh-ptc-runtime'
-import type { PtcRunRequest, PtcRunResult } from '@deepseek-ai/dsh-ptc-runtime'
-import ToolRuntime, { RUN_CODE_NAME, defineTool } from '@deepseek-ai/dsh-tools'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import { apply, Config, inject, name } from '@deepseek-ai/dsh-agent-tool-presentation'
+import { Context } from '@onprem-ai/cordis'
+import { createScope } from '@onprem-ai/dsh-scope'
+import SystemPrompt from '@onprem-ai/dsh-system-prompt'
+import { PtcRuntime } from '@onprem-ai/dsh-ptc-runtime'
+import type { PtcRunRequest, PtcRunResult } from '@onprem-ai/dsh-ptc-runtime'
+import ToolRuntime, { RUN_CODE_NAME, defineTool } from '@onprem-ai/dsh-tools'
+import type { Agent } from '@onprem-ai/dsh-agent'
+import { SessionId } from '@onprem-ai/dsh-session'
+import { apply, Config, inject, name } from '@onprem-ai/dsh-agent-tool-presentation'
 
 /** A runtime that never runs anything: presentation never dispatches. */
 class StubRuntime extends PtcRuntime {
-  resolve(request: import('@deepseek-ai/dsh-ptc-runtime').PtcRunRequest): import('@deepseek-ai/dsh-ptc-runtime').PtcRunSpec { return { ...request, cwd: request.cwd ?? process.cwd(), timeoutMs: request.timeoutMs ?? 120_000 } }
+  resolve(request: import('@onprem-ai/dsh-ptc-runtime').PtcRunRequest): import('@onprem-ai/dsh-ptc-runtime').PtcRunSpec { return { ...request, cwd: request.cwd ?? process.cwd(), timeoutMs: request.timeoutMs ?? 120_000 } }
 
   readonly language = 'typescript'
   readonly isolation = 'stub'

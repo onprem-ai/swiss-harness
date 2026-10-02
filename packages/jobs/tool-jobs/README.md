@@ -3,7 +3,7 @@ description: "The model-facing background-job controls for users and maintainers
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-tool-jobs
+# @onprem-ai/dsh-tool-jobs
 
 English | [中文](README.zh.md)
 
@@ -46,7 +46,7 @@ Waking is unbounded by default: an unattended agent that chains background comma
 Loading the plugin with no config is the common path; a `waitTimeoutMs` above `maxWaitTimeoutMs` fails at load.
 
 ```yaml
-- name: '@deepseek-ai/dsh-tool-jobs'
+- name: '@onprem-ai/dsh-tool-jobs'
 ```
 
 | Field | Default | Meaning |
@@ -56,7 +56,7 @@ Loading the plugin with no config is the common path; a `waitTimeoutMs` above `m
 | `completionDelivery` | `wakeup` | `wakeup` opens a turn on an idle owner; `quiet` leaves the notice pending |
 | `maxConsecutiveWakes` | unset | Turns one owner may open by wake before notices degrade to injection; unset means no cap |
 
-The generated [configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-tool-jobs) is the exhaustive source for every accepted field and its JSDoc.
+The generated [configuration catalog](../../../docs/config-catalog.md#onprem-aidsh-tool-jobs) is the exhaustive source for every accepted field and its JSDoc.
 
 ### What can go wrong
 
@@ -107,8 +107,8 @@ Read these pages when the package-level contract is not enough. They move from t
 - [jobs group map](../README.md) — the sibling group page and its package table.
 - [Registry contract](../jobs/README.md) — the abstract `ctx.jobs` service behind the tools.
 - [Process-local registry](../jobs-local/README.md) — where jobs run in this process.
-- [Generated tool catalog](../../../docs/tool-catalog.md#deepseek-aidsh-tool-jobs) — the exact `job_output`, `job_list`, and `job_kill` schemas.
-- [Generated configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-tool-jobs) — every accepted config field and its source declaration.
+- [Generated tool catalog](../../../docs/tool-catalog.md#onprem-aidsh-tool-jobs) — the exact `job_output`, `job_list`, and `job_kill` schemas.
+- [Generated configuration catalog](../../../docs/config-catalog.md#onprem-aidsh-tool-jobs) — every accepted config field and its source declaration.
 - [job-registry seam Agent Note](../../../.agents/notes/archived/architecture/2026-07-26-job-registry-seam.md) — the owner-fenced registry contract and its rationale.
 
 -----
@@ -140,7 +140,7 @@ Prefix-stable while the plugin scope and guidance text are unchanged. Activation
 
 #### What the model sees
 
-The generated [`job_output`, `job_list`, and `job_kill` schemas](../../../docs/tool-catalog.md#deepseek-aidsh-tool-jobs) while this tool set is visible.
+The generated [`job_output`, `job_list`, and `job_kill` schemas](../../../docs/tool-catalog.md#onprem-aidsh-tool-jobs) while this tool set is visible.
 
 #### Token effect
 

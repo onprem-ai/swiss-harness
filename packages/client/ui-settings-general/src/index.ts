@@ -1,9 +1,9 @@
 /** Welcome acknowledgement stored in the plugin configuration. */
-import type {} from '@deepseek-ai/dsh-settings'
+import type {} from '@onprem-ai/dsh-settings'
 
-import type { Volatile, Context } from '@deepseek-ai/cordis'
+import type { Volatile, Context } from '@onprem-ai/cordis'
 
-import z from '@deepseek-ai/schemastery'
+import z from '@onprem-ai/schemastery'
 
 /** Runtime preferences projected to the browser. */
 export interface Config {

@@ -1,7 +1,7 @@
 /** Observable contiguous Session event window consumed by domain assemblers. */
-import { notifySubscribers, type ObservableSnapshot } from '@deepseek-ai/dsh-client-store'
-import type { LlmAttemptId, StreamChunk } from '@deepseek-ai/dsh-llm'
-import type { SessionEvent } from '@deepseek-ai/dsh-session/types'
+import { notifySubscribers, type ObservableSnapshot } from '@onprem-ai/dsh-client-store'
+import type { LlmAttemptId, StreamChunk } from '@onprem-ai/dsh-llm'
+import type { SessionEvent } from '@onprem-ai/dsh-session/types'
 
 /** Client-only live chunk presentation; `seq` orders the transient row between durable Session seqs. */
 export interface AssistantLiveChunkEvent {

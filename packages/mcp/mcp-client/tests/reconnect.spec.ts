@@ -5,12 +5,12 @@
  * Isolated file so vi.mock of the MCP SDK doesn't pollute other test suites.
  */
 import { describe, expect, it, vi, beforeEach } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import McpResources from '@deepseek-ai/dsh-mcp-resources'
-import { ToolCallId } from '@deepseek-ai/dsh-llm'
-import type { Config } from '@deepseek-ai/dsh-mcp-client'
+import { Context } from '@onprem-ai/cordis'
+import SystemPrompt from '@onprem-ai/dsh-system-prompt'
+import ToolRuntime from '@onprem-ai/dsh-tools'
+import McpResources from '@onprem-ai/dsh-mcp-resources'
+import { ToolCallId } from '@onprem-ai/dsh-llm'
+import type { Config } from '@onprem-ai/dsh-mcp-client'
 
 // ---- Mock MCP SDK ----
 
@@ -55,8 +55,8 @@ vi.mock('@modelcontextprotocol/client/stdio', () => ({
 
 // vi.mock is hoisted above static imports, so the modules under test see the
 // mocked SDK even through a static import.
-import { apply } from '@deepseek-ai/dsh-mcp-client/src/index.ts'
-import { RECONNECT_DEFAULTS, resolveReconnectPolicy, startConnection } from '@deepseek-ai/dsh-mcp-client/src/connection.ts'
+import { apply } from '@onprem-ai/dsh-mcp-client/src/index.ts'
+import { RECONNECT_DEFAULTS, resolveReconnectPolicy, startConnection } from '@onprem-ai/dsh-mcp-client/src/connection.ts'
 
 // ---- Helpers ----
 

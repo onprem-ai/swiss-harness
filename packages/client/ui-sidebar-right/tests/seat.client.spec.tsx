@@ -3,19 +3,19 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, fireEvent } from '@testing-library/react'
 import { useEffect, useState, useSyncExternalStore } from 'react'
-import { SlotTestRuntime, type SlotView } from '@deepseek-ai/dsh-client-test-runtime'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
-import type { ShortcutCatalogEntry, ShortcutCommandId } from '@deepseek-ai/dsh-client-shortcuts/client'
-import type { PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
-import type { MainPanelId } from '@deepseek-ai/dsh-client-ui-layout/client'
-import type { PaneId, SplitId, TabId } from '@deepseek-ai/dsh-client-ui-dockkit'
-import { dockPaneIds, getPane } from '@deepseek-ai/dsh-client-ui-dockkit'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+import { SlotTestRuntime, type SlotView } from '@onprem-ai/dsh-client-test-runtime'
+import { LocaleRuntime } from '@onprem-ai/dsh-client-locale/client'
+import { createSnapshotStore } from '@onprem-ai/dsh-client-store'
+import type { ShortcutCatalogEntry, ShortcutCommandId } from '@onprem-ai/dsh-client-shortcuts/client'
+import type { PropsRuntime } from '@onprem-ai/dsh-client-ui-slots'
+import type { MainPanelId } from '@onprem-ai/dsh-client-ui-layout/client'
+import type { PaneId, SplitId, TabId } from '@onprem-ai/dsh-client-ui-dockkit'
+import { dockPaneIds, getPane } from '@onprem-ai/dsh-client-ui-dockkit'
+import type { SessionId } from '@onprem-ai/dsh-session/types'
 import { apply, inject } from '../src/client/index.ts'
 import { intentsFor } from '../src/client/shell/SidebarRight.tsx'
 import { registerSidebarShortcuts } from '../src/client/shortcuts.ts'
-import { ShortcutRegistry } from '@deepseek-ai/dsh-client-shortcuts/src/client/registry.ts'
+import { ShortcutRegistry } from '@onprem-ai/dsh-client-shortcuts/src/client/registry.ts'
 import type { SidebarRightTabInfo, SidebarRightTabMenuOwnerProps } from '../src/client/contract/slots.ts'
 import type { createSidebarRightStore } from '../src/client/stores.ts'
 
@@ -25,7 +25,7 @@ declare module '../src/client/contract/params.ts' {
   }
 }
 
-declare module '@deepseek-ai/dsh-client-ui-slots' {
+declare module '@onprem-ai/dsh-client-ui-slots' {
   interface SlotMap {
     /** A Conversation-column stand-in rendered before the seat, opening a resource as soon as a seat is mounted. */
     'sidebar-right.test.opener': { kind: 'single'; scope: 'session'; owner: { armed: boolean } }

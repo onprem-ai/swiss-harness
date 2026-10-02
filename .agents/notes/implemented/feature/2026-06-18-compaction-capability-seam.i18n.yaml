@@ -12,8 +12,8 @@
   en: a15c7c13f167e5ac
   zh: 63bcc2ef60c2f344
 /agent-note-compaction-as-a-capability-seam-abstract-contract-basic-backend/decision/compaction-is-a-capability-seam-with-separate-service-definition-and-service-provider-roles:
-  en: 785c69730accbb4d
-  zh: ee9bd2a8a7dc3b72
+  en: d2e688367812ab26
+  zh: d64c781c68edaa70
 /agent-note-compaction-as-a-capability-seam-abstract-contract-basic-backend/decision/the-contract-depends-on-dsh-session-and-dsh-llm-a-deliberate-deviation:
   en: 5c07a5a6429f6752
   zh: 8bf83da6e0563a66

@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-experimental-browser-use-runtime",
+  "name": "@onprem-ai/dsh-experimental-browser-use-runtime",
   "description": "Session-owned browser resource lifecycles and MCP integration for experimental providers",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -32,35 +32,35 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-browser-use": "workspace:*",
-    "@deepseek-ai/dsh-mcp-client": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-browser-use": "workspace:*",
+    "@onprem-ai/dsh-mcp-client": "workspace:*",
+    "@onprem-ai/dsh-scope": "workspace:*",
+    "@onprem-ai/dsh-tools": "workspace:*",
+    "@onprem-ai/dsh-system-prompt": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@onprem-ai/schemastery": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-browser-use": "workspace:*",
-    "@deepseek-ai/dsh-mcp-client": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*",
-    "@deepseek-ai/dsh-mcp-resources": "workspace:*",
-    "@deepseek-ai/dsh-ptc-runtime": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/dsh-attachment-local": "workspace:*",
-    "@deepseek-ai/dsh-session-persistence-jsonl": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-browser-use": "workspace:*",
+    "@onprem-ai/dsh-mcp-client": "workspace:*",
+    "@onprem-ai/dsh-scope": "workspace:*",
+    "@onprem-ai/dsh-tools": "workspace:*",
+    "@onprem-ai/dsh-agent-loop-testkit": "workspace:*",
+    "@onprem-ai/dsh-agent-loop": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-system-prompt": "workspace:*",
+    "@onprem-ai/dsh-mcp-resources": "workspace:*",
+    "@onprem-ai/dsh-ptc-runtime": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/cordis-plugin-include": "workspace:~",
+    "@onprem-ai/dsh-attachment-local": "workspace:*",
+    "@onprem-ai/dsh-session-persistence-jsonl": "workspace:*"
   }
 }

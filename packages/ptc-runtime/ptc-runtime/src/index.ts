@@ -1,12 +1,12 @@
 /**
  * Service Definition for the PTC execution capability seam that runs one model-written program against host async bindings.
  * Runtimes know nothing about tools or sessions; consumers own those concerns.
- * @module @deepseek-ai/dsh-ptc-runtime
+ * @module @onprem-ai/dsh-ptc-runtime
  */
 
-import { Context, Service } from '@deepseek-ai/cordis'
+import { Context, Service } from '@onprem-ai/cordis'
 import type { PtcRunRequest, PtcRunResult, PtcRunSpec } from './types.ts'
-import type { SandboxMode } from '@deepseek-ai/dsh-sandbox'
+import type { SandboxMode } from '@onprem-ai/dsh-sandbox'
 
 export type {
   PtcBindingErrorClass,
@@ -88,7 +88,7 @@ export const PORTABLE_RESERVED_WORDS: ReadonlySet<string> = new Set([
   'global', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'match', 'type', '_',
 ])
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Context {
     ptcRuntime: PtcRuntime
   }

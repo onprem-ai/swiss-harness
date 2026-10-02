@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-web-search-deepseek",
+  "name": "@onprem-ai/dsh-web-search-deepseek",
   "description": "DeepSeek-backed search provider (native web_search via the Anthropic-compatible API) for the DeepSeek Harness web capability seam (ctx.web)",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -27,30 +27,30 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-credentials": "workspace:*",
-    "@deepseek-ai/dsh-deepseek-account": "workspace:*",
-    "@deepseek-ai/dsh-launch-environment": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-web": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-credentials": "workspace:*",
+    "@onprem-ai/dsh-deepseek-account": "workspace:*",
+    "@onprem-ai/dsh-launch-environment": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-web": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@onprem-ai/schemastery": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-credentials": "workspace:*",
-    "@deepseek-ai/dsh-credentials-local": "workspace:*",
-    "@deepseek-ai/dsh-deepseek-account": "workspace:*",
-    "@deepseek-ai/dsh-launch-environment": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-web": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-http-proxy": "workspace:*"
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-credentials": "workspace:*",
+    "@onprem-ai/dsh-credentials-local": "workspace:*",
+    "@onprem-ai/dsh-deepseek-account": "workspace:*",
+    "@onprem-ai/dsh-launch-environment": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-web": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-http-proxy": "workspace:*"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-deepseek-account": {
+    "@onprem-ai/dsh-deepseek-account": {
       "optional": true
     }
   }

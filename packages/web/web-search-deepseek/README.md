@@ -3,7 +3,7 @@ description: "The DeepSeek-backed search provider for ctx.web: how deployments m
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-web-search-deepseek
+# @onprem-ai/dsh-web-search-deepseek
 
 English | [中文](README.zh.md)
 
@@ -36,8 +36,8 @@ Choose this backend when a deployment wants DeepSeek's native server-side web se
 Load the web service and the provider; the key resolves from `ctx.credentials` when that service is mounted, otherwise from the process environment. The auxiliary search call has its own endpoint setting and uses the Anthropic-compatible base `https://api.deepseek.com/anthropic/v1`, with `/messages` appended. It reads `$DEEPSEEK_SEARCH_BASE_URL`, independently of the conversation adapter’s `$DEEPSEEK_BASE_URL`.
 
 ```yaml
-- name: '@deepseek-ai/dsh-web'
-- name: '@deepseek-ai/dsh-web-search-deepseek'
+- name: '@onprem-ai/dsh-web'
+- name: '@onprem-ai/dsh-web-search-deepseek'
   config:
     apiKeyEnv: DEEPSEEK_API_KEY
     baseURL: https://gateway.internal/anthropic/v1
@@ -53,7 +53,7 @@ Load the web service and the provider; the key resolves from `ctx.credentials` w
 | `maxTokens` | `4096` | Positive-integer upper bound on generated tokens for the Messages request |
 | `maxUses` | `5` | Positive-integer maximum `web_search` server-tool uses per request |
 
-The generated [configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-web-search-deepseek) lists every accepted field. Each search captures options from the live Config references.
+The generated [configuration catalog](../../../docs/config-catalog.md#onprem-aidsh-web-search-deepseek) lists every accepted field. Each search captures options from the live Config references.
 
 <a id="authentication"></a>
 ### Authentication
@@ -115,7 +115,7 @@ Read these pages when the package-level contract is not enough. They move from t
 - [Web package map](../README.md) — the six-package family and each role.
 - [dsh-web](../web/README.md) — the web service this provider registers into.
 - [dsh-tool-web](../tool-web/README.md) — the model-facing `web_search` tool that renders this provider's sources.
-- [Generated configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-web-search-deepseek) — every accepted config field and its source declaration.
+- [Generated configuration catalog](../../../docs/config-catalog.md#onprem-aidsh-web-search-deepseek) — every accepted config field and its source declaration.
 - [Web capability seam decision](../../../.agents/notes/implemented/architecture/2026-06-24-web-capability-seam.md) — why search and fetch share one provider-selection service.
 
 -----

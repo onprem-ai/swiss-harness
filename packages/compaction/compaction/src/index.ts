@@ -4,12 +4,12 @@
  * {@link CompactionEngine}. This interface necessarily depends on session and LLM
  * vocabulary; the rationale is in the
  * [compaction Agent Note](../../../../.agents/notes/implemented/feature/2026-06-18-compaction-capability-seam.md).
- * @module @deepseek-ai/dsh-compaction
+ * @module @onprem-ai/dsh-compaction
  */
 
-import { Context, Service } from '@deepseek-ai/cordis'
-import type { Session, SessionSeq } from '@deepseek-ai/dsh-session'
-import type { CommandId } from '@deepseek-ai/dsh-commands/brand'
+import { Context, Service } from '@onprem-ai/cordis'
+import type { Session, SessionSeq } from '@onprem-ai/dsh-session'
+import type { CommandId } from '@onprem-ai/dsh-commands/brand'
 import type { CompactionResult } from './types.ts'
 import type { CompactionCheckpointSource } from './checkpoint.ts'
 
@@ -22,7 +22,7 @@ export { toolPairingBalancedAfter, toolPairingBalancedBefore } from './tool-pair
 export { compactCheckpointSource, isCompactCheckpointSource } from './checkpoint.ts'
 export type { CompactionCheckpointSource } from './checkpoint.ts'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'compact-checkpoint': CompactionCheckpointSource
   }
@@ -85,7 +85,7 @@ export interface ManualCompactAgentContext extends CompactionAgentContext {
   runMaintenance<T>(task: (signal: AbortSignal) => Promise<T>): Promise<T>
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Context {
     compaction: CompactionEngine
   }

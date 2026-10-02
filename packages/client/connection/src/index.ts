@@ -1,11 +1,11 @@
 /** Host HTTP bridge for browser-client RPC. */
-import type { Context } from '@deepseek-ai/cordis'
+import type { Context } from '@onprem-ai/cordis'
 import type { IncomingMessage, ServerResponse } from 'node:http'
-import z from '@deepseek-ai/schemastery'
-import type {} from '@deepseek-ai/dsh-attachment'
-import type {} from '@deepseek-ai/dsh-credentials'
+import z from '@onprem-ai/schemastery'
+import type {} from '@onprem-ai/dsh-attachment'
+import type {} from '@onprem-ai/dsh-credentials'
 // Activates the webServer Context merge used below.
-import type { WebRoute } from '@deepseek-ai/dsh-host-webserver'
+import type { WebRoute } from '@onprem-ai/dsh-host-webserver'
 import { API_PATH } from './api-path.ts'
 import { bridge, DEFAULT_MAX_REQUEST_BODY_BYTES } from './http-bridge.ts'
 import { assertTrustedAuthority } from './api-request-trust.ts'
@@ -36,7 +36,7 @@ export type {
   RpcMessage,
   ServerResponse,
 } from './rpc.ts'
-export type { PeerId, PeerScope, RemoteInvocation } from '@deepseek-ai/dsh-typert-protocol'
+export type { PeerId, PeerScope, RemoteInvocation } from '@onprem-ai/dsh-typert-protocol'
 export { RpcId, transportError } from './rpc.ts'
 export { OperatorPeer } from './operator-peer.ts'
 export {
@@ -54,7 +54,7 @@ export { API_PATH } from './api-path.ts'
 /** Stable Cordis plugin name. */
 export const name = 'client-connection'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Events {
     /**
      * Admit or wrap an authenticated shared API request, including body transfer.

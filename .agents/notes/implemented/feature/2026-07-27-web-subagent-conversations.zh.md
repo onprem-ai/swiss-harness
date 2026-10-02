@@ -53,7 +53,7 @@ one-shot 行始终会用文案替代输入框，说明执行记录为只读。�
 
 ## 宿主适配器与协议约定
 
-Session Controller 负责 catalog 与 history read；`@deepseek-ai/dsh-subagent` 负责 continuation control：
+Session Controller 负责 catalog 与 history read；`@onprem-ai/dsh-subagent` 负责 continuation control：
 
 - `session.projections` 接受 `sessionId`，返回一次 live-preferred Session observation 的完整 projection 基线，不激活 Agent。Client 将基线写入标准 projection store；subagent 消费者选择 `subagentCatalog`。父 Agent 可用性来自 Session 列表摘要与生命周期事件。
 - `session.page` 与 `session.follow` 接受包含 mode 的完整地址。它们在观察到的 cut 上校验 child header、直接 parent、descriptor identity 与 mode，随后在不发布 Agent 的情况下返回普通 raw event、pagination、live reconciliation 与 Host projection baseline。
@@ -71,7 +71,7 @@ Session Controller 负责 catalog 与 history read；`@deepseek-ai/dsh-subagent`
 
 不依赖 React 的运行时负责目录、单次并发刷新、保留的地址、可用性提示、传输选择，以及每个列表行当前投影值的引用稳定映射。再次选择已知 child 时会保留其地址，避免导航静默切换到普通会话 API。缺失的中间面包屑地址可以从已加载的祖先目录恢复，但在用户选择该面包屑之前不会保留为传输地址，也不会创建 scope。恢复的导航会持久化包含 mode 的完整地址。
 
-目录通过标准 `useSessions` 快照传递。组件局部状态负责菜单可见性、已展开分支、焦点与悬停计时器。`ui-conversation` 为当前普通 title 和每一级 subagent 面包屑声明谱系 slot，传入纯数据形式的面包屑身份与显示文本，并为祖先传入向上导航回调；普通 title 由 render site 保留为回退。`@deepseek-ai/dsh-client-ui-subagent` 以直接 parent 目录导航占用每个谱系 slot，并根据普通 owner props 选择按原因区分的只读编辑器。组件只接收派生 props 与回调，绝不接收 `ctx`。
+目录通过标准 `useSessions` 快照传递。组件局部状态负责菜单可见性、已展开分支、焦点与悬停计时器。`ui-conversation` 为当前普通 title 和每一级 subagent 面包屑声明谱系 slot，传入纯数据形式的面包屑身份与显示文本，并为祖先传入向上导航回调；普通 title 由 render site 保留为回退。`@onprem-ai/dsh-client-ui-subagent` 以直接 parent 目录导航占用每个谱系 slot，并根据普通 owner props 选择按原因区分的只读编辑器。组件只接收派生 props 与回调，绝不接收 `ctx`。
 
 每个进程内 subagent child 都会在发布前写入 `SessionHeader.origin: 'subagent'`。会话列表摘要与增量 Host 帧会投影该字段，使分组和扁平侧边栏省略重复的 child 行，同时保留普通 fork。parent catalog projection 拥有 membership 与 tree structure 权威；descriptor identity 与精确 parent check 拥有 addressed history 与 continuation validation 权威。
 

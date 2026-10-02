@@ -2,23 +2,23 @@
 
 import { Readable } from 'node:stream'
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
+import { Context } from '@onprem-ai/cordis'
+import { brandString } from '@onprem-ai/dsh-brand'
+import AgentRegistry from '@onprem-ai/dsh-agent'
 import type {
   Agent,
   AgentHandle,
   AssistantStreamFrame,
   CreateAgentOptions,
   ResumeAgentOptions,
-} from '@deepseek-ai/dsh-agent'
-import AgentDefaultModelConfig from '@deepseek-ai/dsh-agent-default-model'
-import { LlmAttemptId, ToolCallId, createAssistantMessage, createToolResultMessage, type MessageId, type StreamChunk } from '@deepseek-ai/dsh-llm'
-import SessionStore from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import type { Session, SessionId, UserMessage } from '@deepseek-ai/dsh-session'
-import { SessionQueryError } from '@deepseek-ai/dsh-session-query'
-import { createInboxStub } from '@deepseek-ai/dsh-agent-loop-testkit'
+} from '@onprem-ai/dsh-agent'
+import AgentDefaultModelConfig from '@onprem-ai/dsh-agent-default-model'
+import { LlmAttemptId, ToolCallId, createAssistantMessage, createToolResultMessage, type MessageId, type StreamChunk } from '@onprem-ai/dsh-llm'
+import SessionStore from '@onprem-ai/dsh-session'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
+import type { Session, SessionId, UserMessage } from '@onprem-ai/dsh-session'
+import { SessionQueryError } from '@onprem-ai/dsh-session-query'
+import { createInboxStub } from '@onprem-ai/dsh-agent-loop-testkit'
 import { apply, Config } from '../src/index.ts'
 import { internals } from '../src/runner-internals.ts'
 

@@ -1,11 +1,11 @@
 /** Desktop renderer analytics sender; browser applications have no collection capability. */
-import { Service, type Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-api-gateway/client'
-export type {} from '@deepseek-ai/dsh-client-product-analytics/remote'
+import { Service, type Context } from '@onprem-ai/cordis'
+import type {} from '@onprem-ai/dsh-api-gateway/client'
+export type {} from '@onprem-ai/dsh-client-product-analytics/remote'
 import type { ProductEvent, ProductEventMap } from '../events.ts'
 export type { ProductEvent, ProductEventMap, TrackProductEvent } from '../events.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Context {
     productAnalytics: DesktopAnalytics
   }

@@ -8,13 +8,13 @@ import {
   decodeSeqRanges,
   SessionLogOffset,
   type SessionEvent,
-} from '@deepseek-ai/dsh-session'
-import type { SessionLogOffset as SessionLogOffsetType } from '@deepseek-ai/dsh-session'
-import { sessionFormatCatalog } from '@deepseek-ai/dsh-session-format-catalog'
-import { SessionFormatEventCollector, type SessionFormatArtifactDecoder, type SessionFormatCodec } from '@deepseek-ai/dsh-session-format'
-import { releasedV0SessionFormatCodec, releasedV1SessionFormatCodec } from '@deepseek-ai/dsh-session-format-v0-to-v1'
-import { releasedV2SessionFormatCodec } from '@deepseek-ai/dsh-session-format-v1-to-v2'
-import { releasedV3SessionFormatCodec } from '@deepseek-ai/dsh-session-format-v2-to-v3'
+} from '@onprem-ai/dsh-session'
+import type { SessionLogOffset as SessionLogOffsetType } from '@onprem-ai/dsh-session'
+import { sessionFormatCatalog } from '@onprem-ai/dsh-session-format-catalog'
+import { SessionFormatEventCollector, type SessionFormatArtifactDecoder, type SessionFormatCodec } from '@onprem-ai/dsh-session-format'
+import { releasedV0SessionFormatCodec, releasedV1SessionFormatCodec } from '@onprem-ai/dsh-session-format-v0-to-v1'
+import { releasedV2SessionFormatCodec } from '@onprem-ai/dsh-session-format-v1-to-v2'
+import { releasedV3SessionFormatCodec } from '@onprem-ai/dsh-session-format-v2-to-v3'
 
 const historicalCodecs: readonly SessionFormatCodec[] = [
   releasedV0SessionFormatCodec, releasedV1SessionFormatCodec, releasedV2SessionFormatCodec,

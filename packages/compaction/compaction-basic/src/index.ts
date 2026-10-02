@@ -1,21 +1,21 @@
 /**
  * Basic replay-aware compaction backend.
  *
- * @module @deepseek-ai/dsh-compaction-basic
+ * @module @onprem-ai/dsh-compaction-basic
  */
 
-import { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { CompactionEngine, ManualCompactionError } from '@deepseek-ai/dsh-compaction'
-import type { CompactionResult, CompactionTrigger } from '@deepseek-ai/dsh-compaction'
-import type { Session, SessionSeq } from '@deepseek-ai/dsh-session'
-import { CONTEXT_WINDOW_EXCEEDED_CODE } from '@deepseek-ai/dsh-llm'
-import type { LlmCallConfig } from '@deepseek-ai/dsh-llm'
-import { assertNever } from '@deepseek-ai/dsh-util-values'
-import type { Agent, PreStepDecision } from '@deepseek-ai/dsh-agent'
-import type { CommandId } from '@deepseek-ai/dsh-commands/brand'
+import { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
+import { CompactionEngine, ManualCompactionError } from '@onprem-ai/dsh-compaction'
+import type { CompactionResult, CompactionTrigger } from '@onprem-ai/dsh-compaction'
+import type { Session, SessionSeq } from '@onprem-ai/dsh-session'
+import { CONTEXT_WINDOW_EXCEEDED_CODE } from '@onprem-ai/dsh-llm'
+import type { LlmCallConfig } from '@onprem-ai/dsh-llm'
+import { assertNever } from '@onprem-ai/dsh-util-values'
+import type { Agent, PreStepDecision } from '@onprem-ai/dsh-agent'
+import type { CommandId } from '@onprem-ai/dsh-commands/brand'
 // Type-only: makes the optional sibling service available to `ctx.get()`.
-import type {} from '@deepseek-ai/dsh-compaction-tool-result-pruner'
+import type {} from '@onprem-ai/dsh-compaction-tool-result-pruner'
 import {
   resolveCompactSpec,
   resolveConfig,

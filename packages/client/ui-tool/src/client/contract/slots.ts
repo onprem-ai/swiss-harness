@@ -1,17 +1,17 @@
 /** Tool UI slot declarations and their composed component props. */
 import type {
   HostObservable, InjectFace, PropsLocale, PropsRenderSlots, PropsRuntime, SessionIdOf, SlotHookFactory,
-} from '@deepseek-ai/dsh-client-ui-slots'
-import type { RemoteHostFacts } from '@deepseek-ai/dsh-api-remotes/client'
+} from '@onprem-ai/dsh-client-ui-slots'
+import type { RemoteHostFacts } from '@onprem-ai/dsh-api-remotes/client'
 import type {
   AssistantChatData, OpenFileOptions, PreparingToolCall, StartedToolCall,
   ToolResultNode, UseDisclosure,
-} from '@deepseek-ai/dsh-client-ui-chat/client'
-import type { MessageImageLoader, MessageImageSource } from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type { AskUserQuestionAnswerItem, AskUserQuestionItem } from '@deepseek-ai/dsh-user-questions/types'
-import type {} from '@deepseek-ai/dsh-client-locale/client'
+} from '@onprem-ai/dsh-client-ui-chat/client'
+import type { MessageImageLoader, MessageImageSource } from '@onprem-ai/dsh-client-ui-conversation/client'
+import type { AskUserQuestionAnswerItem, AskUserQuestionItem } from '@onprem-ai/dsh-user-questions/types'
+import type {} from '@onprem-ai/dsh-client-locale/client'
 
-declare module '@deepseek-ai/dsh-client-ui-slots' {
+declare module '@onprem-ai/dsh-client-ui-slots' {
   interface SlotMap {
     /**
      * Keyed Tool call view dispatched by wire Tool name. Any name is allowed,
@@ -149,7 +149,7 @@ export interface UserQuestionPanels {
   review(sessionId: SessionIdOf, callId: string, record: UserQuestionRecord): boolean
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Context {
     /** Optional user-question answer-panel provider. */
     userQuestionPanels: UserQuestionPanels

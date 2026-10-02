@@ -12,7 +12,7 @@ A parent page cannot inspect or drive a cross-origin iframe's internal history. 
 
 ## Decision
 
-`@deepseek-ai/dsh-client-ui-sidebar-browser` registers the multi-instance `browser` right-Sidebar tab type. `SidebarRightTabParamsMap.browser` accepts an optional initial URL so another Client plugin can open a Browser without importing this package's runtime values.
+`@onprem-ai/dsh-client-ui-sidebar-browser` registers the multi-instance `browser` right-Sidebar tab type. `SidebarRightTabParamsMap.browser` accepts an optional initial URL so another Client plugin can open a Browser without importing this package's runtime values.
 
 `MarkdownDelegateProvider` gives nested Markdown anchors an optional owner callback for ordinary HTTP(S) activation while retaining native modified-click behavior. Chat places one provider around its node list and opens a new `browser` tab with the URL as typed navigation parameters when that type is registered, or uses the system browser otherwise; the Markdown renderer does not import the Browser feature.
 

@@ -4,18 +4,18 @@
  * authenticates with the account token when the account service allows the search endpoint;
  * every other search reuses `DEEPSEEK_API_KEY`. The provider does not reuse `DEEPSEEK_BASE_URL`;
  * auxiliary search has its own endpoint configuration.
- * @module @deepseek-ai/dsh-web-search-deepseek
+ * @module @onprem-ai/dsh-web-search-deepseek
  */
-import type { Volatile } from '@deepseek-ai/cordis'
+import type { Volatile } from '@onprem-ai/cordis'
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import type {} from '@deepseek-ai/dsh-agent'
-import { credentialRef } from '@deepseek-ai/dsh-credentials'
-import type {} from '@deepseek-ai/dsh-deepseek-account'
-import { launchEnvironmentOf } from '@deepseek-ai/dsh-launch-environment'
-import type {} from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-web'
+import type { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
+import type {} from '@onprem-ai/dsh-agent'
+import { credentialRef } from '@onprem-ai/dsh-credentials'
+import type {} from '@onprem-ai/dsh-deepseek-account'
+import { launchEnvironmentOf } from '@onprem-ai/dsh-launch-environment'
+import type {} from '@onprem-ai/dsh-session'
+import type {} from '@onprem-ai/dsh-web'
 import {
   DeepSeekSearchProvider,
   DEEPSEEK_DEFAULT_API_VERSION,

@@ -5,13 +5,13 @@
 import { execFileSync } from 'node:child_process'
 import { lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, statSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@onprem-ai/cordis'
 import { fileURLToPath } from 'node:url'
 import * as yaml from 'js-yaml'
-import { entryListSchema } from '@deepseek-ai/cordis-plugin-include'
-import { codePointLength } from '@deepseek-ai/dsh-compaction-tool-result-pruner'
-import SkillRegistry, { renderSkillContent } from '@deepseek-ai/dsh-skill'
-import * as SkillFileSystem from '@deepseek-ai/dsh-skill-filesystem'
+import { entryListSchema } from '@onprem-ai/cordis-plugin-include'
+import { codePointLength } from '@onprem-ai/dsh-compaction-tool-result-pruner'
+import SkillRegistry, { renderSkillContent } from '@onprem-ai/dsh-skill'
+import * as SkillFileSystem from '@onprem-ai/dsh-skill-filesystem'
 import { describe, expect, it } from 'vitest'
 
 const skills = fileURLToPath(new URL('../skills/', import.meta.url))

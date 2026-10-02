@@ -12,7 +12,7 @@ Status: implemented
 
 ## Decision
 
-`@deepseek-ai/dsh-client-ui-sidebar-browser` 注册可多开的右侧 Sidebar `browser` tab 类型。`SidebarRightTabParamsMap.browser` 接受可选初始 URL，使其他 Client 插件无须导入本包运行时值即可打开 Browser。
+`@onprem-ai/dsh-client-ui-sidebar-browser` 注册可多开的右侧 Sidebar `browser` tab 类型。`SidebarRightTabParamsMap.browser` 接受可选初始 URL，使其他 Client 插件无须导入本包运行时值即可打开 Browser。
 
 `MarkdownDelegateProvider` 为嵌套的 Markdown anchor 提供可选 owner callback，用于委托普通 HTTP(S) 点击，同时保留带修饰键点击的原生行为。Chat 在 node list 外放置一个 Provider；已注册该类型时，它以 URL 作为 typed navigation 参数打开新的 `browser` tab，否则使用系统浏览器；Markdown renderer 不导入 Browser feature。
 

@@ -10,18 +10,18 @@
  * shell-quoting layer to escape (the `bash -c` string domain has no
  * equivalent here). Native Win32 paths (`C:\...`) pass through unchanged.
  *
- * @module @deepseek-ai/dsh-pwsh-local
+ * @module @onprem-ai/dsh-pwsh-local
  */
 
 /* jscpd:ignore-start -- this executor mirrors dsh-bash-local call-for-call by
    design (see this package's README), so the two import the same seam surface */
-import type { Volatile } from '@deepseek-ai/cordis'
-import { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { ShellExecutor } from '@deepseek-ai/dsh-shell'
-import type { CollectedOutput, ShellExecRequest, ShellExecSpec, ShellExecution, ShellProcess, ShellProcessRead, ShellRunResult } from '@deepseek-ai/dsh-shell'
-import type { SubprocessCollect, SubprocessHandle, SubprocessOutputReader, SubprocessSpawnSpec } from '@deepseek-ai/dsh-subprocess'
-import { clampTimeout, deadline, MAX_TIMER_DELAY_MS, timeoutOf } from '@deepseek-ai/dsh-timeout'
+import type { Volatile } from '@onprem-ai/cordis'
+import { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
+import { ShellExecutor } from '@onprem-ai/dsh-shell'
+import type { CollectedOutput, ShellExecRequest, ShellExecSpec, ShellExecution, ShellProcess, ShellProcessRead, ShellRunResult } from '@onprem-ai/dsh-shell'
+import type { SubprocessCollect, SubprocessHandle, SubprocessOutputReader, SubprocessSpawnSpec } from '@onprem-ai/dsh-subprocess'
+import { clampTimeout, deadline, MAX_TIMER_DELAY_MS, timeoutOf } from '@onprem-ai/dsh-timeout'
 /* jscpd:ignore-end */
 import { resolvePwshPath } from './resolve.ts'
 
@@ -188,7 +188,7 @@ export class PwshLocalExecutor extends ShellExecutor {
    * The pwsh invocation argv for one resolved spec — the argv-level seam a
    * confining subclass wraps through `ctx.sandbox.confine` (the pwsh twin of
    * `dsh-bash-local`'s `executeArgv` hook; see
-   * `@deepseek-ai/dsh-pwsh-sandbox`).
+   * `@onprem-ai/dsh-pwsh-sandbox`).
    */
   protected argv(spec: ShellExecSpec): string[] {
     return [this.pwshPath, '-NoLogo', '-NoProfile', '-NonInteractive', '-Command', `${ENCODING_PREAMBLE}${spec.command}`]
@@ -436,7 +436,7 @@ export class PwshLocalExecutor extends ShellExecutor {
    * Settlement hook for subclasses that attach execution facts to a process.
    * The base implementation is intentionally empty. Mirrored from
    * `dsh-bash-local` (whose sandboxing subclass consumes the same hook); the
-   * pwsh-confining consumer is `@deepseek-ai/dsh-pwsh-sandbox`.
+   * pwsh-confining consumer is `@onprem-ai/dsh-pwsh-sandbox`.
    * @param _proc - the settled process handle.
    * @param _stderr - the process's retained stderr tail used by subclasses for settlement classification.
    * @param _providerRejected - whether the subprocess promise rejected without a direct outcome.

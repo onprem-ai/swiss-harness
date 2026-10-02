@@ -3,23 +3,23 @@
  * with logged model context without vetoing or rewriting calls. Configuration
  * and chain semantics live in the package README; rationale lives in the
  * repeat-tool-reminder Agent Note.
- * @module @deepseek-ai/dsh-repeat-tool-reminder
+ * @module @onprem-ai/dsh-repeat-tool-reminder
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import type { Agent, PreStepDecision } from '@deepseek-ai/dsh-agent'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-declare module '@deepseek-ai/dsh-llm' {
+import type { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
+import type { Agent, PreStepDecision } from '@onprem-ai/dsh-agent'
+import { createUserMessage } from '@onprem-ai/dsh-llm'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'repeat-tool-reminder': { kind: 'repeat-tool-reminder' } & ContextFormed
   }
 }
 
-import type { MessageSource } from '@deepseek-ai/dsh-llm'
-import type { UserMessage } from '@deepseek-ai/dsh-session'
-import type { PostToolDecision, ToolExecution } from '@deepseek-ai/dsh-tools'
+import type { MessageSource } from '@onprem-ai/dsh-llm'
+import type { UserMessage } from '@onprem-ai/dsh-session'
+import type { PostToolDecision, ToolExecution } from '@onprem-ai/dsh-tools'
 
 export const name = 'repeat-tool-reminder'
 

@@ -3,7 +3,7 @@ description: "load_workspace_dependencies 工具：返回随包附带的 Python�
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-tool-workspace-dependencies
+# @onprem-ai/dsh-tool-workspace-dependencies
 
 [English](README.md) | 中文
 
@@ -25,12 +25,12 @@ kind: "package-reference"
 <a id="use-this-package"></a>
 ## 使用本包
 
-与工具注册表一起挂载，给出 payload 目录。配置校验在激活前要求非空 `source` 并拒绝空 `root`；两条路径都必须为绝对路径。内置 Office skills（`@deepseek-ai/dsh-skill-office`）按名字引用本工具取默认解释器。
+与工具注册表一起挂载，给出 payload 目录。配置校验在激活前要求非空 `source` 并拒绝空 `root`；两条路径都必须为绝对路径。内置 Office skills（`@onprem-ai/dsh-skill-office`）按名字引用本工具取默认解释器。
 
 ### 最小配置
 
 ```yaml
-- name: '@deepseek-ai/dsh-tool-workspace-dependencies'
+- name: '@onprem-ai/dsh-tool-workspace-dependencies'
   config:
     source: /path/to/primary-runtime
 ```
@@ -86,7 +86,7 @@ kind: "package-reference"
 
 #### 模型看到什么
 
-模型看到生成的 [`load_workspace_dependencies` schema](../../../docs/tool-catalog.zh.md#deepseek-aidsh-tool-workspace-dependencies)。
+模型看到生成的 [`load_workspace_dependencies` schema](../../../docs/tool-catalog.zh.md#onprem-aidsh-tool-workspace-dependencies)。
 
 #### Token 影响
 

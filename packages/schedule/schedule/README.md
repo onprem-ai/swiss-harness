@@ -3,7 +3,7 @@ description: "Host-wide durable reminders and shared Session-bound task manageme
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-schedule
+# @onprem-ai/dsh-schedule
 
 English | [中文](README.zh.md)
 
@@ -23,7 +23,7 @@ Schedule delivers one-shot, fixed-rate, daily, weekly, and cron wall-clock remin
 <a id="use-this-package"></a>
 ## Use this package
 
-The shipped Web composition carries no `schedule` row; enable the optional experimental bundle `@deepseek-ai/dsh-experimental-schedule-bundle` from the Plugins page (Official group), or list it in a profile's `dsh.profile.bundles`, to insert and mount the service alongside storage-domain and the Session controller. Its `Config` states `deliveryHistoryDays` (default 30) and `deliveryHistoryRecords` (default 200). Storage backend routing belongs to storage-domain; Session model and preset restoration belong to the Session controller. Schedule cannot be mounted alone in a headless or SDK-only composition: delivery requires the Host Web Session controller and a Session persistence backend, because a delivery commits only after the Session acknowledges `session/flush`.
+The shipped Web composition carries no `schedule` row; enable the optional experimental bundle `@onprem-ai/dsh-experimental-schedule-bundle` from the Plugins page (Official group), or list it in a profile's `dsh.profile.bundles`, to insert and mount the service alongside storage-domain and the Session controller. Its `Config` states `deliveryHistoryDays` (default 30) and `deliveryHistoryRecords` (default 200). Storage backend routing belongs to storage-domain; Session model and preset restoration belong to the Session controller. Schedule cannot be mounted alone in a headless or SDK-only composition: delivery requires the Host Web Session controller and a Session persistence backend, because a delivery commits only after the Session acknowledges `session/flush`.
 
 The Agent receives `schedule_create`, `schedule_list`, `schedule_delete`, and `schedule_update`. Update replaces the name, instruction, or timing of one reminder in place and keeps its id and saved records; it is not offered for the relative `after` delay. Creation requires a non-empty prompt, a title, and exactly one of six selectors:
 
@@ -94,7 +94,7 @@ The `schedule.archiveAdmission()` effect answers the Workspace registry's archiv
 
 #### What the model sees
 
-The [generated tool catalog](../../../docs/tool-catalog.md#deepseek-aidsh-schedule) contains the descriptions and schemas for `schedule_create`, `schedule_list`, `schedule_delete`, and `schedule_update`, registered in live root Agent scopes while Schedule is loaded.
+The [generated tool catalog](../../../docs/tool-catalog.md#onprem-aidsh-schedule) contains the descriptions and schemas for `schedule_create`, `schedule_list`, `schedule_delete`, and `schedule_update`, registered in live root Agent scopes while Schedule is loaded.
 
 #### Token effect
 

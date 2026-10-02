@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-host-plugin-inventory",
+  "name": "@onprem-ai/dsh-host-plugin-inventory",
   "description": "Read-only Remote projection of current Cordis Loader plugin state",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -47,24 +47,24 @@
     "zod": "^4.4.3"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-agent-preset-registry": "workspace:*",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-agent-preset-registry": "workspace:*",
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-agent-preset-registry": {
+    "@onprem-ai/dsh-agent-preset-registry": {
       "optional": true
     }
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-app-boot": "workspace:*",
-    "@deepseek-ai/dsh-package-manifest": "workspace:*",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-agent-preset-registry": "workspace:*",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-app-boot": "workspace:*",
+    "@onprem-ai/dsh-package-manifest": "workspace:*",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-agent-preset-registry": "workspace:*",
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   }
 }

@@ -2,11 +2,11 @@
 import { chmod, mkdir, readdir, readFile, realpath, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import LocalSubprocessRuntime from '@deepseek-ai/dsh-subprocess-local'
+import { Context } from '@onprem-ai/cordis'
+import LocalSubprocessRuntime from '@onprem-ai/dsh-subprocess-local'
 import { GitRunner, blobText, diffTrees, ignoredPaths, locateGitWorkspace, snapshotTree, treeBlob } from '../src/git.ts'
 import { TurnRecorder } from '../src/recorder.ts'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
+import SessionStore, { SessionId } from '@onprem-ai/dsh-session'
 import { git, scratchDir, startTurn, toolCall } from './support.ts'
 
 /** An object directory factory under a scratch root. */

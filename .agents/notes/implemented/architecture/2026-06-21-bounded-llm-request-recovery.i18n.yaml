@@ -12,17 +12,17 @@
   en: a15c7c13f167e5ac
   zh: 63bcc2ef60c2f344
 /agent-note-bounded-recovery-for-transient-llm-request-failures/decision/preserve-failure-facts-without-embedding-policy:
-  en: 943322e6cdbfa440
-  zh: 82288531f6194ed2
+  en: adffb2b70fef0593
+  zh: 2a7d791d3ee6041d
 /agent-note-bounded-recovery-for-transient-llm-request-failures/decision/put-retry-policy-on-the-existing-failed-step-extension-point:
-  en: ed4d295378d94a26
-  zh: 1fee5ef4947bac8f
+  en: b654d38c60a171f6
+  zh: e256ecd9899ccac9
 /agent-note-bounded-recovery-for-transient-llm-request-failures/decision/make-one-layer-own-visible-attempts:
   en: 57dbdd385f48bb3e
   zh: 5e15463fae4be582
 /agent-note-bounded-recovery-for-transient-llm-request-failures/decision/bound-stalled-streams-where-they-can-be-stopped:
-  en: f7369086e87192b9
-  zh: e2839ed8cc5c23b8
+  en: b491868604bb7a46
+  zh: e8d03f23038ab984
 /agent-note-bounded-recovery-for-transient-llm-request-failures/decision/keep-attempts-separate-in-the-existing-log:
   en: 8f57db4bfd6e1c22
   zh: 67ac62217bb68570

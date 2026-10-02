@@ -1,22 +1,22 @@
 /** Serialized module and profile-configuration reloads. */
 import { AsyncLocalStorage } from 'node:async_hooks'
 import { watchConfig as watchExactConfig } from './watch-config.ts'
-import { Context, Inject, Service, type Plugin } from '@deepseek-ai/cordis'
-import { ModuleLoader, type ModuleJob, type ResolveResult } from '@deepseek-ai/cordis-plugin-loader'
-import type { Include } from '@deepseek-ai/cordis-plugin-include'
+import { Context, Inject, Service, type Plugin } from '@onprem-ai/cordis'
+import { ModuleLoader, type ModuleJob, type ResolveResult } from '@onprem-ai/cordis-plugin-loader'
+import type { Include } from '@onprem-ai/cordis-plugin-include'
 import { FSWatcher, watch, type ChokidarOptions } from 'chokidar'
 import { basename, dirname, join, relative, resolve } from 'node:path'
 import { readFileSync, realpathSync } from 'node:fs'
-import { readProfileManifest, readProfilePatches, reconcileProfilePatches, PROFILE_PATCH_FILENAME } from '@deepseek-ai/dsh-app-boot'
-import type {} from '@deepseek-ai/dsh-cmdline'
+import { readProfileManifest, readProfilePatches, reconcileProfilePatches, PROFILE_PATCH_FILENAME } from '@onprem-ai/dsh-app-boot'
+import type {} from '@onprem-ai/dsh-cmdline'
 import { handleError } from './error.ts'
-import type {} from '@deepseek-ai/cordis-plugin-timer'
+import type {} from '@onprem-ai/cordis-plugin-timer'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { createRequire } from 'node:module'
 import picomatch from 'picomatch'
-import z from '@deepseek-ai/schemastery'
+import z from '@onprem-ai/schemastery'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Context {
     /** Serialized plugin-code and configuration reloads. */
     hmr: Hmr

@@ -5,15 +5,15 @@
  * Session-log reporter. This plugin owns resource identity and an outer
  * shutdown deadline; the reporter owns byte-bounded SDK delivery.
  *
- * @module @deepseek-ai/dsh-session-telemetry-otel
+ * @module @onprem-ai/dsh-session-telemetry-otel
  */
 
 import { createRequire } from 'node:module'
-import z from '@deepseek-ai/schemastery'
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-command-feedback'
-import type {} from '@deepseek-ai/dsh-message-feedback'
-import { Session, type SessionEvent } from '@deepseek-ai/dsh-session'
+import z from '@onprem-ai/schemastery'
+import type { Context } from '@onprem-ai/cordis'
+import type {} from '@onprem-ai/dsh-command-feedback'
+import type {} from '@onprem-ai/dsh-message-feedback'
+import { Session, type SessionEvent } from '@onprem-ai/dsh-session'
 import {
   SessionTelemetryBackend,
   SessionTelemetryCoordinator,
@@ -21,10 +21,10 @@ import {
   type SessionTelemetryRecord,
   type SessionTelemetrySeverity,
   type SessionTelemetrySharingStatus,
-} from '@deepseek-ai/dsh-session-telemetry'
-import { APP_IDENTITY } from '@deepseek-ai/dsh-llm'
-import { getOrCreateAnonymousUserId } from '@deepseek-ai/dsh-anonymous-user-id'
-import type { SessionLogReporter } from '@deepseek-ai/dsh-otel'
+} from '@onprem-ai/dsh-session-telemetry'
+import { APP_IDENTITY } from '@onprem-ai/dsh-llm'
+import { getOrCreateAnonymousUserId } from '@onprem-ai/dsh-anonymous-user-id'
+import type { SessionLogReporter } from '@onprem-ai/dsh-otel'
 import type { BatchLogRecordProcessorOptions } from '@opentelemetry/sdk-logs'
 import type { OTLPExporterNodeConfigBase } from '@opentelemetry/otlp-exporter-base'
 import { SeverityNumber } from '@opentelemetry/api-logs'
@@ -187,7 +187,7 @@ export class OpenTelemetrySessionBackend extends SessionTelemetryBackend {
     this.shutdownTimeoutMillis = shutdownTimeoutMillis
     const { version } = createRequire(import.meta.url)('../package.json') as { version: string }
     const reporter = ctx.otel.createSessionLogReporter({
-      scope: { name: '@deepseek-ai/dsh-session-telemetry-otel', version },
+      scope: { name: '@onprem-ai/dsh-session-telemetry-otel', version },
       exporter: { ...config.exporter, url },
       ...(config.processor === undefined ? {} : { processor: config.processor }),
       ...(config.maxRequestBytes === undefined ? {} : { maxRequestBytes: config.maxRequestBytes }),

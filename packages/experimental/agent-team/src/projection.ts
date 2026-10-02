@@ -1,10 +1,10 @@
 /** Team state projected incrementally from committed Session events, with a durable-only client view. */
 
 import { z } from 'zod'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import type { ContentBlock } from '@deepseek-ai/dsh-llm'
-import type { SessionEvent, SessionEventMap, SessionId } from '@deepseek-ai/dsh-session'
-import type { ProjectionDefinition } from '@deepseek-ai/dsh-session-projection'
+import { brandString } from '@onprem-ai/dsh-brand'
+import type { ContentBlock } from '@onprem-ai/dsh-llm'
+import type { SessionEvent, SessionEventMap, SessionId } from '@onprem-ai/dsh-session'
+import type { ProjectionDefinition } from '@onprem-ai/dsh-session-projection'
 import type {
   TeamId,
   TeamMemberProjection,
@@ -158,7 +158,7 @@ export interface TeamProjectionState extends TeamState {
   readonly failure?: string
 }
 
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@onprem-ai/dsh-session-projection/types' {
   interface SessionProjectionStateMap {
     agentTeam: TeamProjectionState
   }

@@ -48,7 +48,7 @@ const CALLED: [string, Record<string, unknown>, readonly string[]][] = [
   ['node-pty', nodePty, ['spawn', 'open']],
   ['execa', execa, ['execa']],
   ['got', got.default, ['post']],
-  ['@deepseek-ai/pi-ai', piAi, [
+  ['@onprem-ai/pi-ai', piAi, [
     'createProvider', 'createModels', 'openAICompletionsApi', 'openAIResponsesApi', 'anthropicMessagesApi',
     'isContextOverflow', 'getSupportedThinkingLevels',
   ]],
@@ -131,8 +131,8 @@ describe('replaced external packages', () => {
 
   it('lists the packages the loader serves from the bundle', () => {
     expect(REPLACED_EXTERNAL_PACKAGES).not.toContain('chokidar')
-    expect(REPLACED_EXTERNAL_PACKAGES).not.toContain('@deepseek-ai/node-addon-system')
-    expect(REPLACED_EXTERNAL_PACKAGES).not.toContain('@deepseek-ai/node-addon-system/landlock-run')
+    expect(REPLACED_EXTERNAL_PACKAGES).not.toContain('@onprem-ai/node-addon-system')
+    expect(REPLACED_EXTERNAL_PACKAGES).not.toContain('@onprem-ai/node-addon-system/landlock-run')
     expect(REPLACED_EXTERNAL_PACKAGES).toContain('ws')
   })
 

@@ -1,14 +1,14 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-workspace`.
- * @module @deepseek-ai/dsh-workspace/invariant
+ * Package-owned invariant companion for `@onprem-ai/dsh-workspace`.
+ * @module @onprem-ai/dsh-workspace/invariant
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
-import type { DomainChanged } from '@deepseek-ai/dsh-storage-domain'
-import { WorkspaceId } from '@deepseek-ai/dsh-workspace'
+import type { Context } from '@onprem-ai/cordis'
+import type { InvariantInstaller } from '@onprem-ai/dsh-invariants'
+import type { DomainChanged } from '@onprem-ai/dsh-storage-domain'
+import { WorkspaceId } from '@onprem-ai/dsh-workspace'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-workspace'
+const PACKAGE_NAME = '@onprem-ai/dsh-workspace'
 
 /** Cordis companion plugin name. */
 export const name = 'workspace-invariant'

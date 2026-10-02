@@ -1,11 +1,11 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@onprem-ai/cordis'
 import { mkdir, mkdtemp, readFile, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
-import { credentialRef } from '@deepseek-ai/dsh-credentials'
-import { createLaunchEnvironmentSnapshot, DSH_LAUNCH_ENVIRONMENT_KEY } from '@deepseek-ai/dsh-launch-environment'
-import type { CredentialRef } from '@deepseek-ai/dsh-credentials'
+import { credentialRef } from '@onprem-ai/dsh-credentials'
+import { createLaunchEnvironmentSnapshot, DSH_LAUNCH_ENVIRONMENT_KEY } from '@onprem-ai/dsh-launch-environment'
+import type { CredentialRef } from '@onprem-ai/dsh-credentials'
 import { LocalCredentialProvider, resolveSpec } from '../src/index.ts'
 
 function writeCredentials(file: string, text: string): Promise<void> {

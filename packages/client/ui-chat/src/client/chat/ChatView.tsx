@@ -4,24 +4,24 @@
 import { memo, useCallback, useMemo, useRef, useState, type ComponentProps } from 'react'
 import type {
   NodeKey, RenderEntry, RenderMessageImages,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type { InboxState } from '@deepseek-ai/dsh-agent/types'
-import type { PendingSubmission } from '@deepseek-ai/dsh-api-session-controller/client'
+} from '@onprem-ai/dsh-client-ui-conversation/client'
+import type { InboxState } from '@onprem-ai/dsh-agent/types'
+import type { PendingSubmission } from '@onprem-ai/dsh-api-session-controller/client'
 import {
   Button, IconChevronDownOutlineRegular, MarkdownDelegateProvider, Modal,
-} from '@deepseek-ai/dsh-client-ui-primitives'
+} from '@onprem-ai/dsh-client-ui-primitives'
 import type { ChatViewSlotProps, OpenFileOptions } from '../contract/slots.ts'
 import type { ChatSnapshot } from '../contract/snapshot.ts'
 import { PendingSteeringBubble, PendingSubmissionBubble } from './MessageItem.tsx'
 import { ChatNodeSeat } from './ChatNodeSeat.tsx'
 import { ChatGroupSeat } from './ChatGroupSeat.tsx'
 import { chatRenderKey } from './render-entry.ts'
-import { assertNever } from '@deepseek-ai/dsh-util-values'
+import { assertNever } from '@onprem-ai/dsh-util-values'
 import { TurnNavigator } from './TurnNavigator.tsx'
 import { RunningStatus } from './RunningStatus.tsx'
 import { mergeTurnRailItems } from './turn-rail-items.ts'
 import { useChatScroll } from './use-chat-scroll.ts'
-import { fileMediaUrl, resolveWorkspacePath } from '@deepseek-ai/dsh-util-workspace-path'
+import { fileMediaUrl, resolveWorkspacePath } from '@onprem-ai/dsh-util-workspace-path'
 import css from './ChatView.module.css'
 
 /** Host/OS refusal text for the file-open dialog; empty throws keep a locale fallback. */

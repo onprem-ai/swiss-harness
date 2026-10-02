@@ -1,8 +1,8 @@
 /** Deterministic projected source shared by reference snapshot and Loader tests. */
 
-import type { Context } from '@deepseek-ai/cordis'
-import { createMessage, createUserMessage } from '@deepseek-ai/dsh-llm'
-import { Session, SessionId } from '@deepseek-ai/dsh-session'
+import type { Context } from '@onprem-ai/cordis'
+import { createMessage, createUserMessage } from '@onprem-ai/dsh-llm'
+import { Session, SessionId } from '@onprem-ai/dsh-session'
 
 export const name = 'session-reference-source-fixture'
 export const inject = ['sessions']

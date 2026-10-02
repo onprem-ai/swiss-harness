@@ -1,17 +1,17 @@
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { createUserMessage, ToolCallId  } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import { SessionId, type SessionEvent } from '@deepseek-ai/dsh-session'
-import { defineContentToolFixture } from '@deepseek-ai/dsh-tools'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import * as RepeatToolGuard from '@deepseek-ai/dsh-repeat-tool-reminder'
-import type { Config } from '@deepseek-ai/dsh-repeat-tool-reminder'
+import { Context } from '@onprem-ai/cordis'
+import { createUserMessage, ToolCallId  } from '@onprem-ai/dsh-llm'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
+import { SessionId, type SessionEvent } from '@onprem-ai/dsh-session'
+import { defineContentToolFixture } from '@onprem-ai/dsh-tools'
+import type { Agent } from '@onprem-ai/dsh-agent'
+import AgentLoop from '@onprem-ai/dsh-agent-loop'
+import { mountAgentLoopTestDependencies } from '@onprem-ai/dsh-agent-loop-testkit'
+import * as RepeatToolGuard from '@onprem-ai/dsh-repeat-tool-reminder'
+import type { Config } from '@onprem-ai/dsh-repeat-tool-reminder'
 import { MockAdapter, textResponse, toolCallResponse } from '../../../core/agent-loop/tests/mock-adapter.ts'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'test': { kind: 'test' } & ContextFormed
   }

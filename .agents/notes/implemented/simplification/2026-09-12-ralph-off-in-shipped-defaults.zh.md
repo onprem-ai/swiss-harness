@@ -16,7 +16,7 @@ Status: implemented
 
 `ptc` preset 还额外把 `workflow-ptc` 声明为禁用。该 preset 在去掉通用 `workflow` 工具之后只为 `ralph` 保留了这个引擎，因此禁用 `ralph` 使该组合中的引擎不再有消费方。
 
-每个被禁用的行都在本地注释里带上恢复方法。对基于 base 的档位，用一行 overlay 即可从 `$DSH_HOME/cordis.patch.yml` 或 `--patch` 文件重新启用。随附 preset 是 Web bundle 补丁（`packages/bundle/web-app/cordis.patch.yml`）里的 `@deepseek-ai/dsh-agent-preset` 行，因此想要 `ralph` 的 Web 会话可以在 profile 补丁里覆盖该行的 `config.plugins`，或通过 Web 编辑器以**新 id** 保存一个 preset，声明会持久化到 `$DSH_HOME/profiles/<profile>/cordis.patch.yml`；注册表拒绝重复的 preset id（`packages/preset/agent-preset-registry/src/index.ts`）。在 `ptc` 中，覆盖要同时删掉工具行和引擎行的 `disabled`，因为 `tool-ralph` 注入 `ctx.workflowEngine`。
+每个被禁用的行都在本地注释里带上恢复方法。对基于 base 的档位，用一行 overlay 即可从 `$DSH_HOME/cordis.patch.yml` 或 `--patch` 文件重新启用。随附 preset 是 Web bundle 补丁（`packages/bundle/web-app/cordis.patch.yml`）里的 `@onprem-ai/dsh-agent-preset` 行，因此想要 `ralph` 的 Web 会话可以在 profile 补丁里覆盖该行的 `config.plugins`，或通过 Web 编辑器以**新 id** 保存一个 preset，声明会持久化到 `$DSH_HOME/profiles/<profile>/cordis.patch.yml`；注册表拒绝重复的 preset id（`packages/preset/agent-preset-registry/src/index.ts`）。在 `ptc` 中，覆盖要同时删掉工具行和引擎行的 `disabled`，因为 `tool-ralph` 注入 `ctx.workflowEngine`。
 
 `packages/bundle/web-app/cordis.patch.yml` 在自己的层里重述这条禁用声明。`scripts/verify-cordis-config.ts` 中的 `validatePresetPlaneSeparation` 在收集已声明的行 id 时不看 `disabled`，所以删掉这一行会让 `tool-ralph` 回到 Web 宿主平面，并与每个 preset 中的同名行冲突。
 

@@ -1,11 +1,11 @@
-/** Package-owned background-job event-protocol invariants. @module @deepseek-ai/dsh-jobs/invariant */
+/** Package-owned background-job event-protocol invariants. @module @onprem-ai/dsh-jobs/invariant */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantFailure, InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@onprem-ai/cordis'
+import type { InvariantFailure, InvariantInstaller } from '@onprem-ai/dsh-invariants'
 import type { JobId } from './brand.ts'
 import type { JobEvent, JobView } from './types.ts'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-jobs'
+const PACKAGE_NAME = '@onprem-ai/dsh-jobs'
 const TERMINAL_STATUSES = new Set(['completed', 'killed', 'failed'])
 
 /**

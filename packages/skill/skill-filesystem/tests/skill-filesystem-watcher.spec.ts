@@ -4,8 +4,8 @@ import { mkdir, realpath, rm, symlink, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import SkillRegistry from '@deepseek-ai/dsh-skill'
+import { Context } from '@onprem-ai/cordis'
+import SkillRegistry from '@onprem-ai/dsh-skill'
 
 interface FakeWatcherControl {
   emitter: EventEmitter

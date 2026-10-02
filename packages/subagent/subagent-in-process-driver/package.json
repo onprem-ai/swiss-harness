@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-subagent-in-process-driver",
+  "name": "@onprem-ai/dsh-subagent-in-process-driver",
   "description": "Shared in-process subagent run driver: drives a child agent on ctx.agents (used by the spawn and fork backends)",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -27,35 +27,35 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-subagent": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-subagent": "workspace:*",
+    "@onprem-ai/dsh-system-prompt": "workspace:*",
+    "@onprem-ai/dsh-tools": "workspace:*"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:*",
-    "@deepseek-ai/dsh-agent-preset-registry": "workspace:*",
-    "@deepseek-ai/dsh-fs-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-invariants": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-subagent": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*",
-    "@deepseek-ai/dsh-tool-fs": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*",
-    "@deepseek-ai/dsh-user-approval": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/cordis-plugin-include": "workspace:~",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-agent-loop": "workspace:*",
+    "@onprem-ai/dsh-agent-loop-testkit": "workspace:*",
+    "@onprem-ai/dsh-agent-preset-registry": "workspace:*",
+    "@onprem-ai/dsh-fs-sandbox": "workspace:*",
+    "@onprem-ai/dsh-invariants": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-subagent": "workspace:*",
+    "@onprem-ai/dsh-system-prompt": "workspace:*",
+    "@onprem-ai/dsh-tool-fs": "workspace:*",
+    "@onprem-ai/dsh-tools": "workspace:*",
+    "@onprem-ai/dsh-user-approval": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:*"
+    "@onprem-ai/dsh-brand": "workspace:*"
   }
 }

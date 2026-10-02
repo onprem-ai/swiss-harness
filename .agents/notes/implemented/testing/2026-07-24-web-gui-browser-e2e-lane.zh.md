@@ -10,7 +10,7 @@ Web GUI 以一条真实组装链交付——chromium 页面 → client 插件 bu
 
 ## 决策
 
-`pnpm run test:web` 携带 `apps/web/tests/` 下的无密钥、确定性浏览器 e2e 车道：录制的会话日志 fixture 经 `@deepseek-ai/dsh-llm-replay` 对真实进程内 web 组合回放；用户可见状态使用规范化的 aria 预期输出，持久化的世界状态则使用进程内断言。Chromium 运行整个车道；[模型与推理强度选择场景](../../../../apps/web/tests/declared-reasoning.e2e.ts) 还在 WebKit 中运行，以覆盖原生鼠标焦点行为。配套的产品约定包括 `dsh-llm-replay` 的节奏控制、消费检查与已校验的索引式覆写 patch；跨包的 `dsh-llm` 失败通过自有数据属性保留经校验的提供方信息；已交付的 web 组合挂载 `llm-retry`，以处理瞬态模型失败。
+`pnpm run test:web` 携带 `apps/web/tests/` 下的无密钥、确定性浏览器 e2e 车道：录制的会话日志 fixture 经 `@onprem-ai/dsh-llm-replay` 对真实进程内 web 组合回放；用户可见状态使用规范化的 aria 预期输出，持久化的世界状态则使用进程内断言。Chromium 运行整个车道；[模型与推理强度选择场景](../../../../apps/web/tests/declared-reasoning.e2e.ts) 还在 WebKit 中运行，以覆盖原生鼠标焦点行为。配套的产品约定包括 `dsh-llm-replay` 的节奏控制、消费检查与已校验的索引式覆写 patch；跨包的 `dsh-llm` 失败通过自有数据属性保留经校验的提供方信息；已交付的 web 组合挂载 `llm-retry`，以处理瞬态模型失败。
 
 ### Scaffold：`apps/web/tests/scaffold.ts`
 

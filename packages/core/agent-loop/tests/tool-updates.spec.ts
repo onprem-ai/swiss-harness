@@ -1,14 +1,14 @@
 /** The loop logs tool changes as developer messages and carries session tool history to the runtime. */
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry, { type Agent } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import LlmRuntime, { createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { GenerateOptions } from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime, { defineContentToolFixture } from '@deepseek-ai/dsh-tools'
+import { Context } from '@onprem-ai/cordis'
+import AgentRegistry, { type Agent } from '@onprem-ai/dsh-agent'
+import AgentLoop from '@onprem-ai/dsh-agent-loop'
+import LlmRuntime, { createUserMessage } from '@onprem-ai/dsh-llm'
+import type { GenerateOptions } from '@onprem-ai/dsh-llm'
+import SessionStore, { SessionId } from '@onprem-ai/dsh-session'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
+import SystemPrompt from '@onprem-ai/dsh-system-prompt'
+import ToolRuntime, { defineContentToolFixture } from '@onprem-ai/dsh-tools'
 import { MockAdapter, textResponse } from './mock-adapter.ts'
 
 const contexts: Context[] = []

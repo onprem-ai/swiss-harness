@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-api-remotes",
+  "name": "@onprem-ai/dsh-api-remotes",
   "description": "Remote BFF assembly for application-selected Host capabilities",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -32,7 +32,7 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-api-gateway"
+        "@onprem-ai/dsh-api-gateway"
       ],
       "platform": "web",
       "immediately": true
@@ -50,51 +50,51 @@
     "lib/types/**/*.d.ts"
   ],
   "dependencies": {
-    "@deepseek-ai/dsh-deque": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-util-values": "workspace:*"
+    "@onprem-ai/dsh-deque": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-util-values": "workspace:*"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-scope": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-scope": "workspace:*"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-preset-registry": "workspace:*",
-    "@deepseek-ai/dsh-api-gateway": "workspace:*",
-    "@deepseek-ai/dsh-api-job-controller": "workspace:*",
-    "@deepseek-ai/dsh-api-session-controller": "workspace:*",
-    "@deepseek-ai/dsh-api-settings-controller": "workspace:*",
-    "@deepseek-ai/dsh-api-workspace-controller": "workspace:*",
-    "@deepseek-ai/dsh-api-workspace-files": "workspace:*",
-    "@deepseek-ai/dsh-client-connection": "workspace:*",
-    "@deepseek-ai/dsh-client-file-upload": "workspace:*",
-    "@deepseek-ai/dsh-commands": "workspace:*",
-    "@deepseek-ai/dsh-cordis-host-runner": "workspace:*",
-    "@deepseek-ai/dsh-credentials": "workspace:*",
-    "@deepseek-ai/dsh-file-reference": "workspace:*",
-    "@deepseek-ai/dsh-goal": "workspace:*",
-    "@deepseek-ai/dsh-host-plugin-inventory": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-message-feedback": "workspace:*",
-    "@deepseek-ai/dsh-permission-presets": "workspace:*",
-    "@deepseek-ai/dsh-schedule": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-session-reference": "workspace:*",
-    "@deepseek-ai/dsh-settings": "workspace:*",
-    "@deepseek-ai/dsh-subagent": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-user-approval": "workspace:*",
-    "@deepseek-ai/dsh-user-questions": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-agent-preset-registry": "workspace:*",
+    "@onprem-ai/dsh-api-gateway": "workspace:*",
+    "@onprem-ai/dsh-api-job-controller": "workspace:*",
+    "@onprem-ai/dsh-api-session-controller": "workspace:*",
+    "@onprem-ai/dsh-api-settings-controller": "workspace:*",
+    "@onprem-ai/dsh-api-workspace-controller": "workspace:*",
+    "@onprem-ai/dsh-api-workspace-files": "workspace:*",
+    "@onprem-ai/dsh-client-connection": "workspace:*",
+    "@onprem-ai/dsh-client-file-upload": "workspace:*",
+    "@onprem-ai/dsh-commands": "workspace:*",
+    "@onprem-ai/dsh-cordis-host-runner": "workspace:*",
+    "@onprem-ai/dsh-credentials": "workspace:*",
+    "@onprem-ai/dsh-file-reference": "workspace:*",
+    "@onprem-ai/dsh-goal": "workspace:*",
+    "@onprem-ai/dsh-host-plugin-inventory": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-message-feedback": "workspace:*",
+    "@onprem-ai/dsh-permission-presets": "workspace:*",
+    "@onprem-ai/dsh-schedule": "workspace:*",
+    "@onprem-ai/dsh-scope": "workspace:*",
+    "@onprem-ai/dsh-session-reference": "workspace:*",
+    "@onprem-ai/dsh-settings": "workspace:*",
+    "@onprem-ai/dsh-subagent": "workspace:*",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*",
+    "@onprem-ai/dsh-user-approval": "workspace:*",
+    "@onprem-ai/dsh-user-questions": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~",
     "zod": "^4.4.3",
-    "@deepseek-ai/dsh-command-feedback": "workspace:*",
-    "@deepseek-ai/dsh-api-terminal-controller": "workspace:*",
-    "@deepseek-ai/dsh-plugin-manager": "workspace:*",
-    "@deepseek-ai/dsh-client-ui-plugin-manager": "workspace:*",
-    "@deepseek-ai/dsh-office-to-pdf": "workspace:*",
-    "@deepseek-ai/dsh-api-account-controller": "workspace:*",
-    "@deepseek-ai/dsh-deepseek-account": "workspace:*",
-    "@deepseek-ai/dsh-client-product-analytics": "workspace:*"
+    "@onprem-ai/dsh-command-feedback": "workspace:*",
+    "@onprem-ai/dsh-api-terminal-controller": "workspace:*",
+    "@onprem-ai/dsh-plugin-manager": "workspace:*",
+    "@onprem-ai/dsh-client-ui-plugin-manager": "workspace:*",
+    "@onprem-ai/dsh-office-to-pdf": "workspace:*",
+    "@onprem-ai/dsh-api-account-controller": "workspace:*",
+    "@onprem-ai/dsh-deepseek-account": "workspace:*",
+    "@onprem-ai/dsh-client-product-analytics": "workspace:*"
   }
 }

@@ -10,7 +10,7 @@ Desktop analytics follows the [product collection policy](../../client/product-a
 
 ## Summary
 
-`@deepseek-ai/dsh-api-session-controller` owns the Host `ctx.sessionController` service and the generated Client `session`, `skills`, and `fileReferences` Remote namespaces. It serves Session lifecycle and history, the Host-generation model catalog, human background-job kill, workspace-path opening, user-invocable skill discovery, and Agent-scoped file references. Use it through API Gateway when a Client needs operations addressed by a Session.
+`@onprem-ai/dsh-api-session-controller` owns the Host `ctx.sessionController` service and the generated Client `session`, `skills`, and `fileReferences` Remote namespaces. It serves Session lifecycle and history, the Host-generation model catalog, human background-job kill, workspace-path opening, user-invocable skill discovery, and Agent-scoped file references. Use it through API Gateway when a Client needs operations addressed by a Session.
 
 ## Table of Contents
 
@@ -93,7 +93,7 @@ A successful `selectModel` response acknowledges the Session-local selection wit
 |---|---:|---|
 | `nativeOpen` | platform-detected | Whether Session workspace paths can be handed to a native desktop opener |
 
-The generated [configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-api-session-controller) is the exhaustive source for accepted fields and their JSDoc.
+The generated [configuration catalog](../../../docs/config-catalog.md#onprem-aidsh-api-session-controller) is the exhaustive source for accepted fields and their JSDoc.
 
 -----
 

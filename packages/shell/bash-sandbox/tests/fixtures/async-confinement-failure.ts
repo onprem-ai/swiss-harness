@@ -1,10 +1,10 @@
 /** Snapshot provider whose asynchronous refusal records every attempted underlying spawn. */
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import type { Context } from '@deepseek-ai/cordis'
-import { SandboxProvider, SandboxUnavailableError } from '@deepseek-ai/dsh-sandbox'
-import type { ConfinedArgv, SandboxPolicy } from '@deepseek-ai/dsh-sandbox'
-import LocalSubprocessRuntime from '@deepseek-ai/dsh-subprocess-local'
+import type { Context } from '@onprem-ai/cordis'
+import { SandboxProvider, SandboxUnavailableError } from '@onprem-ai/dsh-sandbox'
+import type { ConfinedArgv, SandboxPolicy } from '@onprem-ai/dsh-sandbox'
+import LocalSubprocessRuntime from '@onprem-ai/dsh-subprocess-local'
 
 export const name = 'snapshot-async-confinement-failure'
 

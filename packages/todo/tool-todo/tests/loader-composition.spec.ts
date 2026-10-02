@@ -6,18 +6,18 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import Include from '@deepseek-ai/cordis-plugin-include'
-import { ToolCallId } from '@deepseek-ai/dsh-llm'
-import { Session, SessionId } from '@deepseek-ai/dsh-session'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import * as ToolTodo from '@deepseek-ai/dsh-tool-todo'
-import { unsupportedInbox } from '@deepseek-ai/dsh-agent-loop-testkit'
+import { Context } from '@onprem-ai/cordis'
+import Loader from '@onprem-ai/cordis-plugin-loader'
+import Include from '@onprem-ai/cordis-plugin-include'
+import { ToolCallId } from '@onprem-ai/dsh-llm'
+import { Session, SessionId } from '@onprem-ai/dsh-session'
+import AgentRegistry from '@onprem-ai/dsh-agent'
+import type { Agent } from '@onprem-ai/dsh-agent'
+import SystemPrompt from '@onprem-ai/dsh-system-prompt'
+import ToolRuntime from '@onprem-ai/dsh-tools'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
+import * as ToolTodo from '@onprem-ai/dsh-tool-todo'
+import { unsupportedInbox } from '@onprem-ai/dsh-agent-loop-testkit'
 
 let root: string | undefined
 let context: Context | undefined
@@ -57,11 +57,11 @@ async function boot(configLines: readonly string[]): Promise<Context> {
   root = await mkdtemp(join(tmpdir(), 'dsh-todo-loader-'))
   const configPath = join(root, 'cordis.yml')
   await writeFile(configPath, [
-    "- name: '@deepseek-ai/dsh-agent'",
-    "- name: '@deepseek-ai/dsh-system-prompt'",
-    "- name: '@deepseek-ai/dsh-tools'",
-    "- name: '@deepseek-ai/dsh-session-projection'",
-    "- name: '@deepseek-ai/dsh-tool-todo'",
+    "- name: '@onprem-ai/dsh-agent'",
+    "- name: '@onprem-ai/dsh-system-prompt'",
+    "- name: '@onprem-ai/dsh-tools'",
+    "- name: '@onprem-ai/dsh-session-projection'",
+    "- name: '@onprem-ai/dsh-tool-todo'",
     ...configLines.length > 0 ? ['  config:', ...configLines] : [],
     '',
   ].join('\n'))
@@ -72,11 +72,11 @@ async function boot(configLines: readonly string[]): Promise<Context> {
   await ctx.plugin(Loader)
   ctx.loader.builtins.include = Include
   const modules = new Map<string, unknown>([
-    ['@deepseek-ai/dsh-agent', AgentRegistry],
-    ['@deepseek-ai/dsh-system-prompt', SystemPrompt],
-    ['@deepseek-ai/dsh-tools', ToolRuntime],
-    ['@deepseek-ai/dsh-session-projection', SessionProjectionRegistry],
-    ['@deepseek-ai/dsh-tool-todo', ToolTodo],
+    ['@onprem-ai/dsh-agent', AgentRegistry],
+    ['@onprem-ai/dsh-system-prompt', SystemPrompt],
+    ['@onprem-ai/dsh-tools', ToolRuntime],
+    ['@onprem-ai/dsh-session-projection', SessionProjectionRegistry],
+    ['@onprem-ai/dsh-tool-todo', ToolTodo],
   ])
   ctx.loader.internal = {
     version: 'v2',

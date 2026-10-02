@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-api-gateway",
+  "name": "@onprem-ai/dsh-api-gateway",
   "description": "Typert Remote Host dispatcher and Client API endpoint",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -36,8 +36,8 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-typert-registry",
-        "@deepseek-ai/dsh-client-connection"
+        "@onprem-ai/dsh-typert-registry",
+        "@onprem-ai/dsh-client-connection"
       ],
       "platform": "web",
       "immediately": true
@@ -55,26 +55,26 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-deque": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@onprem-ai/dsh-deque": "workspace:*",
+    "@onprem-ai/dsh-timeout": "workspace:*",
+    "@onprem-ai/schemastery": "workspace:~",
     "ws": "^8.21.0",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*"
+    "@onprem-ai/dsh-typert-protocol": "workspace:*"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-client-connection": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-client-connection": "workspace:*"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-cmdline": "workspace:*",
-    "@deepseek-ai/dsh-client-connection": "workspace:*",
-    "@deepseek-ai/dsh-host-webserver": "workspace:*",
-    "@deepseek-ai/dsh-remote-mock": "workspace:*",
-    "@deepseek-ai/dsh-typert-registry": "workspace:*",
-    "@deepseek-ai/dsh-util-crypto": "workspace:*",
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-cmdline": "workspace:*",
+    "@onprem-ai/dsh-client-connection": "workspace:*",
+    "@onprem-ai/dsh-host-webserver": "workspace:*",
+    "@onprem-ai/dsh-remote-mock": "workspace:*",
+    "@onprem-ai/dsh-typert-registry": "workspace:*",
+    "@onprem-ai/dsh-util-crypto": "workspace:*",
     "@types/ws": "^8.18.1",
-    "@deepseek-ai/cordis": "workspace:~",
+    "@onprem-ai/cordis": "workspace:~",
     "zod": "^4.4.3"
   }
 }

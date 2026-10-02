@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-llm-replay",
+  "name": "@onprem-ai/dsh-llm-replay",
   "description": "Replay LLM plugin: short-circuits llm/stream with model chunks reconstructed from a recorded session JSONL (keyless snapshot tests)",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -27,26 +27,26 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-compaction": "workspace:*",
-    "@deepseek-ai/dsh-deepseek-llm-api-extensions": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-compaction": "workspace:*",
+    "@onprem-ai/dsh-deepseek-llm-api-extensions": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-deepseek-llm-api-extensions": {
+    "@onprem-ai/dsh-deepseek-llm-api-extensions": {
       "optional": true
     }
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-compaction": "workspace:*",
-    "@deepseek-ai/dsh-deepseek-llm-api-extensions": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-compaction": "workspace:*",
+    "@onprem-ai/dsh-deepseek-llm-api-extensions": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-session-format-catalog": "workspace:*",
-    "@deepseek-ai/dsh-util-values": "workspace:*"
+    "@onprem-ai/dsh-session-format-catalog": "workspace:*",
+    "@onprem-ai/dsh-util-values": "workspace:*"
   }
 }

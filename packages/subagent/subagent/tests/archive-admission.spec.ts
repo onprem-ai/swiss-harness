@@ -1,12 +1,12 @@
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent, AgentCancelCause, AgentStatus, CancelOptions } from '@deepseek-ai/dsh-agent'
-import { unsupportedInbox } from '@deepseek-ai/dsh-agent-loop-testkit'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import type { Session } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import type { SessionActivity } from '@deepseek-ai/dsh-workspace'
+import { Context } from '@onprem-ai/cordis'
+import AgentRegistry from '@onprem-ai/dsh-agent'
+import type { Agent, AgentCancelCause, AgentStatus, CancelOptions } from '@onprem-ai/dsh-agent'
+import { unsupportedInbox } from '@onprem-ai/dsh-agent-loop-testkit'
+import SessionStore, { SessionId } from '@onprem-ai/dsh-session'
+import type { Session } from '@onprem-ai/dsh-session'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
+import type { SessionActivity } from '@onprem-ai/dsh-workspace'
 import SubagentRuntime, { SUBAGENT_DESCRIPTOR_VERSION } from '../src/index.ts'
 import { TestSessionQuery } from './test-session-query.ts'
 
@@ -175,7 +175,7 @@ describe('Subagent archive admission: lifetime', () => {
 })
 
 // The runtime knows only its own family; this suite merges a trailing one to observe ordering.
-declare module '@deepseek-ai/dsh-workspace/types' {
+declare module '@onprem-ai/dsh-workspace/types' {
   interface SessionActivityKindMap {
     probe: true
   }

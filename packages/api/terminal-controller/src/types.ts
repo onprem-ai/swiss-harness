@@ -1,8 +1,8 @@
 /** Browser terminal identities, metadata and screen-stream frames. */
-import type { Branded } from '@deepseek-ai/dsh-brand'
-import type {} from '@deepseek-ai/dsh-typert-protocol'
+import type { Branded } from '@onprem-ai/dsh-brand'
+import type {} from '@onprem-ai/dsh-typert-protocol'
 
-declare module '@deepseek-ai/dsh-typert-protocol' {
+declare module '@onprem-ai/dsh-typert-protocol' {
   interface RemoteErrorDetailsMap {
     /** The terminal identity is missing or has begun process cleanup. */
     'terminal/unavailable': Record<string, never>

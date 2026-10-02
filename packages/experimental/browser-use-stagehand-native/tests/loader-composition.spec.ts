@@ -5,19 +5,19 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { afterEach, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import Include from '@deepseek-ai/cordis-plugin-include'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import BrowserUseRegistry from '@deepseek-ai/dsh-browser-use'
-import LocalAttachmentStore from '@deepseek-ai/dsh-attachment-local'
-import LlmRuntime, { LlmAdapter, ToolCallId, createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { GenerateOptions, LlmResolvedModelInfo, StreamChunk } from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
+import { Context } from '@onprem-ai/cordis'
+import Loader from '@onprem-ai/cordis-plugin-loader'
+import Include from '@onprem-ai/cordis-plugin-include'
+import AgentRegistry from '@onprem-ai/dsh-agent'
+import AgentLoop from '@onprem-ai/dsh-agent-loop'
+import BrowserUseRegistry from '@onprem-ai/dsh-browser-use'
+import LocalAttachmentStore from '@onprem-ai/dsh-attachment-local'
+import LlmRuntime, { LlmAdapter, ToolCallId, createUserMessage } from '@onprem-ai/dsh-llm'
+import type { GenerateOptions, LlmResolvedModelInfo, StreamChunk } from '@onprem-ai/dsh-llm'
+import SessionStore, { SessionId } from '@onprem-ai/dsh-session'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
+import SystemPrompt from '@onprem-ai/dsh-system-prompt'
+import ToolRuntime from '@onprem-ai/dsh-tools'
 import * as Provider from '../src/index.ts'
 import { resetFixture, screenshotBase64 } from './fixtures/stagehand.ts'
 
@@ -75,22 +75,22 @@ it('loads browser tools from cordis.yml, logs browser results, and admits the sc
   resetFixture()
   root = await mkdtemp(join(tmpdir(), 'dsh-stagehand-composition-'))
   const modules = new Map<string, unknown>([
-    ['@deepseek-ai/dsh-llm', LlmRuntime],
-    ['@deepseek-ai/dsh-session', SessionStore],
-    ['@deepseek-ai/dsh-session-projection', SessionProjectionRegistry],
-    ['@deepseek-ai/dsh-system-prompt', SystemPrompt],
-    ['@deepseek-ai/dsh-tools', ToolRuntime],
-    ['@deepseek-ai/dsh-agent', AgentRegistry],
-    ['@deepseek-ai/dsh-agent-loop', AgentLoop],
-    ['@deepseek-ai/dsh-attachment-local', LocalAttachmentStore],
-    ['@deepseek-ai/dsh-browser-use', BrowserUseRegistry],
-    ['@deepseek-ai/dsh-experimental-browser-use-stagehand-native', Provider],
+    ['@onprem-ai/dsh-llm', LlmRuntime],
+    ['@onprem-ai/dsh-session', SessionStore],
+    ['@onprem-ai/dsh-session-projection', SessionProjectionRegistry],
+    ['@onprem-ai/dsh-system-prompt', SystemPrompt],
+    ['@onprem-ai/dsh-tools', ToolRuntime],
+    ['@onprem-ai/dsh-agent', AgentRegistry],
+    ['@onprem-ai/dsh-agent-loop', AgentLoop],
+    ['@onprem-ai/dsh-attachment-local', LocalAttachmentStore],
+    ['@onprem-ai/dsh-browser-use', BrowserUseRegistry],
+    ['@onprem-ai/dsh-experimental-browser-use-stagehand-native', Provider],
   ])
   const configPath = join(root, 'cordis.yml')
   await writeFile(configPath, [...modules.keys()].flatMap(name => [
     `- name: '${name}'`,
-    ...name === '@deepseek-ai/dsh-attachment-local' ? ['  config:', `    dshHome: ${JSON.stringify(root)}`] : [],
-    ...name === '@deepseek-ai/dsh-experimental-browser-use-stagehand-native' ? ['  config:', '    mode: launch', '    model:', '      modelName: openai/gpt-5.4-mini', '      apiKey: fixture-model-key'] : [],
+    ...name === '@onprem-ai/dsh-attachment-local' ? ['  config:', `    dshHome: ${JSON.stringify(root)}`] : [],
+    ...name === '@onprem-ai/dsh-experimental-browser-use-stagehand-native' ? ['  config:', '    mode: launch', '    model:', '      modelName: openai/gpt-5.4-mini', '      apiKey: fixture-model-key'] : [],
   ]).join('\n') + '\n')
   const context = ctx = new Context()
   context.baseUrl = pathToFileURL(root).href + '/'

@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-sdk-minimal",
+  "name": "@onprem-ai/dsh-sdk-minimal",
   "description": "The standalone minimal SDK profile bundle: JSON-RPC, one DeepSeek adapter, persistent shell, and JSONL sessions",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -34,39 +34,39 @@
     }
   },
   "dependencies": {
-    "@deepseek-ai/cordis-plugin-timer": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-agent-loop": "workspace:*",
-    "@deepseek-ai/dsh-deepseek-llm-api-extensions": "workspace:*",
-    "@deepseek-ai/dsh-invariants": "workspace:*",
-    "@deepseek-ai/dsh-jobs-local": "workspace:*",
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-llm-deepseek-api-key": "workspace:*",
-    "@deepseek-ai/dsh-llm-retry": "workspace:*",
-    "@deepseek-ai/dsh-mcp-resources": "workspace:*",
-    "@deepseek-ai/dsh-plugin-package-inventory-deepseek": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-local": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-sdk-app": "workspace:*",
-    "@deepseek-ai/dsh-sdk-jsonrpc-server": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-log-deepseek": "workspace:*",
-    "@deepseek-ai/dsh-session-persistence-jsonl": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-session-title": "workspace:*",
-    "@deepseek-ai/dsh-subprocess-local": "workspace:*",
-    "@deepseek-ai/dsh-system-prompt": "workspace:*",
-    "@deepseek-ai/dsh-terminal": "workspace:*",
-    "@deepseek-ai/dsh-terminal-bash": "workspace:*",
-    "@deepseek-ai/dsh-tool-bash-persistent": "workspace:*",
-    "@deepseek-ai/dsh-tool-pwsh-persistent": "workspace:*",
-    "@deepseek-ai/dsh-tools": "workspace:*"
+    "@onprem-ai/cordis-plugin-timer": "workspace:~",
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-agent-loop": "workspace:*",
+    "@onprem-ai/dsh-deepseek-llm-api-extensions": "workspace:*",
+    "@onprem-ai/dsh-invariants": "workspace:*",
+    "@onprem-ai/dsh-jobs-local": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-llm-deepseek-api-key": "workspace:*",
+    "@onprem-ai/dsh-llm-retry": "workspace:*",
+    "@onprem-ai/dsh-mcp-resources": "workspace:*",
+    "@onprem-ai/dsh-plugin-package-inventory-deepseek": "workspace:*",
+    "@onprem-ai/dsh-sandbox-local": "workspace:*",
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*",
+    "@onprem-ai/dsh-scope": "workspace:*",
+    "@onprem-ai/dsh-sdk-app": "workspace:*",
+    "@onprem-ai/dsh-sdk-jsonrpc-server": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-log-deepseek": "workspace:*",
+    "@onprem-ai/dsh-session-persistence-jsonl": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-session-title": "workspace:*",
+    "@onprem-ai/dsh-subprocess-local": "workspace:*",
+    "@onprem-ai/dsh-system-prompt": "workspace:*",
+    "@onprem-ai/dsh-terminal": "workspace:*",
+    "@onprem-ai/dsh-terminal-bash": "workspace:*",
+    "@onprem-ai/dsh-tool-bash-persistent": "workspace:*",
+    "@onprem-ai/dsh-tool-pwsh-persistent": "workspace:*",
+    "@onprem-ai/dsh-tools": "workspace:*"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~"
   }
 }

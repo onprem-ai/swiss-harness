@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-session",
+  "name": "@onprem-ai/dsh-session",
   "description": "Event-sourced session store for the DeepSeek Harness",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -45,19 +45,19 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-scope": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-invariants": "workspace:*",
-    "@deepseek-ai/dsh-scope": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-typert-registry": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-invariants": "workspace:*",
+    "@onprem-ai/dsh-scope": "workspace:*",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*",
+    "@onprem-ai/dsh-typert-registry": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-llm": "workspace:*",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-util-values": "workspace:*"
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-util-values": "workspace:*"
   }
 }

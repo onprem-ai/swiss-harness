@@ -11,26 +11,26 @@
  * workspace is not the current one. A session is dated from the Host session
  * list, so the `@` menu and the session list never disagree about its age.
  *
- * @module @deepseek-ai/dsh-client-ui-reference/client
+ * @module @onprem-ai/dsh-client-ui-reference/client
  */
 // Type-only: pulls the generated Remote API and ctx.remote merge through the Client assembly boundary.
-import type {} from '@deepseek-ai/dsh-api-remotes/client'
+import type {} from '@onprem-ai/dsh-api-remotes/client'
 // Type-only: pulls the locale plugin's Context merge (ctx.locale).
-import type {} from '@deepseek-ai/dsh-client-locale/client'
-import type {} from '@deepseek-ai/dsh-client-ui-sidebar-right/client'
-import type { Context as ClientContext } from '@deepseek-ai/cordis'
-import type { ISessions } from '@deepseek-ai/dsh-api-session-controller/client'
-import { relativeTime } from '@deepseek-ai/dsh-client-ui-primitives'
+import type {} from '@onprem-ai/dsh-client-locale/client'
+import type {} from '@onprem-ai/dsh-client-ui-sidebar-right/client'
+import type { Context as ClientContext } from '@onprem-ai/cordis'
+import type { ISessions } from '@onprem-ai/dsh-api-session-controller/client'
+import { relativeTime } from '@onprem-ai/dsh-client-ui-primitives'
 import type {
   ClientSessionContext, InputTriggerCrumb, InputTriggerServiceContract, InputTriggerSource,
-} from '@deepseek-ai/dsh-client-ui-input-trigger/client'
-import { formatFileMention } from '@deepseek-ai/dsh-file-reference/grammar'
-import type { FileReferenceCandidate } from '@deepseek-ai/dsh-file-reference/types'
-import type { SessionReferenceMentionCandidate } from '@deepseek-ai/dsh-session-reference/types'
-import { abbreviateHomePath, fileAddressFor } from '@deepseek-ai/dsh-util-workspace-path'
+} from '@onprem-ai/dsh-client-ui-input-trigger/client'
+import { formatFileMention } from '@onprem-ai/dsh-file-reference/grammar'
+import type { FileReferenceCandidate } from '@onprem-ai/dsh-file-reference/types'
+import type { SessionReferenceMentionCandidate } from '@onprem-ai/dsh-session-reference/types'
+import { abbreviateHomePath, fileAddressFor } from '@onprem-ai/dsh-util-workspace-path'
 import { en, NS, zh, type ReferenceKey } from './locales.ts'
 
-declare module '@deepseek-ai/dsh-api-session-controller/client' {
+declare module '@onprem-ai/dsh-api-session-controller/client' {
   interface SessionReferenceSourceMap {
     /** File and Session candidates waiting for initial history and their RPC results. */
     referenceCandidates: unknown

@@ -12,16 +12,16 @@
  * strings, and it models global+shadow named registries — this is a
  * per-session singleton with no global layer to merge.
  */
-import type {} from '@deepseek-ai/dsh-client-product-analytics/client'
-import { Service } from '@deepseek-ai/cordis'
-import type { Context } from '@deepseek-ai/cordis'
-import type { SessionBinding } from '@deepseek-ai/dsh-api-session-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { WeakMapWithValues } from '@deepseek-ai/dsh-util-values'
+import type {} from '@onprem-ai/dsh-client-product-analytics/client'
+import { Service } from '@onprem-ai/cordis'
+import type { Context } from '@onprem-ai/cordis'
+import type { SessionBinding } from '@onprem-ai/dsh-api-session-controller/client'
+import type { SessionId } from '@onprem-ai/dsh-session/types'
+import { WeakMapWithValues } from '@onprem-ai/dsh-util-values'
 import { ModelCatalogDirectory } from './catalog.ts'
 import { ModelDirectory } from './directory.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Context {
     modelDirectories: ModelDirectoryResolver
   }

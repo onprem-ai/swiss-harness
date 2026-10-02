@@ -1,15 +1,15 @@
 /** Command identity and localized input spelling over the effective Host catalog. */
-import type { CommandDescriptor } from '@deepseek-ai/dsh-commands/types'
-import type { TranslateNS } from '@deepseek-ai/dsh-client-locale/client'
+import type { CommandDescriptor } from '@onprem-ai/dsh-commands/types'
+import type { TranslateNS } from '@onprem-ai/dsh-client-locale/client'
 import { en, zh } from './locales.ts'
 
 const BUILTINS = {
-  goal: '@deepseek-ai/dsh-command-goal',
-  plan: '@deepseek-ai/dsh-plan-mode',
-  feedback: '@deepseek-ai/dsh-command-feedback',
-  compact: '@deepseek-ai/dsh-command-compact',
-  permission: '@deepseek-ai/dsh-permission-presets',
-  export: '@deepseek-ai/dsh-session-log-export',
+  goal: '@onprem-ai/dsh-command-goal',
+  plan: '@onprem-ai/dsh-plan-mode',
+  feedback: '@onprem-ai/dsh-command-feedback',
+  compact: '@onprem-ai/dsh-command-compact',
+  permission: '@onprem-ai/dsh-permission-presets',
+  export: '@onprem-ai/dsh-session-log-export',
 } as const
 
 /** Names whose first-party definitions have localized client presentation. */

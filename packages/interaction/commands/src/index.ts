@@ -1,19 +1,19 @@
 /**
  * Plugin-owned human-command registry shared by interactive UI adapters.
- * @module @deepseek-ai/dsh-commands
+ * @module @onprem-ai/dsh-commands
  */
 
-import { Context } from '@deepseek-ai/cordis'
-import { randomUUID } from '@deepseek-ai/dsh-util-crypto'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { AttachmentError, admitEncodedImages } from '@deepseek-ai/dsh-attachment'
-import type { EncodedImageAttachment, FileAttachmentRef, ImageAttachmentRef } from '@deepseek-ai/dsh-attachment/types'
-import type { FileBlock, ImageBlock } from '@deepseek-ai/dsh-llm'
-import { NamedEntries, ScopedLayers } from '@deepseek-ai/dsh-scope'
-import type { ScopeKey, ScopeLayer } from '@deepseek-ai/dsh-scope'
-import { SessionSeq } from '@deepseek-ai/dsh-session'
-import type { Session, SessionEvent, SessionEventMap } from '@deepseek-ai/dsh-session'
-import { TypertRemoteService, Remote } from '@deepseek-ai/dsh-typert-protocol'
+import { Context } from '@onprem-ai/cordis'
+import { randomUUID } from '@onprem-ai/dsh-util-crypto'
+import type { Agent } from '@onprem-ai/dsh-agent'
+import { AttachmentError, admitEncodedImages } from '@onprem-ai/dsh-attachment'
+import type { EncodedImageAttachment, FileAttachmentRef, ImageAttachmentRef } from '@onprem-ai/dsh-attachment/types'
+import type { FileBlock, ImageBlock } from '@onprem-ai/dsh-llm'
+import { NamedEntries, ScopedLayers } from '@onprem-ai/dsh-scope'
+import type { ScopeKey, ScopeLayer } from '@onprem-ai/dsh-scope'
+import { SessionSeq } from '@onprem-ai/dsh-session'
+import type { Session, SessionEvent, SessionEventMap } from '@onprem-ai/dsh-session'
+import { TypertRemoteService, Remote } from '@onprem-ai/dsh-typert-protocol'
 import { CommandId } from './brand.ts'
 import type { CommandDefinitionId } from './brand.ts'
 import type {
@@ -110,7 +110,7 @@ class CommandLayer implements ScopeLayer {
   }
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Context {
     commands: CommandRuntime
   }

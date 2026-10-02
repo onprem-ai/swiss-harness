@@ -8,10 +8,10 @@ import { join } from 'node:path'
 import type { Browser, Page, WebSocketRoute } from 'playwright'
 import { chromium } from 'playwright'
 import { afterAll, beforeAll, describe, expect, it, onTestFailed, type MockInstance } from 'vitest'
-import { parseSessionLog } from '@deepseek-ai/dsh-llm-replay'
-import type { SessionEvent } from '@deepseek-ai/dsh-session'
-import { expandAssistantStream } from '@deepseek-ai/dsh-llm'
-import { parseRemoteStreamServerMessage } from '@deepseek-ai/dsh-api-gateway/stream-protocol'
+import { parseSessionLog } from '@onprem-ai/dsh-llm-replay'
+import type { SessionEvent } from '@onprem-ai/dsh-session'
+import { expandAssistantStream } from '@onprem-ai/dsh-llm'
+import { parseRemoteStreamServerMessage } from '@onprem-ai/dsh-api-gateway/stream-protocol'
 import {
   acknowledgeReloadConnectionLoss, assertFixtureInventory, captureExpandedTurnProcessAria, captureStableAria,
   compareOrRefreshGolden, fixtureUserPrompts,

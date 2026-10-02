@@ -3,7 +3,7 @@ description: "The default agent driver for users and maintainers choosing, confi
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-agent-loop
+# @onprem-ai/dsh-agent-loop
 
 English | [中文](README.zh.md)
 
@@ -32,7 +32,7 @@ Mount `dsh-agent-loop` in any composition that should run agents. It supplies th
 Agents declared in the config start automatically when the plugin loads. Each entry needs an `id` label; a model call additionally requires both `provider` and `model` (`agent/request` may supply a missing pair before dispatch).
 
 ```yaml
-- name: '@deepseek-ai/dsh-agent-loop'
+- name: '@onprem-ai/dsh-agent-loop'
   config:
     maxParallelToolCalls: 10
     agents:
@@ -54,7 +54,7 @@ Agents declared in the config start automatically when the plugin loads. Each en
 | `agents[].sessionId` | — | Exact identity: first use creates, a remount resumes materialized history |
 | `agents[].resumeSessionId` | — | Load this persisted session instead of creating one; mutually exclusive with `sessionId` |
 
-The generated [configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-agent-loop) lists every accepted field. `maxParallelToolCalls` is a volatile Config field sampled for the next tool group; `agents` remains startup configuration.
+The generated [configuration catalog](../../../docs/config-catalog.md#onprem-aidsh-agent-loop) lists every accepted field. `maxParallelToolCalls` is a volatile Config field sampled for the next tool group; `agents` remains startup configuration.
 
 ### Create or resume agents programmatically
 

@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-ptc-runtime-node",
+  "name": "@onprem-ai/dsh-ptc-runtime-node",
   "description": "Sandboxed Node process implementation of the DeepSeek Harness PTC execution capability",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -31,31 +31,31 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-ptc-runtime": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-ptc-runtime": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-timeout": "workspace:*",
+    "@onprem-ai/dsh-fs": "workspace:*",
+    "@onprem-ai/dsh-subprocess": "workspace:*",
+    "@onprem-ai/dsh-sandbox": "workspace:*",
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-util-values": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@onprem-ai/dsh-util-values": "workspace:*",
+    "@onprem-ai/schemastery": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-ptc-runtime": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-timeout": "workspace:*",
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-fs-local": "workspace:*",
-    "@deepseek-ai/dsh-subprocess-local": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-local": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-ptc-runtime": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-timeout": "workspace:*",
+    "@onprem-ai/dsh-fs": "workspace:*",
+    "@onprem-ai/dsh-subprocess": "workspace:*",
+    "@onprem-ai/dsh-sandbox": "workspace:*",
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*",
+    "@onprem-ai/dsh-fs-local": "workspace:*",
+    "@onprem-ai/dsh-subprocess-local": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-sandbox-local": "workspace:*"
   }
 }

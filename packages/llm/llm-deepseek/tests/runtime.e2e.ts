@@ -1,17 +1,17 @@
-import * as Protocol from '@deepseek-ai/dsh-llm-deepseek'
+import * as Protocol from '@onprem-ai/dsh-llm-deepseek'
 import { readFileSync } from 'node:fs'
 import { mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { randomBytes } from 'node:crypto'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import LlmRuntime, { createToolResultMessage, createUserMessage, ToolCallId, ReasoningEffortId, createMessage, createSystemMessage } from '@deepseek-ai/dsh-llm'
-import type { Message, ToolSchema } from '@deepseek-ai/dsh-llm'
-import AttachmentStore, { AttachmentId, ImageVariantId } from '@deepseek-ai/dsh-attachment'
-import LocalAttachments from '@deepseek-ai/dsh-attachment-local'
+import { Context } from '@onprem-ai/cordis'
+import Loader from '@onprem-ai/cordis-plugin-loader'
+import AgentRegistry from '@onprem-ai/dsh-agent'
+import LlmRuntime, { createToolResultMessage, createUserMessage, ToolCallId, ReasoningEffortId, createMessage, createSystemMessage } from '@onprem-ai/dsh-llm'
+import type { Message, ToolSchema } from '@onprem-ai/dsh-llm'
+import AttachmentStore, { AttachmentId, ImageVariantId } from '@onprem-ai/dsh-attachment'
+import LocalAttachments from '@onprem-ai/dsh-attachment-local'
 import type {
   ImageAttachmentLimits,
   ImageAttachmentRef,
@@ -19,14 +19,14 @@ import type {
   RequestImageAttachment,
   SaveImageAttachment,
   StoredImageAttachment,
-} from '@deepseek-ai/dsh-attachment'
-import { LocalCredentialProvider } from '@deepseek-ai/dsh-credentials-local'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import DeepSeekLlmApiExtensionRegistry from '@deepseek-ai/dsh-deepseek-llm-api-extensions'
-import * as PluginPackageInventoryDeepSeek from '@deepseek-ai/dsh-plugin-package-inventory-deepseek'
-import * as SessionLogDeepSeek from '@deepseek-ai/dsh-session-log-deepseek'
-import * as LlmDeepSeek from '@deepseek-ai/dsh-llm-deepseek-api-key'
-import type { Options as Config } from '@deepseek-ai/dsh-llm-deepseek'
+} from '@onprem-ai/dsh-attachment'
+import { LocalCredentialProvider } from '@onprem-ai/dsh-credentials-local'
+import SessionStore, { SessionId } from '@onprem-ai/dsh-session'
+import DeepSeekLlmApiExtensionRegistry from '@onprem-ai/dsh-deepseek-llm-api-extensions'
+import * as PluginPackageInventoryDeepSeek from '@onprem-ai/dsh-plugin-package-inventory-deepseek'
+import * as SessionLogDeepSeek from '@onprem-ai/dsh-session-log-deepseek'
+import * as LlmDeepSeek from '@onprem-ai/dsh-llm-deepseek-api-key'
+import type { Options as Config } from '@onprem-ai/dsh-llm-deepseek'
 import type { WireRequest } from '../src/wire-types.ts'
 import { assemble, type AssembledResult } from './assemble.ts'
 

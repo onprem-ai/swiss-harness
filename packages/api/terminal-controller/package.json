@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-api-terminal-controller",
+  "name": "@onprem-ai/dsh-api-terminal-controller",
   "description": "Session-owned interactive terminals with shell discovery, screen recovery and typed Remote control",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -40,10 +40,10 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-api-gateway"
+        "@onprem-ai/dsh-api-gateway"
       ],
       "external": [
-        "@deepseek-ai/dsh-api-gateway/client"
+        "@onprem-ai/dsh-api-gateway/client"
       ],
       "platform": "web"
     }
@@ -54,33 +54,33 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-deque": "workspace:*",
-    "@deepseek-ai/dsh-lazy-require": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~",
+    "@onprem-ai/dsh-deque": "workspace:*",
+    "@onprem-ai/dsh-lazy-require": "workspace:*",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*",
+    "@onprem-ai/schemastery": "workspace:~",
     "@xterm/headless": "^6.0.0",
     "@xterm/addon-serialize": "^0.14.0",
     "zod": "^4.4.3"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/dsh-subprocess": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-agent": "workspace:*",
-    "@deepseek-ai/dsh-api-gateway": "workspace:*",
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/dsh-client-store": "workspace:*",
-    "@deepseek-ai/dsh-fs": "workspace:*",
-    "@deepseek-ai/dsh-remote-mock": "workspace:*",
-    "@deepseek-ai/dsh-sandbox": "workspace:*",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:*",
-    "@deepseek-ai/dsh-session": "workspace:*",
-    "@deepseek-ai/dsh-session-projection": "workspace:*",
-    "@deepseek-ai/dsh-subprocess": "workspace:*",
-    "@deepseek-ai/dsh-subprocess-local": "workspace:*",
-    "@deepseek-ai/dsh-util-crypto": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-api-gateway": "workspace:*",
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-client-store": "workspace:*",
+    "@onprem-ai/dsh-fs": "workspace:*",
+    "@onprem-ai/dsh-remote-mock": "workspace:*",
+    "@onprem-ai/dsh-sandbox": "workspace:*",
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-subprocess": "workspace:*",
+    "@onprem-ai/dsh-subprocess-local": "workspace:*",
+    "@onprem-ai/dsh-util-crypto": "workspace:*"
   },
   "files": [
     "lib/index.js",

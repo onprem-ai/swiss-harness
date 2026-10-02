@@ -6,7 +6,7 @@ Status: implemented
 
 ## Problem
 
-Automation tasks 详情需要一个列表顶部钉住控件的菜单：Time zone 行的搜索框必须停在滚动时区行之上。`@deepseek-ai/dsh-client-ui-primitives` 里的共享 `Menu` 会渲染行、分隔线、标题行、选中标记和键盘走位，但没有 header 槽。Delivery records 页把一条已保存记录的 message id 放在 info 图标背后，读者要能读到并复制这个 id。
+Automation tasks 详情需要一个列表顶部钉住控件的菜单：Time zone 行的搜索框必须停在滚动时区行之上。`@onprem-ai/dsh-client-ui-primitives` 里的共享 `Menu` 会渲染行、分隔线、标题行、选中标记和键盘走位，但没有 header 槽。Delivery records 页把一条已保存记录的 message id 放在 info 图标背后，读者要能读到并复制这个 id。
 
 用扩展 `ui-primitives` 来满足其中任一需求，都会把单个功能的行为放进每个 client 插件都消费的包里。同一条分支此前已经因为 review 质询“Schedule 的改动为什么碰它们”而撤掉了无关的 `ui-layout` 与 `ui-sidebar-right` 编辑；而一个只为单一调用方扩展的共享原语，对之后每一个读它的人都是成本。
 

@@ -5,9 +5,9 @@
  * handed over from here. This is a projection of the dictionary, not a second
  * home for copy: the strings live in `locales.ts`.
  */
-import type { ShortcutCatalogEntry } from '@deepseek-ai/dsh-client-shortcuts/client'
-import type { DockLabels } from '@deepseek-ai/dsh-client-ui-dockkit'
-import type { TranslateNS } from '@deepseek-ai/dsh-client-locale/client'
+import type { ShortcutCatalogEntry } from '@onprem-ai/dsh-client-shortcuts/client'
+import type { DockLabels } from '@onprem-ai/dsh-client-ui-dockkit'
+import type { TranslateNS } from '@onprem-ai/dsh-client-locale/client'
 
 /**
  * Project the dictionary into the kit's label contract.

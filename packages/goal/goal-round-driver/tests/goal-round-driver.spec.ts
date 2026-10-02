@@ -1,19 +1,19 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import type { Agent, PreStepDecision } from '@deepseek-ai/dsh-agent'
-import { agentEvents } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import GoalService, { GoalId } from '@deepseek-ai/dsh-goal'
-import type { GoalView } from '@deepseek-ai/dsh-goal'
-import { createUserMessage, LlmAdapter, LlmError  } from '@deepseek-ai/dsh-llm'
-import type { GenerateOptions, StreamChunk } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import type { UserMessage } from '@deepseek-ai/dsh-session'
+import { Context } from '@onprem-ai/cordis'
+import type { Agent, PreStepDecision } from '@onprem-ai/dsh-agent'
+import { agentEvents } from '@onprem-ai/dsh-agent'
+import AgentLoop from '@onprem-ai/dsh-agent-loop'
+import { mountAgentLoopTestDependencies } from '@onprem-ai/dsh-agent-loop-testkit'
+import GoalService, { GoalId } from '@onprem-ai/dsh-goal'
+import type { GoalView } from '@onprem-ai/dsh-goal'
+import { createUserMessage, LlmAdapter, LlmError  } from '@onprem-ai/dsh-llm'
+import type { GenerateOptions, StreamChunk } from '@onprem-ai/dsh-llm'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
+import { SessionId } from '@onprem-ai/dsh-session'
+import type { UserMessage } from '@onprem-ai/dsh-session'
 import * as goalSession from '../src/index.ts'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'test': { kind: 'test' } & ContextFormed
   }

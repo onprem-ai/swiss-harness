@@ -1,5 +1,5 @@
 /**
- * @deepseek-ai/dsh-headless — one-shot direct Agent driver. The bundle patch
+ * @onprem-ai/dsh-headless — one-shot direct Agent driver. The bundle patch
  * rides over dsh-base without Host, HTTP, or browser plugins; this runner
  * creates one Agent through the core registry (or adopts the exact Session a
  * `--session-id` names), drives the task to quiescence, streams provider
@@ -7,28 +7,28 @@
  * stdout, and exits. With `--json` it projects the run as newline-delimited
  * events instead of the final text.
  *
- * @module @deepseek-ai/dsh-headless
+ * @module @onprem-ai/dsh-headless
  */
 
 import { randomUUID } from 'node:crypto'
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import { installModelSelection } from '@deepseek-ai/dsh-agent'
-import type { Agent, ModelSelectionRef } from '@deepseek-ai/dsh-agent'
-import type {} from '@deepseek-ai/dsh-agent-default-model'
-import type {} from '@deepseek-ai/dsh-fs'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import { assertNever } from '@deepseek-ai/dsh-util-values'
-import { SessionSeq } from '@deepseek-ai/dsh-session'
-import type { Session, SessionEvent, SessionId, SessionLogOffset } from '@deepseek-ai/dsh-session'
-import { SessionQueryError } from '@deepseek-ai/dsh-session-query'
+import type { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
+import { brandString } from '@onprem-ai/dsh-brand'
+import { installModelSelection } from '@onprem-ai/dsh-agent'
+import type { Agent, ModelSelectionRef } from '@onprem-ai/dsh-agent'
+import type {} from '@onprem-ai/dsh-agent-default-model'
+import type {} from '@onprem-ai/dsh-fs'
+import { createUserMessage } from '@onprem-ai/dsh-llm'
+import { assertNever } from '@onprem-ai/dsh-util-values'
+import { SessionSeq } from '@onprem-ai/dsh-session'
+import type { Session, SessionEvent, SessionId, SessionLogOffset } from '@onprem-ai/dsh-session'
+import { SessionQueryError } from '@onprem-ai/dsh-session-query'
 // Empty type imports carry the loader Context merge for the settlement await,
 // the cmdline Context merge for the appExit host value, and the sessionQuery
 // Context merge for exact Session adoption.
-import type {} from '@deepseek-ai/cordis-plugin-loader'
-import type {} from '@deepseek-ai/dsh-cmdline'
-import type {} from '@deepseek-ai/dsh-session-query'
+import type {} from '@onprem-ai/cordis-plugin-loader'
+import type {} from '@onprem-ai/dsh-cmdline'
+import type {} from '@onprem-ai/dsh-session-query'
 import { internals } from './runner-internals.ts'
 import { projectJsonRun, boundJsonLine } from './json-stream.ts'
 
@@ -334,7 +334,7 @@ async function run(ctx: Context, config: Config, io: HeadlessIo): Promise<void> 
   // This bundle composes no preset roster, so the model-facing rows sit in the
   // host plane and the agent reads them from the global layer. A deployment
   // that DOES configure one has to join it here first
-  // (@deepseek-ai/dsh-agent-preset-registry README, "Composing a child agent").
+  // (@onprem-ai/dsh-agent-preset-registry README, "Composing a child agent").
   const setup = (agentCtx: Context): void => {
     const selected: ModelSelectionRef = { current: selection, assembled: undefined }
     installModelSelection(agentCtx, selected)

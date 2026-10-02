@@ -1,14 +1,14 @@
 /**
  * Package-owned strict Schedule stream invariant.
- * @module @deepseek-ai/dsh-schedule/invariant
+ * @module @onprem-ai/dsh-schedule/invariant
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { Session, SessionEvent } from '@deepseek-ai/dsh-session'
-import type { InvariantFailure, InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@onprem-ai/cordis'
+import type { Session, SessionEvent } from '@onprem-ai/dsh-session'
+import type { InvariantFailure, InvariantInstaller } from '@onprem-ai/dsh-invariants'
 import { foldScheduleEvents, ScheduleLogError } from './domain.ts'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-schedule'
+const PACKAGE_NAME = '@onprem-ai/dsh-schedule'
 
 /** Cordis invariant-companion plugin name. */
 export const name = 'schedule-invariant'

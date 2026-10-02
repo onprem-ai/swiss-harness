@@ -18,16 +18,16 @@
  * profile directory. Pnpm-managed entries in the profile's `node_modules`
  * resolve first. The runtime resolution supplies packages carried by the
  * installation and selected bundles to Node's ESM and CommonJS resolvers.
- * @module @deepseek-ai/dsh-app-boot/profile
+ * @module @onprem-ai/dsh-app-boot/profile
  */
 
 import { createRequire } from 'node:module'
 import { existsSync, mkdirSync, readdirSync, readFileSync, readlinkSync, realpathSync, rmSync, statSync, unlinkSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join, relative, resolve, sep } from 'node:path'
-import type { EntryOptions } from '@deepseek-ai/cordis-plugin-loader'
-import { applyEntryPatches, type PatchOptions } from '@deepseek-ai/cordis-plugin-include'
-import { resolveDshHome } from '@deepseek-ai/dsh-home-paths'
-import type { DshBundleManifest, DshPackageManifest } from '@deepseek-ai/dsh-package-manifest'
+import type { EntryOptions } from '@onprem-ai/cordis-plugin-loader'
+import { applyEntryPatches, type PatchOptions } from '@onprem-ai/cordis-plugin-include'
+import { resolveDshHome } from '@onprem-ai/dsh-home-paths'
+import type { DshBundleManifest, DshPackageManifest } from '@onprem-ai/dsh-package-manifest'
 import { evaluatePluginCompatibility, pluginCompatibilityWarning } from './plugin-compatibility.ts'
 import { readProfileVersionExemptions } from './profile-compatibility.ts'
 import { loadOverlayPatches } from './index.ts'
@@ -178,29 +178,29 @@ export function resolveProfileDir(name: string, home: string = resolveDshHome())
 /** The shipped profile templates auto-initialized on first use, by name. */
 export const PROFILE_TEMPLATES: Record<string, ProfileTemplate> = {
   acp: {
-    bundles: ['@deepseek-ai/dsh-base', '@deepseek-ai/dsh-acp-app'],
+    bundles: ['@onprem-ai/dsh-base', '@onprem-ai/dsh-acp-app'],
   },
   web: {
-    bundles: ['@deepseek-ai/dsh-base', '@deepseek-ai/dsh-web-app'],
+    bundles: ['@onprem-ai/dsh-base', '@onprem-ai/dsh-web-app'],
   },
   headless: {
-    bundles: ['@deepseek-ai/dsh-base', '@deepseek-ai/dsh-headless'],
+    bundles: ['@onprem-ai/dsh-base', '@onprem-ai/dsh-headless'],
   },
   sdk: {
-    bundles: ['@deepseek-ai/dsh-base', '@deepseek-ai/dsh-sdk-app'],
+    bundles: ['@onprem-ai/dsh-base', '@onprem-ai/dsh-sdk-app'],
   },
   'sdk-minimal': {
-    bundles: ['@deepseek-ai/dsh-sdk-minimal'],
+    bundles: ['@onprem-ai/dsh-sdk-minimal'],
   },
 }
 
 /** Installation-owned bundle tuples normalized to the shipped template. */
 const INSTALLATION_OWNED_PROFILE_TUPLES: Record<string, readonly string[]> = {
-  headless: ['@deepseek-ai/dsh-base', '@deepseek-ai/dsh-web-app', '@deepseek-ai/dsh-headless'],
+  headless: ['@onprem-ai/dsh-base', '@onprem-ai/dsh-web-app', '@onprem-ai/dsh-headless'],
 }
 
 /** The bundle list a `dsh plugin` init uses for a name with no shipped template. */
-export const DEFAULT_PROFILE_BUNDLES: readonly string[] = ['@deepseek-ai/dsh-base']
+export const DEFAULT_PROFILE_BUNDLES: readonly string[] = ['@onprem-ai/dsh-base']
 
 /**
  * The bundles the dsh installation ships for a person to switch on: each a
@@ -211,10 +211,10 @@ export const DEFAULT_PROFILE_BUNDLES: readonly string[] = ['@deepseek-ai/dsh-bas
  * [admission](../../../../.agents/notes/implemented/architecture/2026-09-21-experimental-capabilities-as-optional-bundles.md)).
  */
 export const OPTIONAL_BUNDLES: readonly string[] = [
-  '@deepseek-ai/dsh-experimental-agent-team-profile',
-  '@deepseek-ai/dsh-experimental-voice-input-bundle',
-  '@deepseek-ai/dsh-experimental-auto-review',
-  '@deepseek-ai/dsh-experimental-schedule-bundle',
+  '@onprem-ai/dsh-experimental-agent-team-profile',
+  '@onprem-ai/dsh-experimental-voice-input-bundle',
+  '@onprem-ai/dsh-experimental-auto-review',
+  '@onprem-ai/dsh-experimental-schedule-bundle',
 ]
 
 const PROFILE_PATCH_TEMPLATE = `# Your patch layer for this dsh profile, applied after every bundle layer:
@@ -618,7 +618,7 @@ function packageDirFromAnchor(anchor: string, packageName: string): string | und
 /**
  * Resolve one bundle package's directory: installation anchor first, then the
  * profile directory. The installation-first order is the contract that
- * `@deepseek-ai/dsh-base` (and every other in-box bundle) always comes from
+ * `@onprem-ai/dsh-base` (and every other in-box bundle) always comes from
  * the same installation as the running dsh, never from a profile-local copy.
  * Resolution does not require the package to export `./package.json`.
  * @param binName - the diagnostic prefix on the thrown error.

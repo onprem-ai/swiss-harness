@@ -6,23 +6,23 @@
   en: 46fa7d1eac4fe061
   zh: 7a62f8f7b1c66722
 /agent-note-tool-call-timeout-policy-as-a-plugin/problem:
-  en: b5fffa80b58fb184
-  zh: aadf28f95924b1ad
+  en: 5ee856a1f776fa6b
+  zh: 54c6fc61bdc6917f
 /agent-note-tool-call-timeout-policy-as-a-plugin/decision:
-  en: 04889f664ab7657d
-  zh: 2af5913f5e9c1927
+  en: 33677f74b6ebc86b
+  zh: 8e2711d8b1b077d4
 /agent-note-tool-call-timeout-policy-as-a-plugin/decision/the-tools-execute-around-dispatch-extension-point:
-  en: 8c3b46fa8a48a863
-  zh: 662eb09bb7542be8
+  en: a165fa0e9f6dc095
+  zh: 9a8796f11325c141
 /agent-note-tool-call-timeout-policy-as-a-plugin/decision/the-timeout-policy-plugin:
-  en: 96f5932514a33e41
-  zh: 5951d9451ccef1bf
+  en: 10de9b007c8ab7b0
+  zh: f3d663ac0d995d81
 /agent-note-tool-call-timeout-policy-as-a-plugin/decision/existing-tool-adaptation:
-  en: 43add9b1f723ce89
-  zh: f3ee56f97faa2e60
+  en: 42ab7dc4e90a185e
+  zh: 864d97ebc5f3d3fd
 /agent-note-tool-call-timeout-policy-as-a-plugin/alternatives-considered:
-  en: dc6da8743b4266fb
-  zh: 5c28667d952b230a
+  en: 805a34444cabd303
+  zh: e49a9c2ea20af9ca
 /agent-note-tool-call-timeout-policy-as-a-plugin/consequences:
-  en: f7429a5c1fe6b6a1
-  zh: 748401be79f89b05
+  en: 7cda08f1926fb755
+  zh: 5c66d4ed85c87ecc

@@ -3,9 +3,9 @@ import { useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import {
   IconChevronDownOutlineRegular, IconFolderOpenOutlineRegular, IconRightUpOutlineRegular, Menu, Tooltip,
-} from '@deepseek-ai/dsh-client-ui-primitives'
-import type { ShortcutCatalogEntry } from '@deepseek-ai/dsh-client-shortcuts/client'
-import type { TranslateNS } from '@deepseek-ai/dsh-client-ui-slots'
+} from '@onprem-ai/dsh-client-ui-primitives'
+import type { ShortcutCatalogEntry } from '@onprem-ai/dsh-client-shortcuts/client'
+import type { TranslateNS } from '@onprem-ai/dsh-client-ui-slots'
 import type { OpenInAppPathFailure } from './open-path.ts'
 import { useOpenFailureToast } from './open-failure-toast.tsx'
 import type { NS } from './locales.ts'

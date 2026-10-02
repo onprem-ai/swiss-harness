@@ -53,7 +53,7 @@ Agent-bound auxiliary controls are unavailable in addressed child views. In part
 
 ## Host adapter and wire contract
 
-The Session Controller owns catalog and history reads; `@deepseek-ai/dsh-subagent` owns continuation controls:
+The Session Controller owns catalog and history reads; `@onprem-ai/dsh-subagent` owns continuation controls:
 
 - `session.projections` takes `sessionId` and returns one live-preferred Session observation’s complete projection baseline without activating an Agent. The Client seeds the standard projection store; subagent consumers select `subagentCatalog`. Parent Agent availability comes from Session-list summaries and lifecycle events.
 - `session.page` and `session.follow` take the full mode-bearing address. They validate the child header, direct parent, descriptor identity, and mode at the observed cut, then return ordinary raw events, pagination, live reconciliation, and Host projection baselines without publishing an Agent.
@@ -71,7 +71,7 @@ The adapter stays behind the generated Remote namespace; `dsh-host-webserver` re
 
 The React-free runtime owns catalogs, single-flight refreshes, retained addresses, availability hints, transport selection, and a reference-stable map of each list row's current projection values. Re-selecting a known child retains its address so navigation cannot silently switch to ordinary session APIs. A missing intermediate breadcrumb address can be recovered from an already-loaded ancestor catalog, but it is not retained for transport and creates no scope until the user selects that breadcrumb. Restored navigation persists the full mode-bearing address.
 
-Catalogs ride the standard `useSessions` snapshot. Component-local state owns menu visibility, expanded branches, focus, and hover timers. `ui-conversation` declares a lineage slot for the current ordinary title and every subagent breadcrumb, passes plain breadcrumb identity and display text plus an upward-navigation callback for ancestors, and retains the ordinary title as the render fallback. `@deepseek-ai/dsh-client-ui-subagent` occupies each lineage slot with direct-parent catalog navigation and elects a reason-specific read-only composer from ordinary owner props. Components receive derived props and callbacks, never `ctx`.
+Catalogs ride the standard `useSessions` snapshot. Component-local state owns menu visibility, expanded branches, focus, and hover timers. `ui-conversation` declares a lineage slot for the current ordinary title and every subagent breadcrumb, passes plain breadcrumb identity and display text plus an upward-navigation callback for ancestors, and retains the ordinary title as the render fallback. `@onprem-ai/dsh-client-ui-subagent` occupies each lineage slot with direct-parent catalog navigation and elects a reason-specific read-only composer from ordinary owner props. Components receive derived props and callbacks, never `ctx`.
 
 Every in-process subagent child stamps `SessionHeader.origin: 'subagent'` before publication. Session list summaries and incremental Host frames project it so grouped and flat sidebars omit duplicate child rows while preserving ordinary forks. Parent catalog projection owns membership and tree structure; descriptor identity and exact-parent checks own addressed history and continuation validation.
 

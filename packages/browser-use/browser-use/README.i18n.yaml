@@ -5,33 +5,33 @@
 /:
   en: f40b34f771caa863
   zh: f61d7ce73e0720e2
-/deepseek-ai-dsh-browser-use:
-  en: 2dbab261a3c343cc
-  zh: f2cf8d237182cef1
-/deepseek-ai-dsh-browser-use/summary:
+/onprem-ai-dsh-browser-use:
+  en: 93dcbdb510d10f99
+  zh: f2e1499334c7a42f
+/onprem-ai-dsh-browser-use/summary:
   en: 3e2c0d4aad911b93
   zh: 3e3903754a46de8e
-/deepseek-ai-dsh-browser-use/table-of-contents:
+/onprem-ai-dsh-browser-use/table-of-contents:
   en: d152484eb41ac6b4
   zh: f14f34fce35a8d90
-/deepseek-ai-dsh-browser-use/use-this-package:
-  en: d0c5ace058c0572a
-  zh: 2bbfa786c1f9ba53
-/deepseek-ai-dsh-browser-use/understand-the-implementation:
+/onprem-ai-dsh-browser-use/use-this-package:
+  en: c972b62bdb6085f6
+  zh: f606937f562cc2f9
+/onprem-ai-dsh-browser-use/understand-the-implementation:
   en: e8421af75ba37792
   zh: 3dbc5e6ff5291972
-/deepseek-ai-dsh-browser-use/further-exploration:
+/onprem-ai-dsh-browser-use/further-exploration:
   en: 5ae59b1b38304607
   zh: 429171c1a3fb914c
-/deepseek-ai-dsh-browser-use/model-experience:
+/onprem-ai-dsh-browser-use/model-experience:
   en: 8780c250dfaefaaa
   zh: f1fd94f7531b60a1
-/deepseek-ai-dsh-browser-use/model-experience/kv-cache-effect:
+/onprem-ai-dsh-browser-use/model-experience/kv-cache-effect:
   en: 0cc866a67a19d08b
   zh: c6a46b147b042cff
-/deepseek-ai-dsh-browser-use/known-limitations-and-deferred-work:
+/onprem-ai-dsh-browser-use/known-limitations-and-deferred-work:
   en: 43952e97817e9e32
   zh: a5e494860a71fc71
-/deepseek-ai-dsh-browser-use/known-limitations-and-deferred-work/dev-note:
+/onprem-ai-dsh-browser-use/known-limitations-and-deferred-work/dev-note:
   en: e67f633dc6fe7773
   zh: 8ec3e73528ddb1a6

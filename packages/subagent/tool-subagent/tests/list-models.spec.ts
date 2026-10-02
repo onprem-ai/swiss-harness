@@ -1,20 +1,20 @@
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@onprem-ai/cordis'
 import LlmRuntime, {
   ToolCallId,
   LlmAdapter,
   ReasoningEffortId,
-} from '@deepseek-ai/dsh-llm'
+} from '@onprem-ai/dsh-llm'
 import type {
   GenerateOptions,
   LlmModelInfo,
   LlmResolvedModelInfo,
   StreamChunk,
-} from '@deepseek-ai/dsh-llm'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import SubagentRuntime from '@deepseek-ai/dsh-subagent'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+} from '@onprem-ai/dsh-llm'
+import ToolRuntime from '@onprem-ai/dsh-tools'
+import SystemPrompt from '@onprem-ai/dsh-system-prompt'
+import SubagentRuntime from '@onprem-ai/dsh-subagent'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
 import * as tool from '../src/index.ts'
 import { registerListSubagentModels } from '../src/list-models.ts'
 import { testToolSignal, text } from './harness.ts'

@@ -11,10 +11,10 @@
 
 每个包的条目用三个标识符标注：`inject` 列出插件注入的服务键，其 `cordis.yml` 树还必须加载这些服务的提供者；`refs` 列出声明引用、但未粘贴在此处的类型；`source` 链接到声明配置的源文件。范围限定为 harness 层级（`packages/`）；配置树还可能加载的 vendored cordis 插件（控制台日志记录器等）固定为上游源代码（参见 [vendoring policy](../vendor/README.md)），未收录于此目录。
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-acp -->
-<a id="deepseek-aidsh-acp"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-acp -->
+<a id="onprem-aidsh-acp"></a>
 
-## `@deepseek-ai/dsh-acp`
+## `@onprem-ai/dsh-acp`
 
 - `inject`: `agents` · `llm` · `sessionPersistence` · `sessions`
 - `refs`: `Stream` (`@agentclientprotocol/sdk`)
@@ -33,14 +33,14 @@ export interface AcpConfig {
   stream?: Stream
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-acp -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-acp -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-agent-default-model -->
-<a id="deepseek-aidsh-agent-default-model"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-agent-default-model -->
+<a id="onprem-aidsh-agent-default-model"></a>
 
-## `@deepseek-ai/dsh-agent-default-model`
+## `@onprem-ai/dsh-agent-default-model`
 
-- `refs`: `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/core/agent-default-model/src/index.ts:24`](../packages/core/agent-default-model/src/index.ts)
 
 ```ts config-catalog
@@ -54,12 +54,12 @@ export interface Config {
   reasoningEffort: Volatile<string | undefined>
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-agent-default-model -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-agent-default-model -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-agent-instructions -->
-<a id="deepseek-aidsh-agent-instructions"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-agent-instructions -->
+<a id="onprem-aidsh-agent-instructions"></a>
 
-## `@deepseek-ai/dsh-agent-instructions`
+## `@onprem-ai/dsh-agent-instructions`
 
 - `inject`: `sessionProjections`
 - `source`: [`packages/context/agent-instructions/src/config.ts:18`](../packages/context/agent-instructions/src/config.ts)
@@ -87,15 +87,15 @@ export interface Config {
   localInstructionFileCandidates?: string[]
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-agent-instructions -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-agent-instructions -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-agent-loop -->
-<a id="deepseek-aidsh-agent-loop"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-agent-loop -->
+<a id="onprem-aidsh-agent-loop"></a>
 
-## `@deepseek-ai/dsh-agent-loop`
+## `@onprem-ai/dsh-agent-loop`
 
 - `inject`: `agents` · `sessions` · `llm` · `tools` · `systemPrompt` · `sessionProjections`
-- `refs`: [`AgentOptions`](subsystems/core.zh.md) · [`SessionId`](subsystems/core.zh.md) · `Volatile` (`@deepseek-ai/cosmokit`)
+- `refs`: [`AgentOptions`](subsystems/core.zh.md) · [`SessionId`](subsystems/core.zh.md) · `Volatile` (`@onprem-ai/cosmokit`)
 - `source`: [`packages/core/agent-loop/src/index.ts:292`](../packages/core/agent-loop/src/index.ts)
 
 ```ts config-catalog
@@ -119,12 +119,12 @@ export interface Config {
   })[]
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-agent-loop -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-agent-loop -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-agent-preset -->
-<a id="deepseek-aidsh-agent-preset"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-agent-preset -->
+<a id="onprem-aidsh-agent-preset"></a>
 
-## `@deepseek-ai/dsh-agent-preset`
+## `@onprem-ai/dsh-agent-preset`
 
 - `inject`: `agentPresets`
 - `refs`: [`PresetDefinition`](../packages/preset/agent-preset-registry/src/index.ts)
@@ -134,15 +134,15 @@ export interface Config {
 /** Definition submitted to the preset registry. */
 export type Config = PresetDefinition
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-agent-preset -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-agent-preset -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-agent-preset-registry -->
-<a id="deepseek-aidsh-agent-preset-registry"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-agent-preset-registry -->
+<a id="onprem-aidsh-agent-preset-registry"></a>
 
-## `@deepseek-ai/dsh-agent-preset-registry`
+## `@onprem-ai/dsh-agent-preset-registry`
 
 - `inject`: `loader` · `sessionProjections`
-- `refs`: `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/preset/agent-preset-registry/src/preset.ts:13`](../packages/preset/agent-preset-registry/src/preset.ts)
 
 ```ts config-catalog
@@ -154,12 +154,12 @@ export interface Config {
   selectedDefault: Volatile<string | undefined>
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-agent-preset-registry -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-agent-preset-registry -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-agent-tool-presentation -->
-<a id="deepseek-aidsh-agent-tool-presentation"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-agent-tool-presentation -->
+<a id="onprem-aidsh-agent-tool-presentation"></a>
 
-## `@deepseek-ai/dsh-agent-tool-presentation`
+## `@onprem-ai/dsh-agent-tool-presentation`
 
 - `inject`: `tools`
 - `refs`: [`ToolPresentationMode`](subsystems/tools.zh.md)
@@ -178,12 +178,12 @@ export interface Config {
   mode: ToolPresentationMode
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-agent-tool-presentation -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-agent-tool-presentation -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-api-gateway -->
-<a id="deepseek-aidsh-api-gateway"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-api-gateway -->
+<a id="onprem-aidsh-api-gateway"></a>
 
-## `@deepseek-ai/dsh-api-gateway`
+## `@onprem-ai/dsh-api-gateway`
 
 - `inject`: `typert`
 - `source`: [`packages/api/gateway/src/index.ts:146`](../packages/api/gateway/src/index.ts)
@@ -197,12 +197,12 @@ export interface Config {
   readonly streamInboxBytes?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-api-gateway -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-api-gateway -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-api-job-controller -->
-<a id="deepseek-aidsh-api-job-controller"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-api-job-controller -->
+<a id="onprem-aidsh-api-job-controller"></a>
 
-## `@deepseek-ai/dsh-api-job-controller`
+## `@onprem-ai/dsh-api-job-controller`
 
 - `inject`: `jobs` · `typert`
 - `source`: [`packages/api/job-controller/src/index.ts:35`](../packages/api/job-controller/src/index.ts)
@@ -216,12 +216,12 @@ export interface Config {
   readonly observeMaxFrameBytes?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-api-job-controller -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-api-job-controller -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-api-session-controller -->
-<a id="deepseek-aidsh-api-session-controller"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-api-session-controller -->
+<a id="onprem-aidsh-api-session-controller"></a>
 
-## `@deepseek-ai/dsh-api-session-controller`
+## `@onprem-ai/dsh-api-session-controller`
 
 - `inject`: `agentDefaultModel` · `agents` · `attachments` · `fileUploads` · `fs` · `llm` · `sessions` · `sessionProjections` · `sessionQuery` · `typert` · `workspaceRegistry`
 - `source`: [`packages/api/session-controller/src/index.ts:79`](../packages/api/session-controller/src/index.ts)
@@ -233,12 +233,12 @@ export interface Config {
   readonly nativeOpen?: boolean
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-api-session-controller -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-api-session-controller -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-api-settings-controller -->
-<a id="deepseek-aidsh-api-settings-controller"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-api-settings-controller -->
+<a id="onprem-aidsh-api-settings-controller"></a>
 
-## `@deepseek-ai/dsh-api-settings-controller`
+## `@onprem-ai/dsh-api-settings-controller`
 
 - `source`: [`packages/api/settings-controller/src/index.ts:35`](../packages/api/settings-controller/src/index.ts)
 
@@ -249,12 +249,12 @@ export interface SettingsControllerInternals {
   readonly openTextFile?: (path: string, signal: AbortSignal) => Promise<void>
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-api-settings-controller -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-api-settings-controller -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-api-terminal-controller -->
-<a id="deepseek-aidsh-api-terminal-controller"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-api-terminal-controller -->
+<a id="onprem-aidsh-api-terminal-controller"></a>
 
-## `@deepseek-ai/dsh-api-terminal-controller`
+## `@onprem-ai/dsh-api-terminal-controller`
 
 - `inject`: `subprocess` · `sandboxPolicy` · `typert`
 - `source`: [`packages/api/terminal-controller/src/index.ts:26`](../packages/api/terminal-controller/src/index.ts)
@@ -295,12 +295,12 @@ export interface Config {
   readonly cleanupRetryMs: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-api-terminal-controller -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-api-terminal-controller -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-api-workspace-controller -->
-<a id="deepseek-aidsh-api-workspace-controller"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-api-workspace-controller -->
+<a id="onprem-aidsh-api-workspace-controller"></a>
 
-## `@deepseek-ai/dsh-api-workspace-controller`
+## `@onprem-ai/dsh-api-workspace-controller`
 
 - `inject`: `typert` · `workspaceRegistry`
 - `source`: [`packages/api/workspace-controller/src/index.ts:33`](../packages/api/workspace-controller/src/index.ts)
@@ -314,12 +314,12 @@ export interface Config {
   documentsLookupTimeoutMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-api-workspace-controller -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-api-workspace-controller -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-api-workspace-files -->
-<a id="deepseek-aidsh-api-workspace-files"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-api-workspace-files -->
+<a id="onprem-aidsh-api-workspace-files"></a>
 
-## `@deepseek-ai/dsh-api-workspace-files`
+## `@onprem-ai/dsh-api-workspace-files`
 
 - `inject`: `fs` · `sandboxPolicy` · `sessions` · `typert`
 - `source`: [`packages/api/workspace-files/src/index.ts:70`](../packages/api/workspace-files/src/index.ts)
@@ -343,12 +343,12 @@ export interface Config {
   readonly maxEntries: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-api-workspace-files -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-api-workspace-files -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-attachment-local -->
-<a id="deepseek-aidsh-attachment-local"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-attachment-local -->
+<a id="onprem-aidsh-attachment-local"></a>
 
-## `@deepseek-ai/dsh-attachment-local`
+## `@onprem-ai/dsh-attachment-local`
 
 - `source`: [`packages/attachment/attachment-local/src/index.ts:61`](../packages/attachment/attachment-local/src/index.ts)
 
@@ -380,15 +380,15 @@ export interface Config {
   imageCompressionConcurrency?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-attachment-local -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-attachment-local -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-bash-local -->
-<a id="deepseek-aidsh-bash-local"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-bash-local -->
+<a id="onprem-aidsh-bash-local"></a>
 
-## `@deepseek-ai/dsh-bash-local`
+## `@onprem-ai/dsh-bash-local`
 
 - `inject`: `subprocess`
-- `refs`: `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/shell/bash-local/src/index.ts:41`](../packages/shell/bash-local/src/index.ts)
 
 ```ts config-catalog
@@ -408,33 +408,33 @@ export interface Config {
   graceMs: Volatile<number>
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-bash-local -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-bash-local -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-bash-sandbox -->
-<a id="deepseek-aidsh-bash-sandbox"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-bash-sandbox -->
+<a id="onprem-aidsh-bash-sandbox"></a>
 
-## `@deepseek-ai/dsh-bash-sandbox`
+## `@onprem-ai/dsh-bash-sandbox`
 
 - `inject`: `subprocess` · `sandbox` · `sandboxPolicy`
-- `refs`: [`LocalConfig`](#deepseek-aidsh-bash-local)
+- `refs`: [`LocalConfig`](#onprem-aidsh-bash-local)
 - `source`: [`packages/shell/bash-sandbox/src/index.ts:36`](../packages/shell/bash-sandbox/src/index.ts)
 
 ```ts config-catalog
 /**
  * Plugin config: the local executor's knobs, verbatim. The sandbox policy —
  * the default mode and fallback `workspace-write` root — is NOT here: it lives
- * on `ctx.sandboxPolicy` (`@deepseek-ai/dsh-sandbox-policy`), which resolves
+ * on `ctx.sandboxPolicy` (`@onprem-ai/dsh-sandbox-policy`), which resolves
  * each calling session's mode and cwd for every enforcing capability. The runner
  * choice is likewise the `ctx.sandbox` provider's config, not this executor's.
  */
 export type Config = LocalConfig
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-bash-sandbox -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-bash-sandbox -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-client-connection -->
-<a id="deepseek-aidsh-client-connection"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-client-connection -->
+<a id="onprem-aidsh-client-connection"></a>
 
-## `@deepseek-ai/dsh-client-connection`
+## `@onprem-ai/dsh-client-connection`
 
 - `inject`: `credentials`
 - `source`: [`packages/client/connection/src/index.ts:92`](../packages/client/connection/src/index.ts)
@@ -476,12 +476,12 @@ export interface ConnectionRecoveryConfig {
   generationReadyTimeoutMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-client-connection -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-client-connection -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-client-hmr -->
-<a id="deepseek-aidsh-client-hmr"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-client-hmr -->
+<a id="onprem-aidsh-client-hmr"></a>
 
-## `@deepseek-ai/dsh-client-hmr`
+## `@onprem-ai/dsh-client-hmr`
 
 - `inject`: `clientModules` · `webServer`
 - `source`: [`packages/client/hmr/src/index.ts:30`](../packages/client/hmr/src/index.ts)
@@ -493,15 +493,15 @@ export interface Config {
   pollIntervalMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-client-hmr -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-client-hmr -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-client-product-analytics -->
-<a id="deepseek-aidsh-client-product-analytics"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-client-product-analytics -->
+<a id="onprem-aidsh-client-product-analytics"></a>
 
-## `@deepseek-ai/dsh-client-product-analytics`
+## `@onprem-ai/dsh-client-product-analytics`
 
 - `inject`: `deepseekAccount` · `productTelemetry`
-- `refs`: `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/client/product-analytics/src/index.ts:14`](../packages/client/product-analytics/src/index.ts)
 
 ```ts config-catalog
@@ -513,12 +513,12 @@ export interface Config {
   appVersion?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-client-product-analytics -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-client-product-analytics -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-client-shortcuts -->
-<a id="deepseek-aidsh-client-shortcuts"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-client-shortcuts -->
+<a id="onprem-aidsh-client-shortcuts"></a>
 
-## `@deepseek-ai/dsh-client-shortcuts`
+## `@onprem-ai/dsh-client-shortcuts`
 
 - `source`: [`packages/client/shortcuts/src/config.ts:5`](../packages/client/shortcuts/src/config.ts)
 
@@ -529,12 +529,12 @@ export interface Config {
   stopSequenceMs: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-client-shortcuts -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-client-shortcuts -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-client-ui-plugin-manager -->
-<a id="deepseek-aidsh-client-ui-plugin-manager"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-client-ui-plugin-manager -->
+<a id="onprem-aidsh-client-ui-plugin-manager"></a>
 
-## `@deepseek-ai/dsh-client-ui-plugin-manager`
+## `@onprem-ai/dsh-client-ui-plugin-manager`
 
 - `source`: [`packages/client/ui-plugin-manager/src/index.ts:15`](../packages/client/ui-plugin-manager/src/index.ts)
 
@@ -549,14 +549,14 @@ export interface Config {
   registryProbeCacheTtlMs: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-client-ui-plugin-manager -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-client-ui-plugin-manager -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-client-ui-settings-account -->
-<a id="deepseek-aidsh-client-ui-settings-account"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-client-ui-settings-account -->
+<a id="onprem-aidsh-client-ui-settings-account"></a>
 
-## `@deepseek-ai/dsh-client-ui-settings-account`
+## `@onprem-ai/dsh-client-ui-settings-account`
 
-- `refs`: `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/client/ui-settings-account/src/index.ts:9`](../packages/client/ui-settings-account/src/index.ts)
 
 ```ts config-catalog
@@ -599,12 +599,12 @@ export type OnboardingPurpose = 'office' | 'development' | 'both'
 /** Work-detail mode applied to Chat when onboarding completes. */
 export type OnboardingProcess = 'compact' | 'standard' | 'detailed'
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-client-ui-settings-account -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-client-ui-settings-account -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-client-ui-settings-models -->
-<a id="deepseek-aidsh-client-ui-settings-models"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-client-ui-settings-models -->
+<a id="onprem-aidsh-client-ui-settings-models"></a>
 
-## `@deepseek-ai/dsh-client-ui-settings-models`
+## `@onprem-ai/dsh-client-ui-settings-models`
 
 - `source`: [`packages/client/ui-settings-models/src/onboarding-config.ts:6`](../packages/client/ui-settings-models/src/onboarding-config.ts)
 
@@ -615,12 +615,12 @@ export interface Config {
   credentialOnboarding: boolean
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-client-ui-settings-models -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-client-ui-settings-models -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-client-ui-sidebar-documentpreview -->
-<a id="deepseek-aidsh-client-ui-sidebar-documentpreview"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-client-ui-sidebar-documentpreview -->
+<a id="onprem-aidsh-client-ui-sidebar-documentpreview"></a>
 
-## `@deepseek-ai/dsh-client-ui-sidebar-documentpreview`
+## `@onprem-ai/dsh-client-ui-sidebar-documentpreview`
 
 - `source`: [`packages/client/ui-sidebar-documentpreview/src/config.ts:5`](../packages/client/ui-sidebar-documentpreview/src/config.ts)
 
@@ -649,14 +649,14 @@ export interface Config {
   }
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-client-ui-sidebar-documentpreview -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-client-ui-sidebar-documentpreview -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-client-ui-theme -->
-<a id="deepseek-aidsh-client-ui-theme"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-client-ui-theme -->
+<a id="onprem-aidsh-client-ui-theme"></a>
 
-## `@deepseek-ai/dsh-client-ui-theme`
+## `@onprem-ai/dsh-client-ui-theme`
 
-- `refs`: `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/client/ui-theme/src/index.ts:22`](../packages/client/ui-theme/src/index.ts)
 
 ```ts config-catalog
@@ -671,12 +671,12 @@ export interface Config {
 /** Theme preference persisted by the product Appearance row. */
 export type ThemePreference = typeof THEME_PREFERENCES[number]
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-client-ui-theme -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-client-ui-theme -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-compaction-basic -->
-<a id="deepseek-aidsh-compaction-basic"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-compaction-basic -->
+<a id="onprem-aidsh-compaction-basic"></a>
 
-## `@deepseek-ai/dsh-compaction-basic`
+## `@onprem-ai/dsh-compaction-basic`
 
 - `inject`: `llm` · `tokenMeter` · `sessions`
 - `source`: [`packages/compaction/compaction-basic/src/types.ts:40`](../packages/compaction/compaction-basic/src/types.ts)
@@ -720,12 +720,12 @@ export interface ModelCompactPolicyConfig extends CompactionPolicyConfig {
   model: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-compaction-basic -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-compaction-basic -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-compaction-tool-result-pruner -->
-<a id="deepseek-aidsh-compaction-tool-result-pruner"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-compaction-tool-result-pruner -->
+<a id="onprem-aidsh-compaction-tool-result-pruner"></a>
 
-## `@deepseek-ai/dsh-compaction-tool-result-pruner`
+## `@onprem-ai/dsh-compaction-tool-result-pruner`
 
 - `inject`: `tokenMeter`
 - `source`: [`packages/compaction/compaction-tool-result-pruner/src/types.ts:5`](../packages/compaction/compaction-tool-result-pruner/src/types.ts)
@@ -741,12 +741,12 @@ export interface ToolResultPruneConfig {
   tailChars?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-compaction-tool-result-pruner -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-compaction-tool-result-pruner -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-cordis-host-runner -->
-<a id="deepseek-aidsh-cordis-host-runner"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-cordis-host-runner -->
+<a id="onprem-aidsh-cordis-host-runner"></a>
 
-## `@deepseek-ai/dsh-cordis-host-runner`
+## `@onprem-ai/dsh-cordis-host-runner`
 
 - `inject`: `tools`
 - `source`: [`packages/extensions/cordis-host-runner/src/index.ts:93`](../packages/extensions/cordis-host-runner/src/index.ts)
@@ -760,12 +760,12 @@ export interface Config {
   clientInspectTimeoutMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-cordis-host-runner -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-cordis-host-runner -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-credentials-local -->
-<a id="deepseek-aidsh-credentials-local"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-credentials-local -->
+<a id="onprem-aidsh-credentials-local"></a>
 
-## `@deepseek-ai/dsh-credentials-local`
+## `@onprem-ai/dsh-credentials-local`
 
 - `source`: [`packages/credentials/credentials-local/src/index.ts:64`](../packages/credentials/credentials-local/src/index.ts)
 
@@ -782,12 +782,12 @@ export interface Config {
   debounceMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-credentials-local -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-credentials-local -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-deepseek-account-platform -->
-<a id="deepseek-aidsh-deepseek-account-platform"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-deepseek-account-platform -->
+<a id="onprem-aidsh-deepseek-account-platform"></a>
 
-## `@deepseek-ai/dsh-deepseek-account-platform`
+## `@onprem-ai/dsh-deepseek-account-platform`
 
 - `inject`: `credentials` · `authorization`
 - `source`: [`packages/credentials/deepseek-account-platform/src/index.ts:23`](../packages/credentials/deepseek-account-platform/src/index.ts)
@@ -823,12 +823,12 @@ export interface Config {
   attemptTimeoutMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-deepseek-account-platform -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-deepseek-account-platform -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-experimental-agent-team -->
-<a id="deepseek-aidsh-experimental-agent-team"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-experimental-agent-team -->
+<a id="onprem-aidsh-experimental-agent-team"></a>
 
-## `@deepseek-ai/dsh-experimental-agent-team`
+## `@onprem-ai/dsh-experimental-agent-team`
 
 - `inject`: `agents` · `sessions` · `sessionPersistence` · `sessionProjections` · `subagents`
 - `source`: [`packages/experimental/agent-team/src/types.ts:152`](../packages/experimental/agent-team/src/types.ts)
@@ -848,12 +848,12 @@ export interface Config {
   readonly disposalTimeoutMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-experimental-agent-team -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-experimental-agent-team -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-experimental-api-speech-to-text -->
-<a id="deepseek-aidsh-experimental-api-speech-to-text"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-experimental-api-speech-to-text -->
+<a id="onprem-aidsh-experimental-api-speech-to-text"></a>
 
-## `@deepseek-ai/dsh-experimental-api-speech-to-text`
+## `@onprem-ai/dsh-experimental-api-speech-to-text`
 
 - `inject`: `speechToText` · `typert`
 - `source`: [`packages/experimental/api-speech-to-text/src/index.ts:20`](../packages/experimental/api-speech-to-text/src/index.ts)
@@ -867,42 +867,42 @@ export interface Config {
   maxDurationSeconds: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-experimental-api-speech-to-text -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-experimental-api-speech-to-text -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-experimental-browser-use-chrome-devtools-mcp -->
-<a id="deepseek-aidsh-experimental-browser-use-chrome-devtools-mcp"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-experimental-browser-use-chrome-devtools-mcp -->
+<a id="onprem-aidsh-experimental-browser-use-chrome-devtools-mcp"></a>
 
-## `@deepseek-ai/dsh-experimental-browser-use-chrome-devtools-mcp`
+## `@onprem-ai/dsh-experimental-browser-use-chrome-devtools-mcp`
 
 - `inject`: `browserUse` · `agents` · `tools` · `systemPrompt`
-- `refs`: `BrowserMcpConfig` (`@deepseek-ai/dsh-experimental-browser-use-runtime/mcp`)
+- `refs`: `BrowserMcpConfig` (`@onprem-ai/dsh-experimental-browser-use-runtime/mcp`)
 - `source`: [`packages/experimental/browser-use-chrome-devtools-mcp/src/index.ts:14`](../packages/experimental/browser-use-chrome-devtools-mcp/src/index.ts)
 
 ```ts config-catalog
 /** Fixed Chromium launch or existing-browser attachment settings. */
 export type Config = BrowserMcpConfig
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-experimental-browser-use-chrome-devtools-mcp -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-experimental-browser-use-chrome-devtools-mcp -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-experimental-browser-use-playwright-mcp -->
-<a id="deepseek-aidsh-experimental-browser-use-playwright-mcp"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-experimental-browser-use-playwright-mcp -->
+<a id="onprem-aidsh-experimental-browser-use-playwright-mcp"></a>
 
-## `@deepseek-ai/dsh-experimental-browser-use-playwright-mcp`
+## `@onprem-ai/dsh-experimental-browser-use-playwright-mcp`
 
 - `inject`: `browserUse` · `agents` · `tools` · `systemPrompt`
-- `refs`: `BrowserMcpConfig` (`@deepseek-ai/dsh-experimental-browser-use-runtime/mcp`)
+- `refs`: `BrowserMcpConfig` (`@onprem-ai/dsh-experimental-browser-use-runtime/mcp`)
 - `source`: [`packages/experimental/browser-use-playwright-mcp/src/index.ts:15`](../packages/experimental/browser-use-playwright-mcp/src/index.ts)
 
 ```ts config-catalog
 /** Fixed Chromium launch or existing-browser attachment settings. */
 export type Config = BrowserMcpConfig
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-experimental-browser-use-playwright-mcp -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-experimental-browser-use-playwright-mcp -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-experimental-browser-use-stagehand-native -->
-<a id="deepseek-aidsh-experimental-browser-use-stagehand-native"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-experimental-browser-use-stagehand-native -->
+<a id="onprem-aidsh-experimental-browser-use-stagehand-native"></a>
 
-## `@deepseek-ai/dsh-experimental-browser-use-stagehand-native`
+## `@onprem-ai/dsh-experimental-browser-use-stagehand-native`
 
 - `inject`: `browserUse` · `agents` · `tools` · `systemPrompt`
 - `refs`: `ModelConfig` (`@browserbasehq/stagehand`)
@@ -939,12 +939,12 @@ export interface StagehandModelConfig {
   headers?: Record<string, string>
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-experimental-browser-use-stagehand-native -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-experimental-browser-use-stagehand-native -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-experimental-computer-use-cua-driver-mcp -->
-<a id="deepseek-aidsh-experimental-computer-use-cua-driver-mcp"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-experimental-computer-use-cua-driver-mcp -->
+<a id="onprem-aidsh-experimental-computer-use-cua-driver-mcp"></a>
 
-## `@deepseek-ai/dsh-experimental-computer-use-cua-driver-mcp`
+## `@onprem-ai/dsh-experimental-computer-use-cua-driver-mcp`
 
 - `inject`: `computerUse` · `tools`
 - `refs`: [`McpClient`](../packages/mcp/mcp-client/src/index.ts)
@@ -963,12 +963,12 @@ export interface Config {
   reconnect: McpClient.ReconnectConfig
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-experimental-computer-use-cua-driver-mcp -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-experimental-computer-use-cua-driver-mcp -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-experimental-inspector -->
-<a id="deepseek-aidsh-experimental-inspector"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-experimental-inspector -->
+<a id="onprem-aidsh-experimental-inspector"></a>
 
-## `@deepseek-ai/dsh-experimental-inspector`
+## `@onprem-ai/dsh-experimental-inspector`
 
 - `inject`: `webServer`
 - `source`: [`packages/experimental/inspector/src/index.ts:66`](../packages/experimental/inspector/src/index.ts)
@@ -1032,12 +1032,12 @@ export interface InspectorOptions {
   readonly maxDisconnectedCordisTrees?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-experimental-inspector -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-experimental-inspector -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-experimental-ptc-runtime-python -->
-<a id="deepseek-aidsh-experimental-ptc-runtime-python"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-experimental-ptc-runtime-python -->
+<a id="onprem-aidsh-experimental-ptc-runtime-python"></a>
 
-## `@deepseek-ai/dsh-experimental-ptc-runtime-python`
+## `@onprem-ai/dsh-experimental-ptc-runtime-python`
 
 - `source`: [`packages/experimental/ptc-runtime-python/src/index.ts:42`](../packages/experimental/ptc-runtime-python/src/index.ts)
 
@@ -1100,14 +1100,14 @@ export interface Config {
   pythonBin?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-experimental-ptc-runtime-python -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-experimental-ptc-runtime-python -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-experimental-speech-to-text -->
-<a id="deepseek-aidsh-experimental-speech-to-text"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-experimental-speech-to-text -->
+<a id="onprem-aidsh-experimental-speech-to-text"></a>
 
-## `@deepseek-ai/dsh-experimental-speech-to-text`
+## `@onprem-ai/dsh-experimental-speech-to-text`
 
-- `refs`: `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/experimental/speech-to-text/src/index.ts:20`](../packages/experimental/speech-to-text/src/index.ts)
 
 ```ts config-catalog
@@ -1119,12 +1119,12 @@ export interface Config {
   language: Volatile<string>
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-experimental-speech-to-text -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-experimental-speech-to-text -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-experimental-speech-to-text-sensevoice -->
-<a id="deepseek-aidsh-experimental-speech-to-text-sensevoice"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-experimental-speech-to-text-sensevoice -->
+<a id="onprem-aidsh-experimental-speech-to-text-sensevoice"></a>
 
-## `@deepseek-ai/dsh-experimental-speech-to-text-sensevoice`
+## `@onprem-ai/dsh-experimental-speech-to-text-sensevoice`
 
 - `inject`: `speechToText` · `subprocess`
 - `source`: [`packages/experimental/speech-to-text-sensevoice/src/config.ts:6`](../packages/experimental/speech-to-text-sensevoice/src/config.ts)
@@ -1178,12 +1178,12 @@ export interface Config {
   progressIntervalMs: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-experimental-speech-to-text-sensevoice -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-experimental-speech-to-text-sensevoice -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-experimental-tool-agent-team -->
-<a id="deepseek-aidsh-experimental-tool-agent-team"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-experimental-tool-agent-team -->
+<a id="onprem-aidsh-experimental-tool-agent-team"></a>
 
-## `@deepseek-ai/dsh-experimental-tool-agent-team`
+## `@onprem-ai/dsh-experimental-tool-agent-team`
 
 - `inject`: `agents` · `agentTeams` · `tools` · `systemPrompt`
 - `source`: [`packages/experimental/tool-agent-team/src/index.ts:17`](../packages/experimental/tool-agent-team/src/index.ts)
@@ -1197,12 +1197,12 @@ export interface Config {
   readonly forkProvider?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-experimental-tool-agent-team -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-experimental-tool-agent-team -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-file-reference-local -->
-<a id="deepseek-aidsh-file-reference-local"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-file-reference-local -->
+<a id="onprem-aidsh-file-reference-local"></a>
 
-## `@deepseek-ai/dsh-file-reference-local`
+## `@onprem-ai/dsh-file-reference-local`
 
 - `inject`: `agents`
 - `source`: [`packages/context/file-reference-local/src/index.ts:34`](../packages/context/file-reference-local/src/index.ts)
@@ -1218,12 +1218,12 @@ export interface Config {
   excludedDirectories?: string[]
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-file-reference-local -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-file-reference-local -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-fs-local -->
-<a id="deepseek-aidsh-fs-local"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-fs-local -->
+<a id="onprem-aidsh-fs-local"></a>
 
-## `@deepseek-ai/dsh-fs-local`
+## `@onprem-ai/dsh-fs-local`
 
 - `source`: [`packages/fs/fs-local/src/index.ts:45`](../packages/fs/fs-local/src/index.ts)
 
@@ -1239,15 +1239,15 @@ export interface Config {
   diffBasisMaxBytes?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-fs-local -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-fs-local -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-fs-sandbox -->
-<a id="deepseek-aidsh-fs-sandbox"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-fs-sandbox -->
+<a id="onprem-aidsh-fs-sandbox"></a>
 
-## `@deepseek-ai/dsh-fs-sandbox`
+## `@onprem-ai/dsh-fs-sandbox`
 
 - `inject`: `sandboxPolicy`
-- `refs`: [`LocalConfig`](#deepseek-aidsh-fs-local)
+- `refs`: [`LocalConfig`](#onprem-aidsh-fs-local)
 - `source`: [`packages/fs/fs-sandbox/src/index.ts:45`](../packages/fs/fs-sandbox/src/index.ts)
 
 ```ts config-catalog
@@ -1259,12 +1259,12 @@ export interface Config {
  */
 export type Config = LocalConfig
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-fs-sandbox -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-fs-sandbox -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-goal -->
-<a id="deepseek-aidsh-goal"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-goal -->
+<a id="onprem-aidsh-goal"></a>
 
-## `@deepseek-ai/dsh-goal`
+## `@onprem-ai/dsh-goal`
 
 - `inject`: `agents` · `sessionProjections`
 - `source`: [`packages/goal/goal/src/index.ts:172`](../packages/goal/goal/src/index.ts)
@@ -1276,12 +1276,12 @@ export interface Config {
   defaultMaxGoalRounds?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-goal -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-goal -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-headless -->
-<a id="deepseek-aidsh-headless"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-headless -->
+<a id="onprem-aidsh-headless"></a>
 
-## `@deepseek-ai/dsh-headless`
+## `@onprem-ai/dsh-headless`
 
 - `inject`: `agentDefaultModel` · `agents` · `sessions`
 - `source`: [`packages/bundle/headless/src/index.ts:42`](../packages/bundle/headless/src/index.ts)
@@ -1297,12 +1297,12 @@ export interface Config {
   json?: boolean
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-headless -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-headless -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-hmr -->
-<a id="deepseek-aidsh-hmr"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-hmr -->
+<a id="onprem-aidsh-hmr"></a>
 
-## `@deepseek-ai/dsh-hmr`
+## `@onprem-ai/dsh-hmr`
 
 - `refs`: `ChokidarOptions` (`chokidar`)
 - `source`: [`packages/boot/hmr/src/index.ts:51`](../packages/boot/hmr/src/index.ts)
@@ -1320,12 +1320,12 @@ export interface HmrConfig extends ChokidarOptions {
   ignored: string[]
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-hmr -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-hmr -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-hooks-claude-code -->
-<a id="deepseek-aidsh-hooks-claude-code"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-hooks-claude-code -->
+<a id="onprem-aidsh-hooks-claude-code"></a>
 
-## `@deepseek-ai/dsh-hooks-claude-code`
+## `@onprem-ai/dsh-hooks-claude-code`
 
 - `inject`: `shell` · `sessionProjections`
 - `source`: [`packages/hooks/hooks-claude-code/src/index.ts:51`](../packages/hooks/hooks-claude-code/src/index.ts)
@@ -1359,12 +1359,12 @@ export interface Config {
   stderrSummaryMaxChars?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-hooks-claude-code -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-hooks-claude-code -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-hooks-codex -->
-<a id="deepseek-aidsh-hooks-codex"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-hooks-codex -->
+<a id="onprem-aidsh-hooks-codex"></a>
 
-## `@deepseek-ai/dsh-hooks-codex`
+## `@onprem-ai/dsh-hooks-codex`
 
 - `inject`: `shell` · `sessionProjections`
 - `source`: [`packages/hooks/hooks-codex/src/index.ts:50`](../packages/hooks/hooks-codex/src/index.ts)
@@ -1387,12 +1387,12 @@ export interface Config {
   stderrSummaryMaxChars?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-hooks-codex -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-hooks-codex -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-host-directory-picker-browse -->
-<a id="deepseek-aidsh-host-directory-picker-browse"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-host-directory-picker-browse -->
+<a id="onprem-aidsh-host-directory-picker-browse"></a>
 
-## `@deepseek-ai/dsh-host-directory-picker-browse`
+## `@onprem-ai/dsh-host-directory-picker-browse`
 
 - `source`: [`packages/host/directory-picker-browse/src/index.ts:181`](../packages/host/directory-picker-browse/src/index.ts)
 
@@ -1403,12 +1403,12 @@ export interface Config {
   maxEntries: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-host-directory-picker-browse -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-host-directory-picker-browse -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-host-frontend-static -->
-<a id="deepseek-aidsh-host-frontend-static"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-host-frontend-static -->
+<a id="onprem-aidsh-host-frontend-static"></a>
 
-## `@deepseek-ai/dsh-host-frontend-static`
+## `@onprem-ai/dsh-host-frontend-static`
 
 - `inject`: `webServer` · `connection`
 - `source`: [`packages/host/frontend-static/src/index.ts:30`](../packages/host/frontend-static/src/index.ts)
@@ -1420,12 +1420,12 @@ export interface Config {
   distIndex: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-host-frontend-static -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-host-frontend-static -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-host-open-in-app -->
-<a id="deepseek-aidsh-host-open-in-app"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-host-open-in-app -->
+<a id="onprem-aidsh-host-open-in-app"></a>
 
-## `@deepseek-ai/dsh-host-open-in-app`
+## `@onprem-ai/dsh-host-open-in-app`
 
 - `inject`: `webServer` · `connection` · `subprocess`
 - `source`: [`packages/host/open-in-app/src/index.ts:50`](../packages/host/open-in-app/src/index.ts)
@@ -1452,12 +1452,12 @@ export interface Config {
   readonly launchWatchMs: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-host-open-in-app -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-host-open-in-app -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-host-product-telemetry-otel -->
-<a id="deepseek-aidsh-host-product-telemetry-otel"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-host-product-telemetry-otel -->
+<a id="onprem-aidsh-host-product-telemetry-otel"></a>
 
-## `@deepseek-ai/dsh-host-product-telemetry-otel`
+## `@onprem-ai/dsh-host-product-telemetry-otel`
 
 - `inject`: `otel`
 - `source`: [`packages/host/product-telemetry-otel/src/index.ts:18`](../packages/host/product-telemetry-otel/src/index.ts)
@@ -1489,12 +1489,12 @@ export interface Config {
   shutdownTimeoutMillis: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-host-product-telemetry-otel -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-host-product-telemetry-otel -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-host-webserver -->
-<a id="deepseek-aidsh-host-webserver"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-host-webserver -->
+<a id="onprem-aidsh-host-webserver"></a>
 
-## `@deepseek-ai/dsh-host-webserver`
+## `@onprem-ai/dsh-host-webserver`
 
 - `source`: [`packages/host/webserver/src/index.ts:59`](../packages/host/webserver/src/index.ts)
 
@@ -1513,12 +1513,12 @@ export interface Config {
   compressionThresholdBytes?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-host-webserver -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-host-webserver -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-invariants -->
-<a id="deepseek-aidsh-invariants"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-invariants -->
+<a id="onprem-aidsh-invariants"></a>
 
-## `@deepseek-ai/dsh-invariants`
+## `@onprem-ai/dsh-invariants`
 
 - `source`: [`packages/runtime-diagnostics/invariants/src/index.ts:15`](../packages/runtime-diagnostics/invariants/src/index.ts)
 
@@ -1533,12 +1533,12 @@ export interface Config {
   readonly package_blocklist?: string[]
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-invariants -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-invariants -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-jobs-local -->
-<a id="deepseek-aidsh-jobs-local"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-jobs-local -->
+<a id="onprem-aidsh-jobs-local"></a>
 
-## `@deepseek-ai/dsh-jobs-local`
+## `@onprem-ai/dsh-jobs-local`
 
 - `source`: [`packages/jobs/jobs-local/src/index.ts:45`](../packages/jobs/jobs-local/src/index.ts)
 
@@ -1562,12 +1562,12 @@ export interface Config {
   pumpPollMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-jobs-local -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-jobs-local -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-llm-deepseek-account -->
-<a id="deepseek-aidsh-llm-deepseek-account"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-llm-deepseek-account -->
+<a id="onprem-aidsh-llm-deepseek-account"></a>
 
-## `@deepseek-ai/dsh-llm-deepseek-account`
+## `@onprem-ai/dsh-llm-deepseek-account`
 
 - `inject`: `llm`
 - `refs`: [`ProtocolConfig`](../packages/llm/llm-deepseek/src/index.ts)
@@ -1577,15 +1577,15 @@ export interface Config {
 /** Account route configuration; authentication comes exclusively from the account service. */
 export type Config = ProtocolConfig
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-llm-deepseek-account -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-llm-deepseek-account -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-llm-deepseek-api-key -->
-<a id="deepseek-aidsh-llm-deepseek-api-key"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-llm-deepseek-api-key -->
+<a id="onprem-aidsh-llm-deepseek-api-key"></a>
 
-## `@deepseek-ai/dsh-llm-deepseek-api-key`
+## `@onprem-ai/dsh-llm-deepseek-api-key`
 
 - `inject`: `llm`
-- `refs`: [`ProtocolConfig`](../packages/llm/llm-deepseek/src/index.ts) · `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: [`ProtocolConfig`](../packages/llm/llm-deepseek/src/index.ts) · `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/llm/llm-deepseek-api-key/src/config.ts:10`](../packages/llm/llm-deepseek-api-key/src/config.ts)
 
 ```ts config-catalog
@@ -1595,15 +1595,15 @@ export interface Config extends ProtocolConfig {
   apiKeyEnv: Volatile<string>
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-llm-deepseek-api-key -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-llm-deepseek-api-key -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-llm-pi-ai -->
-<a id="deepseek-aidsh-llm-pi-ai"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-llm-pi-ai -->
+<a id="onprem-aidsh-llm-pi-ai"></a>
 
-## `@deepseek-ai/dsh-llm-pi-ai`
+## `@onprem-ai/dsh-llm-pi-ai`
 
 - `inject`: `llm`
-- `refs`: `Api` (`@earendil-works/pi-ai`) · `CacheRetention` (`@earendil-works/pi-ai`) · `Model` (`@earendil-works/pi-ai`) · `ModelThinkingLevel` (`@earendil-works/pi-ai`) · `OpenAICompletionsCompat` (`@earendil-works/pi-ai`) · [`RetryPolicyConfig`](../packages/llm/llm/src/index.ts) · `ThinkingBudgets` (`@earendil-works/pi-ai`) · `Transport` (`@earendil-works/pi-ai`) · `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: `Api` (`@earendil-works/pi-ai`) · `CacheRetention` (`@earendil-works/pi-ai`) · `Model` (`@earendil-works/pi-ai`) · `ModelThinkingLevel` (`@earendil-works/pi-ai`) · `OpenAICompletionsCompat` (`@earendil-works/pi-ai`) · [`RetryPolicyConfig`](../packages/llm/llm/src/index.ts) · `ThinkingBudgets` (`@earendil-works/pi-ai`) · `Transport` (`@earendil-works/pi-ai`) · `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/llm/llm-pi-ai/src/config.ts:222`](../packages/llm/llm-pi-ai/src/config.ts)
 
 ```ts config-catalog
@@ -1870,12 +1870,12 @@ export type PiAiThinkingFormat = NonNullable<OpenAICompletionsCompat['thinkingFo
 /** The reasoning-budget field spellings pi-ai accepts. */
 export type PiAiThinkingTokenBudgetField = NonNullable<OpenAICompletionsCompat['thinkingTokenBudgetField']>
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-llm-pi-ai -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-llm-pi-ai -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-llm-replay -->
-<a id="deepseek-aidsh-llm-replay"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-llm-replay -->
+<a id="onprem-aidsh-llm-replay"></a>
 
-## `@deepseek-ai/dsh-llm-replay`
+## `@onprem-ai/dsh-llm-replay`
 
 - `inject`: `llm`
 - `refs`: [`ModelModality`](../packages/llm/llm/src/index.ts) · [`RetryPolicyConfig`](../packages/llm/llm/src/index.ts) · [`SystemPromptUpdate`](../packages/llm/llm/src/index.ts) · [`ToolUpdate`](../packages/llm/llm/src/index.ts)
@@ -1951,12 +1951,12 @@ export interface ReplayModelConfig {
   toolUpdate?: ToolUpdate
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-llm-replay -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-llm-replay -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-llm-retry -->
-<a id="deepseek-aidsh-llm-retry"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-llm-retry -->
+<a id="onprem-aidsh-llm-retry"></a>
 
-## `@deepseek-ai/dsh-llm-retry`
+## `@onprem-ai/dsh-llm-retry`
 
 - `inject`: `agents` · `sessionProjections`
 - `source`: [`packages/llm/llm-retry/src/index.ts:25`](../packages/llm/llm-retry/src/index.ts)
@@ -1965,12 +1965,12 @@ export interface ReplayModelConfig {
 /** This policy executor has no config; providers own `retryPolicy`. */
 export type Config = Readonly<Record<string, never>>
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-llm-retry -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-llm-retry -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-lsp-stdio -->
-<a id="deepseek-aidsh-lsp-stdio"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-lsp-stdio -->
+<a id="onprem-aidsh-lsp-stdio"></a>
 
-## `@deepseek-ai/dsh-lsp-stdio`
+## `@onprem-ai/dsh-lsp-stdio`
 
 - `inject`: `fs` · `lsp` · `subprocess`
 - `source`: [`packages/lsp/lsp-stdio/src/index.ts:82`](../packages/lsp/lsp-stdio/src/index.ts)
@@ -2008,12 +2008,12 @@ export interface LspLocalServerConfig {
   killGraceMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-lsp-stdio -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-lsp-stdio -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-mcp-client -->
-<a id="deepseek-aidsh-mcp-client"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-mcp-client -->
+<a id="onprem-aidsh-mcp-client"></a>
 
-## `@deepseek-ai/dsh-mcp-client`
+## `@onprem-ai/dsh-mcp-client`
 
 - `inject`: `tools`
 - `source`: [`packages/mcp/mcp-client/src/index.ts:104`](../packages/mcp/mcp-client/src/index.ts)
@@ -2086,12 +2086,12 @@ export interface ReconnectConfig {
   maxAttempts?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-mcp-client -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-mcp-client -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-message-feedback -->
-<a id="deepseek-aidsh-message-feedback"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-message-feedback -->
+<a id="onprem-aidsh-message-feedback"></a>
 
-## `@deepseek-ai/dsh-message-feedback`
+## `@onprem-ai/dsh-message-feedback`
 
 - `inject`: `sessionPersistence` · `sessions`
 - `source`: [`packages/feedback/message-feedback/src/index.ts:40`](../packages/feedback/message-feedback/src/index.ts)
@@ -2103,12 +2103,12 @@ export interface Config {
   readonly maxNoteBytes: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-message-feedback -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-message-feedback -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-office-to-pdf -->
-<a id="deepseek-aidsh-office-to-pdf"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-office-to-pdf -->
+<a id="onprem-aidsh-office-to-pdf"></a>
 
-## `@deepseek-ai/dsh-office-to-pdf`
+## `@onprem-ai/dsh-office-to-pdf`
 
 - `source`: [`packages/document/office-to-pdf/src/index.ts:31`](../packages/document/office-to-pdf/src/index.ts)
 
@@ -2155,15 +2155,15 @@ export interface Config {
   maxLoadedFontBytes: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-office-to-pdf -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-office-to-pdf -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-permission-presets -->
-<a id="deepseek-aidsh-permission-presets"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-permission-presets -->
+<a id="onprem-aidsh-permission-presets"></a>
 
-## `@deepseek-ai/dsh-permission-presets`
+## `@onprem-ai/dsh-permission-presets`
 
 - `inject`: `shell` · `approval` · `sessions` · `sessionProjections`
-- `refs`: [`ApprovalPolicy`](subsystems/approval.zh.md) · [`SandboxMode`](subsystems/sandbox.zh.md) · `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: [`ApprovalPolicy`](subsystems/approval.zh.md) · [`SandboxMode`](subsystems/sandbox.zh.md) · `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/interaction/permission-presets/src/index.ts:159`](../packages/interaction/permission-presets/src/index.ts)
 
 ```ts config-catalog
@@ -2195,12 +2195,12 @@ export interface PresetSpec {
   description?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-permission-presets -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-permission-presets -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-persona -->
-<a id="deepseek-aidsh-persona"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-persona -->
+<a id="onprem-aidsh-persona"></a>
 
-## `@deepseek-ai/dsh-persona`
+## `@onprem-ai/dsh-persona`
 
 - `inject`: `systemPrompt`
 - `source`: [`packages/preset/persona/src/index.ts:30`](../packages/preset/persona/src/index.ts)
@@ -2225,12 +2225,12 @@ export interface Config {
   includeRuntimeContext?: boolean
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-persona -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-persona -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-plan-mode -->
-<a id="deepseek-aidsh-plan-mode"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-plan-mode -->
+<a id="onprem-aidsh-plan-mode"></a>
 
-## `@deepseek-ai/dsh-plan-mode`
+## `@onprem-ai/dsh-plan-mode`
 
 - `inject`: `tools` · `systemPrompt` · `sessionProjections`
 - `source`: [`packages/plan/plan-mode/src/index.ts:70`](../packages/plan/plan-mode/src/index.ts)
@@ -2242,12 +2242,12 @@ export interface PlanModeConfig {
   section: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-plan-mode -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-plan-mode -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-plugin-manager -->
-<a id="deepseek-aidsh-plugin-manager"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-plugin-manager -->
+<a id="onprem-aidsh-plugin-manager"></a>
 
-## `@deepseek-ai/dsh-plugin-manager`
+## `@onprem-ai/dsh-plugin-manager`
 
 - `inject`: `loader` · `profileContext`
 - `source`: [`packages/boot/plugin-manager/src/index.ts:40`](../packages/boot/plugin-manager/src/index.ts)
@@ -2277,12 +2277,12 @@ export interface Config {
   fallbackRegistries?: string[]
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-plugin-manager -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-plugin-manager -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-plugin-package-inventory-deepseek -->
-<a id="deepseek-aidsh-plugin-package-inventory-deepseek"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-plugin-package-inventory-deepseek -->
+<a id="onprem-aidsh-plugin-package-inventory-deepseek"></a>
 
-## `@deepseek-ai/dsh-plugin-package-inventory-deepseek`
+## `@onprem-ai/dsh-plugin-package-inventory-deepseek`
 
 - `inject`: `agents` · `deepseekLlmApiExtensions` · `loader`
 - `source`: [`packages/llm/plugin-package-inventory-deepseek/src/index.ts:32`](../packages/llm/plugin-package-inventory-deepseek/src/index.ts)
@@ -2294,12 +2294,12 @@ export interface Config {
   enabled?: boolean
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-plugin-package-inventory-deepseek -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-plugin-package-inventory-deepseek -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-ptc-runtime-node -->
-<a id="deepseek-aidsh-ptc-runtime-node"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-ptc-runtime-node -->
+<a id="onprem-aidsh-ptc-runtime-node"></a>
 
-## `@deepseek-ai/dsh-ptc-runtime-node`
+## `@onprem-ai/dsh-ptc-runtime-node`
 
 - `inject`: `fs` · `subprocess` · `sandbox` · `sandboxPolicy`
 - `source`: [`packages/ptc-runtime/ptc-runtime-node/src/index.ts:26`](../packages/ptc-runtime/ptc-runtime-node/src/index.ts)
@@ -2331,15 +2331,15 @@ export interface LaunchConfig {
   bootstrapPath?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-ptc-runtime-node -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-ptc-runtime-node -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-pwsh-local -->
-<a id="deepseek-aidsh-pwsh-local"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-pwsh-local -->
+<a id="onprem-aidsh-pwsh-local"></a>
 
-## `@deepseek-ai/dsh-pwsh-local`
+## `@onprem-ai/dsh-pwsh-local`
 
 - `inject`: `subprocess`
-- `refs`: `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/shell/pwsh-local/src/index.ts:58`](../packages/shell/pwsh-local/src/index.ts)
 
 ```ts config-catalog
@@ -2366,34 +2366,34 @@ export interface Config {
   pwshPath: Volatile<string | undefined>
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-pwsh-local -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-pwsh-local -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-pwsh-sandbox -->
-<a id="deepseek-aidsh-pwsh-sandbox"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-pwsh-sandbox -->
+<a id="onprem-aidsh-pwsh-sandbox"></a>
 
-## `@deepseek-ai/dsh-pwsh-sandbox`
+## `@onprem-ai/dsh-pwsh-sandbox`
 
 - `inject`: `subprocess` · `sandbox` · `sandboxPolicy`
-- `refs`: [`LocalConfig`](#deepseek-aidsh-pwsh-local)
+- `refs`: [`LocalConfig`](#onprem-aidsh-pwsh-local)
 - `source`: [`packages/shell/pwsh-sandbox/src/index.ts:40`](../packages/shell/pwsh-sandbox/src/index.ts)
 
 ```ts config-catalog
 /**
  * Plugin config: the local executor's knobs, verbatim. The sandbox policy —
  * the default mode and fallback `workspace-write` root — is NOT here: it lives
- * on `ctx.sandboxPolicy` (`@deepseek-ai/dsh-sandbox-policy`), which resolves
+ * on `ctx.sandboxPolicy` (`@onprem-ai/dsh-sandbox-policy`), which resolves
  * each calling session's mode and cwd for every enforcing capability. The
  * runner choice is likewise the `ctx.sandbox` provider's config, not this
  * executor's.
  */
 export type Config = LocalConfig
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-pwsh-sandbox -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-pwsh-sandbox -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-repeat-tool-reminder -->
-<a id="deepseek-aidsh-repeat-tool-reminder"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-repeat-tool-reminder -->
+<a id="onprem-aidsh-repeat-tool-reminder"></a>
 
-## `@deepseek-ai/dsh-repeat-tool-reminder`
+## `@onprem-ai/dsh-repeat-tool-reminder`
 
 - `source`: [`packages/guard/repeat-tool-reminder/src/index.ts:35`](../packages/guard/repeat-tool-reminder/src/index.ts)
 
@@ -2424,12 +2424,12 @@ export interface Config {
   argumentsPreviewChars?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-repeat-tool-reminder -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-repeat-tool-reminder -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-sandbox-local -->
-<a id="deepseek-aidsh-sandbox-local"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-sandbox-local -->
+<a id="onprem-aidsh-sandbox-local"></a>
 
-## `@deepseek-ai/dsh-sandbox-local`
+## `@onprem-ai/dsh-sandbox-local`
 
 - `source`: [`packages/sandbox/sandbox-local/src/index.ts:45`](../packages/sandbox/sandbox-local/src/index.ts)
 
@@ -2458,12 +2458,12 @@ export interface Config {
   probeTimeoutMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-sandbox-local -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-sandbox-local -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-sandbox-policy -->
-<a id="deepseek-aidsh-sandbox-policy"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-sandbox-policy -->
+<a id="onprem-aidsh-sandbox-policy"></a>
 
-## `@deepseek-ai/dsh-sandbox-policy`
+## `@onprem-ai/dsh-sandbox-policy`
 
 - `inject`: `sessionProjections`
 - `refs`: [`SandboxMode`](subsystems/sandbox.zh.md)
@@ -2487,12 +2487,12 @@ export interface Config {
   workspaceRoot?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-sandbox-policy -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-sandbox-policy -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-schedule -->
-<a id="deepseek-aidsh-schedule"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-schedule -->
+<a id="onprem-aidsh-schedule"></a>
 
-## `@deepseek-ai/dsh-schedule`
+## `@onprem-ai/dsh-schedule`
 
 - `inject`: `agents` · `sessions` · `tools` · `storageDomain` · `sessionController` · `sessionPersistence`
 - `source`: [`packages/schedule/schedule/src/index.ts:73`](../packages/schedule/schedule/src/index.ts)
@@ -2512,12 +2512,12 @@ export interface Config {
   deliveryHistoryRecords?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-schedule -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-schedule -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-sdk-app -->
-<a id="deepseek-aidsh-sdk-app"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-sdk-app -->
+<a id="onprem-aidsh-sdk-app"></a>
 
-## `@deepseek-ai/dsh-sdk-app`
+## `@onprem-ai/dsh-sdk-app`
 
 - `inject`: `cmdlineArgs`
 - `source`: [`packages/bundle/sdk-app/src/index.ts:23`](../packages/bundle/sdk-app/src/index.ts)
@@ -2529,12 +2529,12 @@ export interface Config {
   profile?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-sdk-app -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-sdk-app -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-sdk-jsonrpc-server -->
-<a id="deepseek-aidsh-sdk-jsonrpc-server"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-sdk-jsonrpc-server -->
+<a id="onprem-aidsh-sdk-jsonrpc-server"></a>
 
-## `@deepseek-ai/dsh-sdk-jsonrpc-server`
+## `@onprem-ai/dsh-sdk-jsonrpc-server`
 
 - `inject`: `agents`
 - `refs`: `Readable` (`node:stream`) · `Writable` (`node:stream`)
@@ -2553,15 +2553,15 @@ export interface JsonRpcConfig {
   exit?: (code: number) => void
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-sdk-jsonrpc-server -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-sdk-jsonrpc-server -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-session-log-deepseek -->
-<a id="deepseek-aidsh-session-log-deepseek"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-session-log-deepseek -->
+<a id="onprem-aidsh-session-log-deepseek"></a>
 
-## `@deepseek-ai/dsh-session-log-deepseek`
+## `@onprem-ai/dsh-session-log-deepseek`
 
 - `inject`: `deepseekLlmApiExtensions` · `sessions`
-- `refs`: `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/session/session-log-deepseek/src/index.ts:39`](../packages/session/session-log-deepseek/src/index.ts)
 
 ```ts config-catalog
@@ -2577,12 +2577,12 @@ export interface Config {
   maxBytes: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-session-log-deepseek -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-session-log-deepseek -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-session-log-export -->
-<a id="deepseek-aidsh-session-log-export"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-session-log-export -->
+<a id="onprem-aidsh-session-log-export"></a>
 
-## `@deepseek-ai/dsh-session-log-export`
+## `@onprem-ai/dsh-session-log-export`
 
 - `inject`: `commands` · `connection`
 - `source`: [`packages/session-query/session-log-export/src/index.ts:46`](../packages/session-query/session-log-export/src/index.ts)
@@ -2597,12 +2597,12 @@ export interface Config {
 /** Valid fflate DEFLATE levels accepted by session-log export. */
 export type SessionLogCompressionLevel = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-session-log-export -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-session-log-export -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-session-persistence-jsonl -->
-<a id="deepseek-aidsh-session-persistence-jsonl"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-session-persistence-jsonl -->
+<a id="onprem-aidsh-session-persistence-jsonl"></a>
 
-## `@deepseek-ai/dsh-session-persistence-jsonl`
+## `@onprem-ai/dsh-session-persistence-jsonl`
 
 - `source`: [`packages/session/session-persistence-jsonl/src/index.ts:90`](../packages/session/session-persistence-jsonl/src/index.ts)
 
@@ -2624,12 +2624,12 @@ export interface Config {
 /** Physical encoding selected for JSONL session artifacts. */
 export type JsonlCompression = 'zstd' | 'none'
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-session-persistence-jsonl -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-session-persistence-jsonl -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-session-projection-cache -->
-<a id="deepseek-aidsh-session-projection-cache"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-session-projection-cache -->
+<a id="onprem-aidsh-session-projection-cache"></a>
 
-## `@deepseek-ai/dsh-session-projection-cache`
+## `@onprem-ai/dsh-session-projection-cache`
 
 - `inject`: `storageDomain` · `sessionProjections` · `sessions`
 - `source`: [`packages/session/session-projection-cache/src/index.ts:75`](../packages/session/session-projection-cache/src/index.ts)
@@ -2649,12 +2649,12 @@ export interface Config {
   writeIntervalMs: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-session-projection-cache -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-session-projection-cache -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-session-query-sqlite -->
-<a id="deepseek-aidsh-session-query-sqlite"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-session-query-sqlite -->
+<a id="onprem-aidsh-session-query-sqlite"></a>
 
-## `@deepseek-ai/dsh-session-query-sqlite`
+## `@onprem-ai/dsh-session-query-sqlite`
 
 - `inject`: `sessions`
 - `refs`: [`SessionQueryConfig`](../packages/session-query/session-query/src/index.ts)
@@ -2697,12 +2697,12 @@ export type OpenAt = 'startup' | 'first-search' | 'never'
 /** Supported SQLite journal modes. */
 export type JournalMode = 'wal' | 'delete' | 'truncate' | 'persist'
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-session-query-sqlite -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-session-query-sqlite -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-session-reference -->
-<a id="deepseek-aidsh-session-reference"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-session-reference -->
+<a id="onprem-aidsh-session-reference"></a>
 
-## `@deepseek-ai/dsh-session-reference`
+## `@onprem-ai/dsh-session-reference`
 
 - `inject`: `sessionQuery`
 - `source`: [`packages/context/session-reference/src/config.ts:11`](../packages/context/session-reference/src/config.ts)
@@ -2720,12 +2720,12 @@ export interface Config {
   referenceContextFraction?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-session-reference -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-session-reference -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-session-telemetry-otel -->
-<a id="deepseek-aidsh-session-telemetry-otel"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-session-telemetry-otel -->
+<a id="onprem-aidsh-session-telemetry-otel"></a>
 
-## `@deepseek-ai/dsh-session-telemetry-otel`
+## `@onprem-ai/dsh-session-telemetry-otel`
 
 - `inject`: `sessions` · `otel`
 - `refs`: `BatchLogRecordProcessorOptions` (`@opentelemetry/sdk-logs`) · `OTLPExporterNodeConfigBase` (`@opentelemetry/otlp-exporter-base`)
@@ -2765,12 +2765,12 @@ export enum SessionTelemetryMode {
   DISABLED = 'DISABLED',
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-session-telemetry-otel -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-session-telemetry-otel -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-session-title -->
-<a id="deepseek-aidsh-session-title"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-session-title -->
+<a id="onprem-aidsh-session-title"></a>
 
-## `@deepseek-ai/dsh-session-title`
+## `@onprem-ai/dsh-session-title`
 
 - `inject`: `sessions` · `sessionProjections`
 - `source`: [`packages/session/session-title/src/index.ts:56`](../packages/session/session-title/src/index.ts)
@@ -2786,12 +2786,12 @@ export interface Config {
   readonly maxTitleBytes: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-session-title -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-session-title -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-session-title-all-prompts-llm -->
-<a id="deepseek-aidsh-session-title-all-prompts-llm"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-session-title-all-prompts-llm -->
+<a id="onprem-aidsh-session-title-all-prompts-llm"></a>
 
-## `@deepseek-ai/dsh-session-title-all-prompts-llm`
+## `@onprem-ai/dsh-session-title-all-prompts-llm`
 
 - `inject`: `sessionTitle` · `llm` · `sessions`
 - `refs`: [`SessionTitleLlmConfig`](../packages/session/session-title-llm/src/index.ts)
@@ -2801,12 +2801,12 @@ export interface Config {
 /** Required LLM policy; this plugin adds no defaults. */
 export type Config = SessionTitleLlmConfig
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-session-title-all-prompts-llm -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-session-title-all-prompts-llm -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-session-title-first-prompt-llm -->
-<a id="deepseek-aidsh-session-title-first-prompt-llm"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-session-title-first-prompt-llm -->
+<a id="onprem-aidsh-session-title-first-prompt-llm"></a>
 
-## `@deepseek-ai/dsh-session-title-first-prompt-llm`
+## `@onprem-ai/dsh-session-title-first-prompt-llm`
 
 - `inject`: `sessionTitle` · `llm` · `sessions`
 - `refs`: [`SessionTitleLlmConfig`](../packages/session/session-title-llm/src/index.ts)
@@ -2816,12 +2816,12 @@ export type Config = SessionTitleLlmConfig
 /** Required LLM policy; this plugin adds no defaults. */
 export type Config = SessionTitleLlmConfig
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-session-title-first-prompt-llm -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-session-title-first-prompt-llm -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-shell-env -->
-<a id="deepseek-aidsh-shell-env"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-shell-env -->
+<a id="onprem-aidsh-shell-env"></a>
 
-## `@deepseek-ai/dsh-shell-env`
+## `@onprem-ai/dsh-shell-env`
 
 - `source`: [`packages/shell/shell-env/src/index.ts:30`](../packages/shell/shell-env/src/index.ts)
 
@@ -2832,12 +2832,12 @@ export interface Config {
   dshHome?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-shell-env -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-shell-env -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-skill -->
-<a id="deepseek-aidsh-skill"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-skill -->
+<a id="onprem-aidsh-skill"></a>
 
-## `@deepseek-ai/dsh-skill`
+## `@onprem-ai/dsh-skill`
 
 - `source`: [`packages/skill/skill/src/index.ts:278`](../packages/skill/skill/src/index.ts)
 
@@ -2848,12 +2848,12 @@ export interface Config {
   readonly collectCacheMaxEntries?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-skill -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-skill -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-skill-filesystem -->
-<a id="deepseek-aidsh-skill-filesystem"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-skill-filesystem -->
+<a id="onprem-aidsh-skill-filesystem"></a>
 
-## `@deepseek-ai/dsh-skill-filesystem`
+## `@onprem-ai/dsh-skill-filesystem`
 
 - `inject`: `skills`
 - `source`: [`packages/skill/skill-filesystem/src/index.ts:49`](../packages/skill/skill-filesystem/src/index.ts)
@@ -2887,12 +2887,12 @@ export interface Config {
   bundledSkillDir?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-skill-filesystem -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-skill-filesystem -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-skill-office -->
-<a id="deepseek-aidsh-skill-office"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-skill-office -->
+<a id="onprem-aidsh-skill-office"></a>
 
-## `@deepseek-ai/dsh-skill-office`
+## `@onprem-ai/dsh-skill-office`
 
 - `inject`: `skills`
 - `source`: [`packages/skill/skill-office/src/index.ts:16`](../packages/skill/skill-office/src/index.ts)
@@ -2908,12 +2908,12 @@ export interface Config {
   cli?: string | false
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-skill-office -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-skill-office -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-spill-local -->
-<a id="deepseek-aidsh-spill-local"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-spill-local -->
+<a id="onprem-aidsh-spill-local"></a>
 
-## `@deepseek-ai/dsh-spill-local`
+## `@onprem-ai/dsh-spill-local`
 
 - `source`: [`packages/spill/spill-local/src/index.ts:31`](../packages/spill/spill-local/src/index.ts)
 
@@ -2939,12 +2939,12 @@ export interface Config {
   cleanupPeriodDays?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-spill-local -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-spill-local -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-spill-policy -->
-<a id="deepseek-aidsh-spill-policy"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-spill-policy -->
+<a id="onprem-aidsh-spill-policy"></a>
 
-## `@deepseek-ai/dsh-spill-policy`
+## `@onprem-ai/dsh-spill-policy`
 
 - `inject`: `tools`
 - `source`: [`packages/spill/spill-policy/src/index.ts:25`](../packages/spill/spill-policy/src/index.ts)
@@ -2956,12 +2956,12 @@ export interface Config {
   maxInlineTokens?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-spill-policy -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-spill-policy -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-ssh -->
-<a id="deepseek-aidsh-ssh"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-ssh -->
+<a id="onprem-aidsh-ssh"></a>
 
-## `@deepseek-ai/dsh-ssh`
+## `@onprem-ai/dsh-ssh`
 
 - `source`: [`packages/ssh/ssh/src/index.ts:17`](../packages/ssh/ssh/src/index.ts)
 
@@ -2992,12 +2992,12 @@ export interface Config {
   leaseMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-ssh -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-ssh -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-storage-domain -->
-<a id="deepseek-aidsh-storage-domain"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-storage-domain -->
+<a id="onprem-aidsh-storage-domain"></a>
 
-## `@deepseek-ai/dsh-storage-domain`
+## `@onprem-ai/dsh-storage-domain`
 
 - `inject`: `storage`
 - `source`: [`packages/storage/storage-domain/src/index.ts:52`](../packages/storage/storage-domain/src/index.ts)
@@ -3016,12 +3016,12 @@ export interface Config {
   routes?: Record<string, string>
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-storage-domain -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-storage-domain -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-storage-json -->
-<a id="deepseek-aidsh-storage-json"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-storage-json -->
+<a id="onprem-aidsh-storage-json"></a>
 
-## `@deepseek-ai/dsh-storage-json`
+## `@onprem-ai/dsh-storage-json`
 
 - `inject`: `storage`
 - `source`: [`packages/storage/storage-json/src/index.ts:28`](../packages/storage/storage-json/src/index.ts)
@@ -3038,12 +3038,12 @@ export interface Config {
   root: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-storage-json -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-storage-json -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-storage-sqlite -->
-<a id="deepseek-aidsh-storage-sqlite"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-storage-sqlite -->
+<a id="onprem-aidsh-storage-sqlite"></a>
 
-## `@deepseek-ai/dsh-storage-sqlite`
+## `@onprem-ai/dsh-storage-sqlite`
 
 - `inject`: `storage`
 - `source`: [`packages/storage/storage-sqlite/src/index.ts:24`](../packages/storage/storage-sqlite/src/index.ts)
@@ -3079,14 +3079,14 @@ export interface Config {
  */
 export type JournalMode = 'wal' | 'delete' | 'truncate' | 'persist'
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-storage-sqlite -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-storage-sqlite -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-subagent -->
-<a id="deepseek-aidsh-subagent"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-subagent -->
+<a id="onprem-aidsh-subagent"></a>
 
-## `@deepseek-ai/dsh-subagent`
+## `@onprem-ai/dsh-subagent`
 
-- `refs`: `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/subagent/subagent/src/index.ts:192`](../packages/subagent/subagent/src/index.ts)
 
 ```ts config-catalog
@@ -3098,12 +3098,12 @@ export interface Config {
   maxDepth: Volatile<number>
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-subagent -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-subagent -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-subagent-acp -->
-<a id="deepseek-aidsh-subagent-acp"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-subagent-acp -->
+<a id="onprem-aidsh-subagent-acp"></a>
 
-## `@deepseek-ai/dsh-subagent-acp`
+## `@onprem-ai/dsh-subagent-acp`
 
 - `inject`: `subagents` · `subprocess`
 - `source`: [`packages/subagent/subagent-acp/src/index.ts:27`](../packages/subagent/subagent-acp/src/index.ts)
@@ -3152,12 +3152,12 @@ export interface Config {
 /** Fixed response to child permission requests: reject by default, or select the first allow option. */
 export type PermissionPolicy = 'allow' | 'reject'
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-subagent-acp -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-subagent-acp -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-subagent-claude-code -->
-<a id="deepseek-aidsh-subagent-claude-code"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-subagent-claude-code -->
+<a id="onprem-aidsh-subagent-claude-code"></a>
 
-## `@deepseek-ai/dsh-subagent-claude-code`
+## `@onprem-ai/dsh-subagent-claude-code`
 
 - `inject`: `subagents` · `subprocess`
 - `source`: [`packages/subagent/subagent-claude-code/src/index.ts:38`](../packages/subagent/subagent-claude-code/src/index.ts)
@@ -3188,12 +3188,12 @@ export interface Config {
 /** Profile-selectable non-interactive Claude Code permission mode. */
 export type ClaudeCodePermissionMode = typeof CLAUDE_CODE_PERMISSION_MODES[number]
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-subagent-claude-code -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-subagent-claude-code -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-subagent-codex -->
-<a id="deepseek-aidsh-subagent-codex"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-subagent-codex -->
+<a id="onprem-aidsh-subagent-codex"></a>
 
-## `@deepseek-ai/dsh-subagent-codex`
+## `@onprem-ai/dsh-subagent-codex`
 
 - `inject`: `subagents` · `subprocess`
 - `source`: [`packages/subagent/subagent-codex/src/index.ts:36`](../packages/subagent/subagent-codex/src/index.ts)
@@ -3222,12 +3222,12 @@ export type CodexPermissionMode =
   | 'approve-for-me'
   | 'dangerously-bypass-approvals-and-sandbox'
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-subagent-codex -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-subagent-codex -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-subagent-dsh-sdk -->
-<a id="deepseek-aidsh-subagent-dsh-sdk"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-subagent-dsh-sdk -->
+<a id="onprem-aidsh-subagent-dsh-sdk"></a>
 
-## `@deepseek-ai/dsh-subagent-dsh-sdk`
+## `@onprem-ai/dsh-subagent-dsh-sdk`
 
 - `inject`: `subagents`
 - `source`: [`packages/subagent/subagent-dsh-sdk/src/index.ts:34`](../packages/subagent/subagent-dsh-sdk/src/index.ts)
@@ -3279,12 +3279,12 @@ export interface Config {
   disposeGraceMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-subagent-dsh-sdk -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-subagent-dsh-sdk -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-subagent-fork-in-process -->
-<a id="deepseek-aidsh-subagent-fork-in-process"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-subagent-fork-in-process -->
+<a id="onprem-aidsh-subagent-fork-in-process"></a>
 
-## `@deepseek-ai/dsh-subagent-fork-in-process`
+## `@onprem-ai/dsh-subagent-fork-in-process`
 
 - `inject`: `subagents`
 - `source`: [`packages/subagent/subagent-fork-in-process/src/index.ts:31`](../packages/subagent/subagent-fork-in-process/src/index.ts)
@@ -3296,12 +3296,12 @@ export interface Config {
   providerName: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-subagent-fork-in-process -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-subagent-fork-in-process -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-subagent-spawn-in-process -->
-<a id="deepseek-aidsh-subagent-spawn-in-process"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-subagent-spawn-in-process -->
+<a id="onprem-aidsh-subagent-spawn-in-process"></a>
 
-## `@deepseek-ai/dsh-subagent-spawn-in-process`
+## `@onprem-ai/dsh-subagent-spawn-in-process`
 
 - `inject`: `subagents`
 - `source`: [`packages/subagent/subagent-spawn-in-process/src/index.ts:25`](../packages/subagent/subagent-spawn-in-process/src/index.ts)
@@ -3313,12 +3313,12 @@ export interface Config {
   providerName: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-subagent-spawn-in-process -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-subagent-spawn-in-process -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-system-prompt -->
-<a id="deepseek-aidsh-system-prompt"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-system-prompt -->
+<a id="onprem-aidsh-system-prompt"></a>
 
-## `@deepseek-ai/dsh-system-prompt`
+## `@onprem-ai/dsh-system-prompt`
 
 - `source`: [`packages/core/system-prompt/src/index.ts:247`](../packages/core/system-prompt/src/index.ts)
 
@@ -3347,12 +3347,12 @@ export interface Config {
   toolOrder?: string[]
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-system-prompt -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-system-prompt -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-terminal-bash -->
-<a id="deepseek-aidsh-terminal-bash"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-terminal-bash -->
+<a id="onprem-aidsh-terminal-bash"></a>
 
-## `@deepseek-ai/dsh-terminal-bash`
+## `@onprem-ai/dsh-terminal-bash`
 
 - `inject`: `terminals` · `sandboxPolicy` · `sessionProjections` · `subprocess`
 - `source`: [`packages/terminal/terminal-bash/src/config.ts:10`](../packages/terminal/terminal-bash/src/config.ts)
@@ -3407,12 +3407,12 @@ export interface Config {
 /** One supported interactive shell dialect. */
 export type ShellDialect = 'bash' | 'pwsh'
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-terminal-bash -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-terminal-bash -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-time-context -->
-<a id="deepseek-aidsh-time-context"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-time-context -->
+<a id="onprem-aidsh-time-context"></a>
 
-## `@deepseek-ai/dsh-time-context`
+## `@onprem-ai/dsh-time-context`
 
 - `inject`: `agents` · `sessionProjections`
 - `source`: [`packages/context/time-context/src/index.ts:56`](../packages/context/time-context/src/index.ts)
@@ -3426,12 +3426,12 @@ export interface Config {
   refreshIntervalMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-time-context -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-time-context -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tmux-context -->
-<a id="deepseek-aidsh-tmux-context"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tmux-context -->
+<a id="onprem-aidsh-tmux-context"></a>
 
-## `@deepseek-ai/dsh-tmux-context`
+## `@onprem-ai/dsh-tmux-context`
 
 - `inject`: `agents` · `sessionProjections`
 - `source`: [`packages/context/tmux-context/src/index.ts:47`](../packages/context/tmux-context/src/index.ts)
@@ -3443,12 +3443,12 @@ export interface Config {
   refreshIntervalMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tmux-context -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tmux-context -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-token-meter -->
-<a id="deepseek-aidsh-token-meter"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-token-meter -->
+<a id="onprem-aidsh-token-meter"></a>
 
-## `@deepseek-ai/dsh-token-meter`
+## `@onprem-ai/dsh-token-meter`
 
 - `inject`: `sessionProjections`
 - `source`: [`packages/llm/token-meter/src/types.ts:13`](../packages/llm/token-meter/src/types.ts)
@@ -3457,12 +3457,12 @@ export interface Config {
 /** Token-meter plugin configuration; the fixed estimator has no settings. */
 export type TokenMeterConfig = Record<string, never>
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-token-meter -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-token-meter -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-ask-user -->
-<a id="deepseek-aidsh-tool-ask-user"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-ask-user -->
+<a id="onprem-aidsh-tool-ask-user"></a>
 
-## `@deepseek-ai/dsh-tool-ask-user`
+## `@onprem-ai/dsh-tool-ask-user`
 
 - `inject`: `tools` · `userQuestions`
 - `source`: [`packages/interaction/tool-ask-user/src/index.ts:16`](../packages/interaction/tool-ask-user/src/index.ts)
@@ -3476,12 +3476,12 @@ export interface Config {
   timeout?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-ask-user -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-ask-user -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-bash -->
-<a id="deepseek-aidsh-tool-bash"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-bash -->
+<a id="onprem-aidsh-tool-bash"></a>
 
-## `@deepseek-ai/dsh-tool-bash`
+## `@onprem-ai/dsh-tool-bash`
 
 - `inject`: `tools` · `shell` · `systemPrompt` · `shellEnv`
 - `source`: [`packages/shell/tool-bash/src/index.ts:37`](../packages/shell/tool-bash/src/index.ts)
@@ -3506,12 +3506,12 @@ export interface Config {
   promoteOnTimeout?: boolean
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-bash -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-bash -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-bash-persistent -->
-<a id="deepseek-aidsh-tool-bash-persistent"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-bash-persistent -->
+<a id="onprem-aidsh-tool-bash-persistent"></a>
 
-## `@deepseek-ai/dsh-tool-bash-persistent`
+## `@onprem-ai/dsh-tool-bash-persistent`
 
 - `inject`: `tools` · `terminals`
 - `source`: [`packages/shell/tool-bash-persistent/src/index.ts:444`](../packages/shell/tool-bash-persistent/src/index.ts)
@@ -3529,12 +3529,12 @@ export interface Config {
   description?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-bash-persistent -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-bash-persistent -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-fs -->
-<a id="deepseek-aidsh-tool-fs"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-fs -->
+<a id="onprem-aidsh-tool-fs"></a>
 
-## `@deepseek-ai/dsh-tool-fs`
+## `@onprem-ai/dsh-tool-fs`
 
 - `inject`: `tools` · `fs` · `systemPrompt`
 - `source`: [`packages/fs/tool-fs/src/index.ts:25`](../packages/fs/tool-fs/src/index.ts)
@@ -3552,12 +3552,12 @@ export interface Config {
   readStreamMinSize?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-fs -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-fs -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-fs-search -->
-<a id="deepseek-aidsh-tool-fs-search"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-fs-search -->
+<a id="onprem-aidsh-tool-fs-search"></a>
 
-## `@deepseek-ai/dsh-tool-fs-search`
+## `@onprem-ai/dsh-tool-fs-search`
 
 - `inject`: `tools` · `systemPrompt` · `subprocess`
 - `source`: [`packages/fs/tool-fs-search/src/index.ts:73`](../packages/fs/tool-fs-search/src/index.ts)
@@ -3583,17 +3583,17 @@ export interface Config {
   stderrMaxBytes?: number
   /**
    * Cooperative tool-call timeout budget (ms) on both tools, enforced by
-   * `@deepseek-ai/dsh-tool-call-timeout-policy` through `exec.signal`.
+   * `@onprem-ai/dsh-tool-call-timeout-policy` through `exec.signal`.
    */
   timeoutMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-fs-search -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-fs-search -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-goal -->
-<a id="deepseek-aidsh-tool-goal"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-goal -->
+<a id="onprem-aidsh-tool-goal"></a>
 
-## `@deepseek-ai/dsh-tool-goal`
+## `@onprem-ai/dsh-tool-goal`
 
 - `inject`: `agents` · `goals` · `tools` · `systemPrompt` · `sessionProjections`
 - `source`: [`packages/goal/tool-goal/src/index.ts:32`](../packages/goal/tool-goal/src/index.ts)
@@ -3605,12 +3605,12 @@ export interface Config {
   blockedAfterConsecutiveRounds?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-goal -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-goal -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-jobs -->
-<a id="deepseek-aidsh-tool-jobs"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-jobs -->
+<a id="onprem-aidsh-tool-jobs"></a>
 
-## `@deepseek-ai/dsh-tool-jobs`
+## `@onprem-ai/dsh-tool-jobs`
 
 - `inject`: `tools` · `jobs` · `systemPrompt`
 - `source`: [`packages/jobs/tool-jobs/src/index.ts:41`](../packages/jobs/tool-jobs/src/index.ts)
@@ -3642,12 +3642,12 @@ export interface Config {
  */
 export type CompletionDelivery = 'quiet' | 'wakeup'
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-jobs -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-jobs -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-lsp -->
-<a id="deepseek-aidsh-tool-lsp"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-lsp -->
+<a id="onprem-aidsh-tool-lsp"></a>
 
-## `@deepseek-ai/dsh-tool-lsp`
+## `@onprem-ai/dsh-tool-lsp`
 
 - `inject`: `tools` · `lsp` · `systemPrompt`
 - `source`: [`packages/lsp/tool-lsp/src/index.ts:57`](../packages/lsp/tool-lsp/src/index.ts)
@@ -3663,12 +3663,12 @@ export interface Config {
   timeoutMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-lsp -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-lsp -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-present -->
-<a id="deepseek-aidsh-tool-present"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-present -->
+<a id="onprem-aidsh-tool-present"></a>
 
-## `@deepseek-ai/dsh-tool-present`
+## `@onprem-ai/dsh-tool-present`
 
 - `inject`: `tools` · `fs` · `sessionProjections`
 - `source`: [`packages/deliverables/tool-present/src/index.ts:15`](../packages/deliverables/tool-present/src/index.ts)
@@ -3680,12 +3680,12 @@ export interface Config {
   maxFiles: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-present -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-present -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-pwsh -->
-<a id="deepseek-aidsh-tool-pwsh"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-pwsh -->
+<a id="onprem-aidsh-tool-pwsh"></a>
 
-## `@deepseek-ai/dsh-tool-pwsh`
+## `@onprem-ai/dsh-tool-pwsh`
 
 - `inject`: `tools` · `shell` · `systemPrompt` · `shellEnv`
 - `source`: [`packages/shell/tool-pwsh/src/index.ts:54`](../packages/shell/tool-pwsh/src/index.ts)
@@ -3710,12 +3710,12 @@ export interface Config {
   promoteOnTimeout?: boolean
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-pwsh -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-pwsh -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-pwsh-persistent -->
-<a id="deepseek-aidsh-tool-pwsh-persistent"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-pwsh-persistent -->
+<a id="onprem-aidsh-tool-pwsh-persistent"></a>
 
-## `@deepseek-ai/dsh-tool-pwsh-persistent`
+## `@onprem-ai/dsh-tool-pwsh-persistent`
 
 - `inject`: `tools` · `terminals`
 - `source`: [`packages/shell/tool-pwsh-persistent/src/index.ts:457`](../packages/shell/tool-pwsh-persistent/src/index.ts)
@@ -3733,12 +3733,12 @@ export interface Config {
   description?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-pwsh-persistent -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-pwsh-persistent -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-ralph -->
-<a id="deepseek-aidsh-tool-ralph"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-ralph -->
+<a id="onprem-aidsh-tool-ralph"></a>
 
-## `@deepseek-ai/dsh-tool-ralph`
+## `@onprem-ai/dsh-tool-ralph`
 
 - `inject`: `tools` · `workflowEngine` · `subagents` · `systemPrompt`
 - `source`: [`packages/workflow/tool-ralph/src/index.ts:21`](../packages/workflow/tool-ralph/src/index.ts)
@@ -3756,12 +3756,12 @@ export interface Config {
   maxResultChars?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-ralph -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-ralph -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-session-query -->
-<a id="deepseek-aidsh-tool-session-query"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-session-query -->
+<a id="onprem-aidsh-tool-session-query"></a>
 
-## `@deepseek-ai/dsh-tool-session-query`
+## `@onprem-ai/dsh-tool-session-query`
 
 - `inject`: `tools` · `systemPrompt` · `sessionQuery` · `sessionProjections`
 - `source`: [`packages/session-query/tool-session-query/src/index.ts:28`](../packages/session-query/tool-session-query/src/index.ts)
@@ -3775,12 +3775,12 @@ export interface Config {
   searchTimeoutMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-session-query -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-session-query -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-skill -->
-<a id="deepseek-aidsh-tool-skill"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-skill -->
+<a id="onprem-aidsh-tool-skill"></a>
 
-## `@deepseek-ai/dsh-tool-skill`
+## `@onprem-ai/dsh-tool-skill`
 
 - `inject`: `agents` · `tools` · `skills`
 - `source`: [`packages/skill/tool-skill/src/index.ts:61`](../packages/skill/tool-skill/src/index.ts)
@@ -3792,12 +3792,12 @@ export interface Config {
   catalogDescriptionMaxLength?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-skill -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-skill -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-str-replace-editor -->
-<a id="deepseek-aidsh-tool-str-replace-editor"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-str-replace-editor -->
+<a id="onprem-aidsh-tool-str-replace-editor"></a>
 
-## `@deepseek-ai/dsh-tool-str-replace-editor`
+## `@onprem-ai/dsh-tool-str-replace-editor`
 
 - `inject`: `tools` · `fs`
 - `source`: [`packages/fs/tool-str-replace-editor/src/index.ts:506`](../packages/fs/tool-str-replace-editor/src/index.ts)
@@ -3811,12 +3811,12 @@ export interface Config {
   description?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-str-replace-editor -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-str-replace-editor -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-subagent -->
-<a id="deepseek-aidsh-tool-subagent"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-subagent -->
+<a id="onprem-aidsh-tool-subagent"></a>
 
-## `@deepseek-ai/dsh-tool-subagent`
+## `@onprem-ai/dsh-tool-subagent`
 
 - `inject`: `tools` · `subagents` · `systemPrompt` · `sessionProjections`
 - `refs`: [`AgentOptions`](subsystems/core.zh.md)
@@ -3882,12 +3882,12 @@ export interface Config {
   maxDepth?: number | 'provider-managed'
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-subagent -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-subagent -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-terminal -->
-<a id="deepseek-aidsh-tool-terminal"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-terminal -->
+<a id="onprem-aidsh-tool-terminal"></a>
 
-## `@deepseek-ai/dsh-tool-terminal`
+## `@onprem-ai/dsh-tool-terminal`
 
 - `inject`: `terminals` · `tools` · `systemPrompt`
 - `source`: [`packages/terminal/tool-terminal/src/index.ts:36`](../packages/terminal/tool-terminal/src/index.ts)
@@ -3901,12 +3901,12 @@ export interface Config {
   maxResultBytes?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-terminal -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-terminal -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-todo -->
-<a id="deepseek-aidsh-tool-todo"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-todo -->
+<a id="onprem-aidsh-tool-todo"></a>
 
-## `@deepseek-ai/dsh-tool-todo`
+## `@onprem-ai/dsh-tool-todo`
 
 - `inject`: `tools` · `sessionProjections`
 - `source`: [`packages/todo/tool-todo/src/index.ts:29`](../packages/todo/tool-todo/src/index.ts)
@@ -3924,12 +3924,12 @@ export interface Config {
   allowParallelInProgress: boolean
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-todo -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-todo -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-web -->
-<a id="deepseek-aidsh-tool-web"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-web -->
+<a id="onprem-aidsh-tool-web"></a>
 
-## `@deepseek-ai/dsh-tool-web`
+## `@onprem-ai/dsh-tool-web`
 
 - `inject`: `tools` · `web` · `systemPrompt`
 - `source`: [`packages/web/tool-web/src/index.ts:37`](../packages/web/tool-web/src/index.ts)
@@ -3953,12 +3953,12 @@ export interface Config {
   fetchMaxOutputChars?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-web -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-web -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-workflow -->
-<a id="deepseek-aidsh-tool-workflow"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-workflow -->
+<a id="onprem-aidsh-tool-workflow"></a>
 
-## `@deepseek-ai/dsh-tool-workflow`
+## `@onprem-ai/dsh-tool-workflow`
 
 - `inject`: `tools` · `workflowEngine` · `systemPrompt`
 - `source`: [`packages/workflow/tool-workflow/src/index.ts:44`](../packages/workflow/tool-workflow/src/index.ts)
@@ -3980,12 +3980,12 @@ export interface Config {
   enableRunInBackground?: boolean
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-workflow -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-workflow -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tool-workspace-dependencies -->
-<a id="deepseek-aidsh-tool-workspace-dependencies"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tool-workspace-dependencies -->
+<a id="onprem-aidsh-tool-workspace-dependencies"></a>
 
-## `@deepseek-ai/dsh-tool-workspace-dependencies`
+## `@onprem-ai/dsh-tool-workspace-dependencies`
 
 - `inject`: `tools`
 - `source`: [`packages/skill/tool-workspace-dependencies/src/index.ts:15`](../packages/skill/tool-workspace-dependencies/src/index.ts)
@@ -4003,12 +4003,12 @@ export interface Config {
   readonly root?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tool-workspace-dependencies -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tool-workspace-dependencies -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-tools -->
-<a id="deepseek-aidsh-tools"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-tools -->
+<a id="onprem-aidsh-tools"></a>
 
-## `@deepseek-ai/dsh-tools`
+## `@onprem-ai/dsh-tools`
 
 - `inject`: `systemPrompt`
 - `source`: [`packages/core/tools/src/index.ts:674`](../packages/core/tools/src/index.ts)
@@ -4040,12 +4040,12 @@ export interface Config {
 /** How the registry presents its tools to the model (see {@link Config.mode}). */
 export type ToolPresentationMode = 'native' | 'ptc' | 'both'
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-tools -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-tools -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-typert-loader -->
-<a id="deepseek-aidsh-typert-loader"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-typert-loader -->
+<a id="onprem-aidsh-typert-loader"></a>
 
-## `@deepseek-ai/dsh-typert-loader`
+## `@onprem-ai/dsh-typert-loader`
 
 - `inject`: `typert` · `loader`
 - `source`: [`packages/typert/loader/src/index.ts:48`](../packages/typert/loader/src/index.ts)
@@ -4057,12 +4057,12 @@ export interface Config {
   packages?: string[]
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-typert-loader -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-typert-loader -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-user-approval -->
-<a id="deepseek-aidsh-user-approval"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-user-approval -->
+<a id="onprem-aidsh-user-approval"></a>
 
-## `@deepseek-ai/dsh-user-approval`
+## `@onprem-ai/dsh-user-approval`
 
 - `source`: [`packages/interaction/user-approval/src/index.ts:135`](../packages/interaction/user-approval/src/index.ts)
 
@@ -4090,12 +4090,12 @@ export interface Config {
  */
 export type ApprovalPolicy = 'ask' | 'never'
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-user-approval -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-user-approval -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-web -->
-<a id="deepseek-aidsh-web"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-web -->
+<a id="onprem-aidsh-web"></a>
 
-## `@deepseek-ai/dsh-web`
+## `@onprem-ai/dsh-web`
 
 - `source`: [`packages/web/web/src/index.ts:55`](../packages/web/web/src/index.ts)
 
@@ -4113,12 +4113,12 @@ export interface WebRuntimeConfig {
   readonly fetchProvider?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-web -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-web -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-web-app -->
-<a id="deepseek-aidsh-web-app"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-web-app -->
+<a id="onprem-aidsh-web-app"></a>
 
-## `@deepseek-ai/dsh-web-app`
+## `@onprem-ai/dsh-web-app`
 
 - `inject`: `webServer`
 - `source`: [`packages/bundle/web-app/src/index.ts:44`](../packages/bundle/web-app/src/index.ts)
@@ -4141,12 +4141,12 @@ export interface Config {
   trustedHosts: string[]
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-web-app -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-web-app -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-web-fetch-http -->
-<a id="deepseek-aidsh-web-fetch-http"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-web-fetch-http -->
+<a id="onprem-aidsh-web-fetch-http"></a>
 
-## `@deepseek-ai/dsh-web-fetch-http`
+## `@onprem-ai/dsh-web-fetch-http`
 
 - `inject`: `web`
 - `source`: [`packages/web/web-fetch-http/src/index.ts:32`](../packages/web/web-fetch-http/src/index.ts)
@@ -4166,15 +4166,15 @@ export interface Config {
   userAgent?: string
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-web-fetch-http -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-web-fetch-http -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-web-search-deepseek -->
-<a id="deepseek-aidsh-web-search-deepseek"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-web-search-deepseek -->
+<a id="onprem-aidsh-web-search-deepseek"></a>
 
-## `@deepseek-ai/dsh-web-search-deepseek`
+## `@onprem-ai/dsh-web-search-deepseek`
 
 - `inject`: `web`
-- `refs`: `Volatile` (`@deepseek-ai/cordis`)
+- `refs`: `Volatile` (`@onprem-ai/cordis`)
 - `source`: [`packages/web/web-search-deepseek/src/index.ts:49`](../packages/web/web-search-deepseek/src/index.ts)
 
 ```ts config-catalog
@@ -4196,12 +4196,12 @@ export interface Config {
   maxUses: Volatile<number>
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-web-search-deepseek -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-web-search-deepseek -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-web-search-exa -->
-<a id="deepseek-aidsh-web-search-exa"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-web-search-exa -->
+<a id="onprem-aidsh-web-search-exa"></a>
 
-## `@deepseek-ai/dsh-web-search-exa`
+## `@onprem-ai/dsh-web-search-exa`
 
 - `inject`: `web`
 - `source`: [`packages/web/web-search-exa/src/index.ts:35`](../packages/web/web-search-exa/src/index.ts)
@@ -4221,12 +4221,12 @@ export interface Config {
   highlightsPerResult?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-web-search-exa -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-web-search-exa -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-web-search-perplexity -->
-<a id="deepseek-aidsh-web-search-perplexity"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-web-search-perplexity -->
+<a id="onprem-aidsh-web-search-perplexity"></a>
 
-## `@deepseek-ai/dsh-web-search-perplexity`
+## `@onprem-ai/dsh-web-search-perplexity`
 
 - `inject`: `web`
 - `source`: [`packages/web/web-search-perplexity/src/index.ts:30`](../packages/web/web-search-perplexity/src/index.ts)
@@ -4246,12 +4246,12 @@ export interface Config {
   searchRecency?: 'day' | 'week' | 'month' | 'year'
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-web-search-perplexity -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-web-search-perplexity -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-webhook-github -->
-<a id="deepseek-aidsh-webhook-github"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-webhook-github -->
+<a id="onprem-aidsh-webhook-github"></a>
 
-## `@deepseek-ai/dsh-webhook-github`
+## `@onprem-ai/dsh-webhook-github`
 
 - `inject`: `webServer` · `webhookRuntime` · `credentials`
 - `source`: [`packages/webhook/webhook-github/src/index.ts:17`](../packages/webhook/webhook-github/src/index.ts)
@@ -4269,12 +4269,12 @@ export interface Config {
   readonly maxBodyBytes: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-webhook-github -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-webhook-github -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-workflow-ptc -->
-<a id="deepseek-aidsh-workflow-ptc"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-workflow-ptc -->
+<a id="onprem-aidsh-workflow-ptc"></a>
 
-## `@deepseek-ai/dsh-workflow-ptc`
+## `@onprem-ai/dsh-workflow-ptc`
 
 - `inject`: `subagents` · `ptcRuntime` · `sandboxPolicy`
 - `source`: [`packages/workflow/workflow-ptc/src/index.ts:32`](../packages/workflow/workflow-ptc/src/index.ts)
@@ -4294,12 +4294,12 @@ export interface Config {
   syncTimeoutMs?: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-workflow-ptc -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-workflow-ptc -->
 
-<!-- BEGIN GENERATED config-catalog:@deepseek-ai/dsh-workspace-changes -->
-<a id="deepseek-aidsh-workspace-changes"></a>
+<!-- BEGIN GENERATED config-catalog:@onprem-ai/dsh-workspace-changes -->
+<a id="onprem-aidsh-workspace-changes"></a>
 
-## `@deepseek-ai/dsh-workspace-changes`
+## `@onprem-ai/dsh-workspace-changes`
 
 - `inject`: `subprocess`
 - `source`: [`packages/deliverables/workspace-changes/src/index.ts:33`](../packages/deliverables/workspace-changes/src/index.ts)
@@ -4322,7 +4322,7 @@ export interface Config {
   diffTimeoutMs: number
 }
 ```
-<!-- END GENERATED config-catalog:@deepseek-ai/dsh-workspace-changes -->
+<!-- END GENERATED config-catalog:@onprem-ai/dsh-workspace-changes -->
 
 ## 无配置的可加载插件
 
@@ -4331,103 +4331,103 @@ export interface Config {
 <!-- BEGIN GENERATED config-catalog:no-config -->
 | `package` | `inject` | `source` |
 | --- | --- | --- |
-| `@deepseek-ai/dsh-acp-app` | `cmdlineArgs` | [`packages/bundle/acp-app/src/index.ts`](../packages/bundle/acp-app/src/index.ts) |
-| `@deepseek-ai/dsh-agent` | — | [`packages/core/agent/src/index.ts`](../packages/core/agent/src/index.ts) |
-| `@deepseek-ai/dsh-api-account-controller` | `deepseekAccount` · `agents` | [`packages/api/account-controller/src/index.ts`](../packages/api/account-controller/src/index.ts) |
-| `@deepseek-ai/dsh-api-remotes` | `typertGateway` | [`packages/api/remotes/src/index.ts`](../packages/api/remotes/src/index.ts) |
-| `@deepseek-ai/dsh-authorization` | `credentials` | [`packages/credentials/authorization/src/index.ts`](../packages/credentials/authorization/src/index.ts) |
-| `@deepseek-ai/dsh-browser-use` | — | [`packages/browser-use/browser-use/src/index.ts`](../packages/browser-use/browser-use/src/index.ts) |
-| `@deepseek-ai/dsh-client-file-upload` | `agents` · `attachments` · `commands` · `connection` | [`packages/client/file-upload/src/index.ts`](../packages/client/file-upload/src/index.ts) |
-| `@deepseek-ai/dsh-client-locale` | — | [`packages/client/locale/src/index.ts`](../packages/client/locale/src/index.ts) |
-| `@deepseek-ai/dsh-client-modules` | `loader` | [`packages/client/modules/src/index.ts`](../packages/client/modules/src/index.ts) |
-| `@deepseek-ai/dsh-client-resources` | — | [`packages/client/resources/src/index.ts`](../packages/client/resources/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-agent-preset` | — | [`packages/client/ui-agent-preset/src/index.ts`](../packages/client/ui-agent-preset/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-approval` | — | [`packages/client/ui-approval/src/index.ts`](../packages/client/ui-approval/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-attachment` | — | [`packages/client/ui-attachment/src/index.ts`](../packages/client/ui-attachment/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-brand-official` | — | [`packages/client/ui-brand-official/src/index.ts`](../packages/client/ui-brand-official/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-chat` | — | [`packages/client/ui-chat/src/index.ts`](../packages/client/ui-chat/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-commands` | — | [`packages/client/ui-commands/src/index.ts`](../packages/client/ui-commands/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-conversation` | — | [`packages/client/ui-conversation/src/index.ts`](../packages/client/ui-conversation/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-cordis` | — | [`packages/extensions/ui-cordis/src/index.ts`](../packages/extensions/ui-cordis/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-deliverables` | `systemPrompt` · `connection` · `sessionQuery` · `sessionController` · `workspaceFiles` · `fs` · `sandboxPolicy` · `workspaceChanges` | [`packages/client/ui-deliverables/src/index.ts`](../packages/client/ui-deliverables/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-directory-picker-browse` | — | [`packages/client/ui-directory-picker-browse/src/index.ts`](../packages/client/ui-directory-picker-browse/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-directory-picker-native` | — | [`packages/client/ui-directory-picker-native/src/index.ts`](../packages/client/ui-directory-picker-native/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-goal` | — | [`packages/client/ui-goal/src/index.ts`](../packages/client/ui-goal/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-input-trigger` | — | [`packages/client/ui-input-trigger/src/index.ts`](../packages/client/ui-input-trigger/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-jobs` | — | [`packages/client/ui-jobs/src/index.ts`](../packages/client/ui-jobs/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-layout` | — | [`packages/client/ui-layout/src/index.ts`](../packages/client/ui-layout/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-message-feedback` | — | [`packages/client/ui-message-feedback/src/index.ts`](../packages/client/ui-message-feedback/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-model-selection` | — | [`packages/client/ui-model-selection/src/index.ts`](../packages/client/ui-model-selection/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-open-in-app` | — | [`packages/client/ui-open-in-app/src/index.ts`](../packages/client/ui-open-in-app/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-permission-presets` | — | [`packages/client/ui-permission-presets/src/index.ts`](../packages/client/ui-permission-presets/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-plan` | — | [`packages/client/ui-plan/src/index.ts`](../packages/client/ui-plan/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-reference` | — | [`packages/client/ui-reference/src/index.ts`](../packages/client/ui-reference/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-renderer` | — | [`packages/client/ui-renderer/src/index.ts`](../packages/client/ui-renderer/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-schedule` | — | [`packages/client/ui-schedule/src/index.ts`](../packages/client/ui-schedule/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-session` | — | [`packages/client/ui-session/src/index.ts`](../packages/client/ui-session/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-settings` | — | [`packages/client/ui-settings/src/index.ts`](../packages/client/ui-settings/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-settings-agent-loop` | — | [`packages/client/ui-settings-agent-loop/src/index.ts`](../packages/client/ui-settings-agent-loop/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-settings-general` | — | [`packages/client/ui-settings-general/src/index.ts`](../packages/client/ui-settings-general/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-settings-plugin-inventory` | — | [`packages/client/ui-settings-plugin-inventory/src/index.ts`](../packages/client/ui-settings-plugin-inventory/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-settings-plugins` | — | [`packages/client/ui-settings-plugins/src/index.ts`](../packages/client/ui-settings-plugins/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-settings-session-log` | — | [`packages/client/ui-settings-session-log/src/index.ts`](../packages/client/ui-settings-session-log/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-settings-shell` | — | [`packages/client/ui-settings-shell/src/index.ts`](../packages/client/ui-settings-shell/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-settings-subagent` | — | [`packages/client/ui-settings-subagent/src/index.ts`](../packages/client/ui-settings-subagent/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-settings-web-search` | — | [`packages/client/ui-settings-web-search/src/index.ts`](../packages/client/ui-settings-web-search/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-shortcuts` | — | [`packages/client/ui-shortcuts/src/index.ts`](../packages/client/ui-shortcuts/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-sidebar` | — | [`packages/client/ui-sidebar/src/index.ts`](../packages/client/ui-sidebar/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-sidebar-browser` | — | [`packages/client/ui-sidebar-browser/src/index.ts`](../packages/client/ui-sidebar-browser/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-sidebar-files` | — | [`packages/client/ui-sidebar-files/src/index.ts`](../packages/client/ui-sidebar-files/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-sidebar-right` | — | [`packages/client/ui-sidebar-right/src/index.ts`](../packages/client/ui-sidebar-right/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-sidebar-terminal` | — | [`packages/client/ui-sidebar-terminal/src/index.ts`](../packages/client/ui-sidebar-terminal/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-skill` | — | [`packages/client/ui-skill/src/index.ts`](../packages/client/ui-skill/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-subagent` | — | [`packages/client/ui-subagent/src/index.ts`](../packages/client/ui-subagent/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-tool` | — | [`packages/client/ui-tool/src/index.ts`](../packages/client/ui-tool/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-trajectory` | — | [`packages/client/ui-trajectory/src/index.ts`](../packages/client/ui-trajectory/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-user-questions` | — | [`packages/client/ui-user-questions/src/index.ts`](../packages/client/ui-user-questions/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-workflow-run` | — | [`packages/client/ui-workflow-run/src/index.ts`](../packages/client/ui-workflow-run/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-workspace` | — | [`packages/client/ui-workspace/src/index.ts`](../packages/client/ui-workspace/src/index.ts) |
-| `@deepseek-ai/dsh-command-compact` | `commands` · `compaction` | [`packages/compaction/command-compact/src/index.ts`](../packages/compaction/command-compact/src/index.ts) |
-| `@deepseek-ai/dsh-command-feedback` | `commands` | [`packages/feedback/command-feedback/src/index.ts`](../packages/feedback/command-feedback/src/index.ts) |
-| `@deepseek-ai/dsh-command-goal` | `commands` · `goals` | [`packages/goal/command-goal/src/index.ts`](../packages/goal/command-goal/src/index.ts) |
-| `@deepseek-ai/dsh-commands` | — | [`packages/interaction/commands/src/index.ts`](../packages/interaction/commands/src/index.ts) |
-| `@deepseek-ai/dsh-compaction-image-offload` | `agents` · `sessions` | [`packages/compaction/compaction-image-offload/src/index.ts`](../packages/compaction/compaction-image-offload/src/index.ts) |
-| `@deepseek-ai/dsh-computer-use` | — | [`packages/computer-use/computer-use/src/index.ts`](../packages/computer-use/computer-use/src/index.ts) |
-| `@deepseek-ai/dsh-config-editor` | `loader` · `profileContext` | [`packages/boot/config-editor/src/index.ts`](../packages/boot/config-editor/src/index.ts) |
-| `@deepseek-ai/dsh-cordis-client-runner` | — | [`packages/extensions/cordis-client-runner/src/index.ts`](../packages/extensions/cordis-client-runner/src/index.ts) |
-| `@deepseek-ai/dsh-deepseek-llm-api-extensions` | — | [`packages/llm/deepseek-llm-api-extensions/src/index.ts`](../packages/llm/deepseek-llm-api-extensions/src/index.ts) |
-| `@deepseek-ai/dsh-experimental-auto-review` | `approval` · `llm` · `permissionPresets` · `sessions` · `tools` | [`packages/experimental/auto-review/src/index.ts`](../packages/experimental/auto-review/src/index.ts) |
-| `@deepseek-ai/dsh-experimental-client-ui-agent-team` | — | [`packages/experimental/client-ui-agent-team/src/index.ts`](../packages/experimental/client-ui-agent-team/src/index.ts) |
-| `@deepseek-ai/dsh-experimental-client-ui-voice-input` | — | [`packages/experimental/client-ui-voice-input/src/index.ts`](../packages/experimental/client-ui-voice-input/src/index.ts) |
-| `@deepseek-ai/dsh-experimental-computer-use-cua-driver-native` | `computerUse` · `tools` · `systemPrompt` | [`packages/experimental/computer-use-cua-driver-native/src/index.ts`](../packages/experimental/computer-use-cua-driver-native/src/index.ts) |
-| `@deepseek-ai/dsh-fs-observation-policy` | — | [`packages/fs/fs-observation-policy/src/index.ts`](../packages/fs/fs-observation-policy/src/index.ts) |
-| `@deepseek-ai/dsh-fs-ssh` | `ssh` · `sandboxPolicy` | [`packages/ssh/fs-ssh/src/index.ts`](../packages/ssh/fs-ssh/src/index.ts) |
-| `@deepseek-ai/dsh-goal-round-driver` | `agents` · `goals` · `sessions` | [`packages/goal/goal-round-driver/src/index.ts`](../packages/goal/goal-round-driver/src/index.ts) |
-| `@deepseek-ai/dsh-host-directory-picker-auto` | `webServer` · `loader` | [`packages/host/directory-picker-auto/src/index.ts`](../packages/host/directory-picker-auto/src/index.ts) |
-| `@deepseek-ai/dsh-host-directory-picker-native` | — | [`packages/host/directory-picker-native/src/index.ts`](../packages/host/directory-picker-native/src/index.ts) |
-| `@deepseek-ai/dsh-host-plugin-inventory` | `loader` | [`packages/host/plugin-inventory/src/index.ts`](../packages/host/plugin-inventory/src/index.ts) |
-| `@deepseek-ai/dsh-llm` | — | [`packages/llm/llm/src/index.ts`](../packages/llm/llm/src/index.ts) |
-| `@deepseek-ai/dsh-lsp` | — | [`packages/lsp/lsp/src/index.ts`](../packages/lsp/lsp/src/index.ts) |
-| `@deepseek-ai/dsh-mcp-resources` | `tools` | [`packages/mcp/mcp-resources/src/index.ts`](../packages/mcp/mcp-resources/src/index.ts) |
-| `@deepseek-ai/dsh-otel` | — | [`packages/telemetry/otel/src/index.ts`](../packages/telemetry/otel/src/index.ts) |
-| `@deepseek-ai/dsh-sandbox-ssh` | `ssh` | [`packages/ssh/sandbox-ssh/src/index.ts`](../packages/ssh/sandbox-ssh/src/index.ts) |
-| `@deepseek-ai/dsh-session` | — | [`packages/core/session/src/index.ts`](../packages/core/session/src/index.ts) |
-| `@deepseek-ai/dsh-session-checkpoint-policy` | `llm` · `sessionPersistence` · `sessions` · `tools` | [`packages/session/session-checkpoint-policy/src/index.ts`](../packages/session/session-checkpoint-policy/src/index.ts) |
-| `@deepseek-ai/dsh-session-projection` | — | [`packages/session/session-projection/src/index.ts`](../packages/session/session-projection/src/index.ts) |
-| `@deepseek-ai/dsh-session-stats` | `sessionProjections` | [`packages/session/session-stats/src/index.ts`](../packages/session/session-stats/src/index.ts) |
-| `@deepseek-ai/dsh-session-turn-outline` | `sessionProjections` | [`packages/session/session-turn-outline/src/index.ts`](../packages/session/session-turn-outline/src/index.ts) |
-| `@deepseek-ai/dsh-settings` | `configEditor` · `profileContext` | [`packages/settings/settings/src/index.ts`](../packages/settings/settings/src/index.ts) |
-| `@deepseek-ai/dsh-skill-badge` | `skills` | [`packages/skill/skill-badge/src/index.ts`](../packages/skill/skill-badge/src/index.ts) |
-| `@deepseek-ai/dsh-storage` | — | [`packages/storage/storage/src/index.ts`](../packages/storage/storage/src/index.ts) |
-| `@deepseek-ai/dsh-subprocess-local` | — | [`packages/subprocess/subprocess-local/src/index.ts`](../packages/subprocess/subprocess-local/src/index.ts) |
-| `@deepseek-ai/dsh-subprocess-ssh` | `ssh` | [`packages/ssh/subprocess-ssh/src/index.ts`](../packages/ssh/subprocess-ssh/src/index.ts) |
-| `@deepseek-ai/dsh-terminal` | — | [`packages/terminal/terminal/src/index.ts`](../packages/terminal/terminal/src/index.ts) |
-| `@deepseek-ai/dsh-tool-call-timeout-policy` | `tools` | [`packages/guard/timeout-policy/src/index.ts`](../packages/guard/timeout-policy/src/index.ts) |
-| `@deepseek-ai/dsh-tool-cordis` | `tools` · `cordisInspect` | [`packages/extensions/tool-cordis/src/index.ts`](../packages/extensions/tool-cordis/src/index.ts) |
-| `@deepseek-ai/dsh-tool-subagent-control` | `tools` · `subagents` | [`packages/subagent/tool-subagent-control/src/index.ts`](../packages/subagent/tool-subagent-control/src/index.ts) |
-| `@deepseek-ai/dsh-user-questions` | — | [`packages/interaction/user-questions/src/index.ts`](../packages/interaction/user-questions/src/index.ts) |
-| `@deepseek-ai/dsh-webhook` | `agents` · `agentDefaultModel` · `agentPresets` · `permissionPresets` · `sessionTitle` · `workspaceRegistry` | [`packages/webhook/webhook/src/index.ts`](../packages/webhook/webhook/src/index.ts) |
-| `@deepseek-ai/dsh-workspace` | `storageDomain` · `sessionPersistence` | [`packages/workspace/workspace/src/index.ts`](../packages/workspace/workspace/src/index.ts) |
+| `@onprem-ai/dsh-acp-app` | `cmdlineArgs` | [`packages/bundle/acp-app/src/index.ts`](../packages/bundle/acp-app/src/index.ts) |
+| `@onprem-ai/dsh-agent` | — | [`packages/core/agent/src/index.ts`](../packages/core/agent/src/index.ts) |
+| `@onprem-ai/dsh-api-account-controller` | `deepseekAccount` · `agents` | [`packages/api/account-controller/src/index.ts`](../packages/api/account-controller/src/index.ts) |
+| `@onprem-ai/dsh-api-remotes` | `typertGateway` | [`packages/api/remotes/src/index.ts`](../packages/api/remotes/src/index.ts) |
+| `@onprem-ai/dsh-authorization` | `credentials` | [`packages/credentials/authorization/src/index.ts`](../packages/credentials/authorization/src/index.ts) |
+| `@onprem-ai/dsh-browser-use` | — | [`packages/browser-use/browser-use/src/index.ts`](../packages/browser-use/browser-use/src/index.ts) |
+| `@onprem-ai/dsh-client-file-upload` | `agents` · `attachments` · `commands` · `connection` | [`packages/client/file-upload/src/index.ts`](../packages/client/file-upload/src/index.ts) |
+| `@onprem-ai/dsh-client-locale` | — | [`packages/client/locale/src/index.ts`](../packages/client/locale/src/index.ts) |
+| `@onprem-ai/dsh-client-modules` | `loader` | [`packages/client/modules/src/index.ts`](../packages/client/modules/src/index.ts) |
+| `@onprem-ai/dsh-client-resources` | — | [`packages/client/resources/src/index.ts`](../packages/client/resources/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-agent-preset` | — | [`packages/client/ui-agent-preset/src/index.ts`](../packages/client/ui-agent-preset/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-approval` | — | [`packages/client/ui-approval/src/index.ts`](../packages/client/ui-approval/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-attachment` | — | [`packages/client/ui-attachment/src/index.ts`](../packages/client/ui-attachment/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-brand-official` | — | [`packages/client/ui-brand-official/src/index.ts`](../packages/client/ui-brand-official/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-chat` | — | [`packages/client/ui-chat/src/index.ts`](../packages/client/ui-chat/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-commands` | — | [`packages/client/ui-commands/src/index.ts`](../packages/client/ui-commands/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-conversation` | — | [`packages/client/ui-conversation/src/index.ts`](../packages/client/ui-conversation/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-cordis` | — | [`packages/extensions/ui-cordis/src/index.ts`](../packages/extensions/ui-cordis/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-deliverables` | `systemPrompt` · `connection` · `sessionQuery` · `sessionController` · `workspaceFiles` · `fs` · `sandboxPolicy` · `workspaceChanges` | [`packages/client/ui-deliverables/src/index.ts`](../packages/client/ui-deliverables/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-directory-picker-browse` | — | [`packages/client/ui-directory-picker-browse/src/index.ts`](../packages/client/ui-directory-picker-browse/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-directory-picker-native` | — | [`packages/client/ui-directory-picker-native/src/index.ts`](../packages/client/ui-directory-picker-native/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-goal` | — | [`packages/client/ui-goal/src/index.ts`](../packages/client/ui-goal/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-input-trigger` | — | [`packages/client/ui-input-trigger/src/index.ts`](../packages/client/ui-input-trigger/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-jobs` | — | [`packages/client/ui-jobs/src/index.ts`](../packages/client/ui-jobs/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-layout` | — | [`packages/client/ui-layout/src/index.ts`](../packages/client/ui-layout/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-message-feedback` | — | [`packages/client/ui-message-feedback/src/index.ts`](../packages/client/ui-message-feedback/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-model-selection` | — | [`packages/client/ui-model-selection/src/index.ts`](../packages/client/ui-model-selection/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-open-in-app` | — | [`packages/client/ui-open-in-app/src/index.ts`](../packages/client/ui-open-in-app/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-permission-presets` | — | [`packages/client/ui-permission-presets/src/index.ts`](../packages/client/ui-permission-presets/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-plan` | — | [`packages/client/ui-plan/src/index.ts`](../packages/client/ui-plan/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-reference` | — | [`packages/client/ui-reference/src/index.ts`](../packages/client/ui-reference/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-renderer` | — | [`packages/client/ui-renderer/src/index.ts`](../packages/client/ui-renderer/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-schedule` | — | [`packages/client/ui-schedule/src/index.ts`](../packages/client/ui-schedule/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-session` | — | [`packages/client/ui-session/src/index.ts`](../packages/client/ui-session/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-settings` | — | [`packages/client/ui-settings/src/index.ts`](../packages/client/ui-settings/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-settings-agent-loop` | — | [`packages/client/ui-settings-agent-loop/src/index.ts`](../packages/client/ui-settings-agent-loop/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-settings-general` | — | [`packages/client/ui-settings-general/src/index.ts`](../packages/client/ui-settings-general/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-settings-plugin-inventory` | — | [`packages/client/ui-settings-plugin-inventory/src/index.ts`](../packages/client/ui-settings-plugin-inventory/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-settings-plugins` | — | [`packages/client/ui-settings-plugins/src/index.ts`](../packages/client/ui-settings-plugins/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-settings-session-log` | — | [`packages/client/ui-settings-session-log/src/index.ts`](../packages/client/ui-settings-session-log/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-settings-shell` | — | [`packages/client/ui-settings-shell/src/index.ts`](../packages/client/ui-settings-shell/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-settings-subagent` | — | [`packages/client/ui-settings-subagent/src/index.ts`](../packages/client/ui-settings-subagent/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-settings-web-search` | — | [`packages/client/ui-settings-web-search/src/index.ts`](../packages/client/ui-settings-web-search/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-shortcuts` | — | [`packages/client/ui-shortcuts/src/index.ts`](../packages/client/ui-shortcuts/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-sidebar` | — | [`packages/client/ui-sidebar/src/index.ts`](../packages/client/ui-sidebar/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-sidebar-browser` | — | [`packages/client/ui-sidebar-browser/src/index.ts`](../packages/client/ui-sidebar-browser/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-sidebar-files` | — | [`packages/client/ui-sidebar-files/src/index.ts`](../packages/client/ui-sidebar-files/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-sidebar-right` | — | [`packages/client/ui-sidebar-right/src/index.ts`](../packages/client/ui-sidebar-right/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-sidebar-terminal` | — | [`packages/client/ui-sidebar-terminal/src/index.ts`](../packages/client/ui-sidebar-terminal/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-skill` | — | [`packages/client/ui-skill/src/index.ts`](../packages/client/ui-skill/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-subagent` | — | [`packages/client/ui-subagent/src/index.ts`](../packages/client/ui-subagent/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-tool` | — | [`packages/client/ui-tool/src/index.ts`](../packages/client/ui-tool/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-trajectory` | — | [`packages/client/ui-trajectory/src/index.ts`](../packages/client/ui-trajectory/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-user-questions` | — | [`packages/client/ui-user-questions/src/index.ts`](../packages/client/ui-user-questions/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-workflow-run` | — | [`packages/client/ui-workflow-run/src/index.ts`](../packages/client/ui-workflow-run/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-workspace` | — | [`packages/client/ui-workspace/src/index.ts`](../packages/client/ui-workspace/src/index.ts) |
+| `@onprem-ai/dsh-command-compact` | `commands` · `compaction` | [`packages/compaction/command-compact/src/index.ts`](../packages/compaction/command-compact/src/index.ts) |
+| `@onprem-ai/dsh-command-feedback` | `commands` | [`packages/feedback/command-feedback/src/index.ts`](../packages/feedback/command-feedback/src/index.ts) |
+| `@onprem-ai/dsh-command-goal` | `commands` · `goals` | [`packages/goal/command-goal/src/index.ts`](../packages/goal/command-goal/src/index.ts) |
+| `@onprem-ai/dsh-commands` | — | [`packages/interaction/commands/src/index.ts`](../packages/interaction/commands/src/index.ts) |
+| `@onprem-ai/dsh-compaction-image-offload` | `agents` · `sessions` | [`packages/compaction/compaction-image-offload/src/index.ts`](../packages/compaction/compaction-image-offload/src/index.ts) |
+| `@onprem-ai/dsh-computer-use` | — | [`packages/computer-use/computer-use/src/index.ts`](../packages/computer-use/computer-use/src/index.ts) |
+| `@onprem-ai/dsh-config-editor` | `loader` · `profileContext` | [`packages/boot/config-editor/src/index.ts`](../packages/boot/config-editor/src/index.ts) |
+| `@onprem-ai/dsh-cordis-client-runner` | — | [`packages/extensions/cordis-client-runner/src/index.ts`](../packages/extensions/cordis-client-runner/src/index.ts) |
+| `@onprem-ai/dsh-deepseek-llm-api-extensions` | — | [`packages/llm/deepseek-llm-api-extensions/src/index.ts`](../packages/llm/deepseek-llm-api-extensions/src/index.ts) |
+| `@onprem-ai/dsh-experimental-auto-review` | `approval` · `llm` · `permissionPresets` · `sessions` · `tools` | [`packages/experimental/auto-review/src/index.ts`](../packages/experimental/auto-review/src/index.ts) |
+| `@onprem-ai/dsh-experimental-client-ui-agent-team` | — | [`packages/experimental/client-ui-agent-team/src/index.ts`](../packages/experimental/client-ui-agent-team/src/index.ts) |
+| `@onprem-ai/dsh-experimental-client-ui-voice-input` | — | [`packages/experimental/client-ui-voice-input/src/index.ts`](../packages/experimental/client-ui-voice-input/src/index.ts) |
+| `@onprem-ai/dsh-experimental-computer-use-cua-driver-native` | `computerUse` · `tools` · `systemPrompt` | [`packages/experimental/computer-use-cua-driver-native/src/index.ts`](../packages/experimental/computer-use-cua-driver-native/src/index.ts) |
+| `@onprem-ai/dsh-fs-observation-policy` | — | [`packages/fs/fs-observation-policy/src/index.ts`](../packages/fs/fs-observation-policy/src/index.ts) |
+| `@onprem-ai/dsh-fs-ssh` | `ssh` · `sandboxPolicy` | [`packages/ssh/fs-ssh/src/index.ts`](../packages/ssh/fs-ssh/src/index.ts) |
+| `@onprem-ai/dsh-goal-round-driver` | `agents` · `goals` · `sessions` | [`packages/goal/goal-round-driver/src/index.ts`](../packages/goal/goal-round-driver/src/index.ts) |
+| `@onprem-ai/dsh-host-directory-picker-auto` | `webServer` · `loader` | [`packages/host/directory-picker-auto/src/index.ts`](../packages/host/directory-picker-auto/src/index.ts) |
+| `@onprem-ai/dsh-host-directory-picker-native` | — | [`packages/host/directory-picker-native/src/index.ts`](../packages/host/directory-picker-native/src/index.ts) |
+| `@onprem-ai/dsh-host-plugin-inventory` | `loader` | [`packages/host/plugin-inventory/src/index.ts`](../packages/host/plugin-inventory/src/index.ts) |
+| `@onprem-ai/dsh-llm` | — | [`packages/llm/llm/src/index.ts`](../packages/llm/llm/src/index.ts) |
+| `@onprem-ai/dsh-lsp` | — | [`packages/lsp/lsp/src/index.ts`](../packages/lsp/lsp/src/index.ts) |
+| `@onprem-ai/dsh-mcp-resources` | `tools` | [`packages/mcp/mcp-resources/src/index.ts`](../packages/mcp/mcp-resources/src/index.ts) |
+| `@onprem-ai/dsh-otel` | — | [`packages/telemetry/otel/src/index.ts`](../packages/telemetry/otel/src/index.ts) |
+| `@onprem-ai/dsh-sandbox-ssh` | `ssh` | [`packages/ssh/sandbox-ssh/src/index.ts`](../packages/ssh/sandbox-ssh/src/index.ts) |
+| `@onprem-ai/dsh-session` | — | [`packages/core/session/src/index.ts`](../packages/core/session/src/index.ts) |
+| `@onprem-ai/dsh-session-checkpoint-policy` | `llm` · `sessionPersistence` · `sessions` · `tools` | [`packages/session/session-checkpoint-policy/src/index.ts`](../packages/session/session-checkpoint-policy/src/index.ts) |
+| `@onprem-ai/dsh-session-projection` | — | [`packages/session/session-projection/src/index.ts`](../packages/session/session-projection/src/index.ts) |
+| `@onprem-ai/dsh-session-stats` | `sessionProjections` | [`packages/session/session-stats/src/index.ts`](../packages/session/session-stats/src/index.ts) |
+| `@onprem-ai/dsh-session-turn-outline` | `sessionProjections` | [`packages/session/session-turn-outline/src/index.ts`](../packages/session/session-turn-outline/src/index.ts) |
+| `@onprem-ai/dsh-settings` | `configEditor` · `profileContext` | [`packages/settings/settings/src/index.ts`](../packages/settings/settings/src/index.ts) |
+| `@onprem-ai/dsh-skill-badge` | `skills` | [`packages/skill/skill-badge/src/index.ts`](../packages/skill/skill-badge/src/index.ts) |
+| `@onprem-ai/dsh-storage` | — | [`packages/storage/storage/src/index.ts`](../packages/storage/storage/src/index.ts) |
+| `@onprem-ai/dsh-subprocess-local` | — | [`packages/subprocess/subprocess-local/src/index.ts`](../packages/subprocess/subprocess-local/src/index.ts) |
+| `@onprem-ai/dsh-subprocess-ssh` | `ssh` | [`packages/ssh/subprocess-ssh/src/index.ts`](../packages/ssh/subprocess-ssh/src/index.ts) |
+| `@onprem-ai/dsh-terminal` | — | [`packages/terminal/terminal/src/index.ts`](../packages/terminal/terminal/src/index.ts) |
+| `@onprem-ai/dsh-tool-call-timeout-policy` | `tools` | [`packages/guard/timeout-policy/src/index.ts`](../packages/guard/timeout-policy/src/index.ts) |
+| `@onprem-ai/dsh-tool-cordis` | `tools` · `cordisInspect` | [`packages/extensions/tool-cordis/src/index.ts`](../packages/extensions/tool-cordis/src/index.ts) |
+| `@onprem-ai/dsh-tool-subagent-control` | `tools` · `subagents` | [`packages/subagent/tool-subagent-control/src/index.ts`](../packages/subagent/tool-subagent-control/src/index.ts) |
+| `@onprem-ai/dsh-user-questions` | — | [`packages/interaction/user-questions/src/index.ts`](../packages/interaction/user-questions/src/index.ts) |
+| `@onprem-ai/dsh-webhook` | `agents` · `agentDefaultModel` · `agentPresets` · `permissionPresets` · `sessionTitle` · `workspaceRegistry` | [`packages/webhook/webhook/src/index.ts`](../packages/webhook/webhook/src/index.ts) |
+| `@onprem-ai/dsh-workspace` | `storageDomain` · `sessionPersistence` | [`packages/workspace/workspace/src/index.ts`](../packages/workspace/workspace/src/index.ts) |
 <!-- END GENERATED config-catalog:no-config -->
 
 ## Seam 包（不可直接加载）
@@ -4437,22 +4437,22 @@ export interface Config {
 <!-- BEGIN GENERATED config-catalog:seam -->
 | `package` | `class` | `inject` | `source` |
 | --- | --- | --- | --- |
-| `@deepseek-ai/dsh-attachment` | `AttachmentStore` | — | [`packages/attachment/attachment/src/index.ts`](../packages/attachment/attachment/src/index.ts) |
-| `@deepseek-ai/dsh-compaction` | `CompactionEngine` | — | [`packages/compaction/compaction/src/index.ts`](../packages/compaction/compaction/src/index.ts) |
-| `@deepseek-ai/dsh-credentials` | `CredentialProvider` | — | [`packages/credentials/credentials/src/index.ts`](../packages/credentials/credentials/src/index.ts) |
-| `@deepseek-ai/dsh-deepseek-account` | `DeepSeekAccount` | — | [`packages/credentials/deepseek-account/src/index.ts`](../packages/credentials/deepseek-account/src/index.ts) |
-| `@deepseek-ai/dsh-file-reference` | `FileReferenceService` | — | [`packages/context/file-reference/src/index.ts`](../packages/context/file-reference/src/index.ts) |
-| `@deepseek-ai/dsh-fs` | `FileSystem` | — | [`packages/fs/fs/src/index.ts`](../packages/fs/fs/src/index.ts) |
-| `@deepseek-ai/dsh-host-directory-picker` | `DirectoryPicker` | — | [`packages/host/directory-picker/src/index.ts`](../packages/host/directory-picker/src/index.ts) |
-| `@deepseek-ai/dsh-jobs` | `JobRegistry` | — | [`packages/jobs/jobs/src/index.ts`](../packages/jobs/jobs/src/index.ts) |
-| `@deepseek-ai/dsh-ptc-runtime` | `PtcRuntime` | — | [`packages/ptc-runtime/ptc-runtime/src/index.ts`](../packages/ptc-runtime/ptc-runtime/src/index.ts) |
-| `@deepseek-ai/dsh-sandbox` | `SandboxProvider` | — | [`packages/sandbox/sandbox/src/index.ts`](../packages/sandbox/sandbox/src/index.ts) |
-| `@deepseek-ai/dsh-session-persistence` | `SessionPersistence` | — | [`packages/session/session-persistence/src/index.ts`](../packages/session/session-persistence/src/index.ts) |
-| `@deepseek-ai/dsh-session-query` | `SessionQueryEngine` | — | [`packages/session-query/session-query/src/index.ts`](../packages/session-query/session-query/src/index.ts) |
-| `@deepseek-ai/dsh-shell` | `ShellExecutor` | — | [`packages/shell/shell/src/index.ts`](../packages/shell/shell/src/index.ts) |
-| `@deepseek-ai/dsh-spill` | `SpillStore` | — | [`packages/spill/spill/src/index.ts`](../packages/spill/spill/src/index.ts) |
-| `@deepseek-ai/dsh-subprocess` | `SubprocessRuntime` | — | [`packages/subprocess/subprocess/src/index.ts`](../packages/subprocess/subprocess/src/index.ts) |
-| `@deepseek-ai/dsh-workflow` | `WorkflowEngine` | — | [`packages/workflow/workflow/src/index.ts`](../packages/workflow/workflow/src/index.ts) |
+| `@onprem-ai/dsh-attachment` | `AttachmentStore` | — | [`packages/attachment/attachment/src/index.ts`](../packages/attachment/attachment/src/index.ts) |
+| `@onprem-ai/dsh-compaction` | `CompactionEngine` | — | [`packages/compaction/compaction/src/index.ts`](../packages/compaction/compaction/src/index.ts) |
+| `@onprem-ai/dsh-credentials` | `CredentialProvider` | — | [`packages/credentials/credentials/src/index.ts`](../packages/credentials/credentials/src/index.ts) |
+| `@onprem-ai/dsh-deepseek-account` | `DeepSeekAccount` | — | [`packages/credentials/deepseek-account/src/index.ts`](../packages/credentials/deepseek-account/src/index.ts) |
+| `@onprem-ai/dsh-file-reference` | `FileReferenceService` | — | [`packages/context/file-reference/src/index.ts`](../packages/context/file-reference/src/index.ts) |
+| `@onprem-ai/dsh-fs` | `FileSystem` | — | [`packages/fs/fs/src/index.ts`](../packages/fs/fs/src/index.ts) |
+| `@onprem-ai/dsh-host-directory-picker` | `DirectoryPicker` | — | [`packages/host/directory-picker/src/index.ts`](../packages/host/directory-picker/src/index.ts) |
+| `@onprem-ai/dsh-jobs` | `JobRegistry` | — | [`packages/jobs/jobs/src/index.ts`](../packages/jobs/jobs/src/index.ts) |
+| `@onprem-ai/dsh-ptc-runtime` | `PtcRuntime` | — | [`packages/ptc-runtime/ptc-runtime/src/index.ts`](../packages/ptc-runtime/ptc-runtime/src/index.ts) |
+| `@onprem-ai/dsh-sandbox` | `SandboxProvider` | — | [`packages/sandbox/sandbox/src/index.ts`](../packages/sandbox/sandbox/src/index.ts) |
+| `@onprem-ai/dsh-session-persistence` | `SessionPersistence` | — | [`packages/session/session-persistence/src/index.ts`](../packages/session/session-persistence/src/index.ts) |
+| `@onprem-ai/dsh-session-query` | `SessionQueryEngine` | — | [`packages/session-query/session-query/src/index.ts`](../packages/session-query/session-query/src/index.ts) |
+| `@onprem-ai/dsh-shell` | `ShellExecutor` | — | [`packages/shell/shell/src/index.ts`](../packages/shell/shell/src/index.ts) |
+| `@onprem-ai/dsh-spill` | `SpillStore` | — | [`packages/spill/spill/src/index.ts`](../packages/spill/spill/src/index.ts) |
+| `@onprem-ai/dsh-subprocess` | `SubprocessRuntime` | — | [`packages/subprocess/subprocess/src/index.ts`](../packages/subprocess/subprocess/src/index.ts) |
+| `@onprem-ai/dsh-workflow` | `WorkflowEngine` | — | [`packages/workflow/workflow/src/index.ts`](../packages/workflow/workflow/src/index.ts) |
 <!-- END GENERATED config-catalog:seam -->
 
 ## 库包（无插件入口）
@@ -4462,62 +4462,62 @@ export interface Config {
 <!-- BEGIN GENERATED config-catalog:library -->
 | `package` | `inject` | `source` |
 | --- | --- | --- |
-| `@deepseek-ai/dsh-agent-loop-testkit` | — | [`packages/test-support/agent-loop-testkit/src/index.ts`](../packages/test-support/agent-loop-testkit/src/index.ts) |
-| `@deepseek-ai/dsh-anonymous-user-id` | — | [`packages/identity/anonymous-user-id/src/index.ts`](../packages/identity/anonymous-user-id/src/index.ts) |
-| `@deepseek-ai/dsh-app-boot` | — | [`packages/boot/app-boot/src/index.ts`](../packages/boot/app-boot/src/index.ts) |
-| `@deepseek-ai/dsh-atomic-write` | — | [`packages/util/atomic-write/src/index.ts`](../packages/util/atomic-write/src/index.ts) |
-| `@deepseek-ai/dsh-base` | — | [`packages/bundle/base/src/index.ts`](../packages/bundle/base/src/index.ts) |
-| `@deepseek-ai/dsh-brand` | — | [`packages/util/brand/src/index.ts`](../packages/util/brand/src/index.ts) |
-| `@deepseek-ai/dsh-chunked-list` | — | [`packages/util/chunked-list/src/index.ts`](../packages/util/chunked-list/src/index.ts) |
-| `@deepseek-ai/dsh-client-store` | — | [`packages/client/store/src/index.ts`](../packages/client/store/src/index.ts) |
-| `@deepseek-ai/dsh-client-test-runtime` | — | [`packages/test-support/client-runtime/src/index.ts`](../packages/test-support/client-runtime/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-dockkit` | — | [`packages/client/ui-dockkit/src/index.ts`](../packages/client/ui-dockkit/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-primitives` | — | [`packages/client/ui-primitives/src/index.ts`](../packages/client/ui-primitives/src/index.ts) |
-| `@deepseek-ai/dsh-client-ui-slots` | — | [`packages/client/ui-slots/src/index.ts`](../packages/client/ui-slots/src/index.ts) |
-| `@deepseek-ai/dsh-client-web` | — | [`packages/client/web/src/index.ts`](../packages/client/web/src/index.ts) |
-| `@deepseek-ai/dsh-cmdline` | — | [`packages/boot/cmdline/src/index.ts`](../packages/boot/cmdline/src/index.ts) |
-| `@deepseek-ai/dsh-deque` | — | [`packages/util/deque/src/index.ts`](../packages/util/deque/src/index.ts) |
-| `@deepseek-ai/dsh-experimental-agent-team-profile` | — | [`packages/experimental/agent-team-profile/src/index.ts`](../packages/experimental/agent-team-profile/src/index.ts) |
-| `@deepseek-ai/dsh-experimental-browser-use-runtime` | — | [`packages/experimental/browser-use-runtime/src/index.ts`](../packages/experimental/browser-use-runtime/src/index.ts) |
-| `@deepseek-ai/dsh-experimental-schedule-bundle` | — | [`packages/experimental/schedule-bundle/src/index.ts`](../packages/experimental/schedule-bundle/src/index.ts) |
-| `@deepseek-ai/dsh-experimental-voice-input-bundle` | — | [`packages/experimental/voice-input-bundle/src/index.ts`](../packages/experimental/voice-input-bundle/src/index.ts) |
-| `@deepseek-ai/dsh-experimental-webworker-packer` | — | [`packages/experimental/webworker-packer/src/index.ts`](../packages/experimental/webworker-packer/src/index.ts) |
-| `@deepseek-ai/dsh-experimental-webworker-runtime` | — | [`packages/experimental/webworker-runtime/src/index.ts`](../packages/experimental/webworker-runtime/src/index.ts) |
-| `@deepseek-ai/dsh-home-paths` | — | [`packages/util/home-paths/src/index.ts`](../packages/util/home-paths/src/index.ts) |
-| `@deepseek-ai/dsh-hook-protocol` | — | [`packages/hooks/hook-protocol/src/index.ts`](../packages/hooks/hook-protocol/src/index.ts) |
-| `@deepseek-ai/dsh-http-proxy` | — | [`packages/util/http-proxy/src/index.ts`](../packages/util/http-proxy/src/index.ts) |
-| `@deepseek-ai/dsh-launch-environment` | — | [`packages/util/launch-environment/src/index.ts`](../packages/util/launch-environment/src/index.ts) |
-| `@deepseek-ai/dsh-lazy-require` | — | [`packages/util/lazy-require/src/index.ts`](../packages/util/lazy-require/src/index.ts) |
-| `@deepseek-ai/dsh-llm-deepseek` | — | [`packages/llm/llm-deepseek/src/index.ts`](../packages/llm/llm-deepseek/src/index.ts) |
-| `@deepseek-ai/dsh-llm-mock-server` | — | [`packages/test-support/llm-mock-server/src/index.ts`](../packages/test-support/llm-mock-server/src/index.ts) |
-| `@deepseek-ai/dsh-loader-smoke` | — | [`packages/test-support/loader-smoke/src/index.ts`](../packages/test-support/loader-smoke/src/index.ts) |
-| `@deepseek-ai/dsh-native-command` | — | [`packages/util/native-command/src/index.ts`](../packages/util/native-command/src/index.ts) |
-| `@deepseek-ai/dsh-output-retention` | — | [`packages/util/output-retention/src/index.ts`](../packages/util/output-retention/src/index.ts) |
-| `@deepseek-ai/dsh-package-manifest` | — | [`packages/util/package-manifest/src/index.ts`](../packages/util/package-manifest/src/index.ts) |
-| `@deepseek-ai/dsh-remote-mock` | — | [`packages/test-support/remote-mock/src/index.ts`](../packages/test-support/remote-mock/src/index.ts) |
-| `@deepseek-ai/dsh-sandbox-windows-acl` | — | [`packages/sandbox/sandbox-windows-acl/src/index.ts`](../packages/sandbox/sandbox-windows-acl/src/index.ts) |
-| `@deepseek-ai/dsh-scope` | — | [`packages/core/scope/src/index.ts`](../packages/core/scope/src/index.ts) |
-| `@deepseek-ai/dsh-sdk-client` | — | [`packages/sdk/client/src/index.ts`](../packages/sdk/client/src/index.ts) |
-| `@deepseek-ai/dsh-sdk-minimal` | — | [`packages/bundle/sdk-minimal/src/index.ts`](../packages/bundle/sdk-minimal/src/index.ts) |
-| `@deepseek-ai/dsh-sdk-protocol` | — | [`packages/sdk/protocol/src/index.ts`](../packages/sdk/protocol/src/index.ts) |
-| `@deepseek-ai/dsh-session-format` | — | [`packages/session/session-format/src/index.ts`](../packages/session/session-format/src/index.ts) |
-| `@deepseek-ai/dsh-session-format-catalog` | — | [`packages/session/session-format-catalog/src/index.ts`](../packages/session/session-format-catalog/src/index.ts) |
-| `@deepseek-ai/dsh-session-format-v0-to-v1` | — | [`packages/session/session-format-v0-to-v1/src/index.ts`](../packages/session/session-format-v0-to-v1/src/index.ts) |
-| `@deepseek-ai/dsh-session-format-v1-to-v2` | — | [`packages/session/session-format-v1-to-v2/src/index.ts`](../packages/session/session-format-v1-to-v2/src/index.ts) |
-| `@deepseek-ai/dsh-session-format-v2-to-v3` | — | [`packages/session/session-format-v2-to-v3/src/index.ts`](../packages/session/session-format-v2-to-v3/src/index.ts) |
-| `@deepseek-ai/dsh-session-format-v3-to-v4` | — | [`packages/session/session-format-v3-to-v4/src/index.ts`](../packages/session/session-format-v3-to-v4/src/index.ts) |
-| `@deepseek-ai/dsh-session-snapshot` | — | [`packages/test-support/session-snapshot/src/index.ts`](../packages/test-support/session-snapshot/src/index.ts) |
-| `@deepseek-ai/dsh-session-telemetry` | — | [`packages/session/session-telemetry/src/index.ts`](../packages/session/session-telemetry/src/index.ts) |
-| `@deepseek-ai/dsh-session-title-llm` | — | [`packages/session/session-title-llm/src/index.ts`](../packages/session/session-title-llm/src/index.ts) |
-| `@deepseek-ai/dsh-subagent-in-process-driver` | — | [`packages/subagent/subagent-in-process-driver/src/index.ts`](../packages/subagent/subagent-in-process-driver/src/index.ts) |
-| `@deepseek-ai/dsh-timeout` | — | [`packages/util/timeout/src/index.ts`](../packages/util/timeout/src/index.ts) |
-| `@deepseek-ai/dsh-typert-generator` | — | [`packages/typert/generator/src/index.ts`](../packages/typert/generator/src/index.ts) |
-| `@deepseek-ai/dsh-typert-protocol` | — | [`packages/typert/protocol/src/index.ts`](../packages/typert/protocol/src/index.ts) |
-| `@deepseek-ai/dsh-typert-registry` | — | [`packages/typert/registry/src/index.ts`](../packages/typert/registry/src/index.ts) |
-| `@deepseek-ai/dsh-util-code-language` | — | [`packages/util/code-language/src/index.ts`](../packages/util/code-language/src/index.ts) |
-| `@deepseek-ai/dsh-util-crypto` | — | [`packages/util/crypto/src/index.ts`](../packages/util/crypto/src/index.ts) |
-| `@deepseek-ai/dsh-util-time` | — | [`packages/util/time/src/index.ts`](../packages/util/time/src/index.ts) |
-| `@deepseek-ai/dsh-util-values` | — | [`packages/util/values/src/index.ts`](../packages/util/values/src/index.ts) |
-| `@deepseek-ai/dsh-util-workspace-path` | — | [`packages/util/workspace-path/src/index.ts`](../packages/util/workspace-path/src/index.ts) |
-| `@deepseek-ai/dsh-win32-process` | — | [`packages/subprocess/win32-process/src/index.ts`](../packages/subprocess/win32-process/src/index.ts) |
+| `@onprem-ai/dsh-agent-loop-testkit` | — | [`packages/test-support/agent-loop-testkit/src/index.ts`](../packages/test-support/agent-loop-testkit/src/index.ts) |
+| `@onprem-ai/dsh-anonymous-user-id` | — | [`packages/identity/anonymous-user-id/src/index.ts`](../packages/identity/anonymous-user-id/src/index.ts) |
+| `@onprem-ai/dsh-app-boot` | — | [`packages/boot/app-boot/src/index.ts`](../packages/boot/app-boot/src/index.ts) |
+| `@onprem-ai/dsh-atomic-write` | — | [`packages/util/atomic-write/src/index.ts`](../packages/util/atomic-write/src/index.ts) |
+| `@onprem-ai/dsh-base` | — | [`packages/bundle/base/src/index.ts`](../packages/bundle/base/src/index.ts) |
+| `@onprem-ai/dsh-brand` | — | [`packages/util/brand/src/index.ts`](../packages/util/brand/src/index.ts) |
+| `@onprem-ai/dsh-chunked-list` | — | [`packages/util/chunked-list/src/index.ts`](../packages/util/chunked-list/src/index.ts) |
+| `@onprem-ai/dsh-client-store` | — | [`packages/client/store/src/index.ts`](../packages/client/store/src/index.ts) |
+| `@onprem-ai/dsh-client-test-runtime` | — | [`packages/test-support/client-runtime/src/index.ts`](../packages/test-support/client-runtime/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-dockkit` | — | [`packages/client/ui-dockkit/src/index.ts`](../packages/client/ui-dockkit/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-primitives` | — | [`packages/client/ui-primitives/src/index.ts`](../packages/client/ui-primitives/src/index.ts) |
+| `@onprem-ai/dsh-client-ui-slots` | — | [`packages/client/ui-slots/src/index.ts`](../packages/client/ui-slots/src/index.ts) |
+| `@onprem-ai/dsh-client-web` | — | [`packages/client/web/src/index.ts`](../packages/client/web/src/index.ts) |
+| `@onprem-ai/dsh-cmdline` | — | [`packages/boot/cmdline/src/index.ts`](../packages/boot/cmdline/src/index.ts) |
+| `@onprem-ai/dsh-deque` | — | [`packages/util/deque/src/index.ts`](../packages/util/deque/src/index.ts) |
+| `@onprem-ai/dsh-experimental-agent-team-profile` | — | [`packages/experimental/agent-team-profile/src/index.ts`](../packages/experimental/agent-team-profile/src/index.ts) |
+| `@onprem-ai/dsh-experimental-browser-use-runtime` | — | [`packages/experimental/browser-use-runtime/src/index.ts`](../packages/experimental/browser-use-runtime/src/index.ts) |
+| `@onprem-ai/dsh-experimental-schedule-bundle` | — | [`packages/experimental/schedule-bundle/src/index.ts`](../packages/experimental/schedule-bundle/src/index.ts) |
+| `@onprem-ai/dsh-experimental-voice-input-bundle` | — | [`packages/experimental/voice-input-bundle/src/index.ts`](../packages/experimental/voice-input-bundle/src/index.ts) |
+| `@onprem-ai/dsh-experimental-webworker-packer` | — | [`packages/experimental/webworker-packer/src/index.ts`](../packages/experimental/webworker-packer/src/index.ts) |
+| `@onprem-ai/dsh-experimental-webworker-runtime` | — | [`packages/experimental/webworker-runtime/src/index.ts`](../packages/experimental/webworker-runtime/src/index.ts) |
+| `@onprem-ai/dsh-home-paths` | — | [`packages/util/home-paths/src/index.ts`](../packages/util/home-paths/src/index.ts) |
+| `@onprem-ai/dsh-hook-protocol` | — | [`packages/hooks/hook-protocol/src/index.ts`](../packages/hooks/hook-protocol/src/index.ts) |
+| `@onprem-ai/dsh-http-proxy` | — | [`packages/util/http-proxy/src/index.ts`](../packages/util/http-proxy/src/index.ts) |
+| `@onprem-ai/dsh-launch-environment` | — | [`packages/util/launch-environment/src/index.ts`](../packages/util/launch-environment/src/index.ts) |
+| `@onprem-ai/dsh-lazy-require` | — | [`packages/util/lazy-require/src/index.ts`](../packages/util/lazy-require/src/index.ts) |
+| `@onprem-ai/dsh-llm-deepseek` | — | [`packages/llm/llm-deepseek/src/index.ts`](../packages/llm/llm-deepseek/src/index.ts) |
+| `@onprem-ai/dsh-llm-mock-server` | — | [`packages/test-support/llm-mock-server/src/index.ts`](../packages/test-support/llm-mock-server/src/index.ts) |
+| `@onprem-ai/dsh-loader-smoke` | — | [`packages/test-support/loader-smoke/src/index.ts`](../packages/test-support/loader-smoke/src/index.ts) |
+| `@onprem-ai/dsh-native-command` | — | [`packages/util/native-command/src/index.ts`](../packages/util/native-command/src/index.ts) |
+| `@onprem-ai/dsh-output-retention` | — | [`packages/util/output-retention/src/index.ts`](../packages/util/output-retention/src/index.ts) |
+| `@onprem-ai/dsh-package-manifest` | — | [`packages/util/package-manifest/src/index.ts`](../packages/util/package-manifest/src/index.ts) |
+| `@onprem-ai/dsh-remote-mock` | — | [`packages/test-support/remote-mock/src/index.ts`](../packages/test-support/remote-mock/src/index.ts) |
+| `@onprem-ai/dsh-sandbox-windows-acl` | — | [`packages/sandbox/sandbox-windows-acl/src/index.ts`](../packages/sandbox/sandbox-windows-acl/src/index.ts) |
+| `@onprem-ai/dsh-scope` | — | [`packages/core/scope/src/index.ts`](../packages/core/scope/src/index.ts) |
+| `@onprem-ai/dsh-sdk-client` | — | [`packages/sdk/client/src/index.ts`](../packages/sdk/client/src/index.ts) |
+| `@onprem-ai/dsh-sdk-minimal` | — | [`packages/bundle/sdk-minimal/src/index.ts`](../packages/bundle/sdk-minimal/src/index.ts) |
+| `@onprem-ai/dsh-sdk-protocol` | — | [`packages/sdk/protocol/src/index.ts`](../packages/sdk/protocol/src/index.ts) |
+| `@onprem-ai/dsh-session-format` | — | [`packages/session/session-format/src/index.ts`](../packages/session/session-format/src/index.ts) |
+| `@onprem-ai/dsh-session-format-catalog` | — | [`packages/session/session-format-catalog/src/index.ts`](../packages/session/session-format-catalog/src/index.ts) |
+| `@onprem-ai/dsh-session-format-v0-to-v1` | — | [`packages/session/session-format-v0-to-v1/src/index.ts`](../packages/session/session-format-v0-to-v1/src/index.ts) |
+| `@onprem-ai/dsh-session-format-v1-to-v2` | — | [`packages/session/session-format-v1-to-v2/src/index.ts`](../packages/session/session-format-v1-to-v2/src/index.ts) |
+| `@onprem-ai/dsh-session-format-v2-to-v3` | — | [`packages/session/session-format-v2-to-v3/src/index.ts`](../packages/session/session-format-v2-to-v3/src/index.ts) |
+| `@onprem-ai/dsh-session-format-v3-to-v4` | — | [`packages/session/session-format-v3-to-v4/src/index.ts`](../packages/session/session-format-v3-to-v4/src/index.ts) |
+| `@onprem-ai/dsh-session-snapshot` | — | [`packages/test-support/session-snapshot/src/index.ts`](../packages/test-support/session-snapshot/src/index.ts) |
+| `@onprem-ai/dsh-session-telemetry` | — | [`packages/session/session-telemetry/src/index.ts`](../packages/session/session-telemetry/src/index.ts) |
+| `@onprem-ai/dsh-session-title-llm` | — | [`packages/session/session-title-llm/src/index.ts`](../packages/session/session-title-llm/src/index.ts) |
+| `@onprem-ai/dsh-subagent-in-process-driver` | — | [`packages/subagent/subagent-in-process-driver/src/index.ts`](../packages/subagent/subagent-in-process-driver/src/index.ts) |
+| `@onprem-ai/dsh-timeout` | — | [`packages/util/timeout/src/index.ts`](../packages/util/timeout/src/index.ts) |
+| `@onprem-ai/dsh-typert-generator` | — | [`packages/typert/generator/src/index.ts`](../packages/typert/generator/src/index.ts) |
+| `@onprem-ai/dsh-typert-protocol` | — | [`packages/typert/protocol/src/index.ts`](../packages/typert/protocol/src/index.ts) |
+| `@onprem-ai/dsh-typert-registry` | — | [`packages/typert/registry/src/index.ts`](../packages/typert/registry/src/index.ts) |
+| `@onprem-ai/dsh-util-code-language` | — | [`packages/util/code-language/src/index.ts`](../packages/util/code-language/src/index.ts) |
+| `@onprem-ai/dsh-util-crypto` | — | [`packages/util/crypto/src/index.ts`](../packages/util/crypto/src/index.ts) |
+| `@onprem-ai/dsh-util-time` | — | [`packages/util/time/src/index.ts`](../packages/util/time/src/index.ts) |
+| `@onprem-ai/dsh-util-values` | — | [`packages/util/values/src/index.ts`](../packages/util/values/src/index.ts) |
+| `@onprem-ai/dsh-util-workspace-path` | — | [`packages/util/workspace-path/src/index.ts`](../packages/util/workspace-path/src/index.ts) |
+| `@onprem-ai/dsh-win32-process` | — | [`packages/subprocess/win32-process/src/index.ts`](../packages/subprocess/win32-process/src/index.ts) |
 <!-- END GENERATED config-catalog:library -->

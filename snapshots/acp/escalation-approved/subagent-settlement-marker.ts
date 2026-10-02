@@ -1,7 +1,7 @@
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-subagent'
+import type { Context } from '@onprem-ai/cordis'
+import type {} from '@onprem-ai/dsh-subagent'
 
 export const name = 'subagent-settlement-marker'
 

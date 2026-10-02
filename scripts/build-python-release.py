@@ -241,7 +241,7 @@ def verify_office_payload(archive: zipfile.ZipFile, office_modules: str, platfor
     adapter = f"{office_modules}/@deepseek-ai/libreoffice-kit/package.json"
     if adapter not in names:
         raise RuntimeError("Office dependency is missing: libreoffice-kit")
-    engines = f"{office_modules}/@deepseek-ai"
+    engines = f"{office_modules}/@onprem-ai"
     target = next(name for name, value in PLATFORMS.items() if value[0] == platform_tag)
     native_target = target.replace("win-", "win32-").replace("macos-", "darwin-")
     declared = json.loads(archive.read(adapter)).get("optionalDependencies", {})

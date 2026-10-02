@@ -3,7 +3,7 @@ description: "工具结果保留：文字和图片共享 token 预算，并通�
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-spill-policy
+# @onprem-ai/dsh-spill-policy
 
 [English](README.md) | 中文
 
@@ -32,8 +32,8 @@ kind: "package-reference"
 挂载 spill 后端，并以估算 token 数设置 `maxInlineTokens`：
 
 ```yaml
-- name: '@deepseek-ai/dsh-spill-local'
-- name: '@deepseek-ai/dsh-spill-policy'
+- name: '@onprem-ai/dsh-spill-local'
+- name: '@onprem-ai/dsh-spill-policy'
   config:
     maxInlineTokens: 12500
 ```
@@ -42,7 +42,7 @@ kind: "package-reference"
 |---|---|---|
 | `maxInlineTokens` | 省略 | 保留的文字、图片、图片说明和提示的估算 token 上限；省略时禁用策略 |
 
-生成的[配置目录](../../../docs/config-catalog.zh.md#deepseek-aidsh-spill-policy)是每个受支持字段的穷尽式真源。负数或小数上限会让插件加载失败，而不是破坏每次调用的行为。
+生成的[配置目录](../../../docs/config-catalog.zh.md#onprem-aidsh-spill-policy)是每个受支持字段的穷尽式真源。负数或小数上限会让插件加载失败，而不是破坏每次调用的行为。
 
 ### 模型看到什么
 

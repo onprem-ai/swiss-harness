@@ -1,5 +1,5 @@
-import type { ContentBlock, ToolSchema } from '@deepseek-ai/dsh-llm/types'
-import type { SessionEvent } from '@deepseek-ai/dsh-session/types'
+import type { ContentBlock, ToolSchema } from '@onprem-ai/dsh-llm/types'
+import type { SessionEvent } from '@onprem-ai/dsh-session/types'
 import type {
   AssistantProviderMetadataView, AssistantRequestConfig,
 } from './records.ts'

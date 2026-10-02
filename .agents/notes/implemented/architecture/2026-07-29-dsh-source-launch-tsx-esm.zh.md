@@ -16,7 +16,7 @@ Status: implemented
 
 `dsh` CLI（命令行界面）源码启动运行 `node --import tsx/esm`：由 tsx 的 ESM-only 钩子同时负责 TypeScript 转换与 tsconfig `paths` 投影。根目录的 `dsh` 脚本直接从仓库根目录使用同一启动方式；产物生成是独立操作，由[源码启动与构建分离决策](../../archived/simplification/2026-08-12-separate-source-launch-from-build.md)规定。CJS 钩子保持关闭，因为 CLI 源码图是纯 ESM；实现时测得启动至 TUI banner 耗时约 0.7s，对比完整 tsx 默认形态约 1.1s、已移除的原生链约 0.75s。
 
-tsx 负责 workspace `paths` 映射，不检查导入方是否把每个包声明为运行时依赖。声明完整性由静态门禁保障：配置的裸插件走 `verify-cordis-config`，manifest（元数据清单）走 workspace constraints。已移除的仓库自有 paths loader 曾在运行时强制这些声明，并发现过将 `@deepseek-ai/dsh-llm` 仅声明在 devDependencies 中的 import；tsx 不提供这项检查。
+tsx 负责 workspace `paths` 映射，不检查导入方是否把每个包声明为运行时依赖。声明完整性由静态门禁保障：配置的裸插件走 `verify-cordis-config`，manifest（元数据清单）走 workspace constraints。已移除的仓库自有 paths loader 曾在运行时强制这些声明，并发现过将 `@onprem-ai/dsh-llm` 仅声明在 devDependencies 中的 import；tsx 不提供这项检查。
 
 导入方 URL 含有 `/node_modules/` 时，tsx 会跳过 paths 映射。因此，[runtime resolution](2026-09-09-profile-resolution-generations.zh.md)记录声明包的真实锚点，也覆盖递归依赖。这让 workspace fallback import 一致解析到 `src/`，避免混用构建后的 `lib/` 提供方与模块本地 Symbol 不同的源码调用方。没有 workspace 映射的包仍使用普通导出解析。
 

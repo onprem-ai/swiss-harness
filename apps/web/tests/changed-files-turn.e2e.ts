@@ -6,9 +6,9 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium, type Browser, type Page } from 'playwright'
 import { afterAll, beforeAll, describe, expect, it, onTestFinished } from 'vitest'
-import type {} from '@deepseek-ai/dsh-workspace-changes'
-import type { ChangesSummary } from '@deepseek-ai/dsh-client-ui-deliverables/src/changes.ts'
-import { deriveReplayScript, parseSessionLog } from '@deepseek-ai/dsh-llm-replay'
+import type {} from '@onprem-ai/dsh-workspace-changes'
+import type { ChangesSummary } from '@onprem-ai/dsh-client-ui-deliverables/src/changes.ts'
+import { deriveReplayScript, parseSessionLog } from '@onprem-ai/dsh-llm-replay'
 import {
   assertFinalWorkspaceSnapshot, captureExpandedTurnProcessAria, compareOrRefreshGolden,
   fixtureUserPrompts, launchWebScaffold, recordFixture, watchConsole,

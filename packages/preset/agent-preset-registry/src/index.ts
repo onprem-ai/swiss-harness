@@ -1,14 +1,14 @@
 /** Declarative Agent capability sets, activation and session binding. */
-import { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { Remote, RemoteError, TypertRemoteService } from '@deepseek-ai/dsh-typert-protocol'
-import { bindScopeParent, createScope, scopeOf, type Scope, type ScopeKey, type ScopeParentBinding } from '@deepseek-ai/dsh-scope'
-import { entryListSchema } from '@deepseek-ai/cordis-plugin-include'
+import { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
+import { Remote, RemoteError, TypertRemoteService } from '@onprem-ai/dsh-typert-protocol'
+import { bindScopeParent, createScope, scopeOf, type Scope, type ScopeKey, type ScopeParentBinding } from '@onprem-ai/dsh-scope'
+import { entryListSchema } from '@onprem-ai/cordis-plugin-include'
 import { dump } from 'js-yaml'
-import type { Agent } from '@deepseek-ai/dsh-agent'
+import type { Agent } from '@onprem-ai/dsh-agent'
 // Type-only: the optional `settings` service this registry keeps off the generated pages.
-import type {} from '@deepseek-ai/dsh-settings'
-import type {} from '@deepseek-ai/dsh-tools'
+import type {} from '@onprem-ai/dsh-settings'
+import type {} from '@onprem-ai/dsh-tools'
 import type { AgentPresetDocument, AgentPresetRoster } from './types.ts'
 import { entryListProblem, type PresetDefinition } from './definition.ts'
 import type { AgentPreset, Config } from './preset.ts'
@@ -21,7 +21,7 @@ export { entryListProblem, type PresetDefinition } from './definition.ts'
 export { auditRows, livePresetMounts, leakedServices, serviceForAgent, standingMountFor, type PresetMount, type RowAudit } from './mount.ts'
 export type { AgentPreset, Config } from './preset.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Context {
     agentPresets: AgentPresetRegistry
   }

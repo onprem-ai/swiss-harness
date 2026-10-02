@@ -14,7 +14,7 @@ Status: implemented
 
 删除 `apps/desktop/src/profile-core-cleanup.ts`、`apps/desktop/src/profile-packages.ts` 及其两个 spec。`DesktopProjectManager.applyRelease` 校验运行时描述符、迁移 profile 设置、创建 profile 文件，并通过共享的 `removeLinkProjections` 删除 Link 后端启动写下的投影；除此之外，生产与开发启动都不改动 profile 的 `node_modules`、manifest、overrides、锁文件与 `desktop-runtime-state.json`。
 
-profile 内的解析按[查找顺序 Note](../architecture/2026-09-19-profile-resolution-lookup-order.zh.md)：profile 自己 `node_modules` 里的包最近者优先，本体包名在 `$DSH_HOME/profiles/node_modules` 的位置由 generation 占据。装进 profile 的包若在 `dependencies` 里声明了 `@deepseek-ai/*`，pnpm 会把副本装进 profile，这些副本按其自身版本运行。官方包只把纯函数包放在 `dependencies`，带模块级身份的包一律声明为 peer；第三方插件把身份敏感的 dsh 包写成实依赖，是该插件自身的打包选择。
+profile 内的解析按[查找顺序 Note](../architecture/2026-09-19-profile-resolution-lookup-order.zh.md)：profile 自己 `node_modules` 里的包最近者优先，本体包名在 `$DSH_HOME/profiles/node_modules` 的位置由 generation 占据。装进 profile 的包若在 `dependencies` 里声明了 `@onprem-ai/*`，pnpm 会把副本装进 profile，这些副本按其自身版本运行。官方包只把纯函数包放在 `dependencies`，带模块级身份的包一律声明为 peer；第三方插件把身份敏感的 dsh 包写成实依赖，是该插件自身的打包选择。
 
 放弃的能力：旧版 Desktop 装进 profile 的核心包副本及其声明需要手工删除一次；`desktop-runtime-state.json` 不再被读取或删除。Link 后端写下的投影由共享的 profile 加载一次性删除，见[查找顺序 Note](../architecture/2026-09-19-profile-resolution-lookup-order.zh.md)。
 
@@ -26,7 +26,7 @@ profile 内的解析按[查找顺序 Note](../architecture/2026-09-19-profile-re
 
 **只删除 profile `node_modules` 里的同名目录，不动声明与锁文件。** 2026-09-15 的决策已经否决：pnpm 会按保留的声明与 overrides 重装相同的旧包。
 
-**让 generation 中的 `@deepseek-ai/*` 条目绝对优先于 profile 内的同名副本。** 这会覆盖插件自带的版本，是解析规则的新决策，不在移除清理的范围内。
+**让 generation 中的 `@onprem-ai/*` 条目绝对优先于 profile 内的同名副本。** 这会覆盖插件自带的版本，是解析规则的新决策，不在移除清理的范围内。
 
 **只在安装器中清理。** 2026-09-15 的决策已经否决：遗漏其他 profile，也管不到安装后重新产生的副本。
 

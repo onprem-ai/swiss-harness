@@ -3,7 +3,7 @@ description: "OpenTelemetry session-telemetry backend for deployments choosing a
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-session-telemetry-otel
+# @onprem-ai/dsh-session-telemetry-otel
 
 English | [中文](README.zh.md)
 
@@ -44,7 +44,7 @@ Uploading modes require an exporter URL. Processor settings control the independ
 
 ```yaml
 - id: sessionTelemetry-otel
-  name: '@deepseek-ai/dsh-session-telemetry-otel'
+  name: '@onprem-ai/dsh-session-telemetry-otel'
   config:
     mode: FEEDBACK_ONLY       # optional; defaults to FEEDBACK_ONLY
     shutdownTimeoutMillis: 3000 # optional; defaults to 3000
@@ -117,7 +117,7 @@ Read these pages when the backend contract is not enough. They move from the sea
 - [Session telemetry seam](../session-telemetry/README.md) — the capture contract, record vocabulary, and redaction waterfall.
 - [Session telemetry subsystem](../../../docs/subsystems/session-telemetry.md) — the capability split and type declarations.
 - [Anonymous user identity](../../identity/anonymous-user-id/README.md) — the id reported as the OTel Resource `user.id`.
-- [Generated configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-session-telemetry-otel) — every accepted config field and its source declaration.
+- [Generated configuration catalog](../../../docs/config-catalog.md#onprem-aidsh-session-telemetry-otel) — every accepted config field and its source declaration.
 
 -----
 

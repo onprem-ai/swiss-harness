@@ -10,9 +10,9 @@ Status: implemented
 
 ## 决策
 
-`@deepseek-ai/dsh-experimental-agent-team-profile` 在一个可选组合包中携带 Team 服务、工具与浏览器 UI。其 patch 保留 `agent-team`、`tool-agent-team` 与 `ui-agent-team` 配置行 id，因此 profile patch 仍可单独配置各行。UI 包的 Host 入口不执行逻辑；其浏览器入口只在 Web 客户端中挂载，headless 不会启动 Web 服务。
+`@onprem-ai/dsh-experimental-agent-team-profile` 在一个可选组合包中携带 Team 服务、工具与浏览器 UI。其 patch 保留 `agent-team`、`tool-agent-team` 与 `ui-agent-team` 配置行 id，因此 profile patch 仍可单独配置各行。UI 包的 Host 入口不执行逻辑；其浏览器入口只在 Web 客户端中挂载，headless 不会启动 Web 服务。
 
-独立的 `@deepseek-ai/dsh-experimental-agent-team-web-profile` 包不在 workspace 与发布系列中。插件页提供一个 Team 选项，默认关闭。
+独立的 `@onprem-ai/dsh-experimental-agent-team-web-profile` 包不在 workspace 与发布系列中。插件页提供一个 Team 选项，默认关闭。
 
 本决策取代[包发布记录](2026-08-18-experimental-agent-teams-packages.zh.md)中的独立 Host/Web 组合方式，以及[可选组合包记录](../process/2026-09-15-shipped-optional-bundles.zh.md)中的两个 Team 选项。两条记录仍负责发布、依赖隔离、promotion 与安装方所有权。[已归档的 Web 控件记录](../../archived/feature/2026-08-06-agent-teams-web.md)记载原始拆分方式，其历史文本保持冻结。
 

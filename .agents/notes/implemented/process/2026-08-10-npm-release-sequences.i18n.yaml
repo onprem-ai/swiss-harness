@@ -6,26 +6,26 @@
   en: 176f873a6b094838
   zh: 9baeba69cbaea9cf
 /agent-note-private-npm-publication-as-three-independent-sequences/problem:
-  en: b94462e04e350571
-  zh: 07cef78e4cf7a9ac
+  en: ca4566986e28e442
+  zh: 36d31fd6c621a086
 /agent-note-private-npm-publication-as-three-independent-sequences/decision:
   en: a15c7c13f167e5ac
   zh: 63bcc2ef60c2f344
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/three-independent-sequences:
-  en: 6cd23b2407935500
-  zh: 6d50f5f4fb867342
+  en: 0f22015cdd92b184
+  zh: ebc41574b82f99dc
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/versions-land-in-the-repository-from-a-local-command-ci-only-checks-and-uploads:
   en: 71d4cda384013bfb
   zh: 909d853c18496925
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/vendor-publish-what-changed-and-let-tags-be-the-ledger:
-  en: 7f578bb18f7f8693
-  zh: 49f25210f7c1a61f
+  en: ce4911bde753f698
+  zh: fad7ca8d531ccb0a
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/publication-runs-only-on-github-and-the-registry-decides-what-goes-out:
   en: 4f399390f58d7a34
   zh: 9df67248acfc61c8
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/workspace-internal-references-use-the-workspace-protocol:
-  en: 6cff087e7e2d0ac7
-  zh: 5d45a3abdd960d9c
+  en: 7e025e49c64f4e4c
+  zh: 0b8185dfbb2bcbfb
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/published-dependency-faces-use-an-explicit-policy:
   en: 30a64e0e919a27c0
   zh: 19729d7ebee35439
@@ -45,8 +45,8 @@
   en: 298382a27013dcfb
   zh: ab89cf392232f9bb
 /agent-note-private-npm-publication-as-three-independent-sequences/alternatives-considered:
-  en: 11877d09e5a84f6e
-  zh: ea372c779254be93
+  en: 70402454ff24b549
+  zh: 7ed1f662c91b7b78
 /agent-note-private-npm-publication-as-three-independent-sequences/consequences:
   en: f961ebb927e30b5c
   zh: 019f1628fb1f2c56

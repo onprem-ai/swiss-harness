@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-experimental-speech-to-text",
+  "name": "@onprem-ai/dsh-experimental-speech-to-text",
   "description": "Experimental speech recognition with independently selectable providers",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -36,23 +36,23 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:*",
-    "@deepseek-ai/schemastery": "workspace:~"
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/schemastery": "workspace:~"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-settings": "workspace:*",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-settings": "workspace:*",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-app-boot": "workspace:*",
-    "@deepseek-ai/dsh-config-editor": "workspace:*",
-    "@deepseek-ai/dsh-settings": "workspace:*",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-app-boot": "workspace:*",
+    "@onprem-ai/dsh-config-editor": "workspace:*",
+    "@onprem-ai/dsh-settings": "workspace:*",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/cordis-plugin-loader": {
+    "@onprem-ai/cordis-plugin-loader": {
       "optional": true
     }
   }

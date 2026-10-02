@@ -1,21 +1,21 @@
 /**
  * Canonical Session-log feedback for finalized assistant messages.
- * @module @deepseek-ai/dsh-message-feedback
+ * @module @onprem-ai/dsh-message-feedback
  */
 
 import { Buffer } from 'node:buffer'
 import { randomUUID } from 'node:crypto'
 import { isDeepStrictEqual } from 'node:util'
-import { Context, Service } from '@deepseek-ai/cordis'
-import s from '@deepseek-ai/schemastery'
+import { Context, Service } from '@onprem-ai/cordis'
+import s from '@onprem-ai/schemastery'
 import { z } from 'zod'
-import { FEEDBACK_CATEGORIES } from '@deepseek-ai/dsh-command-feedback'
-import { SessionSeq } from '@deepseek-ai/dsh-session/types'
-import { deriveEventMessage, isAppendSurfaceEvent } from '@deepseek-ai/dsh-session/surface'
-import type { SessionEvent, SessionId } from '@deepseek-ai/dsh-session/types'
-import type {} from '@deepseek-ai/dsh-session'
-import type { SessionInspection } from '@deepseek-ai/dsh-session-persistence'
-import { TypertRemoteService, Remote } from '@deepseek-ai/dsh-typert-protocol'
+import { FEEDBACK_CATEGORIES } from '@onprem-ai/dsh-command-feedback'
+import { SessionSeq } from '@onprem-ai/dsh-session/types'
+import { deriveEventMessage, isAppendSurfaceEvent } from '@onprem-ai/dsh-session/surface'
+import type { SessionEvent, SessionId } from '@onprem-ai/dsh-session/types'
+import type {} from '@onprem-ai/dsh-session'
+import type { SessionInspection } from '@onprem-ai/dsh-session-persistence'
+import { TypertRemoteService, Remote } from '@onprem-ai/dsh-typert-protocol'
 import type {
   MessageFeedbackDeleteRequest,
   MessageFeedbackDeleteResult,
@@ -42,7 +42,7 @@ export interface Config {
   readonly maxNoteBytes: number
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Context {
     messageFeedback: MessageFeedbackService
   }

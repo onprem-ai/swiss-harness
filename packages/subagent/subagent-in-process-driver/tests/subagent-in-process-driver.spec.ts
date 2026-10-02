@@ -1,21 +1,21 @@
-import { ToolCallId, createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
+import { ToolCallId, createUserMessage } from '@onprem-ai/dsh-llm'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { type Agent, type AgentOptions } from '@deepseek-ai/dsh-agent'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import InvariantRegistry from '@deepseek-ai/dsh-invariants'
-import * as SessionInvariant from '@deepseek-ai/dsh-session/invariant'
-import * as AgentInvariant from '@deepseek-ai/dsh-agent/invariant'
-import * as AgentLoopInvariant from '@deepseek-ai/dsh-agent-loop/invariant'
-import SubagentRuntime, { snapshotSubagentDescriptor } from '@deepseek-ai/dsh-subagent'
-import { defineContentToolFixture } from '@deepseek-ai/dsh-tools'
+import { Context } from '@onprem-ai/cordis'
+import { type Agent, type AgentOptions } from '@onprem-ai/dsh-agent'
+import { SessionId } from '@onprem-ai/dsh-session'
+import AgentLoop from '@onprem-ai/dsh-agent-loop'
+import { mountAgentLoopTestDependencies } from '@onprem-ai/dsh-agent-loop-testkit'
+import InvariantRegistry from '@onprem-ai/dsh-invariants'
+import * as SessionInvariant from '@onprem-ai/dsh-session/invariant'
+import * as AgentInvariant from '@onprem-ai/dsh-agent/invariant'
+import * as AgentLoopInvariant from '@onprem-ai/dsh-agent-loop/invariant'
+import SubagentRuntime, { snapshotSubagentDescriptor } from '@onprem-ai/dsh-subagent'
+import { defineContentToolFixture } from '@onprem-ai/dsh-tools'
 import { maxTokensResponse, MockAdapter, textResponse, toolCallResponse } from '../../../core/agent-loop/tests/mock-adapter.ts'
 import { startInProcessRun } from '../src/index.ts'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'late-metadata': { kind: 'late-metadata' } & ContextFormed
   }

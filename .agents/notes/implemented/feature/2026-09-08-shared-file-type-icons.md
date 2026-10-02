@@ -6,7 +6,7 @@ English | [中文](2026-09-08-shared-file-type-icons.zh.md)
 
 ## Problem
 
-Client feature plugins can share React components only through `@deepseek-ai/dsh-client-ui-primitives`, but file cards had no shared file-type presentation. The package-owned classifier provides the only extension table and deliberately folds detailed file types into six link categories for `LinkIconMedium`, while attachment cards, sent-message attachments, queued files, and workspace file rows use detailed file glyphs. Adding a precise file icon anywhere else would require another extension table or a runtime import between feature plugins.
+Client feature plugins can share React components only through `@onprem-ai/dsh-client-ui-primitives`, but file cards had no shared file-type presentation. The package-owned classifier provides the only extension table and deliberately folds detailed file types into six link categories for `LinkIconMedium`, while attachment cards, sent-message attachments, queued files, and workspace file rows use detailed file glyphs. Adding a precise file icon anywhere else would require another extension table or a runtime import between feature plugins.
 
 ## Decision
 

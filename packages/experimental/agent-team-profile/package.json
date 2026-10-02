@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-experimental-agent-team-profile",
+  "name": "@onprem-ai/dsh-experimental-agent-team-profile",
   "description": "Agent Teams collaboration, tools, and Web UI in one experimental bundle",
   "version": "0.2.0-rc.2",
   "icon": "./icon.svg",
@@ -38,16 +38,16 @@
     }
   },
   "dependencies": {
-    "@deepseek-ai/dsh-experimental-agent-team": "workspace:*",
-    "@deepseek-ai/dsh-experimental-client-ui-agent-team": "workspace:*",
-    "@deepseek-ai/dsh-experimental-tool-agent-team": "workspace:*"
+    "@onprem-ai/dsh-experimental-agent-team": "workspace:*",
+    "@onprem-ai/dsh-experimental-client-ui-agent-team": "workspace:*",
+    "@onprem-ai/dsh-experimental-tool-agent-team": "workspace:*"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-include": "workspace:~",
-    "@deepseek-ai/cordis": "workspace:~",
+    "@onprem-ai/cordis-plugin-include": "workspace:~",
+    "@onprem-ai/cordis": "workspace:~",
     "js-yaml": "^4.2.0"
   }
 }

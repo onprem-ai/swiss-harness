@@ -48,7 +48,7 @@ Status: implemented
 pnpm run build:
 tsc -b tsconfig.host.json
 tsdown --env.DSH_BUILD_FACE host
-pnpm --filter @deepseek-ai/dsh-desktop run bundle
+pnpm --filter @onprem-ai/dsh-desktop run bundle
 tsc -b tsconfig.client.json
 tsdown --env.DSH_BUILD_FACE client
 pnpm run build:web

@@ -4,10 +4,10 @@
  * event. Kept separate from ./types.ts (the pure client-safe outlet) because
  * these declarations pull dsh-agent, dsh-llm, and cordis into the program —
  * the one-program-per-side layout forbids that on client aggregates.
- * @module @deepseek-ai/dsh-goal
+ * @module @onprem-ai/dsh-goal
  */
 
-import type { Agent } from '@deepseek-ai/dsh-agent'
+import type { Agent } from '@onprem-ai/dsh-agent'
 import type { GoalId, GoalRef, GoalSnapshot, GoalView } from './types.ts'
 
 /** Goal state-changing verbs recorded in the durable source change. */
@@ -52,13 +52,13 @@ export interface GoalMessageSource {
   readonly round: number
 }
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     goal: GoalMessageSource
   }
 }
 
-declare module '@deepseek-ai/dsh-session/types' {
+declare module '@onprem-ai/dsh-session/types' {
   interface SessionEventMap {
     /**
      * Complete post-mutation goal state or clear tombstone.
@@ -101,16 +101,16 @@ export type GoalErrorCode =
   | 'GOAL_INVALID_EDIT'
   | 'GOAL_INVALID_TRANSITION'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Events {
     /**
      * Goal mutation accepted by one live agent. The matching `goal/change`
      * session event has already committed. Listener failures are contained.
-     * Scope-filtered dispatch (`@deepseek-ai/dsh-scope`): agent-scoped listeners receive only that agent.
+     * Scope-filtered dispatch (`@onprem-ai/dsh-scope`): agent-scoped listeners receive only that agent.
      * @param payload.agent - agent whose session owns the goal.
      * @param payload.change - fresh current projection or clear tombstone.
      * @mode emit
      */
-    'goal/changed'(this: import('@deepseek-ai/dsh-scope').Scoped<Agent>, payload: { agent: Agent; change: GoalChanged }): void
+    'goal/changed'(this: import('@onprem-ai/dsh-scope').Scoped<Agent>, payload: { agent: Agent; change: GoalChanged }): void
   }
 }

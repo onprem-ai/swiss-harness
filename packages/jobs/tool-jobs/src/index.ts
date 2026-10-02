@@ -5,23 +5,23 @@
  * collected to the owning agent: injected into a busy owner's next step, or
  * opening a turn on an idle one under the default `wakeup` delivery, unbounded
  * unless `maxConsecutiveWakes` caps it per owner.
- * @module @deepseek-ai/dsh-tool-jobs
+ * @module @onprem-ai/dsh-tool-jobs
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { boundContextSummary, createUserMessage, type ContentBlock } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import { TextRetainer } from '@deepseek-ai/dsh-output-retention'
-import { defineTool } from '@deepseek-ai/dsh-tools'
-import type { GenericCallView, ToolDefinition, ToolExecution } from '@deepseek-ai/dsh-tools'
-import { JobId } from '@deepseek-ai/dsh-jobs'
-import type { JobView, JobRead } from '@deepseek-ai/dsh-jobs'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type {} from '@deepseek-ai/dsh-agent'
+import type { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
+import { boundContextSummary, createUserMessage, type ContentBlock } from '@onprem-ai/dsh-llm'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
+import { TextRetainer } from '@onprem-ai/dsh-output-retention'
+import { defineTool } from '@onprem-ai/dsh-tools'
+import type { GenericCallView, ToolDefinition, ToolExecution } from '@onprem-ai/dsh-tools'
+import { JobId } from '@onprem-ai/dsh-jobs'
+import type { JobView, JobRead } from '@onprem-ai/dsh-jobs'
+import type { Agent } from '@onprem-ai/dsh-agent'
+import type {} from '@onprem-ai/dsh-agent'
 import { publicJob, renderModelDelta, statusLine } from './render.ts'
 import type { PublicJobSnapshot } from './render.ts'
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'tool-jobs': { kind: 'tool-jobs' } & ContextFormed
   }

@@ -1,19 +1,19 @@
 /** Agent activation, composition, and model-selection policy owned by API Session. */
 
 import { mkdir } from 'node:fs/promises'
-import type { Context } from '@deepseek-ai/cordis'
-import { installModelSelection } from '@deepseek-ai/dsh-agent'
+import type { Context } from '@onprem-ai/cordis'
+import { installModelSelection } from '@onprem-ai/dsh-agent'
 import type {
   Agent, AgentOptions, AgentSetup, ModelSelection as AgentModelSelection, ModelSelectionRef,
-} from '@deepseek-ai/dsh-agent'
-import type {} from '@deepseek-ai/dsh-agent-default-model'
-import type {} from '@deepseek-ai/dsh-agent-preset-registry'
-import { ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import type { Session, SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionInspection } from '@deepseek-ai/dsh-session-persistence'
-import { SessionQueryError, type SessionObservation } from '@deepseek-ai/dsh-session-query'
-import { RemoteError } from '@deepseek-ai/dsh-typert-protocol'
-import type {} from '@deepseek-ai/dsh-typert-registry'
+} from '@onprem-ai/dsh-agent'
+import type {} from '@onprem-ai/dsh-agent-default-model'
+import type {} from '@onprem-ai/dsh-agent-preset-registry'
+import { ReasoningEffortId } from '@onprem-ai/dsh-llm'
+import type { Session, SessionId } from '@onprem-ai/dsh-session'
+import type { SessionInspection } from '@onprem-ai/dsh-session-persistence'
+import { SessionQueryError, type SessionObservation } from '@onprem-ai/dsh-session-query'
+import { RemoteError } from '@onprem-ai/dsh-typert-protocol'
+import type {} from '@onprem-ai/dsh-typert-registry'
 import type { ModelSelection } from './types.ts'
 
 /** Cold Session identity absent from persistence. */

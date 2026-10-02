@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-ui-reference",
+  "name": "@onprem-ai/dsh-client-ui-reference",
   "description": "Unified Web @file and @session reference source",
   "version": "0.2.0-rc.2",
   "publishConfig": {
@@ -28,12 +28,12 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-api-remotes",
-        "@deepseek-ai/dsh-api-session-controller",
-        "@deepseek-ai/dsh-client-connection",
-        "@deepseek-ai/dsh-client-locale",
-        "@deepseek-ai/dsh-client-ui-input-trigger",
-        "@deepseek-ai/dsh-client-ui-sidebar-right"
+        "@onprem-ai/dsh-api-remotes",
+        "@onprem-ai/dsh-api-session-controller",
+        "@onprem-ai/dsh-client-connection",
+        "@onprem-ai/dsh-client-locale",
+        "@onprem-ai/dsh-client-ui-input-trigger",
+        "@onprem-ai/dsh-client-ui-sidebar-right"
       ],
       "platform": "web"
     }
@@ -44,23 +44,23 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-api-remotes": "workspace:*",
-    "@deepseek-ai/dsh-api-session-controller": "workspace:*",
-    "@deepseek-ai/dsh-client-connection": "workspace:*",
-    "@deepseek-ai/dsh-client-locale": "workspace:*",
-    "@deepseek-ai/dsh-client-test-runtime": "workspace:*",
-    "@deepseek-ai/dsh-client-ui-input-trigger": "workspace:*",
-    "@deepseek-ai/dsh-client-ui-primitives": "workspace:*",
-    "@deepseek-ai/dsh-client-ui-slots": "workspace:*",
-    "@deepseek-ai/dsh-file-reference": "workspace:*",
-    "@deepseek-ai/dsh-session-reference": "workspace:*",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:*",
-    "@deepseek-ai/dsh-util-workspace-path": "workspace:*",
-    "@deepseek-ai/cordis": "workspace:~",
-    "@deepseek-ai/dsh-client-ui-sidebar-right": "workspace:*"
+    "@onprem-ai/dsh-api-remotes": "workspace:*",
+    "@onprem-ai/dsh-api-session-controller": "workspace:*",
+    "@onprem-ai/dsh-client-connection": "workspace:*",
+    "@onprem-ai/dsh-client-locale": "workspace:*",
+    "@onprem-ai/dsh-client-test-runtime": "workspace:*",
+    "@onprem-ai/dsh-client-ui-input-trigger": "workspace:*",
+    "@onprem-ai/dsh-client-ui-primitives": "workspace:*",
+    "@onprem-ai/dsh-client-ui-slots": "workspace:*",
+    "@onprem-ai/dsh-file-reference": "workspace:*",
+    "@onprem-ai/dsh-session-reference": "workspace:*",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*",
+    "@onprem-ai/dsh-util-workspace-path": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-client-ui-sidebar-right": "workspace:*"
   },
   "files": [
     "lib/index.js",

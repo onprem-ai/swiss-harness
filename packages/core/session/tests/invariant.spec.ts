@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { createScope, scopeTarget } from '@deepseek-ai/dsh-scope'
-import { createDeveloperMessage, createSystemMessage, createUserMessage, ToolCallId, createMessage, createToolResultMessage, freezeMessage } from '@deepseek-ai/dsh-llm'
-import type { ContextFormed } from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionId, SessionSeq, TOOL_NOT_STARTED } from '@deepseek-ai/dsh-session'
-import * as SessionInvariant from '@deepseek-ai/dsh-session/invariant'
-import InvariantRegistry, { InvariantError } from '@deepseek-ai/dsh-invariants'
+import { Context } from '@onprem-ai/cordis'
+import { createScope, scopeTarget } from '@onprem-ai/dsh-scope'
+import { createDeveloperMessage, createSystemMessage, createUserMessage, ToolCallId, createMessage, createToolResultMessage, freezeMessage } from '@onprem-ai/dsh-llm'
+import type { ContextFormed } from '@onprem-ai/dsh-llm'
+import SessionStore, { SessionId, SessionSeq, TOOL_NOT_STARTED } from '@onprem-ai/dsh-session'
+import * as SessionInvariant from '@onprem-ai/dsh-session/invariant'
+import InvariantRegistry, { InvariantError } from '@onprem-ai/dsh-invariants'
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@onprem-ai/dsh-llm' {
   interface MessageSourceMap {
     'test': { kind: 'test' } & ContextFormed
   }

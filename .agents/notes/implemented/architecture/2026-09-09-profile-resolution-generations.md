@@ -16,7 +16,7 @@ Profile startup computes one immutable `RuntimeResolution` and installs it into 
 
 ### One selection algorithm
 
-The package traversal belongs to `@deepseek-ai/dsh-app-boot` beside profile loading. Ordinary Node, source launches, packaged executables, and the Electron Host consume the same runtime resolution and interception.
+The package traversal belongs to `@onprem-ai/dsh-app-boot` beside profile loading. Ordinary Node, source launches, packaged executables, and the Electron Host consume the same runtime resolution and interception.
 
 The installation manifest is the first root. Its graph traverses `dependencies` followed by `peerDependencies` breadth-first, resolving each edge from the manifest that declares it. The first installed package reached under a name owns that name. Selected bundle roots then run in profile order, with each earlier root's complete graph taking precedence over every later root. Names supplied by the installation are reserved, and bundle package roots themselves do not become plugin fallbacks. Missing declared packages are skipped.
 
@@ -60,7 +60,7 @@ ESM `import` and CommonJS `require` select these versions. Within each module fo
 
 The [source launcher](2026-07-29-dsh-source-launch-tsx-esm.md) uses tsx's ESM-only hook. tsx skips tsconfig `paths` for an importer URL containing `/node_modules/`. A logical workspace symlink used as a fallback declaring anchor can therefore select built `lib/` exports, while imports from the resulting real workspace files select `src/` through the paths map. Real declaring anchors let workspace imports follow the source map consistently; packages without a matching workspace mapping keep ordinary package-export resolution.
 
-For example, `@deepseek-ai/dsh-tools` creates its scheduler key with `Symbol()`. A Tools instance loaded from `lib/` cannot expose that scheduler through a key imported from the separate `src/` module instance. Source launches keep Tools and AgentLoop in `src/`; plain Node launches keep them in `lib/`. The scheduler retains its local Symbol; correct imports share one module instance.
+For example, `@onprem-ai/dsh-tools` creates its scheduler key with `Symbol()`. A Tools instance loaded from `lib/` cannot expose that scheduler through a key imported from the separate `src/` module instance. Source launches keep Tools and AgentLoop in `src/`; plain Node launches keep them in `lib/`. The scheduler retains its local Symbol; correct imports share one module instance.
 
 The source launcher does not install a CommonJS TypeScript hook. `createRequire().resolve()` still selects the package's published JavaScript entry and requires that file to exist. Source-mode resolution tests therefore use fixture-provided CommonJS files; checks of real installation CommonJS entries run with build outputs present.
 
@@ -93,7 +93,7 @@ The runtime resolution lists the packages it supplies; Loader entries form the a
 
 The resolver does not expose `imported(entry)` and does not observe ModuleJobs, wrap Entry methods, associate fibers with import calls, replace registry or tree methods, or adapt HMR transactions. Package-directory queries use the same package selection, including current ancestor peer declarations for linked importers, but do not validate the requested subpath or load its file. Non-Node importers that need package metadata must explicitly implement the same resolver interface.
 
-The implementation lives under `app-boot/src/profile-resolution/`. `service.ts` provides the long-lived `ctx.pluginPackages` and owns the main-thread interception and the Worker resolution lifetime; `resolver.ts` implements runtime resolution lookup and the Node Internal adapters; `worker-bootstrap.ts` installs the inherited runtime resolution in one thread. Profile selection and runtime resolution construction remain in `profile.ts`. Workers reference the bootstrap only through the public `@deepseek-ai/dsh-app-boot/worker/profile-resolution-bootstrap` export.
+The implementation lives under `app-boot/src/profile-resolution/`. `service.ts` provides the long-lived `ctx.pluginPackages` and owns the main-thread interception and the Worker resolution lifetime; `resolver.ts` implements runtime resolution lookup and the Node Internal adapters; `worker-bootstrap.ts` installs the inherited runtime resolution in one thread. Profile selection and runtime resolution construction remain in `profile.ts`. Workers reference the bootstrap only through the public `@onprem-ai/dsh-app-boot/worker/profile-resolution-bootstrap` export.
 
 The service definition and provider remain together in `app-boot` because profile boot owns the resolver lifetime. Extracting a separate capability seam becomes warranted when a launcher-independent provider or independently evolving consumers require it.
 

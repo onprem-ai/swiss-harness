@@ -11,13 +11,13 @@
  * design and its trade-offs are pinned in
  * .agents/notes/implemented/feature/2026-07-23-session-telemetry-otel-revival.md.
  *
- * @module @deepseek-ai/dsh-session-telemetry
+ * @module @onprem-ai/dsh-session-telemetry
  */
 
-import { Context, Service } from '@deepseek-ai/cordis'
-import type { SessionEvent, SessionId } from '@deepseek-ai/dsh-session'
+import { Context, Service } from '@onprem-ai/cordis'
+import type { SessionEvent, SessionId } from '@onprem-ai/dsh-session'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@onprem-ai/cordis' {
   interface Context {
     sessionTelemetry: SessionTelemetryBackend
   }

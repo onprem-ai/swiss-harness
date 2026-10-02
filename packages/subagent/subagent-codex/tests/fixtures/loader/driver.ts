@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /** Inspect the public Codex provider composition without invoking the product. */
 
-import { resolveConfigPath } from '@deepseek-ai/dsh-app-boot'
-import type {} from '@deepseek-ai/dsh-subagent'
-import type {} from '@deepseek-ai/dsh-tools'
+import { resolveConfigPath } from '@onprem-ai/dsh-app-boot'
+import type {} from '@onprem-ai/dsh-subagent'
+import type {} from '@onprem-ai/dsh-tools'
 import { bootProductionProfile } from '../../../../../test-support/loader-smoke/tests/fixtures/production-profile.ts'
 
 const configPath = process.argv[2]

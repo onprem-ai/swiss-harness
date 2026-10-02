@@ -1,7 +1,7 @@
 /**
  * Model-facing PowerShell Consumer of the `ctx.shell` capability seam. Intended for
  * Windows compositions where a PowerShell executor (e.g.
- * `@deepseek-ai/dsh-pwsh-local`) backs `ctx.shell`; the tool contract is
+ * `@onprem-ai/dsh-pwsh-local`) backs `ctx.shell`; the tool contract is
  * PowerShell-dialect: native `C:\...` paths and `$env:NAME` variables.
  *
  * Behavior mirrors `dsh-tool-bash` call-for-call: foreground and
@@ -15,32 +15,32 @@
  * `ctx.approval`), and the bash marker/truncation rendering story. UI
  * presentation mirrors the bash tool's too: a completed foreground call is
  * a terminal card with the parsed exit-status pill, using the shared
- * exit-status parse from `@deepseek-ai/dsh-shell`.
+ * exit-status parse from `@onprem-ai/dsh-shell`.
  *
- * @module @deepseek-ai/dsh-tool-pwsh
+ * @module @onprem-ai/dsh-tool-pwsh
  */
 
 import { isAbsolute, resolve as resolvePath } from 'node:path'
-import { FiberState } from '@deepseek-ai/cordis'
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { defineTool, TOOL_ABORTED } from '@deepseek-ai/dsh-tools'
-import type { GenericCallView, TerminalCallView, ToolDefinition, ToolExecution, ToolResult, ToolResultView } from '@deepseek-ai/dsh-tools'
-import { HarnessError } from '@deepseek-ai/dsh-llm'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type { JobId, JobRegistry, JobView } from '@deepseek-ai/dsh-jobs'
-import type {} from '@deepseek-ai/dsh-shell-env'
-import type {} from '@deepseek-ai/dsh-user-approval'
-import type { SandboxExecutionPolicy, SandboxMode } from '@deepseek-ai/dsh-sandbox'
-import { ESCALATION_TARGETS, approveEscalation, sandboxPermissionsDescription, validateEscalationArgs } from '@deepseek-ai/dsh-sandbox'
-import type { SandboxPolicyService } from '@deepseek-ai/dsh-sandbox-policy'
-import type { ShellExecRequest, ShellExecSpec, ShellExecution, ShellRunResult } from '@deepseek-ai/dsh-shell'
-import { parseExitStatus } from '@deepseek-ai/dsh-shell'
+import { FiberState } from '@onprem-ai/cordis'
+import type { Context } from '@onprem-ai/cordis'
+import z from '@onprem-ai/schemastery'
+import { defineTool, TOOL_ABORTED } from '@onprem-ai/dsh-tools'
+import type { GenericCallView, TerminalCallView, ToolDefinition, ToolExecution, ToolResult, ToolResultView } from '@onprem-ai/dsh-tools'
+import { HarnessError } from '@onprem-ai/dsh-llm'
+import type { Agent } from '@onprem-ai/dsh-agent'
+import type { JobId, JobRegistry, JobView } from '@onprem-ai/dsh-jobs'
+import type {} from '@onprem-ai/dsh-shell-env'
+import type {} from '@onprem-ai/dsh-user-approval'
+import type { SandboxExecutionPolicy, SandboxMode } from '@onprem-ai/dsh-sandbox'
+import { ESCALATION_TARGETS, approveEscalation, sandboxPermissionsDescription, validateEscalationArgs } from '@onprem-ai/dsh-sandbox'
+import type { SandboxPolicyService } from '@onprem-ai/dsh-sandbox-policy'
+import type { ShellExecRequest, ShellExecSpec, ShellExecution, ShellRunResult } from '@onprem-ai/dsh-shell'
+import { parseExitStatus } from '@onprem-ai/dsh-shell'
 import { processJob, processOutcome, processSources, ringDelta } from './background.ts'
 import { renderPwshJobRead, renderPwshPromoted, renderPwshResult } from './render.ts'
 import type { RenderablePwshResult } from './render.ts'
 
-declare module '@deepseek-ai/dsh-jobs' {
+declare module '@onprem-ai/dsh-jobs' {
   interface JobKindMap {
     pwsh: 'pwsh'
   }
@@ -519,7 +519,7 @@ export function apply(ctx: Context, config: Config = {}): void {
             throw new Error('run_in_background is disabled for this deployment (enableRunInBackground: false)')
           }
           if (jobs === undefined) {
-            throw new Error('background jobs unavailable: load @deepseek-ai/dsh-jobs and @deepseek-ai/dsh-tool-jobs')
+            throw new Error('background jobs unavailable: load @onprem-ai/dsh-jobs and @onprem-ai/dsh-tool-jobs')
           }
           // The caller owns cancellation until ctx.jobs commits detached ownership.
           if (exec.signal.aborted) throw toolAborted()

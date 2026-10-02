@@ -3,15 +3,15 @@ import { mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, describe, expect, it, vi, type Mock } from 'vitest'
-import { Context, LoggerLevel } from '@deepseek-ai/cordis'
-import LlmRuntime from '@deepseek-ai/dsh-llm'
-import DeepSeekLlmApiExtensionRegistry from '@deepseek-ai/dsh-deepseek-llm-api-extensions'
-import type { DeepSeekLlmApiExtensionRequest } from '@deepseek-ai/dsh-deepseek-llm-api-extensions'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import * as DeepSeek from '@deepseek-ai/dsh-llm-deepseek-api-key'
+import { Context, LoggerLevel } from '@onprem-ai/cordis'
+import LlmRuntime from '@onprem-ai/dsh-llm'
+import DeepSeekLlmApiExtensionRegistry from '@onprem-ai/dsh-deepseek-llm-api-extensions'
+import type { DeepSeekLlmApiExtensionRequest } from '@onprem-ai/dsh-deepseek-llm-api-extensions'
+import { SessionId } from '@onprem-ai/dsh-session'
+import * as DeepSeek from '@onprem-ai/dsh-llm-deepseek-api-key'
 import { adapter, assemble, options, sse, textEvents } from './helpers.ts'
 
-declare module '@deepseek-ai/dsh-deepseek-llm-api-extensions' {
+declare module '@onprem-ai/dsh-deepseek-llm-api-extensions' {
   interface DeepSeekLlmApiExtensionMap {
     dsh_messages_test: { value: string }
   }

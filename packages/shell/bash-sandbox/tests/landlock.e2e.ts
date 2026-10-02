@@ -4,14 +4,14 @@ import { mkdtemp, rm } from 'node:fs/promises'
 import { homedir, tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { launcherPath } from '@deepseek-ai/node-addon-system/landlock-run'
-import { LocalSandboxProvider } from '@deepseek-ai/dsh-sandbox-local'
-import { SandboxPolicyService } from '@deepseek-ai/dsh-sandbox-policy'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import { SandboxBashExecutor } from '@deepseek-ai/dsh-bash-sandbox'
-import LocalSubprocessRuntime from '@deepseek-ai/dsh-subprocess-local'
-import type { ShellExecSpec, ShellExecution, ShellRunResult } from '@deepseek-ai/dsh-shell'
+import { Context } from '@onprem-ai/cordis'
+import { launcherPath } from '@onprem-ai/node-addon-system/landlock-run'
+import { LocalSandboxProvider } from '@onprem-ai/dsh-sandbox-local'
+import { SandboxPolicyService } from '@onprem-ai/dsh-sandbox-policy'
+import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
+import { SandboxBashExecutor } from '@onprem-ai/dsh-bash-sandbox'
+import LocalSubprocessRuntime from '@onprem-ai/dsh-subprocess-local'
+import type { ShellExecSpec, ShellExecution, ShellRunResult } from '@onprem-ai/dsh-shell'
 
 /** Historical foreground shorthand over the unified execute() seam. */
 async function run(x: { execute(spec: ShellExecSpec): Promise<ShellExecution> }, spec: ShellExecSpec): Promise<ShellRunResult> {
@@ -30,7 +30,7 @@ function start(x: { execute(spec: ShellExecSpec): Promise<ShellExecution> }, spe
  * REAL `SandboxBashExecutor`, driven through the executor's public run/start
  * paths. Verifies the WORLD (files exist or don't) plus the stamped result
  * facts; the backend-only confinement proofs live with
- * `@deepseek-ai/dsh-sandbox-local`.
+ * `@onprem-ai/dsh-sandbox-local`.
  *
  * Self-skips when the running kernel does not enforce Landlock. CI builds the launcher from
  * `native/system` before running this file.
