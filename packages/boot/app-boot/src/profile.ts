@@ -183,6 +183,11 @@ export const PROFILE_TEMPLATES: Record<string, ProfileTemplate> = {
   web: {
     bundles: ['@onprem-ai/dsh-base', '@onprem-ai/dsh-web-app'],
   },
+  // onprem.ai: the on-premises Web profile — the web template with the
+  // deployment layer on top. See packages/bundle/onprem-app/README.md.
+  onprem: {
+    bundles: ['@onprem-ai/dsh-base', '@onprem-ai/dsh-web-app', '@onprem-ai/dsh-onprem-app'],
+  },
   headless: {
     bundles: ['@onprem-ai/dsh-base', '@onprem-ai/dsh-headless'],
   },

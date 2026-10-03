@@ -1,0 +1,51 @@
+{
+  "name": "@onprem-ai/dsh-onprem-app",
+  "description": "The on-premises deployment bundle: the patch layer over dsh-base and dsh-web-app that turns vendor egress off, routes the model to the customer's endpoint, and presents as Swiss Harness",
+  "version": "0.2.0-rc.2",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "directory": "packages/bundle/onprem-app"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "cordis.patch.yml",
+    "lib/types/**/*.d.ts"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "@onprem-ai/dsh-client-ui-brand-onprem": "workspace:*"
+  },
+  "peerDependencies": {
+    "@onprem-ai/cordis": "workspace:~"
+  },
+  "devDependencies": {
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/cordis-plugin-include": "workspace:~",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-app-boot": "workspace:*",
+    "@onprem-ai/dsh-base": "workspace:*",
+    "@onprem-ai/dsh-web-app": "workspace:*",
+    "js-yaml": "^4.1.0"
+  }
+}

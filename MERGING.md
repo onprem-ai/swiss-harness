@@ -194,6 +194,15 @@ Every direct modification of an upstream file that is not produced by
 | `scripts/onprem/` | added | sync and rebrand tooling | n/a |
 | `docs/onprem/` | added | security review records | n/a |
 | `scripts/translation-pairing.manifest.json` | three entries appended | our English-only documents are excluded from upstream's bilingual gate | n/a |
+| `packages/bundle/onprem-app/` | added | the deployment patch layer; see its README | n/a |
+| `packages/client/ui-brand-onprem/` | added | Swiss Harness sidebar and hero occupants | n/a |
+| `packages/boot/app-boot/src/profile.ts` | one `onprem` entry in `PROFILE_TEMPLATES` | `dsh onprem` boots base + web-app + onprem-app | n/a |
+| `apps/cli/package.json` | one dependency line | the launcher resolves the onprem bundle | n/a |
+| `tsconfig.host.json`, `tsconfig.client.json` | one project reference each | upstream lists these by hand | n/a |
+| `tsconfig.base.json` | one hand-written alias | the brand package name does not match its directory, so the generator cannot derive it | n/a |
+| `scripts/verify-package-readme-model-experience.ts` | two allowlist rows | the new packages' README shape | n/a |
+| `packages/bundle/README*.md`, `packages/client/README*.md` | one table row each, both languages | group READMEs list every package | n/a |
+| generated: `docs/config-catalog*.md`, `references/packages.md`, `THIRD_PARTY_NOTICES.md`, `*.i18n.yaml` | regenerated | upstream generators enumerate packages; rerun, never edit | n/a |
 
 ## Cadence
 

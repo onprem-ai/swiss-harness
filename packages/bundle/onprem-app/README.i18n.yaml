@@ -1,0 +1,52 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/bundle/onprem-app/README.md
+/:
+  en: d6379fda6106a56a
+  zh: f6ad514fba76f7b5
+/onprem-ai-dsh-onprem-app:
+  en: 52862816543035e4
+  zh: b1f8b46c35f77821
+/onprem-ai-dsh-onprem-app/summary:
+  en: 4dbfd501c6dce341
+  zh: ad1e0e72d1c48a96
+/onprem-ai-dsh-onprem-app/table-of-contents:
+  en: d152484eb41ac6b4
+  zh: 09388d293f9be9cb
+/onprem-ai-dsh-onprem-app/use-this-package:
+  en: d7e830568d57da69
+  zh: 0cf8b775357e9565
+/onprem-ai-dsh-onprem-app/use-this-package/starting-the-on-premises-profile:
+  en: 65462c3f337f373e
+  zh: 042883e1d25c61aa
+/onprem-ai-dsh-onprem-app/use-this-package/what-leaves-the-machine:
+  en: fa044f5d5007fde9
+  zh: 9ecca4a86217e5bb
+/onprem-ai-dsh-onprem-app/use-this-package/re-enabling-a-row:
+  en: 1d9d39acdfa87218
+  zh: 210e86772b98b64b
+/onprem-ai-dsh-onprem-app/understand-the-implementation:
+  en: 7a46930b03add43f
+  zh: 237ab6c6eb1e1f0d
+/onprem-ai-dsh-onprem-app/understand-the-implementation/source-map:
+  en: 8a96f570493a5873
+  zh: 1da1362c13ebdb5e
+/onprem-ai-dsh-onprem-app/understand-the-implementation/invariant-ownership:
+  en: 084a35c49b39afa8
+  zh: da51fd8225ed3edf
+/onprem-ai-dsh-onprem-app/further-exploration:
+  en: d7ba3a4788a2379b
+  zh: daf39f49d0be09df
+/onprem-ai-dsh-onprem-app/model-experience:
+  en: 70d57022fd15b6a7
+  zh: e86dff513d4089eb
+/onprem-ai-dsh-onprem-app/model-experience/kv-cache-effect:
+  en: 618a50bee042d004
+  zh: 4e92a4bfee95476b
+/onprem-ai-dsh-onprem-app/known-limitations-and-deferred-work:
+  en: 511701d6dcfd8860
+  zh: a12f8ab250ce4d3f
+/onprem-ai-dsh-onprem-app/known-limitations-and-deferred-work/dev-note:
+  en: 2d227f0aeefb25d7
+  zh: 03a32c131bc246b8

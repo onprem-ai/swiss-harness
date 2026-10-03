@@ -1,0 +1,40 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/client/ui-brand-onprem/README.md
+/:
+  en: 65aa7c9a8ce58b65
+  zh: 7bd3433a370091d5
+/onprem-ai-dsh-client-ui-brand-onprem:
+  en: 76463540f3ba4d49
+  zh: 51288763f236cbfc
+/onprem-ai-dsh-client-ui-brand-onprem/summary:
+  en: 9f0fc357b6b28361
+  zh: e654301e48ecae70
+/onprem-ai-dsh-client-ui-brand-onprem/table-of-contents:
+  en: d152484eb41ac6b4
+  zh: 09388d293f9be9cb
+/onprem-ai-dsh-client-ui-brand-onprem/use-this-package:
+  en: e89bccb637b6519c
+  zh: 2852d51cafe87c55
+/onprem-ai-dsh-client-ui-brand-onprem/use-this-package/replacing-the-brand:
+  en: fc649ff24a6c781b
+  zh: 70c789a9e705a16b
+/onprem-ai-dsh-client-ui-brand-onprem/understand-the-implementation:
+  en: 6cd167b01dc47c55
+  zh: c063c91d4de29997
+/onprem-ai-dsh-client-ui-brand-onprem/further-exploration:
+  en: 8524f2f0e94ad3ef
+  zh: c28d2e190d85040a
+/onprem-ai-dsh-client-ui-brand-onprem/model-experience:
+  en: 618008c7641070e7
+  zh: f98a8ff64eba94d2
+/onprem-ai-dsh-client-ui-brand-onprem/model-experience/kv-cache-effect:
+  en: ca75c51c89c2c9b0
+  zh: 2064958b0754647e
+/onprem-ai-dsh-client-ui-brand-onprem/known-limitations-and-deferred-work:
+  en: 0eb75a048f6df8d0
+  zh: 710fcee3c2f1dc52
+/onprem-ai-dsh-client-ui-brand-onprem/known-limitations-and-deferred-work/dev-note:
+  en: 67273cb0c2d9d148
+  zh: 70db39825dd3b1a2

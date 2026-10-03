@@ -1,0 +1,148 @@
+# The dsh-onprem-app bundle patch: the on-premises deployment layer applied
+# after dsh-base and dsh-web-app. Rows here override earlier rows by id, with
+# the profile's own cordis.patch.yml and any --patch overlays still to come.
+#
+# Everything this layer does falls into three groups:
+#   1. no traffic leaves the deployment unless an operator configures it;
+#   2. the model endpoint is the customer's, named through environment;
+#   3. the product presents as Swiss Harness.
+#
+# A patch replaces the targeted row's whole `config`, so each row below
+# restates every key it owns. A patch to a row an earlier layer did not
+# insert is a loader warning, not an error; the profile-template test pins
+# that this layer produces none against base + web-app.
+
+# ── 1. egress off by default ─────────────────────────────────────────────────
+
+# Session-log sharing. Base mounts this with FEEDBACK_ONLY toward the vendor
+# collector; here the row is disabled outright. DSH_TELEMETRY_DISABLED is
+# the launcher's switch for the same row, so either path lands in the same
+# place. An operator with an internal collector re-enables the row in the
+# profile layer and sets exporter.url.
+- id: session-telemetry-otel
+  disabled: true
+
+# Product analytics (desktop only upstream, but off everywhere here).
+- id: desktop-product-telemetry
+  disabled: true
+
+- id: product-analytics
+  disabled: true
+
+# Vendor account sign-in and the surfaces that depend on the account service.
+- id: deepseek-account
+  disabled: true
+
+- id: account-controller
+  disabled: true
+
+- id: ui-settings-account
+  disabled: true
+
+- id: llm-deepseek-account
+  disabled: true
+
+# Vendor request extensions: these contribute vendor-specific top-level
+# fields (package inventory, incremental session log) to requests sent to the
+# official DeepSeek API. No request goes there, so they have nothing to do.
+- id: deepseek-llm-api-extensions
+  disabled: true
+
+- id: session-log-deepseek
+  disabled: true
+
+- id: plugin-package-inventory-deepseek
+  disabled: true
+
+# The direct DeepSeek adapter. Left out of the composition rather than
+# merely unselected, so no code path can reach its default public endpoint.
+# An operator who does want DeepSeek's hosted API adds it back in the profile
+# layer as `disabled: false` with a `llm-deepseek:` settings section.
+- id: llm-deepseek
+  disabled: true
+
+# Web search through the vendor's hosted search endpoint.
+- id: web-search-deepseek
+  disabled: true
+
+# Thumbs-up/down feedback that releases a session prefix to telemetry. With
+# the exporter disabled it would acknowledge and send nothing; disable the
+# surface so the UI does not promise something the deployment refuses.
+- id: message-feedback
+  disabled: true
+
+- id: ui-message-feedback
+  disabled: true
+
+- id: command-feedback
+  disabled: true
+
+# Plugin installation from public registries. The plugin manager stays
+# mounted (the Plugins page lists installed bundles), but its lookups are
+# pinned to a registry the operator names. DSH_PLUGIN_REGISTRY unset leaves
+# pnpm's own configured registry, and the public mirror fallback is removed.
+- id: plugin-manager
+  config:
+    registry: !!js process.env.DSH_PLUGIN_REGISTRY
+    fallbackRegistries: []
+
+# ── 2. the customer's model endpoint ─────────────────────────────────────────
+
+# One OpenAI-compatible route named "onprem", described entirely by
+# environment so the same build serves every deployment:
+#   ONPREM_LLM_BASE_URL   e.g. http://vllm.internal:8000/v1
+#   ONPREM_LLM_MODEL      the model id the endpoint serves
+#   ONPREM_LLM_API_KEY    read through the credential seam; leave unset for an
+#                         unauthenticated endpoint (the route then names no
+#                         credential and sends no Authorization header)
+#   ONPREM_LLM_API        openai-completions (default) | openai-responses |
+#                         anthropic-messages
+#   ONPREM_LLM_CONTEXT    context window in tokens (default 131072)
+# Further routes, reasoning levels, or compatibility switches belong in the
+# profile layer; the Models settings page writes the same section.
+- id: llm-pi-ai
+  config:
+    providers: !!js |
+      process.env.ONPREM_LLM_BASE_URL === undefined ? {} : {
+        onprem: {
+          displayName: process.env.ONPREM_LLM_DISPLAY_NAME ?? 'On-premises model',
+          api: process.env.ONPREM_LLM_API ?? 'openai-completions',
+          baseURL: process.env.ONPREM_LLM_BASE_URL,
+          ...(process.env.ONPREM_LLM_API_KEY === undefined ? {} : { apiKeyEnv: 'ONPREM_LLM_API_KEY' }),
+          models: [{
+            id: process.env.ONPREM_LLM_MODEL ?? 'default',
+            contextWindow: Number(process.env.ONPREM_LLM_CONTEXT ?? 131072),
+          }],
+        },
+      }
+
+- id: agent-default-model
+  config:
+    provider: onprem
+    model: !!js process.env.ONPREM_LLM_MODEL ?? 'default'
+
+# Web tooling: fetch stays (it reaches whatever URL the model asks for, which
+# is the operator's network policy to allow or block). No search provider is
+# registered, so a search call fails with a clear "no provider" error until
+# the operator mounts one (exa or perplexity rows in the profile layer, each
+# needing its own key) and names it here as `searchProvider`.
+- id: web
+  config:
+    fetchProvider: http
+
+# The fetch tool's User-Agent names this product, not the upstream project.
+- id: web-fetch-http
+  config:
+    userAgent: swiss-harness/0.2.0 (+https://onprem.ai)
+
+# ── 3. presentation ──────────────────────────────────────────────────────────
+
+# Swap the sidebar and hero brand occupants. The upstream package only
+# registers in `official` client builds anyway; replacing the row keeps the
+# roster free of it.
+- id: ui-brand-official
+  disabled: true
+
+- insert:
+    - id: ui-brand-onprem
+      name: '@onprem-ai/dsh-client-ui-brand-onprem'

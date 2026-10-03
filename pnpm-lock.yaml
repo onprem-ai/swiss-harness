@@ -292,6 +292,9 @@ importers:
       '@onprem-ai/dsh-mcp-resources':
         specifier: workspace:*
         version: link:../../packages/mcp/mcp-resources
+      '@onprem-ai/dsh-onprem-app':
+        specifier: workspace:*
+        version: link:../../packages/bundle/onprem-app
       '@onprem-ai/dsh-persona':
         specifier: workspace:*
         version: link:../../packages/preset/persona
@@ -591,6 +594,12 @@ importers:
         specifier: ^8.21.0
         version: 8.21.0
     devDependencies:
+      '@electron/get':
+        specifier: ^5.1.0
+        version: 5.1.0(supports-color@9.4.0)
+      '@electron/notarize':
+        specifier: 2.5.0
+        version: 2.5.0
       '@onprem-ai/dsh-app-boot':
         specifier: workspace:*
         version: link:../../packages/boot/app-boot
@@ -624,12 +633,6 @@ importers:
       '@onprem-ai/node-addon-system':
         specifier: workspace:~
         version: link:../../native/system/packages/entry
-      '@electron/get':
-        specifier: ^5.1.0
-        version: 5.1.0(supports-color@9.4.0)
-      '@electron/notarize':
-        specifier: 2.5.0
-        version: 2.5.0
       '@types/js-yaml':
         specifier: ^4.0.9
         version: 4.0.9
@@ -690,6 +693,9 @@ importers:
 
   apps/desktop-host:
     dependencies:
+      '@deepseek-ai/libreoffice-kit':
+        specifier: ^0.1.1
+        version: 0.1.1
       '@onprem-ai/cordis':
         specifier: workspace:~
         version: link:../../vendor/cordis
@@ -729,9 +735,6 @@ importers:
       '@onprem-ai/dsh-workspace':
         specifier: workspace:*
         version: link:../../packages/workspace/workspace
-      '@deepseek-ai/libreoffice-kit':
-        specifier: ^0.1.1
-        version: 0.1.1
       koffi:
         specifier: ^3.1.0
         version: 3.1.1
@@ -1652,15 +1655,15 @@ importers:
 
   packages/boot/app-boot:
     dependencies:
+      '@eslint-community/regexpp':
+        specifier: ^4.12.2
+        version: 4.12.2
       '@onprem-ai/dsh-atomic-write':
         specifier: workspace:*
         version: link:../../util/atomic-write
       '@onprem-ai/dsh-package-manifest':
         specifier: workspace:*
         version: link:../../util/package-manifest
-      '@eslint-community/regexpp':
-        specifier: ^4.12.2
-        version: 4.12.2
       ajv:
         specifier: ^8.20.0
         version: 8.20.0
@@ -2242,6 +2245,34 @@ importers:
         specifier: workspace:*
         version: link:../../session-query/session-query
 
+  packages/bundle/onprem-app:
+    dependencies:
+      '@onprem-ai/dsh-client-ui-brand-onprem':
+        specifier: workspace:*
+        version: link:../../client/ui-brand-onprem
+    devDependencies:
+      '@onprem-ai/cordis':
+        specifier: workspace:~
+        version: link:../../../vendor/cordis
+      '@onprem-ai/cordis-plugin-include':
+        specifier: workspace:~
+        version: link:../../../vendor/include
+      '@onprem-ai/cordis-plugin-loader':
+        specifier: workspace:~
+        version: link:../../../vendor/loader
+      '@onprem-ai/dsh-app-boot':
+        specifier: workspace:*
+        version: link:../../boot/app-boot
+      '@onprem-ai/dsh-base':
+        specifier: workspace:*
+        version: link:../base
+      '@onprem-ai/dsh-web-app':
+        specifier: workspace:*
+        version: link:../web-app
+      js-yaml:
+        specifier: ^4.1.0
+        version: 4.3.1
+
   packages/bundle/sdk-app:
     dependencies:
       '@onprem-ai/dsh-cmdline':
@@ -2745,6 +2776,9 @@ importers:
         specifier: ^11.0.0
         version: 11.0.4
     devDependencies:
+      '@deepseek-ai/libreoffice-kit':
+        specifier: ^0.1.1
+        version: 0.1.1
       '@onprem-ai/cordis':
         specifier: workspace:~
         version: link:../../../vendor/cordis
@@ -2781,9 +2815,6 @@ importers:
       '@onprem-ai/dsh-typert-registry':
         specifier: workspace:*
         version: link:../../typert/registry
-      '@deepseek-ai/libreoffice-kit':
-        specifier: ^0.1.1
-        version: 0.1.1
 
   packages/client/connection:
     dependencies:
@@ -3244,6 +3275,33 @@ importers:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
 
+  packages/client/ui-brand-onprem:
+    devDependencies:
+      '@onprem-ai/cordis':
+        specifier: workspace:~
+        version: link:../../../vendor/cordis
+      '@onprem-ai/dsh-client-ui-conversation':
+        specifier: workspace:*
+        version: link:../ui-conversation
+      '@onprem-ai/dsh-client-ui-renderer':
+        specifier: workspace:*
+        version: link:../ui-renderer
+      '@onprem-ai/dsh-client-ui-sidebar':
+        specifier: workspace:*
+        version: link:../ui-sidebar
+      '@testing-library/react':
+        specifier: ^16.1.0
+        version: 16.3.2(@testing-library/dom@10.4.2)(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@types/react':
+        specifier: ~18.3.1
+        version: 18.3.31
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
+
   packages/client/ui-chat:
     dependencies:
       '@onprem-ai/schemastery':
@@ -3443,6 +3501,21 @@ importers:
         specifier: link:../../../vendor/schemastery
         version: link:../../../vendor/schemastery
     devDependencies:
+      '@lexical/headless':
+        specifier: ^0.49.0
+        version: 0.49.0(typescript@6.0.3)
+      '@lexical/history':
+        specifier: ^0.49.0
+        version: 0.49.0(typescript@6.0.3)
+      '@lexical/plain-text':
+        specifier: ^0.49.0
+        version: 0.49.0(typescript@6.0.3)
+      '@lexical/text':
+        specifier: ^0.49.0
+        version: 0.49.0(typescript@6.0.3)
+      '@lexical/utils':
+        specifier: ^0.49.0
+        version: 0.49.0(typescript@6.0.3)
       '@onprem-ai/cordis':
         specifier: workspace:~
         version: link:../../../vendor/cordis
@@ -3545,21 +3618,6 @@ importers:
       '@onprem-ai/dsh-workspace':
         specifier: workspace:*
         version: link:../../workspace/workspace
-      '@lexical/headless':
-        specifier: ^0.49.0
-        version: 0.49.0(typescript@6.0.3)
-      '@lexical/history':
-        specifier: ^0.49.0
-        version: 0.49.0(typescript@6.0.3)
-      '@lexical/plain-text':
-        specifier: ^0.49.0
-        version: 0.49.0(typescript@6.0.3)
-      '@lexical/text':
-        specifier: ^0.49.0
-        version: 0.49.0(typescript@6.0.3)
-      '@lexical/utils':
-        specifier: ^0.49.0
-        version: 0.49.0(typescript@6.0.3)
       '@types/react':
         specifier: ~18.3.1
         version: 18.3.31
@@ -5349,6 +5407,12 @@ importers:
         specifier: link:../../../vendor/schemastery
         version: link:../../../vendor/schemastery
     devDependencies:
+      '@fortune-sheet/core':
+        specifier: 1.0.4
+        version: 1.0.4(patch_hash=8791a230763dbf853fd65d627c68c31de37209992851377855e16cf08ea70532)
+      '@fortune-sheet/react':
+        specifier: 1.0.4
+        version: 1.0.4(patch_hash=2932e52e79afcd4ced08cfa123b5eded786c85043da32f622f3e80af6fc96c37)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@onprem-ai/cordis':
         specifier: workspace:~
         version: link:../../../vendor/cordis
@@ -5409,12 +5473,6 @@ importers:
       '@onprem-ai/dsh-util-workspace-path':
         specifier: workspace:*
         version: link:../../util/workspace-path
-      '@fortune-sheet/core':
-        specifier: 1.0.4
-        version: 1.0.4(patch_hash=8791a230763dbf853fd65d627c68c31de37209992851377855e16cf08ea70532)
-      '@fortune-sheet/react':
-        specifier: 1.0.4
-        version: 1.0.4(patch_hash=2932e52e79afcd4ced08cfa123b5eded786c85043da32f622f3e80af6fc96c37)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@testing-library/react':
         specifier: ^16.1.0
         version: 16.3.2(@testing-library/dom@10.4.2)(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -7196,15 +7254,15 @@ importers:
 
   packages/document/office-to-pdf:
     dependencies:
+      '@deepseek-ai/libreoffice-kit':
+        specifier: ^0.1.1
+        version: 0.1.1
       '@onprem-ai/dsh-brand':
         specifier: workspace:*
         version: link:../../util/brand
       '@onprem-ai/dsh-typert-protocol':
         specifier: workspace:*
         version: link:../../typert/protocol
-      '@deepseek-ai/libreoffice-kit':
-        specifier: ^0.1.1
-        version: 0.1.1
       '@onprem-ai/schemastery':
         specifier: link:../../../vendor/schemastery
         version: link:../../../vendor/schemastery
@@ -8133,15 +8191,15 @@ importers:
 
   packages/experimental/webworker-runtime:
     dependencies:
+      '@noble/hashes':
+        specifier: ^2.3.0
+        version: 2.3.0
       '@onprem-ai/dsh-client-web':
         specifier: workspace:*
         version: link:../../client/web
       '@onprem-ai/dsh-util-crypto':
         specifier: workspace:*
         version: link:../../util/crypto
-      '@noble/hashes':
-        specifier: ^2.3.0
-        version: 2.3.0
       '@yarnpkg/parsers':
         specifier: ^3.1.0
         version: 3.1.0
@@ -9682,6 +9740,9 @@ importers:
 
   packages/llm/llm-pi-ai:
     dependencies:
+      '@earendil-works/pi-ai':
+        specifier: ^0.87.1
+        version: 0.87.1(patch_hash=b9bcce474fb2ac44633dff0fa722816a5bff5451b4575d5874035ea14ba70a4f)(@modelcontextprotocol/sdk@1.29.0(zod@4.4.3))(supports-color@9.4.0)(ws@8.21.0)(zod@4.4.3)
       '@onprem-ai/dsh-brand':
         specifier: workspace:*
         version: link:../../util/brand
@@ -9691,9 +9752,6 @@ importers:
       '@onprem-ai/schemastery':
         specifier: link:../../../vendor/schemastery
         version: link:../../../vendor/schemastery
-      '@earendil-works/pi-ai':
-        specifier: ^0.87.1
-        version: 0.87.1(patch_hash=b9bcce474fb2ac44633dff0fa722816a5bff5451b4575d5874035ea14ba70a4f)(@modelcontextprotocol/sdk@1.29.0(zod@4.4.3))(ws@8.21.0)(zod@4.4.3)
     devDependencies:
       '@onprem-ai/cordis':
         specifier: workspace:~
@@ -9976,16 +10034,28 @@ importers:
 
   packages/mcp/mcp-client:
     dependencies:
+      '@modelcontextprotocol/client':
+        specifier: 2.0.0
+        version: 2.0.0
       '@onprem-ai/dsh-util-values':
         specifier: workspace:*
         version: link:../../util/values
       '@onprem-ai/schemastery':
         specifier: link:../../../vendor/schemastery
         version: link:../../../vendor/schemastery
-      '@modelcontextprotocol/client':
+    devDependencies:
+      '@modelcontextprotocol/node':
+        specifier: 2.0.0
+        version: 2.0.0(@modelcontextprotocol/server@2.0.0)(hono@4.12.29)
+      '@modelcontextprotocol/server':
         specifier: 2.0.0
         version: 2.0.0
-    devDependencies:
+      '@modelcontextprotocol/server-everything':
+        specifier: ^2026.7.4
+        version: 2026.7.4
+      '@modelcontextprotocol/server-filesystem':
+        specifier: ^2026.7.4
+        version: 2026.7.10(zod@4.4.3)
       '@onprem-ai/cordis':
         specifier: workspace:~
         version: link:../../../vendor/cordis
@@ -10019,18 +10089,6 @@ importers:
       '@onprem-ai/dsh-tools':
         specifier: workspace:*
         version: link:../../core/tools
-      '@modelcontextprotocol/node':
-        specifier: 2.0.0
-        version: 2.0.0(@modelcontextprotocol/server@2.0.0)(hono@4.12.29)
-      '@modelcontextprotocol/server':
-        specifier: 2.0.0
-        version: 2.0.0
-      '@modelcontextprotocol/server-everything':
-        specifier: ^2026.7.4
-        version: 2026.7.4
-      '@modelcontextprotocol/server-filesystem':
-        specifier: ^2026.7.4
-        version: 2026.7.10(zod@4.4.3)
       zod:
         specifier: ^4.4.3
         version: 4.4.3
@@ -10423,12 +10481,12 @@ importers:
 
   packages/schedule/schedule:
     dependencies:
-      '@onprem-ai/schemastery':
-        specifier: link:../../../vendor/schemastery
-        version: link:../../../vendor/schemastery
       '@js-temporal/polyfill':
         specifier: 0.5.1
         version: 0.5.1
+      '@onprem-ai/schemastery':
+        specifier: link:../../../vendor/schemastery
+        version: link:../../../vendor/schemastery
       zod:
         specifier: ^4.4.3
         version: 4.4.3
@@ -12371,15 +12429,15 @@ importers:
       '@anthropic-ai/sdk':
         specifier: 0.93.0
         version: 0.93.0(zod@4.4.3)
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.29.0
+        version: 1.29.0(zod@4.4.3)
       '@onprem-ai/dsh-brand':
         specifier: workspace:*
         version: link:../../util/brand
       '@onprem-ai/schemastery':
         specifier: link:../../../vendor/schemastery
         version: link:../../../vendor/schemastery
-      '@modelcontextprotocol/sdk':
-        specifier: ^1.29.0
-        version: 1.29.0(zod@4.4.3)
       zod:
         specifier: ^4.4.3
         version: 4.4.3
@@ -13581,15 +13639,15 @@ importers:
 
   packages/web/tool-web:
     dependencies:
+      '@joplin/turndown-plugin-gfm':
+        specifier: ^1.0.67
+        version: 1.0.67
       '@onprem-ai/dsh-util-values':
         specifier: workspace:*
         version: link:../../util/values
       '@onprem-ai/schemastery':
         specifier: link:../../../vendor/schemastery
         version: link:../../../vendor/schemastery
-      '@joplin/turndown-plugin-gfm':
-        specifier: ^1.0.67
-        version: 1.0.67
       turndown:
         specifier: ^7.2.4
         version: 7.2.4
@@ -13798,15 +13856,15 @@ importers:
 
   packages/webhook/webhook-github:
     dependencies:
+      '@octokit/webhooks':
+        specifier: ^14.2.0
+        version: 14.2.0
       '@onprem-ai/dsh-util-values':
         specifier: workspace:*
         version: link:../../util/values
       '@onprem-ai/schemastery':
         specifier: link:../../../vendor/schemastery
         version: link:../../../vendor/schemastery
-      '@octokit/webhooks':
-        specifier: ^14.2.0
-        version: 14.2.0
     devDependencies:
       '@onprem-ai/cordis':
         specifier: workspace:~
@@ -22668,15 +22726,15 @@ snapshots:
     transitivePeerDependencies:
       - '@algolia/client-search'
 
-  '@earendil-works/pi-ai@0.87.1(patch_hash=b9bcce474fb2ac44633dff0fa722816a5bff5451b4575d5874035ea14ba70a4f)(@modelcontextprotocol/sdk@1.29.0(zod@4.4.3))(ws@8.21.0)(zod@4.4.3)':
+  '@earendil-works/pi-ai@0.87.1(patch_hash=b9bcce474fb2ac44633dff0fa722816a5bff5451b4575d5874035ea14ba70a4f)(@modelcontextprotocol/sdk@1.29.0(zod@4.4.3))(supports-color@9.4.0)(ws@8.21.0)(zod@4.4.3)':
     dependencies:
       '@anthropic-ai/sdk': 0.124.0(zod@4.4.3)
       '@aws-sdk/client-bedrock-runtime': 3.1127.0
       '@earendil-works/pi-telemetry': 0.87.1
       '@google/genai': 2.21.0(@modelcontextprotocol/sdk@1.29.0(zod@4.4.3))
       '@smithy/node-http-handler': 4.12.1
-      http-proxy-agent: 9.1.0
-      https-proxy-agent: 9.1.0
+      http-proxy-agent: 9.1.0(supports-color@9.4.0)
+      https-proxy-agent: 9.1.0(supports-color@9.4.0)
       openai: 6.40.0(ws@8.21.0)(zod@4.4.3)
       partial-json: 0.1.7
       typebox: 1.3.27
@@ -26859,7 +26917,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  http-proxy-agent@9.1.0:
+  http-proxy-agent@9.1.0(supports-color@9.4.0):
     dependencies:
       agent-base: 9.0.0
       debug: 4.4.3(supports-color@9.4.0)
@@ -26918,7 +26976,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  https-proxy-agent@9.1.0:
+  https-proxy-agent@9.1.0(supports-color@9.4.0):
     dependencies:
       agent-base: 9.0.0
       debug: 4.4.3(supports-color@9.4.0)

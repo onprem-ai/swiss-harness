@@ -88,6 +88,7 @@
     "@onprem-ai/dsh-tool-web": "workspace:*",
     "@onprem-ai/dsh-tool-workflow": "workspace:*",
     "@onprem-ai/dsh-web-app": "workspace:*",
+    "@onprem-ai/dsh-onprem-app": "workspace:*",
     "@onprem-ai/dsh-webhook": "workspace:*",
     "@onprem-ai/dsh-webhook-github": "workspace:*",
     "@onprem-ai/dsh-workflow-ptc": "workspace:*",
