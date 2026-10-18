@@ -183,3 +183,7 @@ Docs accompany every code change: update affected README and JSDoc contracts tog
 ## Vendoring policy
 
 `vendor/` packages are pinned source copies (manifest with upstream SHAs in [vendor/README.md](vendor/README.md)). Update via the sync procedure there; re-apply or retire the logged local modifications; rerun `pnpm run test && pnpm run build`.
+
+## Security checks
+
+Read [docs/security-checks.md](docs/security-checks.md): `scripts/scan-vulnerabilities.sh` after a dependency or image change, the vendored Trail of Bits skills in `.agents/skills/` (`supply-chain-risk-auditor`, `insecure-defaults`, `differential-review`), and the review before a release.
