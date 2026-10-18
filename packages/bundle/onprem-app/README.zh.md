@@ -42,7 +42,7 @@ dsh onprem
 |---|---|---|
 | `ONPREM_LLM_BASE_URL` | 未设置：无路由 | OpenAI 兼容服务器的端点根地址 |
 | `ONPREM_LLM_MODEL` | `default` | 端点提供的模型 id；也是新会话的默认模型 |
-| `ONPREM_LLM_API_KEY` | 未设置：无凭据 | 每次请求通过凭据接缝读取；进入配置的是变量名，而不是它的值 |
+| `ONPREM_LLM_API_KEY` | 未设置：占位请求头 | 每次请求通过凭据接缝读取；进入配置的是变量名，而不是它的值。未设置时，路由发送固定的 `Authorization: Bearer onprem-unauthenticated` 请求头，因为 OpenAI 兼容客户端没有它就拒绝发送；Ollama、vLLM 与 llama.cpp 会忽略它 |
 | `ONPREM_LLM_API` | `openai-completions` | 协议：`openai-completions`、`openai-responses` 或 `anthropic-messages` |
 | `ONPREM_LLM_CONTEXT` | `131072` | 上下文窗口（token 数） |
 | `ONPREM_LLM_DISPLAY_NAME` | `On-premises model` | 模型选择器中显示的名称 |

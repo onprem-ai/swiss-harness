@@ -93,8 +93,10 @@
 #   ONPREM_LLM_BASE_URL   e.g. http://vllm.internal:8000/v1
 #   ONPREM_LLM_MODEL      the model id the endpoint serves
 #   ONPREM_LLM_API_KEY    read through the credential seam; leave unset for an
-#                         unauthenticated endpoint (the route then names no
-#                         credential and sends no Authorization header)
+#                         unauthenticated endpoint. pi-ai's OpenAI-compatible
+#                         client refuses to send without a key or an
+#                         Authorization header, so a keyless route carries a
+#                         fixed placeholder header the server ignores.
 #   ONPREM_LLM_API        openai-completions (default) | openai-responses |
 #                         anthropic-messages
 #   ONPREM_LLM_CONTEXT    context window in tokens (default 131072)
@@ -108,7 +110,9 @@
           displayName: process.env.ONPREM_LLM_DISPLAY_NAME ?? 'On-premises model',
           api: process.env.ONPREM_LLM_API ?? 'openai-completions',
           baseURL: process.env.ONPREM_LLM_BASE_URL,
-          ...(process.env.ONPREM_LLM_API_KEY === undefined ? {} : { apiKeyEnv: 'ONPREM_LLM_API_KEY' }),
+          ...(process.env.ONPREM_LLM_API_KEY === undefined
+            ? { headers: { Authorization: 'Bearer onprem-unauthenticated' } }
+            : { apiKeyEnv: 'ONPREM_LLM_API_KEY' }),
           models: [{
             id: process.env.ONPREM_LLM_MODEL ?? 'default',
             contextWindow: Number(process.env.ONPREM_LLM_CONTEXT ?? 131072),

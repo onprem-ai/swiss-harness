@@ -42,7 +42,7 @@ The environment describes one provider route named `onprem`:
 |---|---|---|
 | `ONPREM_LLM_BASE_URL` | unset: no route | Endpoint root of the OpenAI-compatible server |
 | `ONPREM_LLM_MODEL` | `default` | Model id the endpoint serves; also the default model for new sessions |
-| `ONPREM_LLM_API_KEY` | unset: no credential | Read through the credential seam per request; the variable name, not its value, enters configuration |
+| `ONPREM_LLM_API_KEY` | unset: placeholder header | Read through the credential seam per request; the variable name, not its value, enters configuration. Unset, the route sends a fixed `Authorization: Bearer onprem-unauthenticated` header, because the OpenAI-compatible client refuses to send without one; Ollama, vLLM and llama.cpp ignore it |
 | `ONPREM_LLM_API` | `openai-completions` | Wire protocol: `openai-completions`, `openai-responses`, or `anthropic-messages` |
 | `ONPREM_LLM_CONTEXT` | `131072` | Context window in tokens |
 | `ONPREM_LLM_DISPLAY_NAME` | `On-premises model` | Label in the model picker |

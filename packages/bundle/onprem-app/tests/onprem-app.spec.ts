@@ -121,10 +121,15 @@ describe('dsh-onprem-app bundle', () => {
     })
   })
 
-  it('names no credential for an unauthenticated endpoint and no route without an endpoint', () => {
+  it('sends a placeholder Authorization header for an unauthenticated endpoint and no route without an endpoint', () => {
     const keyless = composed({ ONPREM_LLM_BASE_URL: 'http://ollama.internal:11434/v1' })
     const providers = keyless.value(keyless.row('llm-pi-ai')!, 'providers')
-    expect(providers).toMatchObject({ onprem: { models: [{ id: 'default', contextWindow: 131072 }] } })
+    expect(providers).toMatchObject({
+      onprem: {
+        models: [{ id: 'default', contextWindow: 131072 }],
+        headers: { Authorization: expect.stringMatching(/^Bearer /u) as unknown },
+      },
+    })
     expect(JSON.stringify(providers)).not.toContain('apiKeyEnv')
     const unset = composed({})
     expect(unset.value(unset.row('llm-pi-ai')!, 'providers')).toEqual({})
