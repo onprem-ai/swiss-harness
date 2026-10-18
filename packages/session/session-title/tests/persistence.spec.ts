@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import SessionStore, { SessionId } from '@onprem-ai/dsh-session'
 import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
-import JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
+import * as JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
 import SessionTitleService, { foldSessionTitle } from '@onprem-ai/dsh-session-title'
 
 const CONFIG = {

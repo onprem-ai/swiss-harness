@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-ssh",
   "description": "Shared OpenSSH connection and versioned POSIX remote helper",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -55,11 +55,12 @@
     "@onprem-ai/dsh-sandbox-local": "workspace:*",
     "@onprem-ai/dsh-sandbox-policy": "workspace:*",
     "@onprem-ai/dsh-session-projection": "workspace:*",
-    "@onprem-ai/dsh-brand": "workspace:*"
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-util-values": "workspace:*"
   },
   "dependencies": {
     "@onprem-ai/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "4.4.3"
   },
   "devDependencies": {
     "@onprem-ai/cordis": "workspace:~",
@@ -78,6 +79,7 @@
     "@onprem-ai/dsh-sandbox-ssh": "workspace:*",
     "@onprem-ai/dsh-lsp": "workspace:*",
     "@onprem-ai/dsh-lsp-stdio": "workspace:*",
-    "@onprem-ai/dsh-brand": "workspace:*"
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-util-values": "workspace:*"
   }
 }

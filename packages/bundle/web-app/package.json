@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-web-app",
-  "description": "The dsh browser-surface bundle: the web patch layer over dsh-base plus the runtime glue plugin (frontend dist serving, web-surface prompt, bash runtime variables, URL line)",
-  "version": "0.2.0-rc.2",
+  "description": "The dsh browser-surface bundle: the web patch layer over dsh-base plus the runtime glue plugin (frontend dist serving, bash runtime variables, URL line)",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -25,9 +25,13 @@
     "./cordis.patch.yml": "./cordis.patch.yml",
     "./presets/*.patch.yml": "./presets/*.patch.yml",
     "./src/*": "./src/*",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./startup/locale/*.json": "./locale/startup/*.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "files": [
+    "locale/*.json",
+    "locale/startup/*.json",
     "lib/index.js",
     "lib/startup.js",
     "cordis.patch.yml",
@@ -35,6 +39,7 @@
     "presets/ptc.patch.yml",
     "presets/minimal.patch.yml",
     "presets/cordis.patch.yml",
+    "lib/public-url-*.js",
     "lib/types/**/*.d.ts"
   ],
   "license": "MIT",
@@ -85,13 +90,16 @@
     "@onprem-ai/dsh-client-ui-layout": "workspace:*",
     "@onprem-ai/dsh-client-ui-message-feedback": "workspace:*",
     "@onprem-ai/dsh-client-ui-model-selection": "workspace:*",
+    "@onprem-ai/dsh-client-ui-deepseek-model-label-1017": "workspace:*",
     "@onprem-ai/dsh-client-ui-open-in-app": "workspace:*",
     "@onprem-ai/dsh-client-ui-permission-presets": "workspace:*",
     "@onprem-ai/dsh-client-ui-plan": "workspace:*",
     "@onprem-ai/dsh-client-ui-plugin-manager": "workspace:*",
     "@onprem-ai/dsh-client-ui-reference": "workspace:*",
     "@onprem-ai/dsh-client-ui-renderer": "workspace:*",
+    "@onprem-ai/dsh-client-ui-secret-mask": "workspace:*",
     "@onprem-ai/dsh-client-ui-session": "workspace:*",
+    "@onprem-ai/dsh-client-ui-schedule": "workspace:*",
     "@onprem-ai/dsh-client-ui-settings": "workspace:*",
     "@onprem-ai/dsh-client-ui-settings-general": "workspace:*",
     "@onprem-ai/dsh-client-ui-settings-models": "workspace:*",
@@ -137,6 +145,8 @@
     "@onprem-ai/dsh-persona": "workspace:*",
     "@onprem-ai/dsh-plan-mode": "workspace:*",
     "@onprem-ai/dsh-plugin-manager": "workspace:*",
+    "@onprem-ai/dsh-plugin-market": "workspace:*",
+    "@onprem-ai/dsh-schedule": "workspace:*",
     "@onprem-ai/dsh-session-log-export": "workspace:*",
     "@onprem-ai/dsh-session-reference": "workspace:*",
     "@onprem-ai/dsh-session-stats": "workspace:*",
@@ -145,6 +155,7 @@
     "@onprem-ai/dsh-subprocess": "workspace:*",
     "@onprem-ai/dsh-terminal": "workspace:*",
     "@onprem-ai/dsh-terminal-bash": "workspace:*",
+    "@onprem-ai/dsh-time-context": "workspace:*",
     "@onprem-ai/dsh-tool-ask-user": "workspace:*",
     "@onprem-ai/dsh-tool-bash": "workspace:*",
     "@onprem-ai/dsh-tool-bash-persistent": "workspace:*",
@@ -156,7 +167,7 @@
     "@onprem-ai/dsh-tool-present": "workspace:*",
     "@onprem-ai/dsh-tool-pwsh": "workspace:*",
     "@onprem-ai/dsh-tool-pwsh-persistent": "workspace:*",
-    "@onprem-ai/dsh-tool-ralph": "workspace:*",
+    "@onprem-ai/dsh-tool-schedule": "workspace:*",
     "@onprem-ai/dsh-tool-skill": "workspace:*",
     "@onprem-ai/dsh-tool-subagent": "workspace:*",
     "@onprem-ai/dsh-tool-subagent-control": "workspace:*",
@@ -169,20 +180,20 @@
     "@onprem-ai/dsh-workspace-changes": "workspace:*",
     "@onprem-ai/schemastery": "workspace:~",
     "commander": "^15.0.0",
-    "open": "^11.0.0",
+    "open": "^11.0.2",
     "@onprem-ai/dsh-api-account-controller": "workspace:*",
     "@onprem-ai/dsh-client-ui-settings-account": "workspace:*",
     "@onprem-ai/dsh-client-shortcuts": "workspace:*",
     "@onprem-ai/dsh-client-ui-shortcuts": "workspace:*",
     "@onprem-ai/dsh-client-product-analytics": "workspace:*",
     "@onprem-ai/dsh-host-product-telemetry-otel": "workspace:*",
-    "@onprem-ai/dsh-client-ui-settings-session-log": "workspace:*"
+    "@onprem-ai/dsh-client-ui-settings-session-log": "workspace:*",
+    "@onprem-ai/dsh-harness-dev-context": "workspace:*"
   },
   "peerDependencies": {
     "@onprem-ai/cordis": "workspace:~",
     "@onprem-ai/cordis-plugin-loader": "workspace:~",
-    "@onprem-ai/dsh-shell-env": "workspace:*",
-    "@onprem-ai/dsh-system-prompt": "workspace:*"
+    "@onprem-ai/dsh-shell-env": "workspace:*"
   },
   "devDependencies": {
     "@onprem-ai/cordis": "workspace:~",
@@ -194,9 +205,8 @@
     "@onprem-ai/dsh-session": "workspace:*",
     "@onprem-ai/dsh-session-projection": "workspace:*",
     "@onprem-ai/dsh-shell-env": "workspace:*",
-    "@onprem-ai/dsh-system-prompt": "workspace:*",
     "@onprem-ai/dsh-typert-registry": "workspace:*",
-    "@deepseek-ai/libreoffice-kit": "^0.1.1",
+    "@deepseek-ai/libreoffice-kit": "^0.1.5",
     "@onprem-ai/dsh-otel": "workspace:*"
   }
 }

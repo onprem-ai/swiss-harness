@@ -1,0 +1,99 @@
+{
+  "name": "@onprem-ai/dsh-cua",
+  "description": "Shared Computer Use application objects, authorization, and logged tool execution",
+  "version": "0.2.1-rc.2",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "directory": "packages/experimental/cua"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./src/*": "./src/*",
+    "./package.json": "./package.json",
+    "./api": {
+      "types": "./lib/types/api.d.ts",
+      "default": "./lib/api.js"
+    },
+    "./bridge": {
+      "types": "./lib/types/bridge.d.ts",
+      "default": "./lib/bridge.js"
+    },
+    "./native-client": {
+      "types": "./lib/types/native-client.d.ts",
+      "default": "./lib/native-client.js"
+    },
+    "./protocol": {
+      "types": "./lib/types/protocol.d.ts",
+      "default": "./lib/protocol.js"
+    }
+  },
+  "files": [
+    "lib/index.js",
+    "lib/api.js",
+    "lib/bridge.js",
+    "lib/native-client.js",
+    "lib/protocol.js",
+    "lib/types/**/*.d.ts"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-computer-use": "workspace:*",
+    "@onprem-ai/dsh-system-prompt": "workspace:*",
+    "@onprem-ai/dsh-tools": "workspace:*",
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-subprocess": "workspace:*",
+    "@onprem-ai/dsh-user-questions": "workspace:*",
+    "@onprem-ai/dsh-attachment": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*"
+  },
+  "dependencies": {
+    "@onprem-ai/dsh-util-values": "workspace:*",
+    "@onprem-ai/schemastery": "workspace:~",
+    "zod": "^4.4.3",
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-atomic-write": "workspace:*"
+  },
+  "devDependencies": {
+    "@onprem-ai/dsh-working-directory": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/cordis-plugin-include": "workspace:~",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-agent-loop": "workspace:*",
+    "@onprem-ai/dsh-agent-loop-testkit": "workspace:*",
+    "@onprem-ai/dsh-attachment": "workspace:*",
+    "@onprem-ai/dsh-attachment-local": "workspace:*",
+    "@onprem-ai/dsh-computer-use": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-system-prompt": "workspace:*",
+    "@onprem-ai/dsh-tools": "workspace:*",
+    "@onprem-ai/dsh-subprocess": "workspace:*",
+    "@onprem-ai/dsh-subprocess-local": "workspace:*",
+    "@onprem-ai/dsh-fs-local": "workspace:*",
+    "@onprem-ai/dsh-llm-deepseek": "workspace:*",
+    "@onprem-ai/dsh-ptc-runtime-node": "workspace:*",
+    "@onprem-ai/dsh-sandbox-local": "workspace:*",
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*",
+    "sharp": "^0.35.3",
+    "@onprem-ai/dsh-ptc-runtime": "workspace:*",
+    "@onprem-ai/dsh-user-questions": "workspace:*",
+    "@onprem-ai/dsh-settings": "workspace:*",
+    "@onprem-ai/dsh-app-boot": "workspace:*",
+    "@onprem-ai/dsh-config-editor": "workspace:*",
+    "@onprem-ai/dsh-hmr": "workspace:*",
+    "@onprem-ai/cordis-plugin-timer": "workspace:~"
+  }
+}

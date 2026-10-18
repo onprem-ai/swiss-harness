@@ -1,3 +1,5 @@
+import { mountWorkingDirectoryFixture } from '../../subagent/tests/working-directory-fixture.ts'
+import { startExternalActivation } from '../../subagent/tests/external-activation-helpers.ts'
 import { execFile } from 'node:child_process'
 import { randomUUID } from 'node:crypto'
 import {
@@ -12,9 +14,9 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { Context } from '@onprem-ai/cordis'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import type { Agent } from '@onprem-ai/dsh-agent'
+import { mountAgentLoopTestDependencies, mountAgentLoopTestHarness } from '@onprem-ai/dsh-agent-loop-testkit'
 import SubagentRuntime from '@onprem-ai/dsh-subagent'
-import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
+import { SessionId } from '@onprem-ai/dsh-session'
 import type { SubprocessHandle } from '@onprem-ai/dsh-subprocess'
 import LocalSubprocessRuntime from '@onprem-ai/dsh-subprocess-local'
 import * as claudeCode from '../src/index.ts'
@@ -105,7 +107,9 @@ describe.skipIf(!process.env.DEEPSEEK_API_KEY)(
       }
       const ctx = new Context()
       contexts.push(ctx)
-      await ctx.plugin(SessionProjectionRegistry)
+      await mountAgentLoopTestDependencies(ctx, { workingDirectory: true })
+      const harness = await mountAgentLoopTestHarness(ctx)
+      await mountWorkingDirectoryFixture(ctx)
       await ctx.plugin(SubagentRuntime)
       await ctx.plugin(LocalSubprocessRuntime)
       const handles: SubprocessHandle[] = []
@@ -126,11 +130,8 @@ describe.skipIf(!process.env.DEEPSEEK_API_KEY)(
       expect(version.stdout.trim()).toBe('2.1.263 (Claude Code)')
 
       const nonce = `DSH_CLAUDE_DEEPSEEK_${randomUUID()}`
-      const parent = {
-        id: 'deepseek-e2e-parent',
-        session: { header: { cwd: workspace } },
-      } as unknown as Agent
-      const run = await ctx.subagents.start('claude-code', {
+      const parent = await harness.create(SessionId('deepseek-e2e-parent'), {}, { cwd: workspace })
+      const run = await startExternalActivation(ctx, 'claude-code', {
         prompt: [{
           type: 'text',
           text: `Reply with exactly ${nonce} and nothing else. Do not use tools.`,

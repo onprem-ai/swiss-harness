@@ -6,7 +6,7 @@ import { createSessionFormatCatalogWithChildren } from '@onprem-ai/dsh-session-f
 import type { SessionEvent } from '@onprem-ai/dsh-session'
 import type { SessionFormatJsonObject } from '@onprem-ai/dsh-session-format'
 import { SessionFormatUnsupportedError, SessionPersistenceCorruptionError } from '@onprem-ai/dsh-session-persistence'
-import JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
+import * as JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
 import { createHash } from 'node:crypto'
 import { mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'

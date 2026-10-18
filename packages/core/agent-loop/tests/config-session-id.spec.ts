@@ -13,7 +13,7 @@ import ToolRuntime from '@onprem-ai/dsh-tools'
 import AgentRegistry, { type Agent } from '@onprem-ai/dsh-agent'
 import type { SessionHandle } from '@onprem-ai/dsh-session-persistence'
 
-import JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
+import * as JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
 import AgentLoop, { CONFIGURED_AGENT_IDENTITIES_KEY } from '@onprem-ai/dsh-agent-loop'
 import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
 import { MockAdapter, textResponse } from './mock-adapter.ts'

@@ -9,14 +9,14 @@
   en: 55d969715a48c9b3
   zh: 755dab7523cd01c2
 /agent-note-workspace-file-service/decision:
-  en: 5a29061ea0b05162
-  zh: 851a54e6fd249ae8
+  en: 87b4bc51890eea9b
+  zh: c7f053a38eebe6c9
 /agent-note-workspace-file-service/decision/package-topology:
-  en: 59c3648960630ff8
-  zh: 1891f8659e660e45
+  en: 5a8d81c95c031663
+  zh: 5bdeebe3b5e759c9
 /agent-note-workspace-file-service/decision/the-workspacefiles-file-operations:
-  en: efdecd9cf80c03e7
-  zh: 5ea40e48ab0559a2
+  en: 434a2f6b3fab4756
+  zh: ea83124d00c6a79c
 /agent-note-workspace-file-service/decision/paths-on-the-wire:
   en: 7b5a96adc08177bc
   zh: ae4692e5e62e7de0
@@ -36,11 +36,11 @@
   en: 0d42d4716dde706f
   zh: 4e95b8af2df232b6
 /agent-note-workspace-file-service/decision/related-notes:
-  en: ed69361873f33d03
-  zh: a0716707f988b37b
+  en: d2ddf9be976d197e
+  zh: 4de25f04d6145779
 /agent-note-workspace-file-service/alternatives-considered:
-  en: 3d598eb6d03d05e5
-  zh: 7dac0b7af471a651
+  en: 8eee658526db4465
+  zh: 4a655accf6a5c08a
 /agent-note-workspace-file-service/consequences:
   en: 246bb7aed62f6c9b
   zh: debf6d4129ee477b

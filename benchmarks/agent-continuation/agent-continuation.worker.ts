@@ -9,7 +9,7 @@ import { mountAgentLoopTestDependencies } from '@onprem-ai/dsh-agent-loop-testki
 import { createUserMessage, LlmAdapter } from '@onprem-ai/dsh-llm'
 import type { GenerateOptions, LlmResolvedModelInfo, StreamChunk } from '@onprem-ai/dsh-llm'
 import { SESSION_FORMAT_VERSION } from '@onprem-ai/dsh-session'
-import JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
+import * as JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
 import { defineContentToolFixture } from '@onprem-ai/dsh-tools'
 import { assertBuiltBenchmarkRuntime } from '../support/built-worker.ts'
 import { PARENT_ID, response, resultText, syntheticHistory, TIME_ZERO, WORKLOAD } from './workload.ts'

@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-experimental-auto-review",
   "description": "Per-tool LLM authorization review for the DeepSeek Harness Auto permission preset",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "icon": "./icon.svg",
   "repository": {
     "type": "git",
@@ -36,7 +36,8 @@
     "@onprem-ai/dsh-permission-presets": "workspace:*",
     "@onprem-ai/dsh-session": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
-    "@onprem-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   },
   "dependencies": {
     "@onprem-ai/dsh-util-values": "workspace:*"
@@ -70,7 +71,8 @@
     "@onprem-ai/dsh-tool-subagent": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
     "@onprem-ai/dsh-user-approval": "workspace:*",
-    "@onprem-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

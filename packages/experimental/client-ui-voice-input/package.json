@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-experimental-client-ui-voice-input",
   "description": "Record speech and insert editable text into the conversation draft",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -20,12 +20,14 @@
     },
     "./src/*": "./src/*",
     "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
     "./client": {
       "types": "./lib/types/client/index.d.ts",
       "default": "./lib/client.js"
     }
   },
   "files": [
+    "locale/*.json",
     "lib/index.js",
     "lib/client.js",
     "lib/types/**/*.d.ts"
@@ -33,22 +35,7 @@
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {
-    "@onprem-ai/cordis": "workspace:~",
-    "@onprem-ai/dsh-api-remotes": "workspace:*",
-    "@onprem-ai/dsh-api-session-controller": "workspace:*",
-    "@onprem-ai/dsh-client-locale": "workspace:*",
-    "@onprem-ai/dsh-client-ui-conversation": "workspace:*",
-    "@onprem-ai/dsh-client-ui-primitives": "workspace:*",
-    "@onprem-ai/dsh-client-ui-renderer": "workspace:*",
-    "@onprem-ai/dsh-client-ui-session": "workspace:*",
-    "@onprem-ai/dsh-client-ui-slots": "workspace:*",
-    "@onprem-ai/dsh-session": "workspace:*",
-    "@onprem-ai/dsh-typert-protocol": "workspace:*",
-    "@onprem-ai/dsh-experimental-api-speech-to-text": "workspace:*",
-    "@onprem-ai/dsh-experimental-speech-to-text": "workspace:*",
-    "@onprem-ai/dsh-api-gateway": "workspace:*",
-    "@onprem-ai/dsh-client-store": "workspace:*",
-    "@onprem-ai/dsh-client-ui-plugin-manager": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~"
   },
   "devDependencies": {
     "@onprem-ai/cordis": "workspace:~",
@@ -65,10 +52,9 @@
     "@onprem-ai/dsh-experimental-api-speech-to-text": "workspace:*",
     "@onprem-ai/dsh-experimental-speech-to-text": "workspace:*",
     "@onprem-ai/dsh-client-test-runtime": "workspace:*",
-    "@types/react": "~18.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@testing-library/react": "^16.1.0",
+    "@testing-library/react": "^16.3.3",
     "@onprem-ai/dsh-api-gateway": "workspace:*",
     "@onprem-ai/dsh-client-store": "workspace:*",
     "@onprem-ai/dsh-client-ui-plugin-manager": "workspace:*"

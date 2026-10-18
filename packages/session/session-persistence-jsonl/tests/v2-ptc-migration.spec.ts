@@ -3,7 +3,7 @@
 import { Context } from '@onprem-ai/cordis'
 import { SESSION_FORMAT_VERSION, Session, SessionId } from '@onprem-ai/dsh-session'
 import type { SessionFormatEvent } from '@onprem-ai/dsh-session-format'
-import JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
+import * as JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
 import { createHash } from 'node:crypto'
 import { mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'

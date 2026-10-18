@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-sdk-minimal",
   "description": "The standalone minimal SDK profile bundle: JSON-RPC, one DeepSeek adapter, persistent shell, and JSONL sessions",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -37,8 +37,10 @@
     "@onprem-ai/cordis-plugin-timer": "workspace:~",
     "@onprem-ai/dsh-agent": "workspace:*",
     "@onprem-ai/dsh-agent-loop": "workspace:*",
+    "@onprem-ai/dsh-attachment-local": "workspace:*",
+    "@onprem-ai/dsh-compaction-basic": "workspace:*",
+    "@onprem-ai/dsh-compaction-image-offload": "workspace:*",
     "@onprem-ai/dsh-deepseek-llm-api-extensions": "workspace:*",
-    "@onprem-ai/dsh-invariants": "workspace:*",
     "@onprem-ai/dsh-jobs-local": "workspace:*",
     "@onprem-ai/dsh-llm": "workspace:*",
     "@onprem-ai/dsh-llm-deepseek-api-key": "workspace:*",
@@ -47,7 +49,6 @@
     "@onprem-ai/dsh-plugin-package-inventory-deepseek": "workspace:*",
     "@onprem-ai/dsh-sandbox-local": "workspace:*",
     "@onprem-ai/dsh-sandbox-policy": "workspace:*",
-    "@onprem-ai/dsh-scope": "workspace:*",
     "@onprem-ai/dsh-sdk-app": "workspace:*",
     "@onprem-ai/dsh-sdk-jsonrpc-server": "workspace:*",
     "@onprem-ai/dsh-session": "workspace:*",
@@ -59,9 +60,14 @@
     "@onprem-ai/dsh-system-prompt": "workspace:*",
     "@onprem-ai/dsh-terminal": "workspace:*",
     "@onprem-ai/dsh-terminal-bash": "workspace:*",
+    "@onprem-ai/dsh-token-meter": "workspace:*",
     "@onprem-ai/dsh-tool-bash-persistent": "workspace:*",
+    "@onprem-ai/dsh-tool-fs": "workspace:*",
     "@onprem-ai/dsh-tool-pwsh-persistent": "workspace:*",
-    "@onprem-ai/dsh-tools": "workspace:*"
+    "@onprem-ai/dsh-tools": "workspace:*",
+    "@onprem-ai/dsh-working-directory": "workspace:*",
+    "@onprem-ai/dsh-tool-working-directory": "workspace:*",
+    "@onprem-ai/dsh-fs-local": "workspace:*"
   },
   "peerDependencies": {
     "@onprem-ai/cordis": "workspace:~"

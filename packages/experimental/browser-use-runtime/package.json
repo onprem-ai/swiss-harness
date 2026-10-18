@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-experimental-browser-use-runtime",
   "description": "Session-owned browser resource lifecycles and MCP integration for experimental providers",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -38,7 +38,8 @@
     "@onprem-ai/dsh-mcp-client": "workspace:*",
     "@onprem-ai/dsh-scope": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
-    "@onprem-ai/dsh-system-prompt": "workspace:*"
+    "@onprem-ai/dsh-system-prompt": "workspace:*",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   },
   "dependencies": {
     "@onprem-ai/schemastery": "workspace:~"
@@ -61,6 +62,8 @@
     "@onprem-ai/cordis-plugin-loader": "workspace:~",
     "@onprem-ai/cordis-plugin-include": "workspace:~",
     "@onprem-ai/dsh-attachment-local": "workspace:*",
-    "@onprem-ai/dsh-session-persistence-jsonl": "workspace:*"
+    "@onprem-ai/dsh-session-persistence-jsonl": "workspace:*",
+    "@onprem-ai/dsh-working-directory": "workspace:*",
+    "@onprem-ai/dsh-fs-local": "workspace:*"
   }
 }

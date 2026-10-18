@@ -2,7 +2,7 @@
 import type { GlobalStandardProps } from '@onprem-ai/dsh-client-ui-slots'
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { bindSnapshotSelector, RemoteError } from '@onprem-ai/dsh-client-test-runtime'
+import { allowAllAccess, bindSnapshotSelector, RemoteError } from '@onprem-ai/dsh-client-test-runtime'
 import { Context } from '@onprem-ai/cordis'
 import { SettingsSchemaService } from '@onprem-ai/dsh-client-ui-settings/src/client/schema.ts'
 import { SettingsDescribeMirror } from '@onprem-ai/dsh-client-ui-settings/src/client/settings-mirror.ts'
@@ -81,7 +81,6 @@ function mount(
     ctx,
     { namespace: WELCOME_NOTICE_SETTINGS_NAMESPACE, decode: decodeWelcomeSection },
     mirror,
-    'host',
     schemaService,
   )
   const controller = new WelcomeNoticeStore(scope)
@@ -96,6 +95,7 @@ function mount(
     useSessionStatus,
     usePanelInfo, useSessionRetainInfo: () => undefined, useResource,
     useWorkspaces: unusedHook,
+    ...allowAllAccess,
     controller,
     useWelcome: bindSnapshotSelector(controller.store),
     t: key => zh[key],

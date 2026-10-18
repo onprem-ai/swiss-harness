@@ -1,0 +1,68 @@
+{
+  "name": "@onprem-ai/dsh-experimental-translator",
+  "description": "Machine translation with reusable Session results",
+  "version": "0.2.1-rc.2",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "directory": "packages/experimental/translator"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./src/*": "./src/*",
+    "./types": {
+      "types": "./lib/types/types.d.ts",
+      "default": "./lib/types/types.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/types/**/*.js",
+    "lib/types/**/*.d.ts"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@onprem-ai/schemastery": "workspace:~"
+  },
+  "peerDependencies": {
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-timeout": "workspace:*",
+    "@onprem-ai/dsh-util-values": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-persistence": "workspace:*",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/dsh-credentials": "workspace:*",
+    "@onprem-ai/dsh-launch-environment": "workspace:*"
+  },
+  "devDependencies": {
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-app-boot": "workspace:*",
+    "@onprem-ai/dsh-timeout": "workspace:*",
+    "@onprem-ai/dsh-util-values": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-session-persistence": "workspace:*",
+    "@onprem-ai/dsh-session-persistence-jsonl": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-credentials": "workspace:*",
+    "@onprem-ai/dsh-launch-environment": "workspace:*",
+    "@onprem-ai/dsh-llm-deepseek": "workspace:*",
+    "@onprem-ai/dsh-llm-deepseek-api-key": "workspace:*",
+    "@onprem-ai/dsh-llm-deepseek-account": "workspace:*",
+    "@onprem-ai/dsh-deepseek-account": "workspace:*",
+    "@onprem-ai/dsh-deepseek-llm-api-extensions": "workspace:*",
+    "@onprem-ai/dsh-session-log-deepseek": "workspace:*",
+    "@onprem-ai/dsh-session-query-sqlite": "workspace:*"
+  }
+}

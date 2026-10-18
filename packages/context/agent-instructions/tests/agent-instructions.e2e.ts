@@ -1,13 +1,13 @@
 import { createUserMessage } from '@onprem-ai/dsh-llm'
+import { provideWorkingDirectoryFixture, mountAgentLoopTestDependencies } from '@onprem-ai/dsh-agent-loop-testkit'
 import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { Context } from '@onprem-ai/cordis'
 import { SessionId } from '@onprem-ai/dsh-session'
 import type { Agent } from '@onprem-ai/dsh-agent'
 import AgentLoop from '@onprem-ai/dsh-agent-loop'
-import { mountAgentLoopTestDependencies } from '@onprem-ai/dsh-agent-loop-testkit'
 import * as LlmDeepSeek from '@onprem-ai/dsh-llm-deepseek-api-key'
 import * as AgentInstructions from '@onprem-ai/dsh-agent-instructions'
 import { candidateScopeKey } from '../src/render.ts'
@@ -23,6 +23,7 @@ let ctx: Context | undefined
 let workdir: string | undefined
 
 afterEach(async () => {
+  vi.unstubAllEnvs()
   await ctx?.fiber.dispose()
   ctx = undefined
   if (workdir !== undefined) await rm(workdir, { recursive: true, force: true })
@@ -34,11 +35,15 @@ async function harness(): Promise<{ ctx: Context; agent: Agent }> {
   await mkdir(join(workdir, '.git'), { recursive: true })
   await writeFile(join(workdir, 'AGENTS.md'), `If the user asks for the workspace context handshake, reply with exactly this string and nothing else: ${PROBE}.\n`)
   ctx = new Context()
+  provideWorkingDirectoryFixture(ctx)
   await mountAgentLoopTestDependencies(ctx, {
     systemPrompt: { personaPrefix: 'Answer the user exactly and concisely.' },
   })
   await ctx.plugin(LocalFileSystem, { cwd: '/' })
   await ctx.plugin(ToolFs)
+  // Keep the developer's real ~/.dsh and ~/.agents out of the model-visible baseline.
+  vi.stubEnv('DSH_HOME', join(workdir, 'absent-dsh'))
+  vi.stubEnv('DSH_AGENTS_HOME', join(workdir, 'absent-agents'))
   await ctx.plugin(AgentInstructions, { maxBytes: 65536 })
   await ctx.plugin(AgentLoop, { agents: [] })
   await ctx.plugin(LlmDeepSeek, { models: [{ id: 'deepseek-v4-flash' }] })

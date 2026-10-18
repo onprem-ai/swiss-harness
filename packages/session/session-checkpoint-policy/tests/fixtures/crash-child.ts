@@ -4,7 +4,7 @@ import AgentLoop from '@onprem-ai/dsh-agent-loop'
 import { mountAgentLoopTestDependencies } from '@onprem-ai/dsh-agent-loop-testkit'
 import { createUserMessage, ToolCallId, type GenerateOptions, LlmAdapter, type StreamChunk  } from '@onprem-ai/dsh-llm'
 import { SessionId } from '@onprem-ai/dsh-session'
-import JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
+import * as JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
 import * as checkpointPolicy from '../../src/index.ts'
 
 function waitForCrash(): Promise<never> {

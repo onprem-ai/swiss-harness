@@ -3,6 +3,15 @@
 - id: system-prompt
   name: '@onprem-ai/dsh-system-prompt'
 
+- id: fs
+  name: '@onprem-ai/dsh-fs-local'
+
+- id: session-projections
+  name: '@onprem-ai/dsh-session-projection'
+
+- id: working-directory
+  name: '@onprem-ai/dsh-working-directory'
+
 - id: tools
   name: '@onprem-ai/dsh-tools'
 

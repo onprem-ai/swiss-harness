@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-tool-bash-persistent",
   "description": "Model-facing owner-scoped persistent Bash tool backed by the Harness PTY service",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -18,9 +18,11 @@
       "types": "./lib/types/index.d.ts",
       "default": "./lib/index.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "files": [
+    "locale/*.json",
     "lib/index.js",
     "lib/types/**/*.d.ts"
   ],
@@ -31,7 +33,8 @@
     "@onprem-ai/dsh-terminal": "workspace:*",
     "@onprem-ai/dsh-timeout": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
-    "@onprem-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   },
   "dependencies": {
     "@onprem-ai/schemastery": "workspace:~"
@@ -53,6 +56,7 @@
     "@onprem-ai/dsh-timeout": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
     "@onprem-ai/cordis": "workspace:~",
-    "@onprem-ai/dsh-session-projection": "workspace:*"
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   }
 }

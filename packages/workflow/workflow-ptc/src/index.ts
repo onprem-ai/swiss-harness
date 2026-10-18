@@ -10,6 +10,7 @@ import * as vm from 'node:vm'
 import type { Context } from '@onprem-ai/cordis'
 import type {} from '@onprem-ai/dsh-ptc-runtime'
 import type {} from '@onprem-ai/dsh-sandbox-policy'
+import type {} from '@onprem-ai/dsh-working-directory'
 import z from '@onprem-ai/schemastery'
 import WorkflowEngine, { WorkflowError, WorkflowRunId } from '@onprem-ai/dsh-workflow'
 import type { WorkflowRun, WorkflowRunInfo, WorkflowStartRequest } from '@onprem-ai/dsh-workflow'
@@ -100,7 +101,7 @@ function resolveMaxTotalAgents(requested: number | undefined, ceiling: number): 
  * the seam contract.
  */
 class PtcWorkflowEngine extends WorkflowEngine {
-  static inject = ['subagents', 'ptcRuntime', 'sandboxPolicy']
+  static inject = ['subagents', 'ptcRuntime', 'sandboxPolicy', 'workingDirectory']
 
   static Config: z<Config> = z.object({
     provider: z.string().default('spawn'),

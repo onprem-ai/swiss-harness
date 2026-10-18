@@ -22,7 +22,8 @@ describe('Python runtime executable assets', () => {
 
     expect(result.status).toBe(0)
     expect(result.stdout).toContain('node_modules/@onprem-ai/dsh-web-frontend/dist/**/*')
-    expect(result.stdout).toContain('node_modules/@onprem-ai/dsh-skill-badge/assets/**/*')
+    expect(result.stdout).toContain('node_modules/@onprem-ai/dsh-*/**/*.{svg,png,jpg,jpeg,webp}')
+    expect(result.stdout).not.toContain('skill-badge/assets/**/*')
     expect(result.stdout).toContain('node_modules/@onprem-ai/dsh-sandbox-windows-acl/assets/**/*')
     expect(result.stdout).not.toContain('node_modules/**/*.py')
   })

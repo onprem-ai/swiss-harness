@@ -40,4 +40,4 @@ Every item is answered with a finding, a file reference, and a verdict (`ok`, `m
 
 ## Sign-off
 
-Each review file ends with reviewer name, date, upstream tag, upstream commit hash, and the list of `open` items accepted for release.
+Each review file ends with reviewer name, date, upstream tag, and the list of `open` items accepted for release.

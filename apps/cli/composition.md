@@ -30,6 +30,8 @@ flowchart LR
   cfg --> plugin_dsh_base_typert_loader
   plugin_dsh_base_typert_gateway["typert-gateway<br/>@onprem-ai/dsh-api-gateway"]
   cfg --> plugin_dsh_base_typert_gateway
+  plugin_dsh_base_remote_access["remote-access<br/>@onprem-ai/dsh-api-remote-access"]
+  cfg --> plugin_dsh_base_remote_access
   plugin_dsh_base_session_title["session-title<br/>@onprem-ai/dsh-session-title"]
   cfg --> plugin_dsh_base_session_title
   plugin_dsh_base_session_title_llm["session-title-llm<br/>@onprem-ai/dsh-session-title-first-prompt-llm"]
@@ -64,6 +66,10 @@ flowchart LR
   cfg --> plugin_dsh_base_attachment_local
   plugin_dsh_base_session_query_sqlite["session-query-sqlite<br/>@onprem-ai/dsh-session-query-sqlite"]
   cfg --> plugin_dsh_base_session_query_sqlite
+  plugin_dsh_base_working_directory["working-directory<br/>@onprem-ai/dsh-working-directory"]
+  cfg --> plugin_dsh_base_working_directory
+  plugin_dsh_base_tool_working_directory["tool-working-directory<br/>@onprem-ai/dsh-tool-working-directory"]
+  cfg --> plugin_dsh_base_tool_working_directory
   plugin_dsh_base_session_projection["session-projection<br/>@onprem-ai/dsh-session-projection"]
   cfg --> plugin_dsh_base_session_projection
   plugin_dsh_base_storage["storage<br/>@onprem-ai/dsh-storage"]
@@ -112,8 +118,6 @@ flowchart LR
   cfg --> plugin_dsh_base_skill
   plugin_dsh_base_skill_filesystem["skill-filesystem<br/>@onprem-ai/dsh-skill-filesystem"]
   cfg --> plugin_dsh_base_skill_filesystem
-  plugin_dsh_base_skill_badge["skill-badge<br/>@onprem-ai/dsh-skill-badge"]
-  cfg --> plugin_dsh_base_skill_badge
   plugin_dsh_base_tool_skill["tool-skill<br/>@onprem-ai/dsh-tool-skill"]
   cfg --> plugin_dsh_base_tool_skill
   plugin_dsh_base_commands["commands<br/>@onprem-ai/dsh-commands"]
@@ -170,14 +174,14 @@ flowchart LR
   cfg --> plugin_dsh_base_tool_todo
   plugin_dsh_base_tool_goal["tool-goal<br/>@onprem-ai/dsh-tool-goal"]
   cfg --> plugin_dsh_base_tool_goal
-  plugin_dsh_base_tool_ralph["tool-ralph<br/>@onprem-ai/dsh-tool-ralph"]
-  cfg --> plugin_dsh_base_tool_ralph
   plugin_dsh_base_repeat_tool_reminder["repeat-tool-reminder<br/>@onprem-ai/dsh-repeat-tool-reminder"]
   cfg --> plugin_dsh_base_repeat_tool_reminder
   plugin_dsh_base_web["web<br/>@onprem-ai/dsh-web"]
   cfg --> plugin_dsh_base_web
   plugin_dsh_base_web_search_deepseek["web-search-deepseek<br/>@onprem-ai/dsh-web-search-deepseek"]
   cfg --> plugin_dsh_base_web_search_deepseek
+  plugin_dsh_base_web_deepseek_api["web-deepseek-api<br/>@onprem-ai/dsh-web-deepseek-api"]
+  cfg --> plugin_dsh_base_web_deepseek_api
   plugin_dsh_base_web_fetch_http["web-fetch-http<br/>@onprem-ai/dsh-web-fetch-http"]
   cfg --> plugin_dsh_base_web_fetch_http
   plugin_dsh_base_tool_web["tool-web<br/>@onprem-ai/dsh-tool-web"]
@@ -211,6 +215,7 @@ flowchart LR
 | `typert` | `@onprem-ai/dsh-typert-registry` |
 | `typert-loader` | `@onprem-ai/dsh-typert-loader` |
 | `typert-gateway` | `@onprem-ai/dsh-api-gateway` |
+| `remote-access` | `@onprem-ai/dsh-api-remote-access` |
 | `session-title` | `@onprem-ai/dsh-session-title` |
 | `session-title-llm` | `@onprem-ai/dsh-session-title-first-prompt-llm` |
 | `user-questions` | `@onprem-ai/dsh-user-questions` |
@@ -228,6 +233,8 @@ flowchart LR
 | `session-persistence-jsonl` | `@onprem-ai/dsh-session-persistence-jsonl` |
 | `attachment-local` | `@onprem-ai/dsh-attachment-local` |
 | `session-query-sqlite` | `@onprem-ai/dsh-session-query-sqlite` |
+| `working-directory` | `@onprem-ai/dsh-working-directory` |
+| `tool-working-directory` | `@onprem-ai/dsh-tool-working-directory` |
 | `session-projection` | `@onprem-ai/dsh-session-projection` |
 | `storage` | `@onprem-ai/dsh-storage` |
 | `storage-json` | `@onprem-ai/dsh-storage-json` |
@@ -252,7 +259,6 @@ flowchart LR
 | `agent-instructions` | `@onprem-ai/dsh-agent-instructions` |
 | `skill` | `@onprem-ai/dsh-skill` |
 | `skill-filesystem` | `@onprem-ai/dsh-skill-filesystem` |
-| `skill-badge` | `@onprem-ai/dsh-skill-badge` |
 | `tool-skill` | `@onprem-ai/dsh-tool-skill` |
 | `commands` | `@onprem-ai/dsh-commands` |
 | `command-feedback` | `@onprem-ai/dsh-command-feedback` |
@@ -281,10 +287,10 @@ flowchart LR
 | `image-offload` | `@onprem-ai/dsh-compaction-image-offload` |
 | `tool-todo` | `@onprem-ai/dsh-tool-todo` |
 | `tool-goal` | `@onprem-ai/dsh-tool-goal` |
-| `tool-ralph` | `@onprem-ai/dsh-tool-ralph` |
 | `repeat-tool-reminder` | `@onprem-ai/dsh-repeat-tool-reminder` |
 | `web` | `@onprem-ai/dsh-web` |
 | `web-search-deepseek` | `@onprem-ai/dsh-web-search-deepseek` |
+| `web-deepseek-api` | `@onprem-ai/dsh-web-deepseek-api` |
 | `web-fetch-http` | `@onprem-ai/dsh-web-fetch-http` |
 | `tool-web` | `@onprem-ai/dsh-tool-web` |
 | `mcp-resources` | `@onprem-ai/dsh-mcp-resources` |

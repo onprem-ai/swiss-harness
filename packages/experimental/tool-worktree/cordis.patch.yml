@@ -1,0 +1,5 @@
+- insert:
+    - id: worktree
+      name: '@onprem-ai/dsh-experimental-worktree'
+    - id: tool-worktree
+      name: '@onprem-ai/dsh-experimental-tool-worktree'

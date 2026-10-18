@@ -61,7 +61,7 @@ Nothing, by default. The table lists each upstream row that reaches a network en
 | `deepseek-account`, `account-controller`, `ui-settings-account`, `llm-deepseek-account` | vendor account sign-in | disabled |
 | `deepseek-llm-api-extensions`, `session-log-deepseek`, `plugin-package-inventory-deepseek` | vendor-specific request fields | disabled |
 | `llm-deepseek` | direct adapter to the vendor's public API | disabled |
-| `web-search-deepseek` | hosted search | disabled; `web` keeps the `http` fetch provider only |
+| `web-search-deepseek`, `web-deepseek-api` | hosted search and fetch via the vendor API | disabled; `web` keeps the `http` fetch provider only |
 | `message-feedback`, `ui-message-feedback`, `command-feedback` | feedback that releases telemetry | disabled |
 | `plugin-manager` | public registry with a mirror fallback | `DSH_PLUGIN_REGISTRY` only, no fallback |
 | `web-fetch-http` | upstream User-Agent | `swiss-harness/…` |

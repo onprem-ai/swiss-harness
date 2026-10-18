@@ -6,7 +6,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import Schema from '@onprem-ai/schemastery'
 import type { SettingsNamespaceView } from '@onprem-ai/dsh-api-remotes/client'
 import type { JsonValue } from '@onprem-ai/dsh-util-values'
-import { bindSnapshotSelector, RemoteError } from '@onprem-ai/dsh-client-test-runtime'
+import { allowAllAccess, bindSnapshotSelector, RemoteError } from '@onprem-ai/dsh-client-test-runtime'
 import { DeepSeekOnboardingDialog } from '../src/client/DeepSeekOnboardingDialog.tsx'
 import type { DeepSeekOnboardingDialogProps } from '../src/client/DeepSeekOnboardingDialog.tsx'
 import { SettingsDescribeMirror } from '@onprem-ai/dsh-client-ui-settings/src/client/settings-mirror.ts'
@@ -152,6 +152,7 @@ function harness(options: {
     useSessionStatus,
     usePanelInfo, useSessionRetainInfo: () => undefined, useResource,
     useWorkspaces: unusedHook,
+    ...allowAllAccess,
     controller,
     useModels: bindSnapshotSelector(controller.store),
     operations,

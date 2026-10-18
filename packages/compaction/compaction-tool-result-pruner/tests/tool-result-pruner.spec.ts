@@ -3,14 +3,12 @@ import { describe, expect, it } from 'vitest'
 import { Context } from '@onprem-ai/cordis'
 import { ToolCallId , createMessage, createToolResultMessage } from '@onprem-ai/dsh-llm'
 import type { ContentBlock } from '@onprem-ai/dsh-llm'
-import SessionStore, {
+import {
   Session,
   SessionId,
   SessionSeq,
 } from '@onprem-ai/dsh-session'
 import type { SurfaceEvent } from '@onprem-ai/dsh-session'
-import * as SessionInvariant from '@onprem-ai/dsh-session/invariant'
-import InvariantRegistry from '@onprem-ai/dsh-invariants'
 import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
 import TokenMeter from '@onprem-ai/dsh-token-meter'
 import ToolResultPruner, {
@@ -278,22 +276,5 @@ describe('ToolResultPruner session transaction', () => {
     const replay = Session.create(session.id, session.snapshotEvents())
     expect(replay.deriveMessages()).toEqual(session.deriveMessages())
     expect(replay.surface.replaceGeneration).toBe(session.surface.replaceGeneration)
-  })
-
-  it('runs under real invariants between closed steps but not outside a turn', async () => {
-    const ctx = new Context()
-    await ctx.plugin(SessionStore)
-    await ctx.plugin(SessionProjectionRegistry)
-    await ctx.plugin(InvariantRegistry)
-    await ctx.plugin(SessionInvariant)
-    await ctx.plugin(TokenMeter)
-    const prune = new ToolResultPruner(ctx, SMALL)
-    const session = ctx.sessions.create(SessionId('invariants'))
-    appendToolStep(session, 1, 'a', [{ type: 'text', text: 'A'.repeat(100) }])
-    expect(() => prune.pruneSession(session)).toThrow(/outside any open turn/)
-    session.append('turn/start', {
-      turn: 2,
-    })
-    expect(() => prune.pruneSession(session)).not.toThrow()
   })
 })

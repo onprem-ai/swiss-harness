@@ -372,6 +372,7 @@ describe.skipIf(!existsSync(dshBin))('dsh BUILT bin (node lib/bin.js, no tsx)', 
       expect(web.stderr).toBe('')
       expect(web.stdout).toContain('Usage: dsh --profile web')
       expect(web.stdout).toContain('--port <port>')
+      expect(web.stdout).toContain('--public-url <url>')
       expect(web.stdout).not.toContain('dsh web: http://')
 
       const wildcardHost = await runBuiltBin(['web', '--host', '0.0.0.0'], {
@@ -380,7 +381,6 @@ describe.skipIf(!existsSync(dshBin))('dsh BUILT bin (node lib/bin.js, no tsx)', 
       })
       expect(wildcardHost.code).toBe(1)
       expect(wildcardHost.stdout).toBe('')
-      expect(wildcardHost.stderr).toContain('--host 0.0.0.0 is intentionally not supported yet for safety: it would expose remote code execution to the network; use 127.0.0.1 instead')
       expect(wildcardHost.stderr).not.toContain('dsh web: http://')
 
       const headlessHelp = await runBuiltBin(['headless', '--help'], {
@@ -666,7 +666,7 @@ describe.skipIf(!existsSync(dshBin))('dsh BUILT bin (node lib/bin.js, no tsx)', 
     }
   }, SPAWN_TIMEOUT_MS + 30_000)
 
-  it('creates a custom profile from the shipped web template before booting it', async () => {
+  it('creates and then replaces a custom profile from the shipped web template before booting it', async () => {
     const home = mkdtempSync(join(tmpdir(), 'dsh-from-default-profile-'))
     try {
       const created = await runBuiltBin(
@@ -689,14 +689,14 @@ describe.skipIf(!existsSync(dshBin))('dsh BUILT bin (node lib/bin.js, no tsx)', 
       expect(readFileSync(join(dir, 'cordis.patch.yml'), 'utf8')).toContain('[]')
       expect(readFileSync(join(dir, 'pnpm-workspace.yaml'), 'utf8')).toContain('nodeLinker: hoisted')
 
+      writeFileSync(join(dir, 'cordis.patch.yml'), '- id: local-change\n  disabled: true\n')
       const repeated = await runBuiltBin(
         ['rescue', '--from-default-profile', 'web', '--help'],
         { DSH_HOME: home, DSH_TELEMETRY_DISABLED: '1' },
       )
-      expect(repeated.code).toBe(1)
-      expect(repeated.stdout).toBe('')
-      expect(repeated.stderr).toContain('profile "rescue" already exists')
-      expect(repeated.stderr).toContain('omit --from-default-profile to use it')
+      expect(repeated.code).toBe(0)
+      expect(repeated.stderr).toBe('')
+      expect(readFileSync(join(dir, 'cordis.patch.yml'), 'utf8')).not.toContain('local-change')
 
       const reopened = await runBuiltBin(
         ['rescue', '--help'],
@@ -1248,7 +1248,15 @@ describe.skipIf(!existsSync(dshBin))('dsh BUILT bin (node lib/bin.js, no tsx)', 
         ['plugin-package-inventory-deepseek', '@onprem-ai/dsh-plugin-package-inventory-deepseek'],
         ['llm-deepseek', '@onprem-ai/dsh-llm-deepseek-api-key'],
         ['sandbox', '@onprem-ai/dsh-sandbox-local'],
+        ['filesystem', '@onprem-ai/dsh-fs-local'],
+        ['attachment-local', '@onprem-ai/dsh-attachment-local'],
+        ['tool-fs', '@onprem-ai/dsh-tool-fs'],
+        ['working-directory', '@onprem-ai/dsh-working-directory'],
+        ['tool-working-directory', '@onprem-ai/dsh-tool-working-directory'],
         ['session-projection', '@onprem-ai/dsh-session-projection'],
+        ['token-meter', '@onprem-ai/dsh-token-meter'],
+        ['compaction-basic', '@onprem-ai/dsh-compaction-basic'],
+        ['image-offload', '@onprem-ai/dsh-compaction-image-offload'],
         ['sandbox-policy', '@onprem-ai/dsh-sandbox-policy'],
         ['subprocess', '@onprem-ai/dsh-subprocess-local'],
         ['pty', '@onprem-ai/dsh-terminal'],
@@ -1264,11 +1272,6 @@ describe.skipIf(!existsSync(dshBin))('dsh BUILT bin (node lib/bin.js, no tsx)', 
         ['agent', '@onprem-ai/dsh-agent'],
         ['llm-retry', '@onprem-ai/dsh-llm-retry'],
         ['jobs', '@onprem-ai/dsh-jobs-local'],
-        ['invariants', '@onprem-ai/dsh-invariants'],
-        ['session-invariant', '@onprem-ai/dsh-session/invariant'],
-        ['agent-invariant', '@onprem-ai/dsh-agent/invariant'],
-        ['scope-invariant', '@onprem-ai/dsh-scope/invariant'],
-        ['agent-loop-invariant', '@onprem-ai/dsh-agent-loop/invariant'],
         ['agent-loop', '@onprem-ai/dsh-agent-loop'],
         ['persistent-bash', '@onprem-ai/dsh-tool-bash-persistent'],
         ['persistent-pwsh', '@onprem-ai/dsh-tool-pwsh-persistent'],

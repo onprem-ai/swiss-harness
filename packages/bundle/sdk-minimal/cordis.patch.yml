@@ -35,8 +35,37 @@
 
     # Shared projection registry: sandbox-policy and terminal-bash fold
     # sandbox-mode state through its units and require it as a hard injection.
+    - id: filesystem
+      name: '@onprem-ai/dsh-fs-local'
+
+    - id: attachment-local
+      name: '@onprem-ai/dsh-attachment-local'
+
+    - id: tool-fs
+      name: '@onprem-ai/dsh-tool-fs'
+      config:
+        read: false
+        readImage: true
+        write: false
+        edit: false
+
+    - id: working-directory
+      name: '@onprem-ai/dsh-working-directory'
+
+    - id: tool-working-directory
+      name: '@onprem-ai/dsh-tool-working-directory'
+
     - id: session-projection
       name: '@onprem-ai/dsh-session-projection'
+
+    - id: token-meter
+      name: '@onprem-ai/dsh-token-meter'
+
+    - id: compaction-basic
+      name: '@onprem-ai/dsh-compaction-basic'
+
+    - id: image-offload
+      name: '@onprem-ai/dsh-compaction-image-offload'
 
     - id: sandbox-policy
       name: '@onprem-ai/dsh-sandbox-policy'
@@ -102,21 +131,6 @@
 
     - id: jobs
       name: '@onprem-ai/dsh-jobs-local'
-
-    - id: invariants
-      name: '@onprem-ai/dsh-invariants'
-
-    - id: session-invariant
-      name: '@onprem-ai/dsh-session/invariant'
-
-    - id: agent-invariant
-      name: '@onprem-ai/dsh-agent/invariant'
-
-    - id: scope-invariant
-      name: '@onprem-ai/dsh-scope/invariant'
-
-    - id: agent-loop-invariant
-      name: '@onprem-ai/dsh-agent-loop/invariant'
 
     - id: agent-loop
       name: '@onprem-ai/dsh-agent-loop'

@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-web-frontend",
   "description": "Web application entry: vite build over the @onprem-ai/dsh-client-web shell library; dist/ served by apps/cli's dsh web",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -46,26 +46,29 @@
     "@onprem-ai/dsh-experimental-webworker-packer": "workspace:*",
     "@onprem-ai/dsh-experimental-webworker-runtime": "workspace:*",
     "@onprem-ai/dsh-remote-mock": "workspace:*",
-    "@types/node": "^22.0.0",
-    "@types/react": "~18.3.1",
-    "@types/react-dom": "~18.3.0",
+    "@onprem-ai/dsh-session-projection-cache": "workspace:*",
+    "@onprem-ai/dsh-util-values": "workspace:*",
+    "@types/node": "^22.20.1",
     "@types/ws": "8.18.1",
-    "@vitejs/plugin-react": "^4.0.0",
+    "@vitejs/plugin-react": "^4.7.0",
     "http-server": "^14.1.1",
     "fflate": "^0.8.2",
     "playwright": "^1.49.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^6.0.3",
-    "vite": "^6.0.0",
-    "vitest": "^4.1.8",
-    "ws": "8.21.0",
+    "vite": "^6.4.3",
+    "vitest": "^4.1.11",
+    "ws": "8.21.3",
     "@onprem-ai/dsh-client-ui-theme": "workspace:*",
     "@onprem-ai/dsh-launch-environment": "workspace:*",
     "@onprem-ai/dsh-workspace-changes": "workspace:*",
     "@onprem-ai/dsh-subprocess-local": "workspace:*",
     "@onprem-ai/dsh-experimental-auto-review": "workspace:*",
     "@onprem-ai/dsh-experimental-speech-to-text": "workspace:*",
-    "@onprem-ai/dsh-experimental-voice-input-bundle": "workspace:*"
+    "@onprem-ai/dsh-experimental-voice-input-bundle": "workspace:*",
+    "@onprem-ai/dsh-experimental-cot-translation-bundle": "workspace:*",
+    "@onprem-ai/dsh-experimental-worktree": "workspace:*",
+    "@onprem-ai/dsh-experimental-plugin-market-bundle": "workspace:*"
   }
 }

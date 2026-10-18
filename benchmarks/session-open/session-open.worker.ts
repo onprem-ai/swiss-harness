@@ -13,7 +13,7 @@ import SessionStore, {
   SessionPreparation,
 } from '@onprem-ai/dsh-session'
 import type { AgentHandle } from '@onprem-ai/dsh-agent'
-import JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
+import * as JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
 import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
 import SessionQueryEngine from '@onprem-ai/dsh-session-query'
 import type {

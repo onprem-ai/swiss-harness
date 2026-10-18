@@ -2,7 +2,7 @@
 
 Status: **in progress**. The network egress section is complete and drives the `dsh-onprem-app` overlay. Supply chain, execution surface and artefact sections are still open.
 
-Upstream tag `dsh-v0.2.0-rc.2`, commit `639ed015397290b3745d163aafe02ffee4aa3f84`, released 2026-09-29. Review started 2026-10-03.
+Upstream tag `dsh-v0.2.0-rc.2`, released 2026-09-29; the exact tree is the `upstream/dsh-v0.2.0-rc.2` tag in this repository. Review started 2026-10-03.
 
 ## Network egress
 
@@ -61,4 +61,8 @@ Not started.
 
 ## Sign-off
 
-Not signed off. Open items so far: desktop update origin, Plugins page registry ping, Python runtime wheel provenance.
+Not signed off. Open items so far: desktop update origin, Plugins page registry ping, the origin of the Python runtime wheel binary.
+
+## Delta to upstream dsh-v0.2.1-rc.2 (sync of 2026-10-18)
+
+Upstream added one row that reaches a vendor endpoint by default: `web-deepseek-api` (`packages/web/web-deepseek-api`, DeepSeek Search and Fetch at `api.deepseek.com/v1/tools`, keyed by `DEEPSEEK_API_KEY`). The overlay disables it. New hostnames in runtime code since the previous tag, all behind opt-in provider routes and not mounted by the onprem profile: `token-plan.*.maas.aliyuncs.com`, `token-plan-*.xiaomimimo.com`, `open.bigmodel.cn`, `openrouter.ai`, `translate.googleapis.com` (the experimental chain-of-thought translation bundle, not in the default roster). `remote-access` is a local access-control package with no network use. The remaining rows this review disables are unchanged and still present. A full review of `dsh-v0.2.1-rc.2` is pending; this delta covers network egress only.

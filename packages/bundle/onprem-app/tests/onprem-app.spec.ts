@@ -11,11 +11,15 @@ import { resolve } from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import * as yaml from 'js-yaml'
 import { entryListSchema } from '@onprem-ai/cordis-plugin-include'
-import { evaluate } from '@onprem-ai/cordis-plugin-loader'
+import { evaluate as evaluateExpression } from '@onprem-ai/cordis-plugin-loader'
 import type { PatchOptions } from '@onprem-ai/cordis-plugin-include'
 import { composeEntries } from '@onprem-ai/dsh-app-boot'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
+
+/** The loader evaluator, typed as the untyped JSON it yields. */
+const evaluate: (scope: object, expression: string) => JsonValue = evaluateExpression
+type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue }
 
 function layer(packageDir: string): PatchOptions[] {
   const manifest = JSON.parse(readFileSync(resolve(packageDir, 'package.json'), 'utf8')) as {
@@ -48,6 +52,7 @@ const EGRESS_ROWS = [
   'plugin-package-inventory-deepseek',
   'llm-deepseek',
   'web-search-deepseek',
+  'web-deepseek-api',
   'message-feedback',
   'ui-message-feedback',
   'command-feedback',
@@ -62,7 +67,7 @@ function composed(env: Record<string, string | undefined> = {}) {
     const config = row.config as Record<string, unknown> | undefined
     const field = config?.[key]
     return field !== null && typeof field === 'object' && '__jsExpr' in field
-      ? evaluate(scope, (field as { __jsExpr: string }).__jsExpr) as unknown
+      ? evaluate(scope, (field as { __jsExpr: string }).__jsExpr)
       : field
   }
   return { rows, warnings, value, row: (id: string) => rows.find(entry => entry.id === id) }
@@ -127,7 +132,7 @@ describe('dsh-onprem-app bundle', () => {
     expect(providers).toMatchObject({
       onprem: {
         models: [{ id: 'default', contextWindow: 131072 }],
-        headers: { Authorization: expect.stringMatching(/^Bearer /u) as unknown },
+        headers: { Authorization: expect.stringMatching(/^Bearer /u) as string },
       },
     })
     expect(JSON.stringify(providers)).not.toContain('apiKeyEnv')

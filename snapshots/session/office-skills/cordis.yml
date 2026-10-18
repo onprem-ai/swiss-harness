@@ -1,5 +1,5 @@
 - insert:
-    - id: office-skills
+    - id: skill-office
       name: '@onprem-ai/dsh-skill-office'
       config:
         assetRoot: !!js process.cwd() + '/office-skills'

@@ -13,6 +13,7 @@ import Loader from '@onprem-ai/cordis-plugin-loader'
 import Include from '@onprem-ai/cordis-plugin-include'
 import SessionStore, { SessionId } from '@onprem-ai/dsh-session'
 import LocalSubprocessRuntime from '@onprem-ai/dsh-subprocess-local'
+import LocalFileSystem from '@onprem-ai/dsh-fs-local'
 import * as WorkspaceChangesPlugin from '@onprem-ai/dsh-workspace-changes'
 import { changes, endTurn, git, startTurn, toolCall } from './support.ts'
 
@@ -33,6 +34,7 @@ describe('real Loader composition', () => {
     await writeFile(join(root, 'cordis.yml'), [
       "- name: '@onprem-ai/dsh-session'",
       "- name: '@onprem-ai/dsh-subprocess-local'",
+      "- name: '@onprem-ai/dsh-fs-local'",
       "- name: '@onprem-ai/dsh-workspace-changes'",
       '',
     ].join('\n'))
@@ -43,6 +45,7 @@ describe('real Loader composition', () => {
     const modules = new Map<string, unknown>([
       ['@onprem-ai/dsh-session', SessionStore],
       ['@onprem-ai/dsh-subprocess-local', LocalSubprocessRuntime],
+      ['@onprem-ai/dsh-fs-local', LocalFileSystem],
       ['@onprem-ai/dsh-workspace-changes', WorkspaceChangesPlugin],
     ])
     context.loader.internal = {

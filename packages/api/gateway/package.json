@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-api-gateway",
   "description": "Typert Remote Host dispatcher and Client API endpoint",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -20,7 +20,9 @@
     },
     "./client": {
       "types": "./lib/types/client/index.d.ts",
-      "default": "./lib/client.js"
+      "node": "./lib/client.node.js",
+      "browser": "./lib/client.browser.js",
+      "default": "./lib/client.browser.js"
     },
     "./types": {
       "types": "./lib/types/types.d.ts",
@@ -31,7 +33,8 @@
     "./stream-protocol": {
       "types": "./lib/types/stream-protocol.d.ts",
       "default": "./lib/types/stream-protocol.js"
-    }
+    },
+    "./locale/*.json": "./locale/*.json"
   },
   "dsh": {
     "client": {
@@ -48,8 +51,10 @@
     "watch": "tsdown --watch"
   },
   "files": [
+    "locale/*.json",
     "lib/index.js",
-    "lib/client.js",
+    "lib/client.browser.js",
+    "lib/client.node.js",
     "lib/types/**/*.js",
     "lib/types/**/*.d.ts"
   ],
@@ -58,14 +63,14 @@
     "@onprem-ai/dsh-deque": "workspace:*",
     "@onprem-ai/dsh-timeout": "workspace:*",
     "@onprem-ai/schemastery": "workspace:~",
-    "ws": "^8.21.0",
+    "ws": "^8.21.3",
     "@onprem-ai/dsh-typert-protocol": "workspace:*"
   },
   "peerDependencies": {
-    "@onprem-ai/cordis": "workspace:~",
-    "@onprem-ai/dsh-client-connection": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~"
   },
   "devDependencies": {
+    "@onprem-ai/dsh-api-remote-access": "workspace:*",
     "@onprem-ai/dsh-brand": "workspace:*",
     "@onprem-ai/dsh-cmdline": "workspace:*",
     "@onprem-ai/dsh-client-connection": "workspace:*",
@@ -75,6 +80,6 @@
     "@onprem-ai/dsh-util-crypto": "workspace:*",
     "@types/ws": "^8.18.1",
     "@onprem-ai/cordis": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "4.4.3"
   }
 }

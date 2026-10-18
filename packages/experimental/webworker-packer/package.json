@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-experimental-webworker-packer",
   "description": "Build-time packer for the browser runtime's base VFS image and ordered data-overlay archives",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -34,18 +34,18 @@
   "license": "MIT",
   "dependencies": {
     "@onprem-ai/cordis-plugin-include": "workspace:~",
+    "@onprem-ai/dsh-app-boot": "workspace:*",
     "@onprem-ai/dsh-experimental-webworker-runtime": "workspace:*",
-    "@onprem-ai/dsh-home-paths": "workspace:*",
     "@onprem-ai/dsh-session-format": "workspace:*",
     "@onprem-ai/dsh-session-format-catalog": "workspace:*",
     "@onprem-ai/dsh-session-format-v3-to-v4": "workspace:*",
-    "js-yaml": "^4.2.0",
-    "picomatch": "^4.0.4"
+    "js-yaml": "^4.3.2",
+    "picomatch": "^4.0.7"
   },
   "devDependencies": {
     "@onprem-ai/cordis": "workspace:~",
     "@types/js-yaml": "^4.0.9",
-    "@types/picomatch": "^3.0.2"
+    "@types/picomatch": "^4.0.3"
   },
   "peerDependencies": {
     "@onprem-ai/cordis": "workspace:~"

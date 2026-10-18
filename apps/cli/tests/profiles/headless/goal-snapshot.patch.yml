@@ -24,6 +24,9 @@
 - insert:
     - id: llm-replay
       name: '@onprem-ai/dsh-llm-replay'
+      config:
+        providers:
+          - id: deepseek-official
 
 - id: session-log-deepseek
   config:

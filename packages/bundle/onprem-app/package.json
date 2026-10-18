@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-onprem-app",
   "description": "The on-premises deployment bundle: the patch layer over dsh-base and dsh-web-app that turns vendor egress off, routes the model to the customer's endpoint, and presents as Swiss Harness",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },

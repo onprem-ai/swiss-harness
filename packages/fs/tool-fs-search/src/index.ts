@@ -26,6 +26,7 @@
  * @module @onprem-ai/dsh-tool-fs-search
  */
 
+import type {} from '@onprem-ai/dsh-working-directory'
 import type { Context } from '@onprem-ai/cordis'
 import z from '@onprem-ai/schemastery'
 import { MAX_TIMER_DELAY_MS } from '@onprem-ai/dsh-timeout'
@@ -67,7 +68,7 @@ export type { GrepMatch, RipgrepRun, SearchErrorCode } from './search-core.ts'
 export const name = 'tool-fs-search'
 
 /** Services required by the search tool suite (`spillStore` is optional, read via `ctx.get()`). */
-export const inject = ['tools', 'systemPrompt', 'subprocess']
+export const inject = ['tools', 'systemPrompt', 'subprocess', 'workingDirectory']
 
 /** Plugin config; over-cap glob sampling is an explicit deployment choice and the remaining fields have defaults. */
 export interface Config {

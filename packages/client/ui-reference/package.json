@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-client-ui-reference",
   "description": "Unified Web @file and @session reference source",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -23,7 +23,8 @@
       "default": "./lib/client.js"
     },
     "./src/*": "./src/*",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "dsh": {
     "client": {
@@ -32,6 +33,8 @@
         "@onprem-ai/dsh-api-session-controller",
         "@onprem-ai/dsh-client-connection",
         "@onprem-ai/dsh-client-locale",
+        "@onprem-ai/dsh-client-ui-conversation",
+        "@onprem-ai/dsh-client-ui-renderer",
         "@onprem-ai/dsh-client-ui-input-trigger",
         "@onprem-ai/dsh-client-ui-sidebar-right"
       ],
@@ -52,8 +55,11 @@
     "@onprem-ai/dsh-client-connection": "workspace:*",
     "@onprem-ai/dsh-client-locale": "workspace:*",
     "@onprem-ai/dsh-client-test-runtime": "workspace:*",
+    "@onprem-ai/dsh-client-ui-conversation": "workspace:*",
+    "react": "^18.2.0",
     "@onprem-ai/dsh-client-ui-input-trigger": "workspace:*",
     "@onprem-ai/dsh-client-ui-primitives": "workspace:*",
+    "@onprem-ai/dsh-client-ui-renderer": "workspace:*",
     "@onprem-ai/dsh-client-ui-slots": "workspace:*",
     "@onprem-ai/dsh-file-reference": "workspace:*",
     "@onprem-ai/dsh-session-reference": "workspace:*",
@@ -63,6 +69,7 @@
     "@onprem-ai/dsh-client-ui-sidebar-right": "workspace:*"
   },
   "files": [
+    "locale/*.json",
     "lib/index.js",
     "lib/client.js",
     "lib/types/**/*.d.ts"

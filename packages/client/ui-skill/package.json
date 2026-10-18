@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-client-ui-skill",
   "description": "Web skill references and the dedicated skill tool row",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -23,13 +23,15 @@
       "default": "./lib/client.js"
     },
     "./src/*": "./src/*",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "dsh": {
     "client": {
       "inject": [
         "@onprem-ai/dsh-api-session-controller",
         "@onprem-ai/dsh-client-locale",
+        "@onprem-ai/dsh-client-ui-conversation",
         "@onprem-ai/dsh-client-ui-renderer",
         "@onprem-ai/dsh-client-ui-tool",
         "@onprem-ai/dsh-client-ui-input-trigger",
@@ -53,21 +55,24 @@
     "@onprem-ai/dsh-client-connection": "workspace:*",
     "@onprem-ai/dsh-client-locale": "workspace:*",
     "@onprem-ai/dsh-client-test-runtime": "workspace:*",
+    "@onprem-ai/dsh-client-ui-conversation": "workspace:*",
     "@onprem-ai/dsh-client-ui-primitives": "workspace:*",
     "@onprem-ai/dsh-client-ui-input-trigger": "workspace:*",
     "@onprem-ai/dsh-client-ui-renderer": "workspace:*",
     "@onprem-ai/dsh-client-ui-slots": "workspace:*",
     "@onprem-ai/dsh-client-ui-tool": "workspace:*",
+    "@onprem-ai/dsh-plugin-manager": "workspace:*",
     "@onprem-ai/dsh-session": "workspace:*",
-    "@testing-library/react": "^16.1.0",
-    "@types/react": "~18.3.1",
+    "@testing-library/react": "^16.3.3",
     "@onprem-ai/cordis": "workspace:~",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "@onprem-ai/dsh-client-ui-sidebar-right": "workspace:*",
+    "@onprem-ai/dsh-util-values": "workspace:*",
     "@onprem-ai/dsh-util-workspace-path": "workspace:*"
   },
   "files": [
+    "locale/*.json",
     "lib/index.js",
     "lib/client.js",
     "lib/types/**/*.d.ts"

@@ -3,7 +3,7 @@ import type { GlobalStandardProps } from '@onprem-ai/dsh-client-ui-slots'
 import { createSnapshotStore } from '@onprem-ai/dsh-client-store'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { bindSnapshotSelector, RemoteError } from '@onprem-ai/dsh-client-test-runtime'
+import { allowAllAccess, bindSnapshotSelector, RemoteError } from '@onprem-ai/dsh-client-test-runtime'
 import type { SettingsNamespaceView } from '@onprem-ai/dsh-api-remotes/client'
 import { PermissionRow, type PermissionRowProps } from '../src/client/PermissionRow.tsx'
 import { zh } from '../src/client/locales.ts'
@@ -63,6 +63,7 @@ const runtime = {
   useSessionStatus,
   usePanelInfo, useSessionRetainInfo: () => undefined, useResource,
   useWorkspaces: (() => { throw new Error('unused') }) as never,
+  ...allowAllAccess,
 }
 
 function mount(controller: PermissionPresetSettingsController) {

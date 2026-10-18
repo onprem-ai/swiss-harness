@@ -12,20 +12,20 @@
   en: a15c7c13f167e5ac
   zh: 63bcc2ef60c2f344
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/three-independent-sequences:
-  en: 0f22015cdd92b184
-  zh: ebc41574b82f99dc
+  en: b80cc8b161a769d2
+  zh: a4fda7512ecfef7e
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/versions-land-in-the-repository-from-a-local-command-ci-only-checks-and-uploads:
   en: 71d4cda384013bfb
   zh: 909d853c18496925
-/agent-note-private-npm-publication-as-three-independent-sequences/decision/vendor-publish-what-changed-and-let-tags-be-the-ledger:
-  en: ce4911bde753f698
-  zh: fad7ca8d531ccb0a
+/agent-note-private-npm-publication-as-three-independent-sequences/decision/vendor-advance-the-complete-family-with-per-package-tags:
+  en: e41f18d4b38e50bc
+  zh: 84aa3406652467f0
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/publication-runs-only-on-github-and-the-registry-decides-what-goes-out:
-  en: 4f399390f58d7a34
-  zh: 9df67248acfc61c8
+  en: 8c8cd90e6eabe07d
+  zh: 7035b71a6eeeb379
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/workspace-internal-references-use-the-workspace-protocol:
-  en: 7e025e49c64f4e4c
-  zh: 0b8185dfbb2bcbfb
+  en: 82a7925d449fc283
+  zh: 653358a1ffbad80a
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/published-dependency-faces-use-an-explicit-policy:
   en: 30a64e0e919a27c0
   zh: 19729d7ebee35439
@@ -33,20 +33,17 @@
   en: d83f6cf38529c5b5
   zh: 4df5659b2154d3b7
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/release-family-objects:
-  en: e8bb80d936e2cbbd
-  zh: bc4ae297e98a5446
+  en: 5bc6a83d124b682d
+  zh: 17383ec5c3c7e0e5
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/workflow-shape-pack-on-pr-push-publish-from-a-manual-dispatch-workflow:
   en: ea0acc6409da4d5c
   zh: ac0bd2fe41f4fe67
 /agent-note-private-npm-publication-as-three-independent-sequences/decision/repository-changes-this-carried:
   en: c505237cad2c4128
   zh: 55364ba462536680
-/agent-note-private-npm-publication-as-three-independent-sequences/decision/relationship-to-the-earlier-proposal:
-  en: 298382a27013dcfb
-  zh: ab89cf392232f9bb
 /agent-note-private-npm-publication-as-three-independent-sequences/alternatives-considered:
-  en: 70402454ff24b549
-  zh: 7ed1f662c91b7b78
+  en: 3a9af2e05c5e3002
+  zh: bff6cfaae0ad4df2
 /agent-note-private-npm-publication-as-three-independent-sequences/consequences:
-  en: f961ebb927e30b5c
-  zh: 019f1628fb1f2c56
+  en: 46f82110175ea3f7
+  zh: 1cdd1c99bfb88440

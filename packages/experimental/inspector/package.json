@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-experimental-inspector",
   "description": "Experimental cross-realm CDP hub for Host debugging and Client Runtime inspection",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "icon": "./icon.svg",
   "publishConfig": {
     "access": "public"
@@ -23,19 +23,15 @@
       "types": "./lib/types/client/index.d.ts",
       "default": "./lib/client.js"
     },
+    "./locale/*.json": "./locale/*.json",
     "./src/*": "./src/*",
-    "./package.json": "./package.json",
-    "./cordis.patch.yml": "./cordis.patch.yml",
-    "./locale/*.json": "./locale/*.json"
+    "./package.json": "./package.json"
   },
   "dsh": {
     "client": {
       "inject": [],
       "platform": "web",
       "immediately": true
-    },
-    "bundle": {
-      "patch": "./cordis.patch.yml"
     }
   },
   "files": [
@@ -43,31 +39,46 @@
     "locale/*.json",
     "lib/index.js",
     "lib/client.js",
-    "cordis.patch.yml",
+    "lib/client.*.js",
     "lib/worker.js",
+    "lib/devtools/**",
     "lib/types/**/*.d.ts"
   ],
   "license": "MIT",
   "dependencies": {
     "@onprem-ai/dsh-app-boot": "workspace:*",
-    "@onprem-ai/dsh-brand": "workspace:*",
     "@onprem-ai/dsh-util-crypto": "workspace:*",
     "@onprem-ai/schemastery": "workspace:~",
-    "ws": "^8.21.0"
+    "open": "^11.0.2",
+    "serve-static": "^2.2.1",
+    "ws": "^8.21.3"
   },
   "peerDependencies": {
-    "@onprem-ai/cordis": "workspace:~",
-    "@onprem-ai/cordis-plugin-loader": "workspace:~",
-    "@onprem-ai/dsh-client-modules": "workspace:*",
-    "@onprem-ai/dsh-host-webserver": "workspace:*"
+    "@onprem-ai/cordis": "workspace:~"
   },
   "devDependencies": {
+    "chrome-devtools-frontend": "1.0.1638082",
+    "@types/serve-static": "^2.2.0",
+    "@onprem-ai/dsh-client-test-runtime": "workspace:*",
+    "@testing-library/react": "^16.3.3",
+    "@onprem-ai/dsh-client-ui-renderer": "workspace:*",
+    "@onprem-ai/dsh-client-ui-layout": "workspace:*",
+    "@onprem-ai/dsh-client-shortcuts": "workspace:*",
+    "@onprem-ai/dsh-client-store": "workspace:*",
+    "@onprem-ai/dsh-client-ui-slots": "workspace:*",
+    "@onprem-ai/dsh-client-ui-primitives": "workspace:*",
+    "@onprem-ai/dsh-client-locale": "workspace:*",
+    "react": "^18.2.0",
     "@onprem-ai/cordis": "workspace:~",
     "@onprem-ai/cordis-plugin-include": "workspace:~",
     "@onprem-ai/cordis-plugin-loader": "workspace:~",
     "@onprem-ai/dsh-host-webserver": "workspace:*",
+    "@onprem-ai/dsh-cmdline": "workspace:*",
+    "@onprem-ai/dsh-client-connection": "workspace:*",
     "@types/ws": "^8.18.1",
     "playwright": "^1.49.0",
-    "tsx": "^4.19.2"
+    "tsx": "^4.23.13",
+    "@onprem-ai/dsh-brand": "workspace:*",
+    "@onprem-ai/dsh-client-modules": "workspace:*"
   }
 }

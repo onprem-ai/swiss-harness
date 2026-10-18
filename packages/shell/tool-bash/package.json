@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-tool-bash",
   "description": "Model-facing bash tool with optional generic background-job and sandbox-escalation support",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -19,9 +19,11 @@
       "default": "./lib/index.js"
     },
     "./src/*": "./src/*",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "files": [
+    "locale/*.json",
     "lib/index.js",
     "lib/types/**/*.d.ts"
   ],
@@ -37,12 +39,14 @@
     "@onprem-ai/dsh-jobs": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
     "@onprem-ai/dsh-user-approval": "workspace:*",
-    "@onprem-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   },
   "dependencies": {
     "@onprem-ai/schemastery": "workspace:~"
   },
   "devDependencies": {
+    "@onprem-ai/dsh-ptc-runtime": "workspace:*",
     "@onprem-ai/dsh-agent": "workspace:*",
     "@onprem-ai/dsh-agent-loop": "workspace:*",
     "@onprem-ai/dsh-agent-loop-testkit": "workspace:*",
@@ -62,6 +66,7 @@
     "@onprem-ai/dsh-tools": "workspace:*",
     "@onprem-ai/dsh-user-approval": "workspace:*",
     "@onprem-ai/cordis": "workspace:~",
-    "@onprem-ai/dsh-session-projection": "workspace:*"
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   }
 }

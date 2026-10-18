@@ -15,6 +15,8 @@ import * as toolsPlugin from '@onprem-ai/dsh-tools'
 import * as fsPlugin from '@onprem-ai/dsh-fs-local'
 import * as toolFsPlugin from '@onprem-ai/dsh-tool-fs'
 import * as sessionPlugin from '@onprem-ai/dsh-session'
+import * as sessionProjectionPlugin from '@onprem-ai/dsh-session-projection'
+import * as workingDirectoryPlugin from '@onprem-ai/dsh-working-directory'
 import { Session, SessionId } from '@onprem-ai/dsh-session'
 import * as queryPlugin from '@onprem-ai/dsh-session-query-sqlite'
 import * as referencePlugin from '@onprem-ai/dsh-session-reference'
@@ -45,6 +47,8 @@ describe('session-reference real Loader composition', () => {
     ctx.loader.builtins.include = Include
     const modules = new Map<string, unknown>([
       ['@onprem-ai/dsh-session', sessionPlugin],
+      ['@onprem-ai/dsh-session-projection', sessionProjectionPlugin],
+      ['@onprem-ai/dsh-working-directory', workingDirectoryPlugin],
       ['@onprem-ai/dsh-system-prompt', systemPromptPlugin],
       ['@onprem-ai/dsh-tools', toolsPlugin],
       ['@onprem-ai/dsh-fs-local', fsPlugin],

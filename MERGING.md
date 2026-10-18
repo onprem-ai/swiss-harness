@@ -38,7 +38,7 @@ Remotes:
 git remote add upstream https://github.com/deepseek-ai/deepseek-harness.git
 ```
 
-Currently adopted upstream tag: **`dsh-v0.2.0-rc.2`** (2026-09-29, commit `639ed015`).
+Currently adopted upstream tag: **`dsh-v0.2.1-rc.2`** (2026-10-17), mirrored as the `upstream/dsh-v0.2.1-rc.2` tag here. Previous: `dsh-v0.2.0-rc.2`.
 
 ## Sync procedure
 
@@ -99,6 +99,47 @@ git checkout --theirs -- pnpm-lock.yaml
 Resolve by hand. If upstream has absorbed the change we carried, delete
 our copy and remove the row from the table below.
 
+**d. Rename-induced ghosts.** Because every file on our side differs from
+upstream by the scope string, git cannot tell "upstream deleted this file"
+from "both sides changed it", and a file upstream removed survives the
+merge. Likewise a rename-style conflict leaves markers of the form
+`<<<<<<< HEAD:<path>`. After step 4, run both checks and resolve them by
+taking upstream:
+
+```sh
+# files upstream deleted that the merge kept (exclude our overlay paths)
+git ls-files | while read -r f; do git cat-file -e "dsh-vX.Y.Z-rc.N:$f" 2>/dev/null || echo "$f"; done \
+  | grep -vE '^(MERGING\.md|NOTICE\.md|scripts/onprem/|docs/onprem/|packages/bundle/onprem-app/|packages/client/ui-brand-onprem/)'
+# every conflict-marker form, including rename suffixes
+git grep -lE '^(<<<<<<< |>>>>>>> )' -- .
+```
+
+Delete the first list; restore the second from the upstream tag and
+re-apply the hand edits listed in the table below.
+
+**e. Overlay packages follow upstream's package conventions.** When a sync
+changes how upstream's sibling packages are declared (the first sync added
+locale metadata to every client plugin and switched `tsdown.config.ts` to
+`clientBundle(import.meta.dirname, …)`), mirror that in
+`packages/client/ui-brand-onprem` and `packages/bundle/onprem-app`, and
+bump their `version` to the upstream family version.
+
+**f. New upstream rows that reach the network** get a `disabled: true` row
+in `packages/bundle/onprem-app/cordis.patch.yml` and an entry in the
+bundle test's egress list, in the same sync.
+
+**g. The unknown-cast baseline is scope-sensitive.** `scripts/no-unknown-casts.baseline.json`
+fingerprints each `as unknown` by its syntax tokens, which include package
+names, so every upstream baseline entry whose expression names the scope
+changes hash after the rename. Re-fingerprint entries file by file where the
+cast count is unchanged (never add entries); `scripts/onprem/refingerprint-casts.py`
+does exactly that.
+
+**h. Known upstream-side gate failures** that are not ours: `verify-repository-references`
+flags `python/sdk/uv.lock` on the pristine upstream tree too (a PyPI URL hash
+matches its commit-hash pattern). Record such cases here per sync rather
+than editing upstream files.
+
 ### 5. Reapply the rebrand
 
 ```sh
@@ -107,6 +148,8 @@ pnpm install --frozen-lockfile              # the renamed lockfile is complete a
 scripts/onprem/rebrand.sh --check           # fails if any upstream scope string survives
 pnpm exec tsx scripts/gen-third-party-notices.ts
 pnpm exec tsx scripts/verify-translation-pairing.ts --write --all
+scripts/onprem/refingerprint-casts.py
+pnpm run gen-cli-help && pnpm run gen-client-catalog && pnpm run gen-dependency-catalog && pnpm run gen-module-graph
 ```
 
 The rebrand script is idempotent and deterministic. Running it twice
@@ -124,6 +167,7 @@ pnpm exec tsx scripts/check-workspace-constraints.ts
 pnpm exec tsx scripts/verify-translation-pairing.ts
 pnpm exec tsx scripts/verify-md-links.ts
 pnpm exec tsx scripts/run-oxlint.ts
+pnpm exec tsx scripts/run-gates.ts ci-static   # upstream's static aggregate; see conflict class h for known upstream-side failures
 pnpm test
 ```
 
@@ -203,6 +247,7 @@ Every direct modification of an upstream file that is not produced by
 | `scripts/verify-package-readme-model-experience.ts` | two allowlist rows | the new packages' README shape | n/a |
 | `packages/bundle/README*.md`, `packages/client/README*.md` | one table row each, both languages | group READMEs list every package | n/a |
 | generated: `docs/config-catalog*.md`, `references/packages.md`, `THIRD_PARTY_NOTICES.md`, `*.i18n.yaml` | regenerated | upstream generators enumerate packages; rerun, never edit | n/a |
+| `scripts/no-unknown-casts.baseline.json` | fingerprints re-recorded by `scripts/onprem/refingerprint-casts.py` | the baseline hashes syntax tokens that include the scope | n/a |
 
 ## Cadence
 

@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-typert-generator",
   "description": "TypeScript project analyzer and model-driven Typert artifact generator",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -39,9 +39,10 @@
     "@onprem-ai/cordis": "workspace:~"
   },
   "devDependencies": {
+    "@onprem-ai/dsh-tools": "workspace:*",
     "@onprem-ai/dsh-tool-cordis": "workspace:*",
     "@onprem-ai/dsh-typert-registry": "workspace:*",
     "@onprem-ai/cordis": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "4.4.3"
   }
 }

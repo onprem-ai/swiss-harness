@@ -18,14 +18,14 @@
   en: 550ab3a29d6cefa4
   zh: 7d8ca36301e207fc
 /agent-note-single-file-executable-sdk-runtime-distribution-single-exe/decision/plugin-resolution-the-vfs-holds-a-real-package-tree-the-closure-manifest-is-the-deploy-root:
-  en: d28632f0009a9f55
-  zh: 68285a0e6f2d50ae
+  en: a501bfc73618313e
+  zh: 69a5fb86f3f296a6
 /agent-note-single-file-executable-sdk-runtime-distribution-single-exe/decision/build-pipeline-and-artifacts:
-  en: 8e29eaa443c958c5
-  zh: 97dde6578db0d5f6
+  en: a7704f91e298d2aa
+  zh: e649820b1abe261a
 /agent-note-single-file-executable-sdk-runtime-distribution-single-exe/decision/python-sdk-distribution-two-carriers-exe-for-production-node-for-development:
-  en: fa3eeb07b66645e2
-  zh: ecdfd8723c1c02e3
+  en: 02e6b36f9f92c83a
+  zh: edd8b2db7a787483
 /agent-note-single-file-executable-sdk-runtime-distribution-single-exe/decision/naming-lineage:
   en: 31a5aecb8bf828bb
   zh: 2dffb6fd2e0f8194
@@ -33,8 +33,8 @@
   en: 0426f598f3f44e64
   zh: fc66728e17f3bcfb
 /agent-note-single-file-executable-sdk-runtime-distribution-single-exe/testing:
-  en: b3c9820f4dc7c6c8
-  zh: 3b5768ef1770bfcb
+  en: 8e7f46bbb595afa9
+  zh: 4641894ed285d717
 /agent-note-single-file-executable-sdk-runtime-distribution-single-exe/alternatives-considered:
   en: 50d965ca81a401ba
   zh: 0c6296245b97b9ac

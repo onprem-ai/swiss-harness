@@ -203,6 +203,7 @@ export class WorkspaceFiles extends TypertRemoteService {
       scope.typert.lookups.register('workspaceFileScope', {
         parameter: 'workspaceFileScope',
         wire: 'workspaceFileScopeId',
+        resource: 'session',
         hostTypeSymbol: '@onprem-ai/dsh-api-workspace-files#WorkspaceFileScope',
         wireTypeSymbol: '@onprem-ai/dsh-session/types#SessionId',
         resolve: async (sessionId) => {

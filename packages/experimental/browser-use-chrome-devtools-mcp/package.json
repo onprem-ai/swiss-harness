@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-experimental-browser-use-chrome-devtools-mcp",
   "description": "Experimental per-Session Chromium browser tools through chrome-devtools-mcp",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -37,7 +37,8 @@
     "@onprem-ai/dsh-browser-use": "workspace:*",
     "@onprem-ai/dsh-agent": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
-    "@onprem-ai/dsh-system-prompt": "workspace:*"
+    "@onprem-ai/dsh-system-prompt": "workspace:*",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   },
   "devDependencies": {
     "@onprem-ai/cordis": "workspace:~",
@@ -50,6 +51,7 @@
     "@onprem-ai/dsh-session": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
     "@onprem-ai/dsh-system-prompt": "workspace:*",
-    "@onprem-ai/dsh-session-projection": "workspace:*"
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   }
 }

@@ -20,7 +20,7 @@ import { recordFeedback } from '@onprem-ai/dsh-command-feedback'
 import { createAssistantMessage } from '@onprem-ai/dsh-llm'
 import SessionStore, { SESSION_FORMAT_VERSION, Session, SessionId, SessionLogOffset, SessionSeq } from '@onprem-ai/dsh-session'
 import MessageFeedbackService from '@onprem-ai/dsh-message-feedback'
-import JsonlPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
+import * as JsonlPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
 import OpenTelemetrySessionBackend, { Config, DEFAULT_TELEMETRY_MODE, SessionTelemetryMode } from '../src/index.ts'
 
 interface Capture {

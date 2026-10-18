@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { officialClientBuildEnvironment, writeClientBuildRecord } from '../client-build-environment.ts'
+import { ON_DEMAND_BUNDLES } from '../../packages/boot/app-boot/src/official-bundles.ts'
 import { releaseFamily, type ReleaseMember } from './families.ts'
 import { compareVersions, nextVendorVersion, planShared, reachesPayload } from './bump.ts'
 
@@ -52,23 +53,49 @@ describe('release families', () => {
       '@onprem-ai/dsh-experimental-agent-team',
       '@onprem-ai/dsh-experimental-api-speech-to-text',
       '@onprem-ai/dsh-experimental-auto-review',
+      '@onprem-ai/dsh-experimental-badge-skill-bundle',
       '@onprem-ai/dsh-experimental-browser-use-chrome-devtools-mcp',
       '@onprem-ai/dsh-experimental-browser-use-playwright-mcp',
       '@onprem-ai/dsh-experimental-browser-use-runtime',
       '@onprem-ai/dsh-experimental-browser-use-stagehand-native',
+      '@onprem-ai/dsh-experimental-claude-code-mods',
       '@onprem-ai/dsh-experimental-client-ui-agent-team',
+      '@onprem-ai/dsh-experimental-client-ui-claude-code-mods',
+      '@onprem-ai/dsh-experimental-client-ui-cot-translation',
       '@onprem-ai/dsh-experimental-client-ui-voice-input',
       '@onprem-ai/dsh-experimental-computer-use-cua-driver-mcp',
       '@onprem-ai/dsh-experimental-computer-use-cua-driver-native',
+      '@onprem-ai/dsh-experimental-cot-translation-bundle',
+      '@onprem-ai/dsh-experimental-cua-macos',
+      '@onprem-ai/dsh-cua',
+      '@onprem-ai/dsh-hook-protocol',
+      '@onprem-ai/dsh-hooks-claude-code',
+      '@onprem-ai/dsh-hooks-codex',
+      '@onprem-ai/dsh-experimental-inspector-profile',
       '@onprem-ai/dsh-experimental-inspector',
+      '@onprem-ai/dsh-experimental-plugin-market-bundle',
       '@onprem-ai/dsh-experimental-ptc-runtime-python',
-      '@onprem-ai/dsh-experimental-schedule-bundle',
+      '@onprem-ai/dsh-experimental-ralph-bundle',
+      '@onprem-ai/dsh-experimental-session-inspector',
+      '@onprem-ai/dsh-experimental-session-search',
+      '@onprem-ai/dsh-session-title-all-prompts-llm',
+      '@onprem-ai/dsh-experimental-session-titles-bundle',
+      '@onprem-ai/dsh-skill-badge',
       '@onprem-ai/dsh-experimental-speech-to-text-sensevoice',
       '@onprem-ai/dsh-experimental-speech-to-text',
+      '@onprem-ai/dsh-experimental-terminal-bundle',
       '@onprem-ai/dsh-experimental-tool-agent-team',
+      '@onprem-ai/dsh-tool-ralph',
+      '@onprem-ai/dsh-tool-session-query',
+      '@onprem-ai/dsh-tool-terminal',
+      '@onprem-ai/dsh-experimental-tool-worktree',
+      '@onprem-ai/dsh-experimental-translator',
       '@onprem-ai/dsh-experimental-voice-input-bundle',
+      '@onprem-ai/dsh-webhook-github',
+      '@onprem-ai/dsh-webhook',
       '@onprem-ai/dsh-experimental-webworker-packer',
       '@onprem-ai/dsh-experimental-webworker-runtime',
+      '@onprem-ai/dsh-experimental-worktree',
     ])
   })
 
@@ -213,6 +240,52 @@ describe('release families', () => {
       '@onprem-ai/dsh-consumer',
       '@onprem-ai/dsh-zebra',
     ])
+  })
+
+  it('publishes on-demand catalog members before dsh without adding installed dependencies', () => {
+    const dsh = member('apps/cli', '@onprem-ai/dsh')
+    const providers = ON_DEMAND_BUNDLES.map(name => member(`packages/subagent/${name}`, name))
+    const plan = releaseFamily('dsh').publishOrder([dsh, ...providers])
+    expect(plan.order.map(entry => entry.name)).toEqual([...ON_DEMAND_BUNDLES, dsh.name])
+    expect(dsh.manifest).toEqual({})
+    expect(plan.droppedPeerEdges).toEqual([])
+  })
+
+  it('rejects an advertised provider missing from the public release family', () => {
+    expect(() => releaseFamily('dsh').publishOrder([member('apps/cli', '@onprem-ai/dsh')]))
+      .toThrow('Official catalog prerequisite')
+  })
+
+  it('keeps catalog prerequisites ahead of a dsh peer declaration', () => {
+    const dsh = member('apps/cli', '@onprem-ai/dsh')
+    const providers = ON_DEMAND_BUNDLES.map(name => member(`packages/subagent/${name}`, name, {
+      peerDependencies: { '@onprem-ai/dsh': 'workspace:*' },
+    }))
+    const plan = releaseFamily('dsh').publishOrder([dsh, ...providers])
+    expect(plan.order.map(entry => entry.name)).toEqual([...ON_DEMAND_BUNDLES, dsh.name])
+    expect(plan.droppedPeerEdges).toEqual(ON_DEMAND_BUNDLES.map(name => ({ consumer: name, peer: dsh.name })))
+  })
+
+  it.each(['dependencies', 'optionalDependencies', 'peerDependencies'])(
+    'requires exact packed DSH %s while preserving external ranges', (section) => {
+      const pkg = member('packages/example/provider', '@onprem-ai/dsh-provider')
+      const family = releaseFamily('dsh')
+      const manifest = { name: pkg.name, version: pkg.version, [section]: { '@onprem-ai/dsh-tools': pkg.version, external: '^4.0.0' } }
+      expect(() => { family.validatePackedManifest(pkg, manifest) }).not.toThrow()
+      for (const range of ['workspace:*', '^0.0.1', '~0.0.1', '0.0.2', '*']) {
+        expect(() => { family.validatePackedManifest(pkg, { ...manifest, [section]: { '@onprem-ai/dsh-tools': range } }) })
+          .toThrow(`packed ${section}.@onprem-ai/dsh-tools must equal`)
+      }
+    },
+  )
+
+  it('checks packed identities and preserves independent vendor versions', () => {
+    const pkg = member('vendor/example', '@onprem-ai/example')
+    const family = releaseFamily('vendor')
+    expect(() => { family.validatePackedManifest(pkg, { name: pkg.name, version: pkg.version, dependencies: { '@onprem-ai/dsh-tools': '^4.0.0' } }) })
+      .not.toThrow()
+    expect(() => { family.validatePackedManifest(pkg, { name: '@onprem-ai/other', version: pkg.version }) }).toThrow('packed identity')
+    expect(() => { family.validatePackedManifest(pkg, { name: pkg.name, version: '0.0.2' }) }).toThrow('packed identity')
   })
 
   it('reports a runtime dependency cycle instead of emitting an arbitrary order', () => {

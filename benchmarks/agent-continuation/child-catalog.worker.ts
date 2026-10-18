@@ -2,9 +2,10 @@
 
 import { performance } from 'node:perf_hooks'
 import { Context } from '@onprem-ai/cordis'
+import { provideWorkingDirectoryFixture } from '@onprem-ai/dsh-agent-loop-testkit'
 import SessionStore, { SESSION_FORMAT_VERSION, SessionId, SessionLogOffset, SessionSeq } from '@onprem-ai/dsh-session'
 import type { SessionEvent } from '@onprem-ai/dsh-session'
-import JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
+import * as JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
 import SessionProjectionRegistry from '@onprem-ai/dsh-session-projection'
 import SessionQueryEngine from '@onprem-ai/dsh-session-query'
 import SubagentRuntime, { SUBAGENT_DESCRIPTOR_VERSION } from '@onprem-ai/dsh-subagent'
@@ -74,6 +75,7 @@ async function run(root: string, mode: string): Promise<CatalogReport | { seeded
     await ctx.plugin(SessionProjectionRegistry)
     await ctx.plugin(JsonlSessionPersistence, { root, compression: 'zstd' })
     await ctx.plugin(CatalogQuery)
+    provideWorkingDirectoryFixture(ctx, '/bench')
     await ctx.plugin(SubagentRuntime)
     if (mode === 'seed') {
       await seed(ctx)

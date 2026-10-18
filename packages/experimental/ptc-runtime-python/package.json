@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-experimental-ptc-runtime-python",
   "description": "CPython subprocess implementation of the DeepSeek Harness PTC execution seam",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
@@ -27,13 +27,20 @@
     "@onprem-ai/dsh-ptc-runtime": "workspace:*",
     "@onprem-ai/dsh-timeout": "workspace:*",
     "@onprem-ai/cordis": "workspace:~",
-    "@onprem-ai/dsh-util-values": "workspace:*"
+    "@onprem-ai/dsh-util-values": "workspace:*",
+    "@onprem-ai/dsh-sandbox": "workspace:*",
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*"
   },
   "devDependencies": {
     "@onprem-ai/dsh-ptc-runtime": "workspace:*",
     "@onprem-ai/dsh-timeout": "workspace:*",
     "@onprem-ai/cordis": "workspace:~",
-    "@onprem-ai/dsh-util-values": "workspace:*"
+    "@onprem-ai/dsh-util-values": "workspace:*",
+    "@onprem-ai/dsh-sandbox": "workspace:*",
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*",
+    "@onprem-ai/dsh-sandbox-local": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*"
   },
   "dependencies": {
     "@onprem-ai/schemastery": "workspace:~"

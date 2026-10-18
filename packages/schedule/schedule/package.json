@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-schedule",
   "description": "Host-wide durable reminders with shared management and original-Session delivery",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -17,10 +17,6 @@
     ".": {
       "types": "./lib/types/index.d.ts",
       "default": "./lib/index.js"
-    },
-    "./invariant": {
-      "types": "./lib/types/invariant.d.ts",
-      "default": "./lib/invariant.js"
     },
     "./client": {
       "types": "./lib/types/client.d.ts",
@@ -41,7 +37,6 @@
   "files": [
     "locale/*.json",
     "lib/index.js",
-    "lib/invariant.js",
     "lib/types/**/*.js",
     "lib/types/**/*.d.ts",
     "lib/typert.host.js",
@@ -54,12 +49,12 @@
     "@onprem-ai/dsh-agent": "workspace:*",
     "@onprem-ai/dsh-api-session-controller": "workspace:*",
     "@onprem-ai/dsh-brand": "workspace:*",
-    "@onprem-ai/dsh-invariants": "workspace:*",
     "@onprem-ai/dsh-llm": "workspace:*",
     "@onprem-ai/dsh-session": "workspace:*",
     "@onprem-ai/dsh-session-persistence": "workspace:*",
     "@onprem-ai/dsh-session-projection": "workspace:*",
     "@onprem-ai/dsh-storage-domain": "workspace:*",
+    "@onprem-ai/dsh-subagent": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
     "@onprem-ai/dsh-typert-protocol": "workspace:*",
     "@onprem-ai/dsh-workspace": "workspace:*",
@@ -68,7 +63,7 @@
   "dependencies": {
     "@onprem-ai/schemastery": "workspace:~",
     "@js-temporal/polyfill": "0.5.1",
-    "zod": "^4.4.3"
+    "zod": "4.4.3"
   },
   "devDependencies": {
     "@onprem-ai/cordis-plugin-loader": "workspace:~",
@@ -77,7 +72,6 @@
     "@onprem-ai/dsh-agent-loop-testkit": "workspace:*",
     "@onprem-ai/dsh-api-session-controller": "workspace:*",
     "@onprem-ai/dsh-brand": "workspace:*",
-    "@onprem-ai/dsh-invariants": "workspace:*",
     "@onprem-ai/dsh-llm": "workspace:*",
     "@onprem-ai/dsh-session": "workspace:*",
     "@onprem-ai/dsh-session-persistence": "workspace:*",
@@ -86,6 +80,7 @@
     "@onprem-ai/dsh-storage": "workspace:*",
     "@onprem-ai/dsh-storage-domain": "workspace:*",
     "@onprem-ai/dsh-storage-json": "workspace:*",
+    "@onprem-ai/dsh-subagent": "workspace:*",
     "@onprem-ai/dsh-system-prompt": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
     "@onprem-ai/dsh-typert-protocol": "workspace:*",

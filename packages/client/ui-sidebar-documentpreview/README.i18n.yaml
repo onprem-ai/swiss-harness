@@ -15,14 +15,14 @@
   en: 0dd8c3a22e28aacf
   zh: c27c11bf4b5cceba
 /onprem-ai-dsh-client-ui-sidebar-documentpreview/what-it-registers:
-  en: 0277cf31e6c71fc8
-  zh: 8a9b39554494f4f4
+  en: d9b3b3f8ca289a75
+  zh: 16c41ef7d2067d20
 /onprem-ai-dsh-client-ui-sidebar-documentpreview/addresses:
-  en: 949156aa02ec8b07
-  zh: d3675754e2a37b5d
+  en: 57942270e23d3a8e
+  zh: 6617124e652b3f67
 /onprem-ai-dsh-client-ui-sidebar-documentpreview/how-it-reads:
-  en: 5cdbd4a218315e70
-  zh: d5054f541e0e0275
+  en: b056bbe0f74fe328
+  zh: fd9ac88f08825afc
 /onprem-ai-dsh-client-ui-sidebar-documentpreview/excel-preview:
   en: b99b0e0b8efc2853
   zh: 4327352d1334fc6b
@@ -42,5 +42,5 @@
   en: 7be2ad2e198131f8
   zh: 21b35eae72a49ad2
 /onprem-ai-dsh-client-ui-sidebar-documentpreview/known-limitations-and-deferred-work/dev-note:
-  en: 3d8904cb970145a3
-  zh: a0c0cddcfedf9e42
+  en: e67f633dc6fe7773
+  zh: e88aeb617ffb74ea

@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-headless",
   "description": "The dsh one-shot bundle: a direct core Agent/Session runner over dsh-base with no Host, HTTP, or browser layer",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -54,7 +54,8 @@
     "@onprem-ai/dsh-llm": "workspace:*",
     "@onprem-ai/dsh-session": "workspace:*",
     "@onprem-ai/dsh-session-query": "workspace:*",
-    "@onprem-ai/dsh-fs": "workspace:*"
+    "@onprem-ai/dsh-fs": "workspace:*",
+    "@onprem-ai/dsh-subagent": "workspace:*"
   },
   "devDependencies": {
     "@onprem-ai/cordis": "workspace:~",
@@ -66,6 +67,12 @@
     "@onprem-ai/dsh-llm": "workspace:*",
     "@onprem-ai/dsh-session": "workspace:*",
     "@onprem-ai/dsh-session-query": "workspace:*",
-    "@onprem-ai/dsh-fs": "workspace:*"
+    "@onprem-ai/dsh-fs": "workspace:*",
+    "@onprem-ai/dsh-subagent": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "@onprem-ai/dsh-subagent": {
+      "optional": true
+    }
   }
 }

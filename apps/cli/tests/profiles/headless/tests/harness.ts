@@ -11,7 +11,7 @@ import * as ToolTodo from '@onprem-ai/dsh-tool-todo'
 import * as LlmDeepSeek from '@onprem-ai/dsh-llm-deepseek-api-key'
 import TokenMeter from '@onprem-ai/dsh-token-meter'
 import ToolResultPruner from '@onprem-ai/dsh-compaction-tool-result-pruner'
-import JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
+import * as JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
 import * as SessionCheckpointPolicy from '@onprem-ai/dsh-session-checkpoint-policy'
 import { BasicCompactionEngine } from '@onprem-ai/dsh-compaction-basic'
 import type { BasicCompactionConfig } from '@onprem-ai/dsh-compaction-basic'
@@ -66,6 +66,7 @@ export interface CodingHarnessOptions {
 export async function codingHarness(workdir: string, options: CodingHarnessOptions = {}): Promise<Context> {
   const ctx = new Context()
   await mountAgentLoopTestDependencies(ctx, {
+    workingDirectory: true,
     systemPrompt: { personaPrefix: options.personaPrefix ?? '' },
   })
   await ctx.plugin(AgentLoop, { agents: [] })

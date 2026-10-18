@@ -61,7 +61,7 @@ dsh onprem
 | `deepseek-account`、`account-controller`、`ui-settings-account`、`llm-deepseek-account` | 供应商账户登录 | 禁用 |
 | `deepseek-llm-api-extensions`、`session-log-deepseek`、`plugin-package-inventory-deepseek` | 供应商特有的请求字段 | 禁用 |
 | `llm-deepseek` | 直连供应商公开 API 的适配器 | 禁用 |
-| `web-search-deepseek` | 托管搜索 | 禁用；`web` 行只保留 `http` 抓取 provider |
+| `web-search-deepseek`、`web-deepseek-api` | 经供应商 API 的托管搜索与抓取 | 禁用；`web` 行只保留 `http` 抓取 provider |
 | `message-feedback`、`ui-message-feedback`、`command-feedback` | 会触发遥测发送的反馈 | 禁用 |
 | `plugin-manager` | 公共 registry 并带镜像回退 | 仅 `DSH_PLUGIN_REGISTRY`，无回退 |
 | `web-fetch-http` | 上游 User-Agent | `swiss-harness/…` |

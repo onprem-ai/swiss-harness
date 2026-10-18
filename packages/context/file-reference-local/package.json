@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-file-reference-local",
   "description": "Local-filesystem ctx.fileReferences provider with bounded fuzzy indexes",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -23,9 +23,11 @@
       "default": "./lib/types/search.js"
     },
     "./src/*": "./src/*",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "files": [
+    "locale/*.json",
     "lib/index.js",
     "lib/types/**/*.js",
     "lib/types/**/*.d.ts"
@@ -39,13 +41,17 @@
     "@onprem-ai/dsh-file-reference": "workspace:*",
     "@onprem-ai/dsh-system-prompt": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
-    "@onprem-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   },
   "devDependencies": {
     "@onprem-ai/dsh-agent": "workspace:*",
     "@onprem-ai/dsh-file-reference": "workspace:*",
     "@onprem-ai/dsh-system-prompt": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
-    "@onprem-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-working-directory": "workspace:*",
+    "@onprem-ai/dsh-fs-local": "workspace:*",
+    "@onprem-ai/dsh-session-projection": "workspace:*"
   }
 }

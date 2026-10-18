@@ -33,7 +33,15 @@ describe('dsh-sdk-minimal bundle', () => {
       ['plugin-package-inventory-deepseek', '@onprem-ai/dsh-plugin-package-inventory-deepseek'],
       ['llm-deepseek', '@onprem-ai/dsh-llm-deepseek-api-key'],
       ['sandbox', '@onprem-ai/dsh-sandbox-local'],
+      ['filesystem', '@onprem-ai/dsh-fs-local'],
+      ['attachment-local', '@onprem-ai/dsh-attachment-local'],
+      ['tool-fs', '@onprem-ai/dsh-tool-fs'],
+      ['working-directory', '@onprem-ai/dsh-working-directory'],
+      ['tool-working-directory', '@onprem-ai/dsh-tool-working-directory'],
       ['session-projection', '@onprem-ai/dsh-session-projection'],
+      ['token-meter', '@onprem-ai/dsh-token-meter'],
+      ['compaction-basic', '@onprem-ai/dsh-compaction-basic'],
+      ['image-offload', '@onprem-ai/dsh-compaction-image-offload'],
       ['sandbox-policy', '@onprem-ai/dsh-sandbox-policy'],
       ['subprocess', '@onprem-ai/dsh-subprocess-local'],
       ['pty', '@onprem-ai/dsh-terminal'],
@@ -49,11 +57,6 @@ describe('dsh-sdk-minimal bundle', () => {
       ['agent', '@onprem-ai/dsh-agent'],
       ['llm-retry', '@onprem-ai/dsh-llm-retry'],
       ['jobs', '@onprem-ai/dsh-jobs-local'],
-      ['invariants', '@onprem-ai/dsh-invariants'],
-      ['session-invariant', '@onprem-ai/dsh-session/invariant'],
-      ['agent-invariant', '@onprem-ai/dsh-agent/invariant'],
-      ['scope-invariant', '@onprem-ai/dsh-scope/invariant'],
-      ['agent-loop-invariant', '@onprem-ai/dsh-agent-loop/invariant'],
       ['agent-loop', '@onprem-ai/dsh-agent-loop'],
       ['persistent-bash', '@onprem-ai/dsh-tool-bash-persistent'],
       ['persistent-pwsh', '@onprem-ai/dsh-tool-pwsh-persistent'],
@@ -75,6 +78,8 @@ describe('dsh-sdk-minimal bundle', () => {
       personaPrefix: { __jsExpr: "process.env.DSH_SYSTEM_PROMPT ?? 'You are a helpful software engineer assistant.'" },
     })
     expect(rows.find(row => row.id === 'agent-loop')?.config).toEqual({ agents: [] })
+    expect(rows.find(row => row.id === 'tool-fs')?.config).toEqual({ read: false, readImage: true, write: false, edit: false })
+    expect(rows.find(row => row.id === 'compaction-basic')?.config).toBeUndefined()
     expect(rows.find(row => row.id === 'terminal-bash')).toMatchObject({
       disabled: { __jsExpr: "process.platform === 'win32'" },
     })

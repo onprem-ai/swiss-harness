@@ -65,6 +65,10 @@
 - id: web-search-deepseek
   disabled: true
 
+# Upstream 0.2.1: DeepSeek Search and Fetch APIs (api.deepseek.com/v1/tools).
+- id: web-deepseek-api
+  disabled: true
+
 # Thumbs-up/down feedback that releases a session prefix to telemetry. With
 # the exporter disabled it would acknowledge and send nothing; disable the
 # surface so the UI does not promise something the deployment refuses.

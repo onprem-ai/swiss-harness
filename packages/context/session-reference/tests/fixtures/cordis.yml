@@ -2,6 +2,8 @@
 - name: '@onprem-ai/dsh-system-prompt'
 - name: '@onprem-ai/dsh-tools'
 - name: '@onprem-ai/dsh-fs-local'
+- name: '@onprem-ai/dsh-session-projection'
+- name: '@onprem-ai/dsh-working-directory'
 - name: '@onprem-ai/dsh-tool-fs'
 - name: '@onprem-ai/dsh-session-query-sqlite'
   config:

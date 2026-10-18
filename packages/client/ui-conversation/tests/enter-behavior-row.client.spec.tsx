@@ -2,7 +2,7 @@
 import type { GlobalStandardProps } from '@onprem-ai/dsh-client-ui-slots'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { bindSnapshotSelector, makeTranslate } from '@onprem-ai/dsh-client-test-runtime'
+import { allowAllAccess, bindSnapshotSelector, makeTranslate } from '@onprem-ai/dsh-client-test-runtime'
 import type { SessionListState } from '@onprem-ai/dsh-api-session-controller/client'
 import type { WorkspaceSnapshot } from '@onprem-ai/dsh-api-workspace-controller/client'
 import type { SessionStatusSnapshot } from '@onprem-ai/dsh-client-ui-session/client'
@@ -46,6 +46,7 @@ function mount() {
     useSessionRetainInfo: () => undefined,
     useResource,
     useWorkspaces: emptyWorkspaces(),
+    ...allowAllAccess,
     useBusyEnter: bindSnapshotSelector(policy.busyEnter),
     setBusyEnter,
     t: makeTranslate(en),

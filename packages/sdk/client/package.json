@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-sdk-client",
   "description": "TypeScript client SDK for driving a DeepSeek Harness runtime subprocess over stdio JSON-RPC: the DeepSeekHarness high-level turns API and the lower-level HarnessClient",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -38,6 +38,7 @@
     "@onprem-ai/dsh-llm": "workspace:*",
     "@onprem-ai/dsh-sdk-protocol": "workspace:*",
     "@onprem-ai/dsh-session": "workspace:*",
-    "@onprem-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-experimental-translator": "workspace:*"
   }
 }

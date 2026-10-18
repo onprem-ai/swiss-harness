@@ -1,0 +1,101 @@
+{
+  "name": "@onprem-ai/dsh-experimental-client-ui-cot-translation",
+  "description": "Optional machine translation of expanded reasoning, preserving original Session text",
+  "version": "0.2.1-rc.2",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "directory": "packages/experimental/client-ui-cot-translation"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "types": "./lib/types/client/index.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./remote": {
+      "types": "./lib/typert.remote-client.d.ts",
+      "default": "./lib/typert.remote-client.js"
+    },
+    "./typert": {
+      "types": "./lib/typert.host.d.ts",
+      "default": "./lib/typert.host.js"
+    },
+    "./src/*": "./src/*",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./types": {
+      "types": "./lib/types/types.d.ts"
+    }
+  },
+  "dsh": {
+    "client": {
+      "inject": [
+        "@onprem-ai/dsh-api-remotes",
+        "@onprem-ai/dsh-client-locale",
+        "@onprem-ai/dsh-client-ui-chat",
+        "@onprem-ai/dsh-client-ui-plugin-manager",
+        "@onprem-ai/dsh-client-ui-settings"
+      ],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "bundle": "tsdown",
+    "watch": "tsdown --watch"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-experimental-translator": "workspace:*"
+  },
+  "dependencies": {
+    "@onprem-ai/schemastery": "workspace:~",
+    "zod": "^4.4.3",
+    "@onprem-ai/dsh-typert-protocol": "workspace:*"
+  },
+  "devDependencies": {
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-settings": "workspace:*",
+    "@onprem-ai/dsh-experimental-translator": "workspace:*",
+    "@onprem-ai/dsh-api-remotes": "workspace:*",
+    "@onprem-ai/dsh-client-locale": "workspace:*",
+    "@onprem-ai/dsh-client-store": "workspace:*",
+    "@onprem-ai/dsh-client-test-runtime": "workspace:*",
+    "@onprem-ai/dsh-client-ui-chat": "workspace:*",
+    "@onprem-ai/dsh-client-ui-plugin-manager": "workspace:*",
+    "@onprem-ai/dsh-client-ui-primitives": "workspace:*",
+    "@onprem-ai/dsh-client-ui-renderer": "workspace:*",
+    "@onprem-ai/dsh-client-ui-settings": "workspace:*",
+    "@onprem-ai/dsh-client-ui-slots": "workspace:*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@testing-library/react": "^16.3.3",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-api-remote-access": "workspace:*",
+    "@onprem-ai/dsh-api-session-controller": "workspace:*",
+    "@onprem-ai/dsh-agent-loop-testkit": "workspace:*",
+    "@onprem-ai/dsh-session-persistence-jsonl": "workspace:*",
+    "@onprem-ai/dsh-session-query": "workspace:*",
+    "@onprem-ai/dsh-typert-registry": "workspace:*"
+  },
+  "files": [
+    "locale/*.json",
+    "lib/index.js",
+    "lib/client.js",
+    "lib/types/**/*.d.ts",
+    "lib/typert.host.js",
+    "lib/typert.host.d.ts",
+    "lib/typert.remote-client.js",
+    "lib/typert.remote-client.d.ts"
+  ]
+}

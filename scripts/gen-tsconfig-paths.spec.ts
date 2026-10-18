@@ -20,7 +20,6 @@ describe('generated tsconfig package aliases', () => {
     expect(session).toEqual({
       specifier: '@onprem-ai/dsh-session',
       source: './packages/core/session/src',
-      hasInvariant: true,
     })
     // Sorted, so a package added anywhere lands in a stable spot in the diff.
     expect([...aliases].sort((a, b) => a.specifier.localeCompare(b.specifier))).toEqual(aliases)
@@ -31,15 +30,15 @@ describe('generated tsconfig package aliases', () => {
 
   it('yields to a hand-written alias and closes without a trailing comma', () => {
     const aliases = [
-      { specifier: '@onprem-ai/dsh-a', source: './packages/g/a/src', hasInvariant: true },
-      { specifier: '@onprem-ai/dsh-b', source: './packages/g/b/src', hasInvariant: false },
+      { specifier: '@onprem-ai/dsh-a', source: './packages/g/a/src' },
+      { specifier: '@onprem-ai/dsh-b', source: './packages/g/b/src' },
+      { specifier: '@onprem-ai/dsh-c', source: './packages/g/c/src' },
     ]
     const body = renderAliases(aliases, new Set(['@onprem-ai/dsh-a']))
 
-    // The hand-written bare alias is skipped; its /invariant sibling is not.
     expect(body).toBe([
-      '      "@onprem-ai/dsh-a/invariant": ["./packages/g/a/src/invariant.ts"]',
       '      "@onprem-ai/dsh-b": ["./packages/g/b/src"]',
+      '      "@onprem-ai/dsh-c": ["./packages/g/c/src"]',
     ].join(',\n'))
     expect(body.endsWith(',')).toBe(false)
   })
@@ -72,7 +71,7 @@ describe('generated tsconfig package aliases', () => {
     // resolve through the workspace symlink to built lib/types instead.
     expect(uncoveredPackages(
       ['@onprem-ai/dsh-a', '@onprem-ai/dsh-b'],
-      new Set(['@onprem-ai/dsh-a', '@onprem-ai/dsh-a/invariant']),
+      new Set(['@onprem-ai/dsh-a']),
     )).toEqual(['@onprem-ai/dsh-b'])
 
     expect(uncoveredPackages(['@onprem-ai/dsh-a'], new Set(['@onprem-ai/dsh-a']))).toEqual([])
@@ -89,10 +88,9 @@ describe('generated tsconfig package aliases', () => {
 
   it('leaves no wildcard that probes every package group', () => {
     const config = readFileSync(resolve(root, 'tsconfig.base.json'), 'utf8')
-    // These two listed one candidate per group, so resolving a package late in
-    // the list cost a filesystem probe — and under tsx a decorated module
+    // A wildcard lists one candidate per group, so resolving a package late in
+    // the list costs a filesystem probe — and under tsx a decorated module
     // error — for every group before it.
     expect(config).not.toContain('"@onprem-ai/dsh-*":')
-    expect(config).not.toContain('"@onprem-ai/dsh-*/invariant":')
   })
 })

@@ -1,0 +1,59 @@
+{
+  "name": "@onprem-ai/dsh-web-deepseek-api",
+  "description": "DeepSeek Search and Fetch API providers for the DeepSeek Harness web capability seam (ctx.web)",
+  "version": "0.2.1-rc.2",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "directory": "packages/web/web-deepseek-api"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./src/*": "./src/*",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "locale/*.json",
+    "lib/index.js",
+    "lib/types/**/*.d.ts"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-credentials": "workspace:*",
+    "@onprem-ai/dsh-deepseek-account": "workspace:*",
+    "@onprem-ai/dsh-launch-environment": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-web": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~"
+  },
+  "dependencies": {
+    "@onprem-ai/schemastery": "workspace:~"
+  },
+  "devDependencies": {
+    "@onprem-ai/dsh-agent": "workspace:*",
+    "@onprem-ai/dsh-credentials": "workspace:*",
+    "@onprem-ai/dsh-credentials-local": "workspace:*",
+    "@onprem-ai/dsh-deepseek-account": "workspace:*",
+    "@onprem-ai/dsh-launch-environment": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-web": "workspace:*",
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-http-proxy": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "@onprem-ai/dsh-deepseek-account": {
+      "optional": true
+    }
+  }
+}

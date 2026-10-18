@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-workflow-ptc",
   "description": "Workflow orchestration in the shared sandboxed Node PTC runtime",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -19,9 +19,11 @@
       "default": "./lib/index.js"
     },
     "./src/*": "./src/*",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "files": [
+    "locale/*.json",
     "lib/index.js",
     "lib/types/**/*.d.ts"
   ],
@@ -36,7 +38,8 @@
     "@onprem-ai/dsh-workflow": "workspace:*",
     "@onprem-ai/dsh-ptc-runtime": "workspace:*",
     "@onprem-ai/dsh-sandbox": "workspace:*",
-    "@onprem-ai/dsh-sandbox-policy": "workspace:*"
+    "@onprem-ai/dsh-sandbox-policy": "workspace:*",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   },
   "dependencies": {
     "@onprem-ai/dsh-brand": "workspace:*",
@@ -49,7 +52,6 @@
     "@onprem-ai/dsh-agent": "workspace:*",
     "@onprem-ai/dsh-agent-loop": "workspace:*",
     "@onprem-ai/dsh-agent-loop-testkit": "workspace:*",
-    "@onprem-ai/dsh-invariants": "workspace:*",
     "@onprem-ai/dsh-llm": "workspace:*",
     "@onprem-ai/dsh-session": "workspace:*",
     "@onprem-ai/dsh-session-projection": "workspace:*",
@@ -67,6 +69,8 @@
     "@onprem-ai/dsh-fs-local": "workspace:*",
     "@onprem-ai/dsh-subprocess": "workspace:*",
     "@onprem-ai/dsh-subprocess-local": "workspace:*",
-    "@onprem-ai/dsh-sandbox-local": "workspace:*"
+    "@onprem-ai/dsh-sandbox-local": "workspace:*",
+    "@onprem-ai/dsh-session-persistence-jsonl": "workspace:*",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   }
 }

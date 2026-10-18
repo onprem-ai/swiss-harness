@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-acp",
   "description": "Automation-only Agent Client Protocol server for driving DeepSeek Harness agents over JSON-RPC stdio",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -59,6 +59,7 @@
     "@onprem-ai/dsh-session-persistence": "workspace:*",
     "@onprem-ai/dsh-session-persistence-jsonl": "workspace:*",
     "@onprem-ai/dsh-session-projection": "workspace:*",
+    "@onprem-ai/dsh-subagent": "workspace:*",
     "@onprem-ai/dsh-token-meter": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
     "@onprem-ai/dsh-user-approval": "workspace:*"

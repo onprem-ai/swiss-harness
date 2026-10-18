@@ -7,7 +7,7 @@
 
 import { Context } from '@onprem-ai/cordis'
 import { SESSION_FORMAT_VERSION } from '@onprem-ai/dsh-session'
-import JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
+import * as JsonlSessionPersistence from '@onprem-ai/dsh-session-persistence-jsonl'
 
 const [root, sessionId] = process.argv.slice(2)
 const ctx = new Context()

@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-agent-loop-testkit",
   "description": "Prerequisite mounting, production AgentLoop drivers, and Inbox stubs for tests",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -34,7 +34,9 @@
     "@onprem-ai/dsh-session-projection": "workspace:*",
     "@onprem-ai/dsh-system-prompt": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
-    "@onprem-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-working-directory": "workspace:*",
+    "@onprem-ai/dsh-fs-local": "workspace:*"
   },
   "dependencies": {},
   "devDependencies": {
@@ -45,6 +47,8 @@
     "@onprem-ai/dsh-session-projection": "workspace:*",
     "@onprem-ai/dsh-system-prompt": "workspace:*",
     "@onprem-ai/dsh-tools": "workspace:*",
-    "@onprem-ai/cordis": "workspace:~"
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-working-directory": "workspace:*",
+    "@onprem-ai/dsh-fs-local": "workspace:*"
   }
 }

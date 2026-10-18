@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-experimental-client-ui-agent-team",
   "description": "Web Agent Teams roster, task board, and teammate navigation",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -44,16 +44,6 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@onprem-ai/dsh-api-session-controller": "workspace:*",
-    "@onprem-ai/dsh-client-locale": "workspace:*",
-    "@onprem-ai/dsh-client-ui-conversation": "workspace:*",
-    "@onprem-ai/dsh-client-ui-primitives": "workspace:*",
-    "@onprem-ai/dsh-client-ui-renderer": "workspace:*",
-    "@onprem-ai/dsh-client-ui-session": "workspace:*",
-    "@onprem-ai/dsh-client-ui-slots": "workspace:*",
-    "@onprem-ai/dsh-client-ui-workspace": "workspace:*",
-    "@onprem-ai/dsh-experimental-agent-team": "workspace:*",
-    "@onprem-ai/dsh-session": "workspace:*",
     "@onprem-ai/cordis": "workspace:~"
   },
   "devDependencies": {
@@ -69,9 +59,7 @@
     "@onprem-ai/dsh-client-ui-workspace": "workspace:*",
     "@onprem-ai/dsh-experimental-agent-team": "workspace:*",
     "@onprem-ai/dsh-session": "workspace:*",
-    "@testing-library/react": "^16.1.0",
-    "@types/react": "~18.3.1",
-    "@types/react-dom": "~18.3.0",
+    "@testing-library/react": "^16.3.3",
     "@onprem-ai/cordis": "workspace:~",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

@@ -1,0 +1,75 @@
+{
+  "name": "@onprem-ai/dsh-experimental-session-inspector",
+  "description": "Experimental virtualized Session log and live Chat group/node inspectors",
+  "version": "0.2.1-rc.2",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "directory": "packages/experimental/session-inspector"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "types": "./lib/types/client/index.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./locale/*.json": "./locale/*.json",
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "inject": [
+        "@onprem-ai/dsh-client-locale",
+        "@onprem-ai/dsh-client-ui-conversation",
+        "@onprem-ai/dsh-client-ui-sidebar-right",
+        "@onprem-ai/dsh-client-ui-session",
+        "@onprem-ai/dsh-client-ui-renderer"
+      ],
+      "platform": "web"
+    }
+  },
+  "files": [
+    "locale/*.json",
+    "lib/index.js",
+    "lib/client.js",
+    "lib/types/**/*.d.ts"
+  ],
+  "scripts": {
+    "bundle": "tsdown",
+    "watch": "tsdown --watch"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@onprem-ai/cordis": "workspace:~"
+  },
+  "devDependencies": {
+    "@onprem-ai/dsh-client-test-runtime": "workspace:*",
+    "@testing-library/react": "^16.3.3",
+    "react-dom": "^18.2.0",
+    "@onprem-ai/dsh-api-session-controller": "workspace:*",
+    "@onprem-ai/dsh-client-store": "workspace:*",
+    "@onprem-ai/dsh-client-ui-chat": "workspace:*",
+    "@onprem-ai/dsh-client-ui-primitives": "workspace:*",
+    "@onprem-ai/dsh-client-ui-sidebar-right": "workspace:*",
+    "@onprem-ai/dsh-client-ui-session": "workspace:*",
+    "@onprem-ai/dsh-session": "workspace:*",
+    "@onprem-ai/dsh-llm": "workspace:*",
+    "@tanstack/react-virtual": "^3.14.10",
+    "react": "^18.2.0",
+    "@onprem-ai/cordis": "workspace:~",
+    "@onprem-ai/dsh-client-locale": "workspace:*",
+    "@onprem-ai/dsh-client-ui-conversation": "workspace:*",
+    "@onprem-ai/dsh-client-ui-renderer": "workspace:*",
+    "@onprem-ai/dsh-client-ui-slots": "workspace:*"
+  }
+}

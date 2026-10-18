@@ -46,7 +46,7 @@
 - id: system-prompt
   name: '@onprem-ai/dsh-system-prompt'
   config:
-    personaPrefix: You are a concise snapshot agent working in {{cwd}}.
+    personaPrefix: You are a concise snapshot agent.
 
 - id: goal
   name: '@onprem-ai/dsh-goal'

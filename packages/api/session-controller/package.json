@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-api-session-controller",
   "description": "Session Remote commands, cold reads, and live control transport",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -39,7 +39,8 @@
       "default": "./lib/typert.remote-client.js"
     },
     "./src/*": "./src/*",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "dsh": {
     "client": {
@@ -58,6 +59,7 @@
     "watch": "tsdown --watch"
   },
   "files": [
+    "locale/*.json",
     "lib/index.js",
     "lib/client.js",
     "lib/types/**/*.js",
@@ -73,7 +75,7 @@
     "@onprem-ai/dsh-deque": "workspace:*",
     "@onprem-ai/schemastery": "workspace:~",
     "mime-types": "^3.0.2",
-    "zod": "^4.4.3"
+    "zod": "4.4.3"
   },
   "peerDependencies": {
     "@onprem-ai/cordis": "workspace:~",
@@ -105,7 +107,8 @@
     "@onprem-ai/dsh-util-time": "workspace:*",
     "@onprem-ai/dsh-util-values": "workspace:*",
     "@onprem-ai/dsh-util-workspace-path": "workspace:*",
-    "@onprem-ai/dsh-workspace": "workspace:*"
+    "@onprem-ai/dsh-workspace": "workspace:*",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   },
   "peerDependenciesMeta": {
     "@onprem-ai/dsh-session-persistence": {
@@ -119,6 +122,7 @@
     }
   },
   "devDependencies": {
+    "@onprem-ai/dsh-api-remote-access": "workspace:*",
     "@onprem-ai/cordis": "workspace:~",
     "@onprem-ai/dsh-agent": "workspace:*",
     "@onprem-ai/dsh-agent-default-model": "workspace:*",
@@ -143,6 +147,7 @@
     "@onprem-ai/dsh-scope": "workspace:*",
     "@onprem-ai/dsh-session": "workspace:*",
     "@onprem-ai/dsh-session-persistence": "workspace:*",
+    "@onprem-ai/dsh-session-persistence-jsonl": "workspace:*",
     "@onprem-ai/dsh-session-projection": "workspace:*",
     "@onprem-ai/dsh-session-projection-cache": "workspace:*",
     "@onprem-ai/dsh-session-query": "workspace:*",
@@ -160,6 +165,7 @@
     "@onprem-ai/dsh-util-values": "workspace:*",
     "@onprem-ai/dsh-util-workspace-path": "workspace:*",
     "@onprem-ai/dsh-workspace": "workspace:*",
-    "@types/mime-types": "^3.0.1"
+    "@types/mime-types": "^3.0.1",
+    "@onprem-ai/dsh-working-directory": "workspace:*"
   }
 }

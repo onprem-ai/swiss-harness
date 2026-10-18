@@ -1,7 +1,7 @@
 {
   "name": "@onprem-ai/dsh-llm-deepseek-account",
   "description": "DeepSeek account provider authentication and discovery",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1-rc.2",
   "publishConfig": {
     "access": "public"
   },
@@ -19,20 +19,29 @@
       "default": "./lib/index.js"
     },
     "./src/*": "./src/*",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "files": [
+    "locale/*.json",
     "lib/index.js",
     "lib/types/**/*.d.ts"
   ],
   "license": "MIT",
+  "dependencies": {
+    "@onprem-ai/cosmokit": "workspace:~",
+    "@onprem-ai/dsh-util-values": "workspace:*",
+    "@onprem-ai/schemastery": "workspace:~",
+    "semver": "^7.8.5"
+  },
   "peerDependencies": {
     "@onprem-ai/cordis": "workspace:~",
     "@onprem-ai/dsh-llm": "workspace:*",
     "@onprem-ai/dsh-llm-deepseek": "workspace:*",
     "@onprem-ai/dsh-launch-environment": "workspace:*",
     "@onprem-ai/dsh-deepseek-account": "workspace:*",
-    "@onprem-ai/cordis-plugin-loader": "workspace:~"
+    "@onprem-ai/cordis-plugin-loader": "workspace:~",
+    "@onprem-ai/dsh-timeout": "workspace:*"
   },
   "devDependencies": {
     "@onprem-ai/cordis": "workspace:~",
@@ -41,7 +50,9 @@
     "@onprem-ai/dsh-launch-environment": "workspace:*",
     "@onprem-ai/dsh-deepseek-account": "workspace:*",
     "@onprem-ai/cordis-plugin-loader": "workspace:~",
-    "@onprem-ai/dsh-llm-deepseek-api-key": "workspace:*"
+    "@onprem-ai/dsh-llm-deepseek-api-key": "workspace:*",
+    "@onprem-ai/dsh-timeout": "workspace:*",
+    "@types/semver": "^7.8.0"
   },
   "peerDependenciesMeta": {
     "@onprem-ai/dsh-deepseek-account": {
