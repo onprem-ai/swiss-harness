@@ -147,6 +147,18 @@ describe('dsh-onprem-app bundle', () => {
     expect(fetchConfig?.userAgent).toMatch(/^swiss-harness\//u)
   })
 
+  it('selects browser authentication from DSH_WEB_AUTH and keeps the invocation trusted hosts', () => {
+    const scope = (env: Record<string, string>) => ({
+      process: { env },
+      ctx: { webStartup: { trustedHosts: ['app.example'] } },
+    })
+    const { row } = composed()
+    const config = row('connection')?.config as Record<string, { __jsExpr: string }>
+    expect(evaluate(scope({}), config.trustedHosts!.__jsExpr)).toEqual(['app.example'])
+    expect(evaluate(scope({}), config.browserAuthentication!.__jsExpr)).toBe('launch-token')
+    expect(evaluate(scope({ DSH_WEB_AUTH: 'trusted-proxy' }), config.browserAuthentication!.__jsExpr)).toBe('trusted-proxy')
+  })
+
   it('replaces the brand occupant row', () => {
     const { rows } = composed()
     expect(rows.filter(entry => entry.name === '@onprem-ai/dsh-client-ui-brand-onprem')).toEqual([

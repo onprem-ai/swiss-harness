@@ -47,6 +47,7 @@ dsh onprem
 | `ONPREM_LLM_CONTEXT` | `131072` | 上下文窗口（token 数） |
 | `ONPREM_LLM_DISPLAY_NAME` | `On-premises model` | 模型选择器中显示的名称 |
 | `DSH_PLUGIN_REGISTRY` | 未设置：pnpm 自身配置 | 插件管理器唯一会访问的 npm registry |
+| `DSH_WEB_AUTH` | `launch-token` | `trusted-proxy` 去掉 `?token=` URL，并把到达监听器的每个请求都视为 owner；仅当经认证的反向代理是通往该端口的唯一网络路径时才设置 |
 
 未设置 `ONPREM_LLM_BASE_URL` 时，profile 启动后没有任何模型路由，输入框显示 **Select model**，直到在模型设置页添加一条路由；该页面写入的正是本层预置的 `llm-pi-ai` 配置段。
 

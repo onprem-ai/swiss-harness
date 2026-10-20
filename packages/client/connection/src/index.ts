@@ -10,7 +10,7 @@ import { API_PATH } from './api-path.ts'
 import { CONNECT_PATH } from './connect-protocol.ts'
 import { bridge, DEFAULT_MAX_REQUEST_BODY_BYTES } from './http-bridge.ts'
 import { assertTrustedAuthority } from './api-request-trust.ts'
-import { BrowserAuth } from './browser-auth.ts'
+import { BrowserAuth, type BrowserAuthentication } from './browser-auth.ts'
 import { HostConnectionService } from './rpc-host.ts'
 import { ConnectionRecoveryConfigSchema, resolveConnectionConfig, type ConnectionRecoveryConfig } from './recovery-config.ts'
 
@@ -52,6 +52,7 @@ export {
   serverResponseSchema,
 } from './rpc-schema.ts'
 export { HostConnectionService } from './rpc-host.ts'
+export type { BrowserAuthentication } from './browser-auth.ts'
 
 export { API_PATH } from './api-path.ts'
 
@@ -107,6 +108,13 @@ export interface ConnectionConfig {
   cookieMaxAgeDays?: number
   /** Maximum buffered JSON body for every `/api` request. Default: 300 MiB. */
   maxRequestBodyBytes?: number
+  /**
+   * Who proves a browser may receive a session cookie. `launch-token`
+   * (default) requires the printed process token. `trusted-proxy` issues a
+   * cookie to every trusted-authority GET without a token; use it only when an
+   * authenticating proxy is the sole network path to the listener.
+   */
+  browserAuthentication?: BrowserAuthentication
 }
 
 export const Config: z<ConnectionConfig> = z.object({
@@ -114,6 +122,7 @@ export const Config: z<ConnectionConfig> = z.object({
   trustedHosts: z.array(String).default([]),
   cookieMaxAgeDays: z.natural().min(1).default(30),
   maxRequestBodyBytes: z.natural().min(1).default(DEFAULT_MAX_REQUEST_BODY_BYTES),
+  browserAuthentication: z.union(['launch-token', 'trusted-proxy'] as const).default('launch-token'),
 })
 
 /**
@@ -129,6 +138,10 @@ export async function apply(ctx: Context, config?: ConnectionConfig): Promise<vo
   const trustedHosts = config?.trustedHosts ?? []
   const cookieMaxAgeDays = config?.cookieMaxAgeDays ?? 30
   const maxRequestBodyBytes = config?.maxRequestBodyBytes ?? DEFAULT_MAX_REQUEST_BODY_BYTES
+  const browserAuthentication = config?.browserAuthentication ?? 'launch-token'
+  if (browserAuthentication === 'trusted-proxy') {
+    console.warn('dsh web: browser authentication is trusted-proxy; every request reaching this listener acts as the owner, so restrict the port to the authenticating proxy')
+  }
   // Config boundary: a malformed entry fails the load loudly here rather than
   // silently authorizing its hostname prefix at request time.
   for (const entry of trustedHosts) assertTrustedAuthority(entry)
@@ -136,7 +149,7 @@ export async function apply(ctx: Context, config?: ConnectionConfig): Promise<vo
   const connection = new HostConnectionService(
     ctx,
     trustedHosts,
-    await BrowserAuth.create(ctx.root, ctx.credentials, cookieMaxAgeDays),
+    await BrowserAuth.create(ctx.root, ctx.credentials, cookieMaxAgeDays, browserAuthentication),
   )
   ctx.inject(['webServer'], (webCtx) => {
     assertImageBodyCapacity(webCtx, maxRequestBodyBytes)

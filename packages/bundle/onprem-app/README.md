@@ -47,6 +47,7 @@ The environment describes one provider route named `onprem`:
 | `ONPREM_LLM_CONTEXT` | `131072` | Context window in tokens |
 | `ONPREM_LLM_DISPLAY_NAME` | `On-premises model` | Label in the model picker |
 | `DSH_PLUGIN_REGISTRY` | unset: pnpm's own | The only npm registry the plugin manager asks |
+| `DSH_WEB_AUTH` | `launch-token` | `trusted-proxy` drops the `?token=` URL and treats every request reaching the listener as the owner; set it only when an authenticating reverse proxy is the sole network path to the port |
 
 With `ONPREM_LLM_BASE_URL` unset the profile starts with no model route and the composer shows **Select model** until one is added on the Models settings page, which writes the same `llm-pi-ai` section this layer seeds.
 

@@ -143,6 +143,15 @@
   config:
     userAgent: swiss-harness/0.2.0 (+https://onprem.ai)
 
+# Browser authentication. DSH_WEB_AUTH=trusted-proxy drops the printed
+# launch-token URL for deployments where an authenticating reverse proxy is
+# the only network path to the listener; any other value than launch-token
+# or trusted-proxy fails the load. The row restates web-app's trustedHosts.
+- id: connection
+  config:
+    trustedHosts: !!js ctx.webStartup.trustedHosts
+    browserAuthentication: !!js process.env.DSH_WEB_AUTH ?? 'launch-token'
+
 # ── 3. presentation ──────────────────────────────────────────────────────────
 
 # Swap the sidebar and hero brand occupants. The upstream package only

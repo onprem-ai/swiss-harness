@@ -368,3 +368,53 @@ describe('BrowserAuth', () => {
       .rejects.toThrow(/safe timestamp range/u)
   })
 })
+
+describe('trusted-proxy browser authentication', () => {
+  const authority = 'app.example'
+
+  it('mints a cookie for a tokenless GET and redirects to the same directory-relative resource', async () => {
+    const auth = await BrowserAuth.create({}, credentials(new RecordCredentials()), 30, 'trusted-proxy')
+    expect(auth.authenticatedUrl('https://app.example/ui/')).toBe('https://app.example/ui/')
+
+    const root = response()
+    expect(auth.authorizeIndex(request('/', authority), root.value)).toBe(false)
+    expect(root.state).toMatchObject({ status: 303, headers: { 'location': './', 'cache-control': 'no-store' } })
+    const cookie = root.state.headers?.['set-cookie']?.split(';', 1)[0]
+    if (cookie === undefined) throw new Error('trusted-proxy index did not set a cookie')
+    expect(auth.isAuthenticated(request('/', authority, { cookie }))).toBe(true)
+    expect(auth.authorizeIndex(request('/', authority, { cookie }), response().value)).toBe(true)
+
+    const indexFile = response()
+    auth.authorizeIndex(request('/index.html?session=1', authority), indexFile.value)
+    expect(indexFile.state.headers?.location).toBe('./index.html?session=1')
+  })
+
+  it('still refuses non-GET index requests without a cookie', async () => {
+    const auth = await BrowserAuth.create({}, credentials(new RecordCredentials()), 30, 'trusted-proxy')
+    const head = response()
+    expect(auth.authorizeIndex(request('/', authority, { method: 'HEAD' }), head.value)).toBe(false)
+    expect(head.state.status).toBe(401)
+    const hostless = response()
+    expect(auth.authorizeIndex({ method: 'GET', url: '/', headers: {} }, hostless.value)).toBe(false)
+    expect(hostless.state.status).toBe(401)
+    const untrusted = response()
+    expect(auth.authorizeIndex(request('/', 'evil.example'), untrusted.value, false, false)).toBe(false)
+    expect(untrusted.state.status).toBe(401)
+  })
+
+  it('publishes an API operator on /connect without a token and still rejects a wrong token', async () => {
+    const auth = await BrowserAuth.create({}, credentials(new RecordCredentials()), 30, 'trusted-proxy')
+    const id = 'api-operator' as PeerId
+    const accepted = response()
+    auth.authorizeConnect(request('/connect', authority), accepted.value, false, () => id)
+    const cookie = accepted.state.headers?.['set-cookie']?.split(';', 1)[0]
+    expect(accepted.state.status).toBe(302)
+    expect(auth.authenticateApi(request('/', authority, { cookie: cookie! }))).toBe(id)
+
+    const wrong = response()
+    const publish = vi.fn(() => id)
+    auth.authorizeConnect(request('/connect?token=wrong', authority), wrong.value, false, publish)
+    expect(wrong.state.status).toBe(401)
+    expect(publish).not.toHaveBeenCalled()
+  })
+})

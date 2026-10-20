@@ -313,6 +313,24 @@ describe('connection node half', () => {
     }
   })
 
+  it('serves a tokenless clean URL, fences untrusted hosts, and warns under trusted-proxy browser authentication', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined)
+    const deployment = await mounted({ browserAuthentication: 'trusted-proxy' })
+    try {
+      expect(deployment.connection.authenticatedUrl('http://127.0.0.1:3080/')).toBe('http://127.0.0.1:3080/')
+      expect(warn).toHaveBeenCalledWith(expect.stringMatching(/trusted-proxy/u))
+      const trusted = fakeResponse()
+      deployment.connection.authorizeIndex(fakeRequest({ host: '127.0.0.1:3080' }, '/'), trusted.response)
+      expect(trusted.state.status).toBe(303)
+      const untrusted = fakeResponse()
+      deployment.connection.authorizeIndex(fakeRequest({ host: 'evil.example' }, '/'), untrusted.response)
+      expect(untrusted.state.status).toBe(401)
+    } finally {
+      warn.mockRestore()
+      await deployment.dispose()
+    }
+  })
+
   it('reserves enough default carrier capacity for the 200 MiB image batch', () => {
     expect(DEFAULT_MAX_REQUEST_BODY_BYTES).toBe(300 * 1024 * 1024)
     expect(DEFAULT_MAX_REQUEST_BODY_BYTES).toBeGreaterThan(Math.ceil(200 * 1024 * 1024 * 4 / 3) + 1024 * 1024)

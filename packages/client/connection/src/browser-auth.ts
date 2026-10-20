@@ -21,6 +21,14 @@ const STORED_SECRET_VERSION = 1
 const BASE64URL_PATTERN = /^[A-Za-z0-9_-]*$/
 const PROCESS_LAUNCH_TOKENS = new WeakMap<object, string>()
 
+/**
+ * Who proves a browser may receive a session cookie. `launch-token` requires
+ * this process's printed token; `trusted-proxy` mints a cookie for every
+ * trusted-authority GET because an upstream proxy has already authenticated
+ * every request that can reach the listener.
+ */
+export type BrowserAuthentication = 'launch-token' | 'trusted-proxy'
+
 interface StoredSecretPayload {
   readonly version: typeof STORED_SECRET_VERSION
   readonly secret: string
@@ -211,6 +219,7 @@ export class BrowserAuth {
     processOwner: object,
     private readonly secret: Buffer,
     maxAgeDays: number,
+    private readonly authentication: BrowserAuthentication,
   ) {
     this.launchToken = processLaunchToken(processOwner)
     this.maxAgeMilliseconds = maxAgeDays * DAY_MILLISECONDS
@@ -226,23 +235,27 @@ export class BrowserAuth {
    * @param processOwner - root application context retaining one token across Connection reloads.
    * @param credentials - persistent credential provider for the Web profile.
    * @param maxAgeDays - positive absolute browser-cookie lifetime in days.
+   * @param authentication - who proves a browser may receive a session cookie.
    * @returns initialized authentication owner with the process owner's launch token.
    */
   static async create(
     processOwner: object,
     credentials: CredentialProvider,
     maxAgeDays: number,
+    authentication: BrowserAuthentication = 'launch-token',
   ): Promise<BrowserAuth> {
-    return new BrowserAuth(processOwner, await initializeSecret(credentials), maxAgeDays)
+    return new BrowserAuth(processOwner, await initializeSecret(credentials), maxAgeDays, authentication)
   }
 
   /**
    * Add this process's launch token to the caller's application URL.
    * @param baseUrl - clean browser URL whose authority and mount are preserved.
-   * @returns the same URL carrying the process token as its sole authentication input.
+   * @returns the same URL carrying the process token as its sole authentication
+   * input; under `trusted-proxy`, the URL unchanged, since no token is needed.
    */
   authenticatedUrl(baseUrl: string): string {
     const url = new URL(baseUrl)
+    if (this.authentication === 'trusted-proxy') return url.href
     url.searchParams.set(TOKEN_QUERY, this.launchToken)
     return url.href
   }
@@ -258,12 +271,38 @@ export class BrowserAuth {
    * minted cookie carries `Secure` when it does. Only that listener's own
    * protocol decides, never a `publicUrl` announcement or a forwarded header:
    * those describe a hop this process does not terminate.
+   * Under `trusted-proxy`, a GET without a valid cookie mints one and
+   * redirects to the same directory-relative resource, so a browser never
+   * needs the token.
+   * @param trusted - whether the request passed the Host/Origin fence; under
+   * `trusted-proxy` an untrusted request receives 401 instead of a cookie.
    * @returns true only when the caller may serve index.html.
    */
-  authorizeIndex(req: ConnectionIndexRequest, res: ConnectionIndexResponse, secure = false): boolean {
+  authorizeIndex(req: ConnectionIndexRequest, res: ConnectionIndexResponse, secure = false, trusted = true): boolean {
     /* v8 ignore next -- node:http always supplies url on server requests. */
     const url = new URL(req.url ?? '/', 'http://dsh.invalid')
     const tokens = url.searchParams.getAll(TOKEN_QUERY)
+    if (this.authentication === 'trusted-proxy' && tokens.length === 0 && !this.isAuthenticated(req, secure)) {
+      const authority = requestAudience(req.headers, secure)
+      if (req.method !== 'GET' || authority === undefined || !trusted) {
+        this.writeUnauthorized(req, res)
+        return false
+      }
+      const issuedAt = Date.now()
+      const expiresAt = issuedAt + this.maxAgeMilliseconds
+      const value = encodeCookie({ version: COOKIE_PAYLOAD_VERSION, authority, issuedAt, expiresAt }, this.secret)
+      res.writeHead(303, {
+        'cache-control': 'no-store',
+        // Directory-relative, so a prefix-stripping proxy mount survives the round trip.
+        'location': `./${url.pathname.slice(url.pathname.lastIndexOf('/') + 1)}${url.search}`,
+        'referrer-policy': 'no-referrer',
+        'set-cookie': sessionCookie(
+          cookieName(authority), value, expiresAt, Math.floor(this.maxAgeMilliseconds / 1000), secure,
+        ),
+      })
+      res.end()
+      return false
+    }
     if (tokens.length > 0) {
       const authority = requestAudience(req.headers, secure)
       if (req.method === 'GET' && url.pathname === '/' && tokens.length === 1
@@ -306,6 +345,7 @@ export class BrowserAuth {
 
   /**
    * Exchange the launch token for an independent API operator; omitted interactions default to none.
+   * Under `trusted-proxy`, a request without a token is also accepted.
    * @param req - trusted GET request on /connect with at most one interactions declaration.
    * @param res - response owned to completion, redirecting to the API mux on success.
    * @param secure - whether the receiving listener serves TLS.
@@ -327,8 +367,10 @@ export class BrowserAuth {
     }
     const tokens = url.searchParams.getAll(TOKEN_QUERY)
     const authority = requestAudience(req.headers, secure)
-    if (req.method !== 'GET' || url.pathname !== CONNECT_PATH || tokens.length !== 1
-      || authority === undefined || !tokenMatches(tokens.join(''), this.launchToken)) {
+    const proven = this.authentication === 'trusted-proxy'
+      ? tokens.length === 0 || (tokens.length === 1 && tokenMatches(tokens.join(''), this.launchToken))
+      : tokens.length === 1 && tokenMatches(tokens.join(''), this.launchToken)
+    if (req.method !== 'GET' || url.pathname !== CONNECT_PATH || authority === undefined || !proven) {
       this.writeUnauthorized(req, res)
       return
     }

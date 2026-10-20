@@ -191,7 +191,9 @@ export class HostConnectionService extends Service implements HostConnectionHand
    * Authenticate an index request; native TLS listeners mint Secure cookies.
    */
   authorizeIndex(request: ConnectionIndexRequest, response: ConnectionIndexResponse): boolean {
-    return this.browserAuth.authorizeIndex(request, response, this.ctx.get('webServer')?.protocol === 'https:')
+    return this.browserAuth.authorizeIndex(
+      request, response, this.ctx.get('webServer')?.protocol === 'https:', this.isTrusted(request),
+    )
   }
 
   /** Add this process's launch token to the clean application URL. */

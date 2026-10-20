@@ -435,7 +435,7 @@ export type Config = LocalConfig
 ## `@onprem-ai/dsh-client-connection`
 
 - `inject`: `credentials`
-- `source`: [`packages/client/connection/src/index.ts:96`](../packages/client/connection/src/index.ts)
+- `source`: [`packages/client/connection/src/index.ts:97`](../packages/client/connection/src/index.ts)
 
 ```ts config-catalog
 /** Browser authentication, request limits, and connection recovery configuration. */
@@ -453,6 +453,13 @@ export interface ConnectionConfig {
   cookieMaxAgeDays?: number
   /** Maximum buffered JSON body for every `/api` request. Default: 300 MiB. */
   maxRequestBodyBytes?: number
+  /**
+   * Who proves a browser may receive a session cookie. `launch-token`
+   * (default) requires the printed process token. `trusted-proxy` issues a
+   * cookie to every trusted-authority GET without a token; use it only when an
+   * authenticating proxy is the sole network path to the listener.
+   */
+  browserAuthentication?: BrowserAuthentication
 }
 
 /** Timing for generation readiness and automatic reconnection. */
@@ -471,6 +478,14 @@ export interface ConnectionRecoveryConfig {
   /** Deadline in ms for readiness, including physical connection setup. Default: 15000. */
   generationReadyTimeoutMs?: number
 }
+
+/**
+ * Who proves a browser may receive a session cookie. `launch-token` requires
+ * this process's printed token; `trusted-proxy` mints a cookie for every
+ * trusted-authority GET because an upstream proxy has already authenticated
+ * every request that can reach the listener.
+ */
+export type BrowserAuthentication = 'launch-token' | 'trusted-proxy'
 ```
 <!-- END GENERATED config-catalog:@onprem-ai/dsh-client-connection -->
 
