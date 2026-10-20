@@ -1,0 +1,16 @@
+**/node_modules
+**/lib
+**/dist
+**/*.tsbuildinfo
+**/coverage
+**/.cache
+.git
+.env
+.env.*
+**/.sessions
+**/.storages
+**/.dsh
+.pnpm-store
+tmp
+website/.vitepress/cache
+website/.vitepress/dist
