@@ -80,7 +80,11 @@ function fakeResponse(): {
     writableEnded: false,
     writeHead(value: number, headers?: Record<string, string>) {
       state.status = value
-      if (headers !== undefined) state.headers = headers
+      if (headers !== undefined) state.headers = { ...state.headers, ...headers }
+      return this
+    },
+    setHeader(name: string, value: string) {
+      state.headers = { ...state.headers, [name]: value }
       return this
     },
     write(value: string | Uint8Array) { chunks.push(Buffer.from(value)); return true },
@@ -320,11 +324,26 @@ describe('connection node half', () => {
       expect(deployment.connection.authenticatedUrl('http://127.0.0.1:3080/')).toBe('http://127.0.0.1:3080/')
       expect(warn).toHaveBeenCalledWith(expect.stringMatching(/trusted-proxy/u))
       const trusted = fakeResponse()
-      deployment.connection.authorizeIndex(fakeRequest({ host: '127.0.0.1:3080' }, '/'), trusted.response)
-      expect(trusted.state.status).toBe(303)
+      expect(deployment.connection.authorizeIndex(fakeRequest({ host: '127.0.0.1:3080' }, '/'), trusted.response)).toBe(true)
+      expect(trusted.state.headers?.['set-cookie']).toBeDefined()
+      const crossSite = fakeResponse()
+      expect(deployment.connection.authorizeIndex(fakeRequest({
+        host: '127.0.0.1:3080', 'sec-fetch-site': 'cross-site', 'sec-fetch-mode': 'navigate', 'sec-fetch-dest': 'document',
+      }, '/'), crossSite.response)).toBe(true)
+      expect(crossSite.state.headers?.['set-cookie']).toBeDefined()
+      const framed = fakeResponse()
+      expect(deployment.connection.authorizeIndex(fakeRequest({
+        host: '127.0.0.1:3080', 'sec-fetch-site': 'cross-site', 'sec-fetch-mode': 'navigate', 'sec-fetch-dest': 'iframe',
+      }, '/'), framed.response)).toBe(false)
+      expect(framed.state.status).toBe(401)
       const untrusted = fakeResponse()
       deployment.connection.authorizeIndex(fakeRequest({ host: 'evil.example' }, '/'), untrusted.response)
       expect(untrusted.state.status).toBe(401)
+      const crossSiteApi = fakeResponse()
+      await deployment.routes.find(route => route.path === API_PATH)!.handler(fakeRequest({
+        host: '127.0.0.1:3080', cookie: crossSite.state.headers!['set-cookie']!.split(';', 1)[0]!, 'sec-fetch-site': 'cross-site',
+      }), crossSiteApi.response)
+      expect(crossSiteApi.state.status).toBe(403)
     } finally {
       warn.mockRestore()
       await deployment.dispose()

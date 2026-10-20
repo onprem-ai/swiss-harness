@@ -1,7 +1,7 @@
 /** Behavior of the /api browser-trust fence (rebinding + cross-site defense). */
 
 import { describe, expect, it } from 'vitest'
-import { assertTrustedAuthority, isTrustedApiRequest } from '../src/api-request-trust.ts'
+import { assertTrustedAuthority, isTrustedApiRequest, isTrustedNavigationRequest } from '../src/api-request-trust.ts'
 
 function request(headers: Record<string, string | undefined>): { headers: Record<string, string | undefined> } {
   return { headers }
@@ -157,5 +157,34 @@ describe('isTrustedApiRequest', () => {
     expect(isTrustedApiRequest(request({ ...markers, host: 'bad host' }), [])).toBe(false)
     expect(isTrustedApiRequest(request({ ...markers, host: '127.0.0.999' }), [])).toBe(false)
     expect(isTrustedApiRequest(request({ ...markers, host: '128.0.0.1' }), [])).toBe(false)
+  })
+})
+
+describe('isTrustedNavigationRequest', () => {
+  const navigation = {
+    host: 'harness.internal',
+    'sec-fetch-site': 'cross-site',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-dest': 'document',
+  }
+
+  it('admits a cross-site top-level GET navigation to a trusted Host, which the /api fence refuses', () => {
+    expect(isTrustedNavigationRequest({ method: 'GET', headers: navigation }, ['harness.internal'])).toBe(true)
+    expect(isTrustedApiRequest({ headers: navigation }, ['harness.internal'])).toBe(false)
+  })
+
+  it('keeps refusing cross-site frames, subresources, non-GET methods, and untrusted Hosts', () => {
+    const trusted = ['harness.internal']
+    expect(isTrustedNavigationRequest({ method: 'GET', headers: { ...navigation, 'sec-fetch-dest': 'iframe' } }, trusted)).toBe(false)
+    expect(isTrustedNavigationRequest({ method: 'GET', headers: { ...navigation, 'sec-fetch-mode': 'no-cors' } }, trusted)).toBe(false)
+    expect(isTrustedNavigationRequest({ method: 'POST', headers: navigation }, trusted)).toBe(false)
+    expect(isTrustedNavigationRequest({ headers: navigation }, trusted)).toBe(false)
+    expect(isTrustedNavigationRequest({ method: 'GET', headers: { ...navigation, host: 'evil.example' } }, trusted)).toBe(false)
+    expect(isTrustedNavigationRequest({ method: 'GET', headers: { ...navigation, origin: 'https://evil.example' } }, trusted)).toBe(false)
+  })
+
+  it('applies the /api fence to same-site requests unchanged', () => {
+    expect(isTrustedNavigationRequest({ method: 'GET', headers: { host: '127.0.0.1:3080' } }, [])).toBe(true)
+    expect(isTrustedNavigationRequest({ method: 'GET', headers: { host: '10.1.2.3:3080' } }, [], '10.1.2.3', 'https:')).toBe(true)
   })
 })

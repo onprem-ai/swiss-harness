@@ -11,7 +11,7 @@ import {
 } from './rpc.ts'
 import { clientRequestSchema } from './rpc-schema.ts'
 import { bridge } from './http-bridge.ts'
-import { isRemoteAuthority, isTrustedApiRequest } from './api-request-trust.ts'
+import { isRemoteAuthority, isTrustedApiRequest, isTrustedNavigationRequest } from './api-request-trust.ts'
 import { API_PATH } from './api-path.ts'
 import type { BrowserAuth } from './browser-auth.ts'
 import { Peer } from './peer.ts'
@@ -191,9 +191,9 @@ export class HostConnectionService extends Service implements HostConnectionHand
    * Authenticate an index request; native TLS listeners mint Secure cookies.
    */
   authorizeIndex(request: ConnectionIndexRequest, response: ConnectionIndexResponse): boolean {
-    return this.browserAuth.authorizeIndex(
-      request, response, this.ctx.get('webServer')?.protocol === 'https:', this.isTrusted(request),
-    )
+    const carrier = this.ctx.get('webServer')
+    const trusted = isTrustedNavigationRequest(request, this.trustedHosts, carrier?.host, carrier?.protocol ?? 'http:')
+    return this.browserAuth.authorizeIndex(request, response, carrier?.protocol === 'https:', trusted)
   }
 
   /** Add this process's launch token to the clean application URL. */

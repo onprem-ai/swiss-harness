@@ -124,6 +124,40 @@ export function isTrustedApiRequest(
   bindHost?: string,
   protocol: 'http:' | 'https:' = 'http:',
 ): boolean {
+  return isTrustedRequest(request, trustedHosts, bindHost, protocol, false)
+}
+
+/**
+ * Decide whether one index (page) request passed the browser-trust fence. It is
+ * the /api fence except that a cross-site top-level `GET` navigation
+ * (`Sec-Fetch-Mode: navigate` with `Sec-Fetch-Dest: document`) is accepted, so
+ * a link or redirect from another site can open the page. Embedded frames,
+ * subresource loads, and other methods stay refused when marked cross-site.
+ * @param request - Node HTTP or Fetch request facts (method and headers).
+ * @param trustedHosts - see {@link isTrustedApiRequest}.
+ * @param bindHost - see {@link isTrustedApiRequest}.
+ * @param protocol - see {@link isTrustedApiRequest}.
+ * @returns true when the Host is ours and the request is same-site or a cross-site top-level GET navigation.
+ */
+export function isTrustedNavigationRequest(
+  request: ConnectionTrustRequest & { readonly method?: string | undefined },
+  trustedHosts: readonly string[],
+  bindHost?: string,
+  protocol: 'http:' | 'https:' = 'http:',
+): boolean {
+  const navigation = request.method === 'GET'
+    && header(request.headers, 'sec-fetch-mode') === 'navigate'
+    && header(request.headers, 'sec-fetch-dest') === 'document'
+  return isTrustedRequest(request, trustedHosts, bindHost, protocol, navigation)
+}
+
+function isTrustedRequest(
+  request: ConnectionTrustRequest,
+  trustedHosts: readonly string[],
+  bindHost: string | undefined,
+  protocol: 'http:' | 'https:',
+  allowCrossSite: boolean,
+): boolean {
   // Host fence (DNS-rebinding defense), applied to every request: the browser
   // fills Host from the URL it believes it is talking to, so a rebound page
   // carries the attacker's domain here even though the socket lands on this
@@ -139,8 +173,9 @@ export function isTrustedApiRequest(
     && !isTrustedAuthority(hostUrl, trustedHosts, protocol)
     && !isBindAddressAuthority(hostUrl, bindHost)) return false
   // Cross-site fence: modern browsers label the initiator relationship on
-  // every fetch; an explicit cross-site marker is refused regardless of Origin.
-  if (header(request.headers, 'sec-fetch-site') === 'cross-site') return false
+  // every fetch; an explicit cross-site marker is refused regardless of Origin,
+  // except for the top-level navigation the caller admitted.
+  if (!allowCrossSite && header(request.headers, 'sec-fetch-site') === 'cross-site') return false
   // Origin fence: when a browser attaches an Origin it must be exactly this
   // authority (compared through the same normalization as the Host). Absent
   // Origin is fine — the Host fence above already bound the request. The

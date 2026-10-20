@@ -271,10 +271,14 @@ export class BrowserAuth {
    * minted cookie carries `Secure` when it does. Only that listener's own
    * protocol decides, never a `publicUrl` announcement or a forwarded header:
    * those describe a hop this process does not terminate.
-   * Under `trusted-proxy`, a GET without a valid cookie mints one and
-   * redirects to the same directory-relative resource, so a browser never
-   * needs the token.
-   * @param trusted - whether the request passed the Host/Origin fence; under
+   * Under `trusted-proxy`, a GET without a valid cookie receives one on the
+   * index response itself: the method calls `res.setHeader('set-cookie', …)`
+   * and returns true, so the caller serves the page in the same response. A
+   * redirect would loop: a navigation that started on another site stays
+   * cross-site through its redirects, so browsers withhold the `SameSite=Strict`
+   * cookie from the redirected request. A browser never needs the token.
+   * @param trusted - whether the request passed the Host/Origin fence for
+   * index requests (which admits cross-site top-level navigations); under
    * `trusted-proxy` an untrusted request receives 401 instead of a cookie.
    * @returns true only when the caller may serve index.html.
    */
@@ -291,17 +295,11 @@ export class BrowserAuth {
       const issuedAt = Date.now()
       const expiresAt = issuedAt + this.maxAgeMilliseconds
       const value = encodeCookie({ version: COOKIE_PAYLOAD_VERSION, authority, issuedAt, expiresAt }, this.secret)
-      res.writeHead(303, {
-        'cache-control': 'no-store',
-        // Directory-relative, so a prefix-stripping proxy mount survives the round trip.
-        'location': `./${url.pathname.slice(url.pathname.lastIndexOf('/') + 1)}${url.search}`,
-        'referrer-policy': 'no-referrer',
-        'set-cookie': sessionCookie(
-          cookieName(authority), value, expiresAt, Math.floor(this.maxAgeMilliseconds / 1000), secure,
-        ),
-      })
-      res.end()
-      return false
+      res.setHeader('set-cookie', sessionCookie(
+        cookieName(authority), value, expiresAt, Math.floor(this.maxAgeMilliseconds / 1000), secure,
+      ))
+      res.setHeader('cache-control', 'no-store')
+      return true
     }
     if (tokens.length > 0) {
       const authority = requestAudience(req.headers, secure)

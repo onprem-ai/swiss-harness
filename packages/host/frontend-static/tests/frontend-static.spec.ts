@@ -7,6 +7,7 @@
  */
 
 import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { get as httpGet, type IncomingHttpHeaders } from 'node:http'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
@@ -30,7 +31,7 @@ afterEach(async () => {
 })
 
 /** Write a dist fixture and the authenticated Web rows, then boot them through the real Loader. */
-async function loadComposition(): Promise<Context> {
+async function loadComposition(connectionConfig: string[] = []): Promise<Context> {
   root = await mkdtemp(join(tmpdir(), 'dsh-frontend-static-'))
   const dist = join(root, 'dist')
   await mkdir(dist)
@@ -51,6 +52,7 @@ async function loadComposition(): Promise<Context> {
     "    host: '127.0.0.1'",
     '    port: 0',
     "- name: '@onprem-ai/dsh-client-connection'",
+    ...connectionConfig,
     '- id: frontend',
     "  name: '@onprem-ai/dsh-host-frontend-static'",
     '  config:',
@@ -83,6 +85,27 @@ async function loadComposition(): Promise<Context> {
   return context
 }
 
+/**
+ * GET `/` with browser Fetch-Metadata headers. Node's fetch rewrites
+ * `sec-fetch-mode` to `cors`, so the request goes through node:http verbatim.
+ */
+function rawGet(port: number | undefined, headers: Record<string, string>): Promise<{
+  status: number | undefined
+  headers: IncomingHttpHeaders
+  body: string
+}> {
+  if (port === undefined) throw new Error('frontend-static test: the listener has not bound a port')
+  return new Promise((resolve, reject) => {
+    const outgoing = httpGet({ host: '127.0.0.1', port, path: '/', headers }, (response) => {
+      let body = ''
+      response.setEncoding('utf8')
+      response.on('data', (chunk: string) => { body += chunk })
+      response.on('end', () => { resolve({ status: response.statusCode, headers: response.headers, body }) })
+    })
+    outgoing.on('error', reject)
+  })
+}
+
 /** GET (by default) one path against the running server; returns status, content-type, and the body. */
 async function request(
   port: number | undefined,
@@ -99,6 +122,25 @@ async function request(
 }
 
 describe('real Loader composition', () => {
+  it('serves the index with its session cookie in one response to a cross-site navigation under trusted-proxy', { timeout: 60_000 }, async () => {
+    const loaded = await loadComposition(['  config:', '    browserAuthentication: trusted-proxy'])
+    const port = loaded.webServer.port
+    const navigation = await rawGet(port, {
+      'sec-fetch-site': 'cross-site', 'sec-fetch-mode': 'navigate', 'sec-fetch-dest': 'document',
+    })
+    expect(navigation.status).toBe(200)
+    expect(navigation.headers['content-type']).toBe('text/html; charset=utf-8')
+    expect(navigation.headers['cache-control']).toBe('no-store')
+    expect(navigation.headers['set-cookie']?.[0]).toMatch(/; HttpOnly; SameSite=Strict$/u)
+    expect(navigation.body).toContain('shell')
+
+    const framed = await rawGet(port, {
+      'sec-fetch-site': 'cross-site', 'sec-fetch-mode': 'navigate', 'sec-fetch-dest': 'iframe',
+    })
+    expect(framed.status).toBe(401)
+    expect(framed.headers['set-cookie']).toBeUndefined()
+  })
+
   it('serves explicit index entries and files while preserving HTTP error semantics', { timeout: 60_000 }, async () => {
     const loaded = await loadComposition()
     const unloaded = [...loaded.loader.entries()]

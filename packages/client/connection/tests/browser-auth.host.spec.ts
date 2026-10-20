@@ -40,6 +40,9 @@ function response(): { value: ConnectionIndexResponse; state: ResponseState } {
         state.status = status
         if (headers !== undefined) state.headers = headers
       },
+      setHeader(name, value) {
+        state.headers = { ...state.headers, [name]: value }
+      },
       end(body) {
         if (body !== undefined) state.body = body
       },
@@ -372,21 +375,30 @@ describe('BrowserAuth', () => {
 describe('trusted-proxy browser authentication', () => {
   const authority = 'app.example'
 
-  it('mints a cookie for a tokenless GET and redirects to the same directory-relative resource', async () => {
+  it('sets the cookie on the served index response itself, without a redirect', async () => {
     const auth = await BrowserAuth.create({}, credentials(new RecordCredentials()), 30, 'trusted-proxy')
     expect(auth.authenticatedUrl('https://app.example/ui/')).toBe('https://app.example/ui/')
 
     const root = response()
-    expect(auth.authorizeIndex(request('/', authority), root.value)).toBe(false)
-    expect(root.state).toMatchObject({ status: 303, headers: { 'location': './', 'cache-control': 'no-store' } })
+    expect(auth.authorizeIndex(request('/', authority), root.value)).toBe(true)
+    expect(root.state.status).toBeUndefined()
+    expect(root.state.headers?.['cache-control']).toBe('no-store')
+    expect(root.state.headers?.['set-cookie']).toMatch(/; HttpOnly; SameSite=Strict$/u)
     const cookie = root.state.headers?.['set-cookie']?.split(';', 1)[0]
     if (cookie === undefined) throw new Error('trusted-proxy index did not set a cookie')
     expect(auth.isAuthenticated(request('/', authority, { cookie }))).toBe(true)
-    expect(auth.authorizeIndex(request('/', authority, { cookie }), response().value)).toBe(true)
 
-    const indexFile = response()
-    auth.authorizeIndex(request('/index.html?session=1', authority), indexFile.value)
-    expect(indexFile.state.headers?.location).toBe('./index.html?session=1')
+    const returning = response()
+    expect(auth.authorizeIndex(request('/', authority, { cookie }), returning.value)).toBe(true)
+    expect(returning.state.headers).toBeUndefined()
+
+    const deepLink = response()
+    expect(auth.authorizeIndex(request('/index.html?session=1', authority), deepLink.value)).toBe(true)
+    expect(deepLink.state.headers?.['set-cookie']).toBeDefined()
+
+    const secure = response()
+    expect(auth.authorizeIndex(request('/', authority), secure.value, true)).toBe(true)
+    expect(secure.state.headers?.['set-cookie']).toMatch(/; Secure$/u)
   })
 
   it('still refuses non-GET index requests without a cookie', async () => {

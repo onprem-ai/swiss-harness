@@ -35,6 +35,7 @@ export function browserCookie(ctx: Context): string {
     headers: { host: target.host },
   }, {
     writeHead(_status, headers) { setCookie = headers?.['set-cookie'] },
+    setHeader() {},
     end() {},
   })
   if (setCookie === undefined) throw new Error('gateway fixture did not receive a browser cookie')

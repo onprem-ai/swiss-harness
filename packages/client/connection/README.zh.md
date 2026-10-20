@@ -42,7 +42,7 @@ kind: "package-reference"
 
 cookie 签名密钥是 `ctx.credentials` 中由 `client-connection/browser-session` 拥有的 grant 记录。本地提供方把它持久化到 `$DSH_HOME/.credentials.yaml`；`BrowserAuth` 在 Connection 激活期间加载或创建该记录，并把密钥留在内存中，因此请求认证同步执行。删除或替换该记录会在下一次 Connection 激活时生效。cookie 携带绝对签发与过期区间，`cookieMaxAgeDays` 默认设为 30 天，并在确定性名称与签名 payload 中同时绑定规范化 hostname 和 port。它是 host-only、`Path=/`、`HttpOnly`、`SameSite=Strict`；收到该 index 请求的监听器提供 TLS 时才带上 `Secure`，且只由该监听器自身的协议决定，`publicUrl` 声明与转发头都不参与判断。
 
-`browserAuthentication: trusted-proxy` 为“经认证的反向代理是通往监听器的唯一网络路径”的部署去掉启动 token。此时 `authenticatedUrl` 返回不带 token 的 URL；来自受信 authority、没有有效 cookie 的 `GET` index 请求会获得新签发的 cookie，并被重定向到同一目录相对资源；`/connect` 无需 token 即发布 API operator。若请求带了 token，它仍须匹配；Host/Origin 检查照常执行，Connection 在激活时记录一条警告。到达监听器的每个请求都以 owner 身份执行，因此请把端口限制为只对代理开放。默认值 `launch-token` 保持上文所述的交换流程。
+`browserAuthentication: trusted-proxy` 为“经认证的反向代理是通往监听器的唯一网络路径”的部署去掉启动 token。此时 `authenticatedUrl` 返回不带 token 的 URL；来自受信 authority、没有有效 cookie 的 `GET` index 请求会直接在 index 响应上获得新签发的 cookie，不经重定向；`/connect` 无需 token 即发布 API operator。index 检查还接受跨站的顶层 `GET` 导航（`Sec-Fetch-Mode: navigate`、`Sec-Fetch-Dest: document`），因此来自其他站点（如代理门户）的链接或重定向可以打开页面；若改用重定向则会循环，因为从其他站点发起的导航在重定向后仍属跨站，浏览器不会发送 `SameSite=Strict` cookie。跨站 frame 与子资源请求仍被拒绝，`/api` 保留完整的跨站检查。若请求带了 token，它仍须匹配；Host/Origin 检查照常执行，Connection 在激活时记录一条警告。到达监听器的每个请求都以 owner 身份执行，因此请把端口限制为只对代理开放。默认值 `launch-token` 保持上文所述的交换流程。
 
 HTTPS cookie 名称与签名 audience 包含 `https:` scheme，因此即使 hostname 和 port 相同，HTTP cookie 也无法通过 TLS 监听器的认证。默认端口按监听器的 scheme 归一化。既有 HTTP cookie audience 保持不变。
 

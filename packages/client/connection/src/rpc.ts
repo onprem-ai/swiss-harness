@@ -109,9 +109,13 @@ export interface ConnectionIndexRequest extends ConnectionTrustRequest {
   readonly url?: string | undefined
 }
 
-/** Root/index response operations owned by the browser-token exchange. */
+/**
+ * Root/index response operations owned by the browser-token exchange.
+ * `setHeader` adds a header to the index response the caller then serves.
+ */
 export interface ConnectionIndexResponse {
   writeHead(status: number, headers?: Readonly<Record<string, string>>): unknown
+  setHeader(name: string, value: string): unknown
   end(body?: string): unknown
 }
 
