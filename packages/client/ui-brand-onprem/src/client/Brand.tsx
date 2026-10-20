@@ -5,10 +5,11 @@ import type { SidebarBrandMarkOwnerProps } from '@onprem-ai/dsh-client-ui-sideba
 export const PRODUCT_NAME = 'Swiss Harness'
 
 /**
- * The mark: the Swiss flag, a red square with a white cross, in fixed colours
- * so it reads the same on light and dark themes. Corners are nearly square
- * (1-unit radius); the geometry stays plain so it reads at 24px in the sidebar
- * and at 34px in the hero without separate artwork.
+ * The mark: a Swiss-flag cross in monochrome. The square takes the theme's
+ * brand colour (near-black on light, near-white on dark) and the cross the
+ * page background, so the pair inverts with the theme. Corners are nearly
+ * square (1-unit radius); the geometry reads at 24px in the sidebar and at
+ * 34px in the hero without separate artwork.
  * @param props - Host-supplied size and optional placement class.
  * @returns the mark svg (aria-hidden; the name beside it carries meaning).
  */
@@ -22,9 +23,9 @@ export function OnpremBrandMark({ size, className }: { size: number; className?:
       fill="none"
       aria-hidden="true"
     >
-      <rect width="32" height="32" rx="1" fill="#DA291C" />
-      <rect x="13" y="6" width="6" height="20" fill="#FFFFFF" />
-      <rect x="6" y="13" width="20" height="6" fill="#FFFFFF" />
+      <rect width="32" height="32" rx="1" fill="var(--dsw-alias-brand-primary, #0f1115)" />
+      <rect x="13" y="6" width="6" height="20" fill="var(--dsw-alias-bg-base, #fff)" />
+      <rect x="6" y="13" width="20" height="6" fill="var(--dsw-alias-bg-base, #fff)" />
     </svg>
   )
 }

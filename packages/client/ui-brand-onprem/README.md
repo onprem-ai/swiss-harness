@@ -39,7 +39,7 @@ Another identity leaves this package out and composes a package that occupies th
 <details>
 <summary>Implementation internals — click to expand</summary>
 
-The sidebar occupants install as one declaration-aware registration set: nested `ctx.slots.inject()` calls wait on the sidebar declaration, so the set works whether this row activates before or after the declarer and withdraws both occupants when the declaration collapses. The hero occupant is a second set over the conversation declaration. The mark is one inline SVG of the Swiss flag in fixed colours (red square, white cross, 1-unit corner radius), so it needs no asset pipeline and reads the same on light and dark themes. The browser half is [`src/client/index.ts`](src/client/index.ts); the node half is an empty Loader seat.
+The sidebar occupants install as one declaration-aware registration set: nested `ctx.slots.inject()` calls wait on the sidebar declaration, so the set works whether this row activates before or after the declarer and withdraws both occupants when the declaration collapses. The hero occupant is a second set over the conversation declaration. The mark is one inline SVG of the Swiss-flag cross in monochrome (1-unit corner radius): the square uses the brand-primary token and the cross the base background token, so it is black with a white cross on the light theme and white with a black cross on the dark theme, with no asset pipeline. The browser half is [`src/client/index.ts`](src/client/index.ts); the node half is an empty Loader seat.
 
 </details>
 
