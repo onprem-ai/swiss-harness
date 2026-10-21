@@ -76,6 +76,22 @@ it('preserves configuration expressions while editing a different live field', a
   expect(restored.settings.describe().find(row => row.ns === 'first')!.value).toEqual({ count: 4, list: [] })
 })
 
+it('adds a dict member under a whole-dict expression by storing the expression value as literal entries', async () => {
+  const schema = z.object({ ordinary: z.string(), providers: z.dict(z.object({ url: z.string() })).default({}).volatile() })
+  const { ctx, profile } = await fixture({ schema })
+  const expression = '\'x\' === \'y\' ? {} : { seeded: { url: \'http://seeded\' } }'
+  writeFileSync(profile.patchPath, `- id: first\n  config:\n    ordinary: fixed\n    providers: !!js ${JSON.stringify(expression)}\n`)
+  await ctx.settings.mutate('first', [{ op: 'set', path: ['providers', 'added'], value: { url: 'http://added' } }])
+  const saved: unknown = parse(readFileSync(profile.patchPath, 'utf8'))
+  expect(saved).toContainEqual(expect.objectContaining({
+    id: 'first',
+    config: { ordinary: 'fixed', providers: { seeded: { url: 'http://seeded' }, added: { url: 'http://added' } } },
+  }))
+  expect(ctx.settings.describe().find(row => row.ns === 'first')!.value).toMatchObject({
+    providers: { seeded: { url: 'http://seeded' }, added: { url: 'http://added' } },
+  })
+})
+
 it('edits array elements and appends without replacing redacted secrets', async () => {
   const { ctx } = await fixture()
   await ctx.settings.update('first', { list: [{ name: 'first', token: 'hidden' }] })

@@ -46,7 +46,7 @@ Each form reports `autoGenerate`, enabled by default, for clients that build pag
 
 The [form projection](src/schema.ts) strips runtime references and ordinary fields. The [service](src/index.ts) supplies revisioned descriptors and validates edits against the full plugin Config before delegating persistence. Business plugins read their Config references directly.
 
-Secret roles are redacted from values, inherited values, profile overrides, and schema defaults; clients receive presence markers. Path edits preserve fields a client did not receive.
+Secret roles are redacted from values, inherited values, profile overrides, and schema defaults; clients receive presence markers. Path edits preserve fields a client did not receive. An edit inside a `!!js` expression (for example, adding a provider to a `providers` dict that a profile layer computes) evaluates the expression against the entry's context and stores its current value as literal configuration with the edit applied.
 
 </details>
 
