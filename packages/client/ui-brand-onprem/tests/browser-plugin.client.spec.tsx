@@ -72,12 +72,13 @@ describe('Swiss Harness browser-brand plugin', () => {
     name.unmount()
 
     const mark = render(<SidebarBrandMark size={24} />)
-    expect(mark.container.querySelector('svg')?.getAttribute('width')).toBe('24')
+    // The mark draws at 80% of the requested size.
+    expect(mark.container.querySelector('svg')?.getAttribute('width')).toBe('19')
     mark.unmount()
 
     const hero = render(<HeroBrandMark size={34} className="hero" />)
     const svg = hero.container.querySelector('svg')
-    expect(svg?.getAttribute('width')).toBe('34')
-    expect(svg?.getAttribute('class')).toBe('hero')
+    expect(svg?.getAttribute('width')).toBe('27')
+    expect(svg?.getAttribute('class')).toMatch(/ hero$/u)
   })
 })

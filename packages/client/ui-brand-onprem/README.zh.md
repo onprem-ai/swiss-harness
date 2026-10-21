@@ -39,7 +39,7 @@ kind: "package-reference"
 <details>
 <summary>实现内部——点击展开</summary>
 
-侧栏占位作为一个感知声明的注册集合安装：嵌套的 `ctx.slots.inject()` 调用会等待侧栏声明，因此无论本行在声明者之前还是之后激活都能工作，并在声明消失时撤回两个占位。首屏占位是基于会话声明的第二个集合。标志是一个单色的瑞士国旗十字内联 SVG（1 单位圆角）：方块使用 brand-primary token，十字使用基础背景 token，因此浅色主题下为黑底白十字，深色主题下为白底黑十字，无需资源管线。浏览器一半位于 [`src/client/index.ts`](src/client/index.ts)；node 一半是一个空的 Loader 席位。
+侧栏占位作为一个感知声明的注册集合安装：嵌套的 `ctx.slots.inject()` 调用会等待侧栏声明，因此无论本行在声明者之前还是之后激活都能工作，并在声明消失时撤回两个占位。首屏占位是基于会话声明的第二个集合。标志是一个单色的瑞士国旗十字内联 SVG（1 单位圆角）：方块使用 brand-primary token，十字使用基础背景 token，因此浅色主题下为黑底白十字，深色主题下为白底黑十字，无需资源管线。它以宿主请求尺寸的 80% 绘制，右侧留 4px 间距，深色主题下的黑十字更粗（32 单位中的 8 而非 6）。浏览器一半位于 [`src/client/index.ts`](src/client/index.ts)；node 一半是一个空的 Loader 席位。
 
 </details>
 

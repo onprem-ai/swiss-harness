@@ -11,16 +11,17 @@ export const PRODUCT_NAME = 'Swiss Harness'
  * page background, so the pair inverts with the theme; the dark theme's black
  * cross is drawn wider (Brand.module.css) because it reads thinner. Corners are nearly
  * square (1-unit radius); the geometry reads at 24px in the sidebar and at
- * 34px in the hero without separate artwork.
+ * 34px in the hero without separate artwork. The mark draws at 80% of the
+ * host-requested size and carries right-hand spacing (`.mark`).
  * @param props - Host-supplied size and optional placement class.
  * @returns the mark svg (aria-hidden; the name beside it carries meaning).
  */
 export function OnpremBrandMark({ size, className }: { size: number; className?: string | undefined }) {
   return (
     <svg
-      width={size}
-      height={size}
-      className={className}
+      width={Math.round(size * 0.8)}
+      height={Math.round(size * 0.8)}
+      className={className === undefined ? styles.mark : `${styles.mark} ${className}`}
       viewBox="0 0 32 32"
       fill="none"
       aria-hidden="true"

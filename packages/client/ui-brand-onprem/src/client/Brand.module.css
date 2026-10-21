@@ -1,4 +1,5 @@
-/** Swiss Harness mark: the dark theme draws a black cross on a white square, which reads thinner than white on black, so its arms widen. */
+/** Swiss Harness mark: right-hand spacing, and on the dark theme wider arms, because a black cross on a white square reads thinner than white on black. */
+.mark { margin-right: 4px; }
 .vertical { x: 13px; width: 6px; }
 .horizontal { y: 13px; height: 6px; }
 :global(body[data-ds-dark-theme]) .vertical { x: 12px; width: 8px; }
